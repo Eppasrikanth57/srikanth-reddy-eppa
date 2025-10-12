@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* General Reset and Base Styles */
 * {
     margin: 0;
@@ -159,4 +160,167 @@ footer {
     .hero-section {
         padding: 50px 20px;
     }
+=======
+/* General Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f4f4;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header & Hero Section */
+.hero-section {
+    background: #004d99; /* Dark Blue */
+    color: white;
+    padding: 80px 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hero-section h1 {
+    font-size: 2.5em;
+    margin-bottom: 5px;
+}
+
+.hero-section h2 {
+    font-size: 1.5em;
+    font-weight: 300;
+    margin-bottom: 20px;
+}
+
+.contact-links a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 1.1em;
+}
+
+.contact-links a:hover {
+    text-decoration: underline;
+}
+
+/* Navigation Bar */
+.main-nav {
+    background: #333;
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+}
+
+.main-nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    display: block;
+    transition: background 0.3s;
+}
+
+.main-nav ul li a:hover {
+    background: #0066cc; /* Lighter Blue for hover */
+}
+
+/* Sections */
+section {
+    padding: 40px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+section h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2em;
+    color: #004d99;
+}
+
+/* Job/Project/Education Entries */
+.job-entry, .project-entry, .edu-entry {
+    background: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-left: 5px solid #0066cc;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.job-entry h3, .project-entry h3, .edu-entry h3 {
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.meta {
+    font-style: italic;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.job-entry ul {
+    list-style-type: disc;
+    margin-left: 20px;
+    padding-left: 5px;
+}
+
+/* Skills Section */
+.skills-group {
+    background: white;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+}
+
+.skills-group h3 {
+    color: #004d99;
+    margin-bottom: 5px;
+}
+
+.skills-group p {
+    font-size: 1.1em;
+    line-height: 1.8;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px 0;
+    background: #333;
+    color: white;
+    font-size: 0.9em;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .main-nav ul {
+        flex-direction: column;
+    }
+
+    .main-nav ul li a {
+        text-align: center;
+        padding: 8px;
+    }
+
+    .hero-section {
+        padding: 50px 20px;
+    }
+>>>>>>> 004ffa7be4eb638f11c642909c0a44a65fc28f0e
 }

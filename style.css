@@ -93,23 +93,32 @@ section h2 {
     color: #004d99;
 }
 
-/* Job/Project/Education Entries */
-.job-entry ul {
-    list-style-type: disc;
-    margin-left: 20px;
-    padding-left: 5px;
+/* Job/Project/Education Entries - REVISED to match PDF's clean style */
+.job-entry, .project-entry, .edu-entry {
+    background: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    /* Keep the blue accent line */
+    border-left: 5px solid #0066cc;
+    /* REMOVE the box-shadow for a flatter, cleaner look */
+    box-shadow: none;
+    /* Remove other borders to let the light grey background provide separation */
+    border-top: none;
+    border-right: none;
+    border-bottom: none;
+    border-radius: 0; /* Ensures square corners for a more document-like look */
 }
 
-.job-entry ul li {
-    /* Ensures clean spacing between bullet points */
-    margin-bottom: 5px;
-}
-
+/* Ensure Titles remain black and have proper spacing - DO NOT REMOVE THIS */
 .job-entry h3, .project-entry h3, .edu-entry h3 {
     margin-bottom: 5px;
     color: #333;
 }
 
+/* Ensure good list spacing for job/project descriptions */
+.job-entry ul li {
+    margin-bottom: 5px;
+}
 .meta {
     font-style: italic;
     color: #666;

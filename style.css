@@ -84,6 +84,17 @@ body {
     margin-bottom: 20px;
 }
 
+/* NEW: Profile Photo Style (Circular Crop) */
+.profile-photo {
+    width: 150px; /* Adjust size as needed */
+    height: 150px;
+    border-radius: 50%; /* Makes the image circular */
+    object-fit: cover; /* Ensures the image covers the area without distortion */
+    margin-bottom: 20px;
+    /* Optional: Add a subtle border/ring like the PDF */
+    border: 3px solid var(--text-color-light); 
+}
+
 /* Styling for the location text */
 .contact-links .location-link {
     color: var(--text-color-light); /* Inherit hero section text color */
@@ -96,9 +107,9 @@ body {
 .contact-links a {
     color: var(--text-color-light); 
     text-decoration: none;
-    margin: 0 15px; /* Increased margin for better spacing between icons */
+    margin: 0 15px; /* Controls spacing between icons */
     font-size: 1.8em; /* Make icons larger and more prominent */
-    display: inline-block; /* Ensure they stay inline with spacing */
+    display: inline-block; /* Ensure they stay inline */
     transition: color 0.3s;
 }
 

@@ -6,7 +6,6 @@
 }
 
 /* 🌙 CSS VARIABLES FOR DARK (DEFAULT) MODE 🌙 */
-/* The dark mode is designed to look clean and professional, similar to the PDF on a light gray background */
 :root, .dark-mode {
     --primary-color: #004d99; /* Dark Blue - for headings and hero background */
     --primary-light-color: #0066cc; /* Lighter Blue - for accents and hover states */
@@ -45,7 +44,7 @@ body {
     padding: 20px;
 }
 
-/* Theme Toggle Button Styles (NEW) */
+/* Theme Toggle Button Styles */
 .theme-toggle-btn {
     position: fixed;
     top: 20px;
@@ -85,16 +84,27 @@ body {
     margin-bottom: 20px;
 }
 
+/* Styling for the location text */
+.contact-links .location-link {
+    color: var(--text-color-light); /* Inherit hero section text color */
+    font-size: 1.1em;
+    display: block; /* Make it take its own line */
+    margin-bottom: 10px; /* Spacing below the location line */
+}
+
+/* Revised styles for the icon-only links (Email, LinkedIn, GitHub) */
 .contact-links a {
-    /* Use variables */
     color: var(--text-color-light); 
     text-decoration: none;
-    margin: 0 10px;
-    font-size: 1.1em;
+    margin: 0 15px; /* Increased margin for better spacing between icons */
+    font-size: 1.8em; /* Make icons larger and more prominent */
+    display: inline-block; /* Ensure they stay inline with spacing */
+    transition: color 0.3s;
 }
 
 .contact-links a:hover {
-    text-decoration: underline;
+    text-decoration: none; /* No underline on icons */
+    color: var(--primary-light-color); /* Add a hover effect */
 }
 
 /* Navigation Bar */

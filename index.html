@@ -10,7 +10,10 @@
 </head>
 <body>
 
-    <header id="about" class="hero-section">
+    <button id="theme-toggle" style="position: fixed; top: 20px; right: 20px; padding: 10px; border: none; border-radius: 5px; cursor: pointer; background-color: var(--primary-color); color: var(--text-color-light); font-weight: bold; z-index: 101;">
+        Switch to Light Mode ☀️
+    </button>
+        <header id="about" class="hero-section">
         <div class="hero-content">
             <h1>Srikanth Reddy Eppa</h1>
             <h2>Dedicated Mechatronics Engineer</h2>
@@ -155,7 +158,36 @@
     <footer>
         <p>&copy; 2025 Srikanth Reddy Eppa. Built for GitHub Pages.</p>
     </footer>
+    <script>
+        const toggleButton = document.getElementById('theme-toggle');
+        const body = document.body;
+        const currentTheme = localStorage.getItem('theme');
 
+        // 1. Check for stored theme on load
+        if (currentTheme) {
+            body.classList.add(currentTheme);
+            toggleButton.textContent = currentTheme === 'light-mode' ? 'Switch to Dark Mode 🌙' : 'Switch to Light Mode ☀️';
+        } else {
+            // Default is dark mode for this implementation
+            body.classList.add('dark-mode');
+            localStorage.setItem('theme', 'dark-mode');
+        }
+
+        // 2. Handle button click
+        toggleButton.addEventListener('click', () => {
+            if (body.classList.contains('dark-mode')) {
+                // Switch to Light
+                body.classList.replace('dark-mode', 'light-mode');
+                localStorage.setItem('theme', 'light-mode');
+                toggleButton.textContent = 'Switch to Dark Mode 🌙';
+            } else {
+                // Switch to Dark
+                body.classList.replace('light-mode', 'dark-mode');
+                localStorage.setItem('theme', 'dark-mode');
+                toggleButton.textContent = 'Switch to Light Mode ☀️';
+            }
+        });
+    </script>
 </body>
 </html>
 

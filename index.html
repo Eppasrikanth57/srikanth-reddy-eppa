@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Srikanth Reddy Eppa - Mechatronics Engineer</title>
+    
         <link rel="stylesheet" href="style.css"> 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
-<body>
+<body class="dark-mode"> 
 
-    <button id="theme-toggle" style="position: fixed; top: 20px; right: 20px; padding: 10px; border: none; border-radius: 5px; cursor: pointer; background-color: var(--primary-color); color: var(--text-color-light); font-weight: bold; z-index: 101;">
+    <button id="theme-toggle" class="theme-toggle-btn">
         Switch Mode
     </button>
         <header id="about" class="hero-section">
@@ -166,13 +167,14 @@
         const defaultDarkText = 'Switch to Light Mode ☀️';
         const defaultLightText = 'Switch to Dark Mode 🌙';
 
-        // 1. Check for stored theme on load
+        // 1. Initialize theme on load
         if (currentTheme) {
-            body.classList.add(currentTheme);
+            // Apply stored theme
+            body.classList.remove('dark-mode', 'light-mode'); // Clear initial class
+            body.classList.add(currentTheme); 
             toggleButton.textContent = currentTheme === 'light-mode' ? defaultLightText : defaultDarkText;
         } else {
-            // Default to dark mode if no preference is stored
-            body.classList.add('dark-mode');
+            // If no theme is stored, use the default from the body class (dark-mode)
             localStorage.setItem('theme', 'dark-mode');
             toggleButton.textContent = defaultDarkText;
         }

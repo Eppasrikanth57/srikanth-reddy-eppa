@@ -4,31 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Srikanth Reddy Eppa - Mechatronics Engineer</title>
-    
-        <link rel="stylesheet" href="style.css"> 
     
+    <link rel="icon" type="image/png" href="favicon.png"> 
+    
+    <link rel="stylesheet" href="style.css"> 
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
-<body class="dark-mode"> 
+<body class="dark-mode"> 
 
-    <button id="theme-toggle" class="theme-toggle-btn">
-        Switch Mode
-    </button>
-        <header id="about" class="hero-section">
-            <img src="/srikanth-reddy-eppa/files/Logo_E.png" alt="Srikanth Reddy Eppa Logo" class="site-logo">
-        <div class="hero-content">
-            <img src="/srikanth-reddy-eppa/files/Resume_image_Professional.JPG" alt="Srikanth Reddy Eppa" class="profile-photo">
+    <button id="theme-toggle" class="theme-toggle-btn">
+        Switch Mode
+    </button>
+        <header id="about" class="hero-section">
+            <img src="/path/to/your/logo.png" alt="Srikanth Reddy Eppa Logo" class="site-logo">
             
+        <div class="hero-content">
+            <img src="/srikanth-reddy-eppa/files/Resume_image_Professional.JPG" alt="Srikanth Reddy Eppa" class="profile-photo">
+            
             <h1>Srikanth Reddy Eppa</h1>
             <h2>Mechanical Design Engineer / Product Design and Development</h2>
             <p>A proven track record in the design, development, and prototyping of innovative technologies. Skilled in high-end computer simulation and the creation of automation systems, eager to contribute to a forward-thinking engineering team.</p>
 
             <div class="contact-links">
-                                <span class="location-link"><i class="fas fa-map-marker-alt"></i> Stuttgart Region, Germany</span>
-                <br>
-                                <a href="mailto:eppasrikanth57@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
-                <a href="https://www.linkedin.com/in/srikanth-reddy-eppa/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                <a href="https://github.com/Eppasrikanth57" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                <span class="location-link"><i class="fas fa-map-marker-alt"></i> Stuttgart Region, Germany</span>
+                <br>
+                <a href="mailto:eppasrikanth57@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+                <a href="https://www.linkedin.com/in/srikanth-reddy-eppa/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/Eppasrikanth57" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
             </div>
         </div>
         </header>
@@ -165,39 +168,39 @@
         <p>&copy; 2025 Srikanth Reddy Eppa. Built for GitHub Pages.</p>
     </footer>
 
-    <script>
-        const toggleButton = document.getElementById('theme-toggle');
-        const body = document.body;
-        const currentTheme = localStorage.getItem('theme');
-        const defaultDarkText = 'Switch to Light Mode ☀️';
-        const defaultLightText = 'Switch to Dark Mode 🌙';
+    <script>
+        const toggleButton = document.getElementById('theme-toggle');
+        const body = document.body;
+        const currentTheme = localStorage.getItem('theme');
+        const defaultDarkText = 'Switch to Light Mode ☀️';
+        const defaultLightText = 'Switch to Dark Mode 🌙';
 
-        // 1. Initialize theme on load
-        if (currentTheme) {
-            // Apply stored theme
-            body.classList.remove('dark-mode', 'light-mode'); // Clear initial class
-            body.classList.add(currentTheme); 
-            toggleButton.textContent = currentTheme === 'light-mode' ? defaultLightText : defaultDarkText;
-        } else {
-            // If no theme is stored, use the default from the body class (dark-mode)
-            localStorage.setItem('theme', 'dark-mode');
-            toggleButton.textContent = defaultDarkText;
-        }
+        // 1. Initialize theme on load
+        if (currentTheme) {
+            // Apply stored theme
+            body.classList.remove('dark-mode', 'light-mode'); // Clear initial class
+            body.classList.add(currentTheme); 
+            toggleButton.textContent = currentTheme === 'light-mode' ? defaultLightText : defaultDarkText;
+        } else {
+            // If no theme is stored, use the default from the body class (dark-mode)
+            localStorage.setItem('theme', 'dark-mode');
+            toggleButton.textContent = defaultDarkText;
+        }
 
-        // 2. Handle button click
-        toggleButton.addEventListener('click', () => {
-            if (body.classList.contains('dark-mode')) {
-                // Switch to Light
-                body.classList.replace('dark-mode', 'light-mode');
-                localStorage.setItem('theme', 'light-mode');
-                toggleButton.textContent = defaultLightText;
-            } else {
-                // Switch to Dark
-                body.classList.replace('light-mode', 'dark-mode');
-                localStorage.setItem('theme', 'dark-mode');
-                toggleButton.textContent = defaultDarkText;
-            }
-        });
-    </script>
+        // 2. Handle button click
+        toggleButton.addEventListener('click', () => {
+            if (body.classList.contains('dark-mode')) {
+                // Switch to Light
+                body.classList.replace('dark-mode', 'light-mode');
+                localStorage.setItem('theme', 'light-mode');
+                toggleButton.textContent = defaultLightText;
+            } else {
+                // Switch to Dark
+                body.classList.replace('light-mode', 'dark-mode');
+                localStorage.setItem('theme', 'dark-mode');
+                toggleButton.textContent = defaultDarkText;
+            }
+        });
+    </script>
 </body>
 </html>

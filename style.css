@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /* General Reset and Base Styles */
 * {
     margin: 0;
@@ -6,11 +5,37 @@
     box-sizing: border-box;
 }
 
+/* CSS VARIABLES FOR DARK (DEFAULT) MODE */
+/* The dark mode is designed to look clean and professional, similar to the PDF on a light gray background */
+:root, .dark-mode {
+    --primary-color: #004d99; /* Dark Blue - for headings and hero background */
+    --primary-light-color: #0066cc; /* Lighter Blue - for accents and hover states */
+    --background-color: #f4f4f4; /* Light Gray - body background */
+    --content-background: white; /* White - for content boxes */
+    --text-color-dark: #333; /* Dark Grey - for body text/headings */
+    --text-color-light: white; /* White - for text on dark backgrounds (hero/nav) */
+    --meta-color: #666; /* Grey - for dates/metadata */
+    --border-color: #ddd; /* Light border color */
+}
+
+/* CSS VARIABLES FOR LIGHT MODE (Toggled by JavaScript) */
+.light-mode {
+    --primary-color: #007bff; 
+    --primary-light-color: #0056b3; 
+    --background-color: white; 
+    --content-background: #f8f9fa; /* Very light gray content boxes */
+    --text-color-dark: #212529; 
+    --text-color-light: white; 
+    --meta-color: #555;
+    --border-color: #adb5bd; 
+}
+
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
-    color: #333;
-    background-color: #f4f4f4;
+    /* Use variables for dynamic theming */
+    color: var(--text-color-dark); 
+    background-color: var(--background-color);
 }
 
 .container {
@@ -21,8 +46,9 @@ body {
 
 /* Header & Hero Section */
 .hero-section {
-    background: #004d99; /* Dark Blue */
-    color: white;
+    /* Use variables */
+    background: var(--primary-color);
+    color: var(--text-color-light);
     padding: 80px 20px;
     text-align: center;
     display: flex;
@@ -42,7 +68,8 @@ body {
 }
 
 .contact-links a {
-    color: white;
+    /* Use variables */
+    color: var(--text-color-light); 
     text-decoration: none;
     margin: 0 10px;
     font-size: 1.1em;
@@ -54,8 +81,9 @@ body {
 
 /* Navigation Bar */
 .main-nav {
-    background: #333;
-    color: white;
+    /* Use variables */
+    background: var(--text-color-dark); /* Dark background for navigation */
+    color: var(--text-color-light);
     position: sticky;
     top: 0;
     z-index: 100;
@@ -69,7 +97,8 @@ body {
 }
 
 .main-nav ul li a {
-    color: white;
+    /* Use variables */
+    color: var(--text-color-light);
     text-decoration: none;
     padding: 10px 20px;
     display: block;
@@ -77,213 +106,50 @@ body {
 }
 
 .main-nav ul li a:hover {
-    background: #0066cc; /* Lighter Blue for hover */
+    /* Use variables */
+    background: var(--primary-light-color); /* Lighter Blue for hover */
 }
 
 /* Sections */
 section {
     padding: 40px 0;
-    border-bottom: 1px solid #ddd;
+    /* Use variables */
+    border-bottom: 1px solid var(--border-color);
 }
 
 section h2 {
     text-align: center;
     margin-bottom: 30px;
     font-size: 2em;
-    color: #004d99;
-}
-
-/* Job/Project/Education Entries - REVISED to match PDF's clean style */
-.job-entry, .project-entry, .edu-entry {
-    background: white;
-    padding: 20px;
-    margin-bottom: 20px;
-    /* Keep the blue accent line */
-    border-left: 5px solid #0066cc;
-    /* REMOVE the box-shadow for a flatter, cleaner look */
-    box-shadow: none;
-    /* Remove other borders to let the light grey background provide separation */
-    border-top: none;
-    border-right: none;
-    border-bottom: none;
-    border-radius: 0; /* Ensures square corners for a more document-like look */
-}
-
-/* Ensure Titles remain black and have proper spacing - DO NOT REMOVE THIS */
-.job-entry h3, .project-entry h3, .edu-entry h3 {
-    margin-bottom: 5px;
-    color: #333;
-}
-
-/* Ensure good list spacing for job/project descriptions */
-.job-entry ul li {
-    margin-bottom: 5px;
-}
-.meta {
-    font-style: italic;
-    color: #666;
-    margin-bottom: 10px;
-}
-
-.job-entry ul {
-    list-style-type: disc;
-    margin-left: 20px;
-    padding-left: 5px;
-}
-
-/* Skills Section */
-.skills-group {
-    background: white;
-    padding: 15px;
-    margin-bottom: 15px;
-    border-radius: 5px;
-}
-
-.skills-group h3 {
-    color: #004d99;
-    margin-bottom: 5px;
-}
-
-.skills-group p {
-    font-size: 1.1em;
-    line-height: 1.8;
-}
-
-/* Footer */
-footer {
-    text-align: center;
-    padding: 20px 0;
-    background: #333;
-    color: white;
-    font-size: 0.9em;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .main-nav ul {
-        flex-direction: column;
-    }
-
-    .main-nav ul li a {
-        text-align: center;
-        padding: 8px;
-    }
-
-    .hero-section {
-        padding: 50px 20px;
-    }
-=======
-/* General Reset and Base Styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    color: #333;
-    background-color: #f4f4f4;
-}
-
-.container {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-/* Header & Hero Section */
-.hero-section {
-    background: #004d99; /* Dark Blue */
-    color: white;
-    padding: 80px 20px;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.hero-section h1 {
-    font-size: 2.5em;
-    margin-bottom: 5px;
-}
-
-.hero-section h2 {
-    font-size: 1.5em;
-    font-weight: 300;
-    margin-bottom: 20px;
-}
-
-.contact-links a {
-    color: white;
-    text-decoration: none;
-    margin: 0 10px;
-    font-size: 1.1em;
-}
-
-.contact-links a:hover {
-    text-decoration: underline;
-}
-
-/* Navigation Bar */
-.main-nav {
-    background: #333;
-    color: white;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-}
-
-.main-nav ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    padding: 10px 0;
-}
-
-.main-nav ul li a {
-    color: white;
-    text-decoration: none;
-    padding: 10px 20px;
-    display: block;
-    transition: background 0.3s;
-}
-
-.main-nav ul li a:hover {
-    background: #0066cc; /* Lighter Blue for hover */
-}
-
-/* Sections */
-section {
-    padding: 40px 0;
-    border-bottom: 1px solid #ddd;
-}
-
-section h2 {
-    text-align: center;
-    margin-bottom: 30px;
-    font-size: 2em;
-    color: #004d99;
+    /* Use variables */
+    color: var(--primary-color);
 }
 
 /* Job/Project/Education Entries */
 .job-entry, .project-entry, .edu-entry {
-    background: white;
+    /* Use variables */
+    background: var(--content-background);
     padding: 20px;
     margin-bottom: 20px;
-    border-left: 5px solid #0066cc;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    /* Keep the left accent line */
+    border-left: 5px solid var(--primary-light-color);
+    /* **REVISED:** Remove box-shadow for a flat, clean PDF-like look */
+    box-shadow: none;
+    border-top: none;
+    border-right: none;
+    border-bottom: none;
 }
 
 .job-entry h3, .project-entry h3, .edu-entry h3 {
     margin-bottom: 5px;
-    color: #333;
+    /* Use variables */
+    color: var(--text-color-dark);
 }
 
 .meta {
     font-style: italic;
-    color: #666;
+    /* Use variables */
+    color: var(--meta-color); 
     margin-bottom: 10px;
 }
 
@@ -293,16 +159,23 @@ section h2 {
     padding-left: 5px;
 }
 
+.job-entry ul li {
+    /* Ensures clean spacing between bullet points */
+    margin-bottom: 5px;
+}
+
 /* Skills Section */
 .skills-group {
-    background: white;
+    /* Use variables */
+    background: var(--content-background);
     padding: 15px;
     margin-bottom: 15px;
     border-radius: 5px;
 }
 
 .skills-group h3 {
-    color: #004d99;
+    /* Use variables */
+    color: var(--primary-color);
     margin-bottom: 5px;
 }
 
@@ -315,8 +188,9 @@ section h2 {
 footer {
     text-align: center;
     padding: 20px 0;
-    background: #333;
-    color: white;
+    /* Use variables */
+    background: var(--text-color-dark);
+    color: var(--text-color-light);
     font-size: 0.9em;
 }
 
@@ -334,5 +208,4 @@ footer {
     .hero-section {
         padding: 50px 20px;
     }
->>>>>>> 004ffa7be4eb638f11c642909c0a44a65fc28f0e
 }

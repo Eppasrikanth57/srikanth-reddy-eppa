@@ -94,12 +94,15 @@ section h2 {
 }
 
 /* Job/Project/Education Entries */
-.job-entry, .project-entry, .edu-entry {
-    background: white;
-    padding: 20px;
-    margin-bottom: 20px;
-    border-left: 5px solid #0066cc;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+.job-entry ul {
+    list-style-type: disc;
+    margin-left: 20px;
+    padding-left: 5px;
+}
+
+.job-entry ul li {
+    /* Ensures clean spacing between bullet points */
+    margin-bottom: 5px;
 }
 
 .job-entry h3, .project-entry h3, .edu-entry h3 {

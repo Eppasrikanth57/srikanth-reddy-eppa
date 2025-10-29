@@ -92,7 +92,7 @@ body {
     border-radius: 50%; /* Makes the image circular */
     object-fit: cover; /* Ensures the image covers the area without distortion */
     margin-bottom: 20px;
-    /* Added subtle border/ring */
+    /* Added subtle border/ring like the PDF */
     border: 3px solid var(--text-color-light); 
 }
 
@@ -258,5 +258,13 @@ footer {
 
     .hero-section {
         padding: 50px 20px;
+    }
+    
+    /* Adjust logo position for smaller screens if needed */
+    .site-logo {
+        position: relative;
+        top: 0;
+        left: 0;
+        margin-bottom: 15px;
     }
 }

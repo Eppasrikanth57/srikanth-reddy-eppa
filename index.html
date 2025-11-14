@@ -170,33 +170,37 @@
             </div>
         </section>
 
-        <!-- CONTACT / GET IN TOUCH -->
-        <section id="contact" class="contact-section">
-            <h2>Get in Touch</h2>
+        <!-- CONTACT / GET IN TOUCH (replace existing #contact section) -->
+        <section id="contact" class="contact-section container">
+          <h2 class="contact-title">Get In Touch</h2>
 
-            <!-- NOTE: Email sending is handled by EmailJS (no backend needed).
-                 You must create a template and set the template's "Reply-To" header to {{reply_to}}
-                 so replies in your Gmail go to the visitor's email.
-                 Template variables used below: from_name, reply_to, subject, message
-            -->
-            <form id="contact-form">
-                <label for="from_name">Your Name</label>
-                <input type="text" id="from_name" name="from_name" required>
-
+          <div class="contact-card" aria-hidden="false">
+            <form id="contact-form" class="contact-form" novalidate>
+              <div class="form-row">
                 <label for="reply_to">Your Email</label>
-                <input type="email" id="reply_to" name="reply_to" required>
+                <input type="email" id="reply_to" name="reply_to" placeholder="name@company.com" required>
+              </div>
 
+              <div class="form-row">
                 <label for="subject">Subject</label>
-                <input type="text" id="subject" name="subject" required>
-
+                <input type="text" id="subject" name="subject" placeholder="Subject" required>
+              </div>
+        
+              <div class="form-row">
                 <label for="message">Message</label>
-                <textarea id="message" name="message" rows="5" required></textarea>
-
-                <button type="submit">Send Message</button>
+                <textarea id="message" name="message" rows="6" placeholder="Write your message..." required></textarea>
+              </div>
+        
+              <div class="form-row form-row--center">
+                <button type="submit" class="btn-send" aria-label="Send Message">
+                  <i class="fas fa-paper-plane"></i>
+                  <span>Send Message</span>
+                </button>
+              </div>
             </form>
-
-            <p id="form-status" aria-live="polite"></p>
-            <p class="small-note">Or email me directly at <a href="mailto:eppasrikanth57@gmail.com">eppasrikanth57@gmail.com</a></p>
+          </div>
+        
+          <p id="form-status" class="form-status" aria-live="polite"></p>
         </section>
 
     </main>

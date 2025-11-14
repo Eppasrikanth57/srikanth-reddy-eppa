@@ -1,207 +1,314 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Srikanth Reddy Eppa - Mechatronics Engineer</title>
-    
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Srikanth Reddy Eppa - Mechatronics Engineer</title>
+
+    <!-- Favicon (relative path; put favicon.png in same folder as index.html) -->
     <link rel="icon" type="image/png" href="favicon.png">
-    <link rel="shortcut icon" href="favicon.png">
- 
-    
-    <link rel="stylesheet" href="style.css"> 
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- Font Awesome (icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- Main stylesheet -->
+    <link rel="stylesheet" href="style.css" />
 </head>
-<body class="dark-mode"> 
+<body class="dark-mode">
 
-    <button id="theme-toggle" class="theme-toggle-btn">
-        Switch Mode
-    </button>
-        <header id="about" class="hero-section">
-            
-        <div class="hero-content">
-            <img src="/srikanth-reddy-eppa/files/Resume_image_Professional.JPG" alt="Srikanth Reddy Eppa" class="profile-photo">
-            
-            <h1>Srikanth Reddy Eppa</h1>
-            <h2>Mechanical Design Engineer / Product Design and Development</h2>
-            <p>A proven track record in the design, development, and prototyping of innovative technologies. Skilled in high-end computer simulation and the creation of automation systems, eager to contribute to a forward-thinking engineering team.</p>
+    <!-- Theme toggle -->
+    <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle theme">Switch Mode</button>
 
-            <div class="contact-links">
-                <span class="location-link"><i class="fas fa-map-marker-alt"></i> Stuttgart Region, Germany</span>
-                <br>
-                <a href="mailto:eppasrikanth57@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
-                <a href="https://www.linkedin.com/in/srikanth-reddy-eppa/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                <a href="https://github.com/Eppasrikanth57" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
-            </div>
-        </div>
-        </header>
+    <!-- HERO / ABOUT -->
+    <header id="about" class="hero-section">
+        <div class="hero-content">
+            <img src="/srikanth-reddy-eppa/files/Resume_image_Professional.JPG" alt="Srikanth Reddy Eppa" class="profile-photo">
+            <h1>Srikanth Reddy Eppa</h1>
+            <h2>Mechanical Design Engineer / Product Design and Development</h2>
+            <p class="hero-desc">A proven track record in the design, development, and prototyping of innovative technologies. Skilled in high-end computer simulation and the creation of automation systems, eager to contribute to a forward-thinking engineering team.</p>
 
-    <nav class="main-nav">
-        <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#education">Education</a></li>
-        </ul>
-    </nav>
+            <div class="contact-links">
+                <span class="location-link"><i class="fas fa-map-marker-alt"></i> Stuttgart Region, Germany</span>
+                <br>
+                <a href="mailto:eppasrikanth57@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+                <a href="https://www.linkedin.com/in/srikanth-reddy-eppa/" target="_blank" rel="noopener" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/Eppasrikanth57" target="_blank" rel="noopener" title="GitHub"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </header>
 
-    <main class="container">
+    <!-- NAV -->
+    <nav class="main-nav" role="navigation" aria-label="Main navigation">
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#contact">Get in Touch</a></li>
+        </ul>
+    </nav>
 
-        <section id="experience">
-            <h2>Experience</h2>
+    <!-- MAIN CONTENT -->
+    <main class="container">
 
-            <div class="job-entry">
-                <h3>Design and Prototyping of Soft Robot Arm (MASTER THESIS)</h3>
-                <p class="meta">Hochschule Schmalkalden, Germany | Feb 2025–Now</p>
-                <ul>
-                    <li>Developed and optimized a Soft Robot for Industry 5.0 applications, created two prototypes using **SolidWorks**.</li>
-                    <li>Used additive manufacturing (**3D printing**) to create and optimize key components.</li>
-                    <li>Engineered an **Arduino Mega 2560** circuit to control integrated sensors (TOF, strain gauge, FSR) and motors.</li>
-                </ul>
-            </div>
+        <!-- EXPERIENCE -->
+        <section id="experience">
+            <h2>Experience</h2>
 
-            <div class="job-entry">
-                <h3>Working Student in Product Innovation - Design and Development</h3>
-                <p class="meta">Morgenwerk GmbH, Tamm, Germany | Sep 2024–Mar 2025</p>
-                <ul>
-                    <li>Developed and prototyped a gate system for an automated vending machine, producing precise **CAD models** using **SolidWorks**.</li>
-                    <li>Produced technical drawings of parts that had to be manufactured.</li>
-                    <li>Worked on the development of a structural tube of an **Automated Guided Vehicle (AGV)**.</li>
-                </ul>
-            </div>
+            <div class="job-entry">
+                <h3>Design and Prototyping of Soft Robot Arm (MASTER THESIS)</h3>
+                <p class="meta">Hochschule Schmalkalden, Germany | Feb 2025–Now</p>
+                <ul>
+                    <li>Developed and optimized a Soft Robot for Industry 5.0 applications, created two prototypes using <strong>SolidWorks</strong>.</li>
+                    <li>Used additive manufacturing (<strong>3D printing</strong>) to create and optimize key components.</li>
+                    <li>Engineered an <strong>Arduino Mega 2560</strong> circuit to control integrated sensors (TOF, strain gauge, FSR) and motors.</li>
+                </ul>
+            </div>
 
-            <div class="job-entry">
-                <h3>Student Assistant - Liquid Crystal Target System</h3>
-                <p class="meta">Hochschule Schmalkalden, Germany | Apr 2024–Oct 2024</p>
-                <ul>
-                    <li>Developed and constructed new optical components with **Creo Parametric 9.0** for a new target system of high-power laser experiments for Skin Cancer treatment.</li>
-                    <li>Optimized mechanical elements and programmed **OWISoft's control system** to achieve high precision.</li>
-                </ul>
-            </div>
+            <div class="job-entry">
+                <h3>Working Student in Product Innovation - Design and Development</h3>
+                <p class="meta">Morgenwerk GmbH, Tamm, Germany | Sep 2024–Mar 2025</p>
+                <ul>
+                    <li>Developed and prototyped a gate system for an automated vending machine, producing precise <strong>CAD models</strong> using <strong>SolidWorks</strong>.</li>
+                    <li>Produced technical drawings of parts that had to be manufactured.</li>
+                    <li>Worked on the development of a structural tube of an <strong>Automated Guided Vehicle (AGV)</strong>.</li>
+                </ul>
+            </div>
 
-            <div class="job-entry">
-                <h3>Engineer - Design (Oct 2020–Aug 2022) | Intern - Design (Feb 2020 - Sep 2020)</h3>
-                <p class="meta">Regal Rexnord India Private Limited, Hyderabad, India | Feb 2020 – Aug 2022</p>
-                <ul>
-                    <li>Enhanced and tailored Torsional Soft and Stiff Couplings (CENTAMAX, CENTAFLEX series), achieving a productivity gain of **20%** of 3D design using **SolidWorks**.</li>
-                    <li>Developed and updated manufacturing technical drawings according to **ISO, DIN, and GD&T** specifications.</li>
-                    <li>Created Bills of Materials (BOMs) and material codes using **SAP** and **PDM** software.</li>
-                </ul>
-            </div>
-        </section>
+            <div class="job-entry">
+                <h3>Student Assistant - Liquid Crystal Target System</h3>
+                <p class="meta">Hochschule Schmalkalden, Germany | Apr 2024–Oct 2024</p>
+                <ul>
+                    <li>Developed and constructed new optical components with <strong>Creo Parametric 9.0</strong> for a new target system of high-power laser experiments for Skin Cancer treatment.</li>
+                    <li>Optimized mechanical elements and programmed <strong>OWISoft's control system</strong> to achieve high precision.</li>
+                </ul>
+            </div>
 
-        <section id="projects">
-            <h2>Projects</h2>
+            <div class="job-entry">
+                <h3>Engineer - Design (Oct 2020–Aug 2022) | Intern - Design (Feb 2020 - Sep 2020)</h3>
+                <p class="meta">Regal Rexnord India Private Limited, Hyderabad, India | Feb 2020 – Aug 2022</p>
+                <ul>
+                    <li>Enhanced and tailored Torsional Soft and Stiff Couplings (CENTAMAX, CENTAFLEX series), achieving a productivity gain of <strong>20%</strong> of 3D design using <strong>SolidWorks</strong>.</li>
+                    <li>Developed and updated manufacturing technical drawings according to <strong>ISO, DIN, and GD&amp;T</strong> specifications.</li>
+                    <li>Created Bills of Materials (BOMs) and material codes using <strong>SAP</strong> and <strong>PDM</strong> software.</li>
+                </ul>
+            </div>
+        </section>
 
-            <div class="project-entry">
-                <h3>Automated XY Pen Plotter</h3>
-                <p class="meta">Apr 2023–Jul 2023</p>
-                <ul>
-                    <li>Developed the full **V-model** for mechatronic systems.</li>
-                    <li>Designed mechanical parts using **SolidWorks** and **Siemens NX** and fabricated prototypes with **3D printing**.</li>
-                    <li>Integrated **ESP32 Arduino code** and performed rigorous reliability tests.</li>
-                </ul>
-            </div>
+        <!-- PROJECTS -->
+        <section id="projects">
+            <h2>Projects</h2>
 
-            <div class="project-entry">
-                <h3>Effect of Various Materials on Performance of Thermal Energy Storage System</h3>
-                <p class="meta">Nov 2019–Aug 2020</p>
-                <ul>
-                    <li>Designed a corrosion-proof, insulated stainless steel tank in **SolidWorks**.</li>
-                    <li>Lowered heat loss and improved energy efficiency, **saving $10.6 \text{ kJ}$ of heat in six hours**.</li>
-                </ul>
-            </div>
-        </section>
+            <div class="project-entry">
+                <h3>Automated XY Pen Plotter</h3>
+                <p class="meta">Apr 2023–Jul 2023</p>
+                <ul>
+                    <li>Developed the full <strong>V-model</strong> for mechatronic systems.</li>
+                    <li>Designed mechanical parts using <strong>SolidWorks</strong> and <strong>Siemens NX</strong> and fabricated prototypes with <strong>3D printing</strong>.</li>
+                    <li>Integrated <strong>ESP32 Arduino code</strong> and performed rigorous reliability tests.</li>
+                </ul>
+            </div>
 
-        <section id="skills">
-            <h2>Skills</h2>
-            
-            <div class="skills-group">
-                <h3>CAD, Analysis and Other</h3>
-                <p>Solidworks, Ansys, PTC Creo, CATIA V5, Siemens NX, AutoCAD, Fusion, Inventor, Master CAM, PDM pro, Keytech, MS office</p>
-            </div>
+            <div class="project-entry">
+                <h3>Effect of Various Materials on Performance of Thermal Energy Storage System</h3>
+                <p class="meta">Nov 2019–Aug 2020</p>
+                <ul>
+                    <li>Designed a corrosion-proof, insulated stainless steel tank in <strong>SolidWorks</strong>.</li>
+                    <li>Lowered heat loss and improved energy efficiency, <strong>saving 10.6 kJ of heat in six hours</strong>.</li>
+                </ul>
+            </div>
+        </section>
 
-            <div class="skills-group">
-                <h3>Technical Skills</h3>
-                <p>PLC Programming, Python, Technical Drawings, Component Design, Technical Documentation, Reverse Engineering, Test Automation & Measurement Analysis</p>
-            </div>
+        <!-- SKILLS -->
+        <section id="skills">
+            <h2>Skills</h2>
 
-            <div class="skills-group">
-                <h3>AI Tools</h3>
-                <p>Claude, Copilot, Chat Gpt, Gemini</p>
-            </div>
+            <div class="skills-group">
+                <h3>CAD, Analysis and Other</h3>
+                <p>Solidworks, Ansys, PTC Creo, CATIA V5, Siemens NX, AutoCAD, Fusion, Inventor, Master CAM, PDM pro, Keytech, MS office</p>
+            </div>
 
-            <div class="skills-group">
-                <h3>Soft Skills</h3>
-                <p>Communication, Team Collaboration & Adaptability, Multitasking, Analytical Thinking, Time and Budget Management, Project Management, Supplier and Vendor Collaboration</p>
-            </div>
-            
-            <div class="skills-group">
-                <h3>Languages</h3>
-                <p>English **Business Fluent (C1)**, German **Beginner (A2)**, Telugu **Native**</p>
-            </div>
-        </section>
+            <div class="skills-group">
+                <h3>Technical Skills</h3>
+                <p>PLC Programming, Python, Technical Drawings, Component Design, Technical Documentation, Reverse Engineering, Test Automation & Measurement Analysis</p>
+            </div>
 
-        <section id="education">
-            <h2>Education</h2>
+            <div class="skills-group">
+                <h3>AI Tools</h3>
+                <p>Claude, Copilot, ChatGPT, Gemini</p>
+            </div>
 
-            <div class="edu-entry">
-                <h3>Master of Science - Mechatronics and Robotics (Current Grade: 2.4)</h3>
-                <p class="meta">Hochschule Schmalkalden, Germany | Oct 2022 – Present</p>
-            </div>
+            <div class="skills-group">
+                <h3>Soft Skills</h3>
+                <p>Communication, Team Collaboration & Adaptability, Multitasking, Analytical Thinking, Time and Budget Management, Project Management, Supplier and Vendor Collaboration</p>
+            </div>
 
-            <div class="edu-entry">
-                <h3>Bachelor of Technology - Mechanical Engineering (Final grade: 1.23)</h3>
-                <p class="meta">Vidya Jyothi Institute of Technology, India | Jul 2017 – Aug 2020</p>
-            </div>
+            <div class="skills-group">
+                <h3>Languages</h3>
+                <p>English <strong>Business Fluent (C1)</strong>, German <strong>Beginner (A2)</strong>, Telugu <strong>Native</strong></p>
+            </div>
+        </section>
 
-            <div class="edu-entry">
-                <h3>Diploma - Mechanical Engineering (Final grade: 1.66)</h3>
-                <p class="meta">Government Polytechnic, Mahabubnagar, India | Sep 2014 - Apr 2017</p>
-            </div>
-        </section>
+        <!-- EDUCATION -->
+        <section id="education">
+            <h2>Education</h2>
 
-    </main>
+            <div class="edu-entry">
+                <h3>Master of Science - Mechatronics and Robotics (Current Grade: 2.4)</h3>
+                <p class="meta">Hochschule Schmalkalden, Germany | Oct 2022 – Present</p>
+            </div>
 
-    <footer>
-        <p>&copy; 2025 Srikanth Reddy Eppa. Built for GitHub Pages.</p>
-    </footer>
+            <div class="edu-entry">
+                <h3>Bachelor of Technology - Mechanical Engineering (Final grade: 1.23)</h3>
+                <p class="meta">Vidya Jyothi Institute of Technology, India | Jul 2017 – Aug 2020</p>
+            </div>
 
-    <script>
-        const toggleButton = document.getElementById('theme-toggle');
-        const body = document.body;
-        const currentTheme = localStorage.getItem('theme');
-        const defaultDarkText = 'Switch to Light Mode ☀️';
-        const defaultLightText = 'Switch to Dark Mode 🌙';
+            <div class="edu-entry">
+                <h3>Diploma - Mechanical Engineering (Final grade: 1.66)</h3>
+                <p class="meta">Government Polytechnic, Mahabubnagar, India | Sep 2014 - Apr 2017</p>
+            </div>
+        </section>
 
-        // 1. Initialize theme on load
-        if (currentTheme) {
-            // Apply stored theme
-            body.classList.remove('dark-mode', 'light-mode'); // Clear initial class
-            body.classList.add(currentTheme); 
-            toggleButton.textContent = currentTheme === 'light-mode' ? defaultLightText : defaultDarkText;
-        } else {
-            // If no theme is stored, use the default from the body class (dark-mode)
-            localStorage.setItem('theme', 'dark-mode');
-            toggleButton.textContent = defaultDarkText;
-        }
+        <!-- CONTACT / GET IN TOUCH -->
+        <section id="contact" class="contact-section">
+            <h2>Get in Touch</h2>
 
-        // 2. Handle button click
-        toggleButton.addEventListener('click', () => {
-            if (body.classList.contains('dark-mode')) {
-                // Switch to Light
-                body.classList.replace('dark-mode', 'light-mode');
-                localStorage.setItem('theme', 'light-mode');
-                toggleButton.textContent = defaultLightText;
-            } else {
-                // Switch to Dark
-                body.classList.replace('light-mode', 'dark-mode');
-                localStorage.setItem('theme', 'dark-mode');
-                toggleButton.textContent = defaultDarkText;
-            }
-        });
-    </script>
+            <!-- NOTE: Email sending is handled by EmailJS (no backend needed).
+                 You must create a template and set the template's "Reply-To" header to {{reply_to}}
+                 so replies in your Gmail go to the visitor's email.
+                 Template variables used below: from_name, reply_to, subject, message
+            -->
+            <form id="contact-form">
+                <label for="from_name">Your Name</label>
+                <input type="text" id="from_name" name="from_name" required>
+
+                <label for="reply_to">Your Email</label>
+                <input type="email" id="reply_to" name="reply_to" required>
+
+                <label for="subject">Subject</label>
+                <input type="text" id="subject" name="subject" required>
+
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+
+                <button type="submit">Send Message</button>
+            </form>
+
+            <p id="form-status" aria-live="polite"></p>
+            <p class="small-note">Or email me directly at <a href="mailto:eppasrikanth57@gmail.com">eppasrikanth57@gmail.com</a></p>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2025 Srikanth Reddy Eppa. Built for GitHub Pages.</p>
+    </footer>
+
+    <!-- =========================
+         SCRIPTS
+         - Theme toggle (uses localStorage)
+         - EmailJS form submit handler
+       ========================= -->
+
+    <!-- EmailJS client -->
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+    <script>
+        /* ---------------------------
+           THEME TOGGLE (default dark)
+           --------------------------- */
+        (function () {
+            const toggleButton = document.getElementById('theme-toggle');
+            const body = document.body;
+            const currentTheme = localStorage.getItem('theme');
+            const defaultDarkText = 'Switch to Light Mode ☀️';
+            const defaultLightText = 'Switch to Dark Mode 🌙';
+
+            // Initialize theme on load
+            if (currentTheme) {
+                body.classList.remove('dark-mode', 'light-mode');
+                body.classList.add(currentTheme);
+                toggleButton.textContent = currentTheme === 'light-mode' ? defaultLightText : defaultDarkText;
+            } else {
+                // default is dark-mode present in HTML; ensure localStorage matches
+                localStorage.setItem('theme', 'dark-mode');
+                toggleButton.textContent = defaultDarkText;
+            }
+
+            toggleButton.addEventListener('click', () => {
+                if (body.classList.contains('dark-mode')) {
+                    body.classList.replace('dark-mode', 'light-mode');
+                    localStorage.setItem('theme', 'light-mode');
+                    toggleButton.textContent = defaultLightText;
+                } else {
+                    body.classList.replace('light-mode', 'dark-mode');
+                    localStorage.setItem('theme', 'dark-mode');
+                    toggleButton.textContent = defaultDarkText;
+                }
+            });
+        })();
+
+        /* ---------------------------
+           EMAILJS FORM SENDING
+           ---------------------------
+           Steps for EmailJS:
+           1) Sign up at https://www.emailjs.com/
+           2) Add an Email Service (e.g., Gmail)
+           3) Create an Email Template that uses:
+               - {{from_name}}
+               - {{reply_to}}
+               - {{subject}}
+               - {{message}}
+              IMPORTANT: In the template settings set the "Reply-To" or a header to {{reply_to}}
+              so replies from your Gmail go to the visitor's email address.
+           4) Copy your Service ID, Template ID, and Public Key.
+           5) Replace the placeholders below.
+        */
+        (function () {
+            // Replace these with your EmailJS values:
+            const EMAILJS_PUBLIC_KEY = "YOUR_PUBLIC_KEY";
+            const EMAILJS_SERVICE_ID = "YOUR_SERVICE_ID";
+            const EMAILJS_TEMPLATE_ID = "YOUR_TEMPLATE_ID";
+
+            // Init EmailJS
+            if (typeof emailjs !== 'undefined') {
+                emailjs.init(EMAILJS_PUBLIC_KEY);
+            } else {
+                console.warn('EmailJS library not loaded.');
+            }
+
+            const form = document.getElementById('contact-form');
+            const statusEl = document.getElementById('form-status');
+
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+                statusEl.textContent = 'Sending...';
+
+                // sendForm automatically collects inputs with name attributes
+                emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, this)
+                    .then(function () {
+                        statusEl.textContent = 'Message sent successfully! I will reply to your email.';
+                        form.reset();
+                    }, function (error) {
+                        console.error('EmailJS error:', error);
+                        statusEl.textContent = 'Failed to send message. Please try again or email directly.';
+                    });
+            });
+        })();
+
+        /* ---------------------------
+           FAVICON DEBUG HELPER (optional)
+           This prints the favicon links the page is using.
+           Remove/comment out in production if you wish.
+           --------------------------- */
+        (function () {
+            const icons = Array.from(document.querySelectorAll('link[rel*="icon"]'));
+            if (icons.length) {
+                console.log('Favicons used on page:', icons.map(i => i.href));
+            }
+        })();
+    </script>
 </body>
 </html>

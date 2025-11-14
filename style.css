@@ -5,39 +5,64 @@
     box-sizing: border-box;
 }
 
-/* 🌙 CSS VARIABLES FOR DARK (DEFAULT) MODE 🌙 */
-:root, .dark-mode {
-    --primary-color: #004d99; /* Dark Blue - for headings and hero background */
-    --primary-light-color: #0066cc; /* Lighter Blue - for accents and hover states */
-    --background-color: #f4f4f4; /* Light Gray - body background */
-    --content-background: white; /* White - for content boxes */
-    --text-color-dark: #333; /* Dark Grey - for body text/headings/nav background */
-    --text-color-light: white; /* White - for text on dark backgrounds (hero/nav/button) */
-    --meta-color: #666; /* Grey - for dates/metadata */
-    --border-color: #ddd; /* Light border color */
-}
+/* =========================
+   LIGHT MODE (root defaults)
+   ========================= */
+:root {
+    /* Primary / accents */
+    --primary-color: #007bff;
+    --primary-light-color: #0056b3;
 
-/* ☀️ CSS VARIABLES FOR LIGHT MODE (Toggled by JavaScript) ☀️ */
-.light-mode {
-    --primary-color: #007bff; /* Brighter Blue */
-    --primary-light-color: #0056b3; 
-    --background-color: white; /* White body background */
-    --content-background: #f8f9fa; /* Very light gray content boxes */
-    --text-color-dark: #212529; /* Near black text/headings/nav background */
-    --text-color-light: white; 
+    /* Backgrounds */
+    --background-color: white;
+    --content-background: #f8f9fa;
+
+    /* Text colors */
+    --body-text-color: #222;       /* normal body text (light mode) */
+    --accent-text: #ffffff;        /* bright text used on dark backgrounds */
     --meta-color: #555;
-    --border-color: #adb5bd; 
+    --border-color: #adb5bd;
+
+    /* Gradient for headings */
+    --heading-gradient: linear-gradient(90deg, #1b1464 0%, #0d3b66 45%, #00bcd4 100%);
 }
 
+/* =========================
+   DARK MODE (overrides when .dark-mode present)
+   Default theme for your page; body already has class="dark-mode"
+   ========================= */
+.dark-mode {
+    /* Primary / accents in dark */
+    --primary-color: #0b2336;      /* deep indigo-ish for subtle accent */
+    --primary-light-color: #083a57; /* slightly lighter indigo */
+
+    /* Page background for dark mode */
+    --background-color: #07090b;   /* near-black page background */
+
+    /* Normal body text = greyish-white as requested */
+    --body-text-color: #e6e6e6;    /* greyish white for paragraphs/lists */
+
+    /* "Remaining" / strong text = pure white */
+    --accent-text: #ffffff;
+
+    /* Meta and borders */
+    --meta-color: #bfc7cf;
+    --border-color: rgba(255,255,255,0.06);
+
+    /* Heading gradient (dark → teal/cyan) */
+    --heading-gradient: linear-gradient(90deg, #10204f 0%, #162b6b 45%, #06c6d9 100%);
+}
+
+/* Body uses the dynamic variables */
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
-    /* Use variables for dynamic theming */
-    color: var(--text-color-dark); 
+    color: var(--body-text-color);
     background-color: var(--background-color);
-    transition: background-color 0.3s, color 0.3s; /* Smooth transition for theme change */
+    transition: background-color 0.3s, color 0.3s;
 }
 
+/* Container */
 .container {
     max-width: 1100px;
     margin: 0 auto;
@@ -53,77 +78,94 @@ body {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    /* Use variables for dynamic colors */
     background-color: var(--primary-color);
-    color: var(--text-color-light);
+    color: var(--accent-text);
     font-weight: bold;
     z-index: 101;
     transition: background-color 0.3s, color 0.3s;
 }
 
-/* Header & Hero Section */
+/* -------------------------
+   HERO / PERSONAL DETAILS
+   transparent reddish black (dark theme)
+   ------------------------- */
 .hero-section {
-    /* Use variables */
-    background: var(--primary-color);
-    color: var(--text-color-light);
+    color: var(--accent-text);
     padding: 80px 20px;
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
+    /* default background fallback for light mode */
+    background: var(--primary-color);
+}
 
+/* in dark mode we want a translucent reddish-black */
+.dark-mode .hero-section {
+    background: rgba(80, 8, 12, 0.60); /* transparent reddish-black */
+    backdrop-filter: blur(2px);
 }
 
 /* Profile Photo Style (Circular Crop) */
 .profile-photo {
-    width: 150px; /* Moderate size */
+    width: 150px;
     height: 150px;
-    border-radius: 50%; /* Makes the image circular */
-    object-fit: cover; /* Ensures the image covers the area without distortion */
+    border-radius: 50%;
+    object-fit: cover;
     margin-bottom: 20px;
-    /* Added subtle border/ring like the PDF */
-    border: 3px solid var(--text-color-light); 
+    border: 3px solid var(--accent-text);
 }
 
-.hero-section h1 {
-    font-size: 2.5em;
-    margin-bottom: 5px;
+/* =========================
+   GRADIENT MAIN HEADINGS
+   Applies to name (h1) and section titles (section h2)
+   ========================= */
+.hero-section h1,
+section h2 {
+    /* gradient text */
+    background: var(--heading-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent; /* Safari */
+    color: transparent;
+    font-weight: 700;
+    text-wrap: balance;
 }
 
+/* Hero subtitle kept readable (white) */
 .hero-section h2 {
     font-size: 1.5em;
     font-weight: 300;
     margin-bottom: 20px;
+    color: var(--accent-text); /* keep subtitle solid so it's readable */
 }
 
 /* Styling for the location text */
 .contact-links .location-link {
-    color: var(--text-color-light); /* Inherit hero section text color */
+    color: var(--accent-text);
     font-size: 1.1em;
-    display: block; /* Make it take its own line */
-    margin-bottom: 10px; /* Spacing below the location line */
+    display: block;
+    margin-bottom: 10px;
 }
 
-/* Revised styles for the icon-only links (Email, LinkedIn, GitHub) */
+/* Icon-only links */
 .contact-links a {
-    color: var(--text-color-light); 
+    color: var(--accent-text);
     text-decoration: none;
-    margin: 0 15px; /* Controls spacing between icons */
-    font-size: 1.8em; /* Make icons larger and more prominent */
-    display: inline-block; /* Ensure they stay inline */
+    margin: 0 15px;
+    font-size: 1.8em;
+    display: inline-block;
     transition: color 0.3s;
 }
 
 .contact-links a:hover {
-    text-decoration: none; /* No underline on icons */
-    color: var(--primary-light-color); /* Add a hover effect */
+    color: var(--primary-light-color);
 }
 
 /* Navigation Bar */
 .main-nav {
-    /* Use variables */
-    background: var(--text-color-dark); /* Dark background for navigation */
-    color: var(--text-color-light);
+    background: rgba(0,0,0,0.55);
+    color: var(--accent-text);
     position: sticky;
     top: 0;
     z-index: 100;
@@ -137,8 +179,7 @@ body {
 }
 
 .main-nav ul li a {
-    /* Use variables */
-    color: var(--text-color-light);
+    color: var(--accent-text);
     text-decoration: none;
     padding: 10px 20px;
     display: block;
@@ -146,14 +187,12 @@ body {
 }
 
 .main-nav ul li a:hover {
-    /* Use variables */
-    background: var(--primary-light-color); /* Lighter Blue for hover */
+    background: var(--primary-light-color);
 }
 
-/* Sections */
+/* Sections general */
 section {
     padding: 40px 0;
-    /* Use variables */
     border-bottom: 1px solid var(--border-color);
 }
 
@@ -161,35 +200,40 @@ section h2 {
     text-align: center;
     margin-bottom: 30px;
     font-size: 2em;
-    /* Use variables */
-    color: var(--primary-color);
+    /* color is gradient above */
 }
 
-/* Job/Project/Education Entries (PDF-Matching Style) */
+/* =========================
+   ENTRY BOXES
+   We'll set per-section translucent backgrounds in dark mode:
+   - Experience: transparent black
+   - Projects: transparent grey
+   - Skills: transparent greenish-black
+   - Education: transparent bluish-black
+   ========================= */
+
+/* Default / light mode content box look */
 .job-entry, .project-entry, .edu-entry {
-    /* Use variables */
     background: var(--content-background);
     padding: 20px;
     margin-bottom: 20px;
-    /* Keep the left accent line */
     border-left: 5px solid var(--primary-light-color);
-    /* **PDF-Matching:** Remove box-shadow for a flat, clean look */
     box-shadow: none;
     border-top: none;
     border-right: none;
     border-bottom: none;
 }
 
+/* Headings inside entries: keep them visible as white (dark mode) / dark (light mode) */
 .job-entry h3, .project-entry h3, .edu-entry h3 {
     margin-bottom: 5px;
-    /* Use variables */
-    color: var(--text-color-dark);
+    color: var(--accent-text); /* "remaining are white" -> strong text white in dark mode */
 }
 
+/* meta & list text: normal body text (greyish-white in dark mode) */
 .meta {
     font-style: italic;
-    /* Use variables */
-    color: var(--meta-color); 
+    color: var(--body-text-color);
     margin-bottom: 10px;
 }
 
@@ -200,13 +244,17 @@ section h2 {
 }
 
 .job-entry ul li {
-    /* Ensures clean spacing between bullet points */
     margin-bottom: 5px;
+    color: var(--body-text-color); /* normal body text colour */
 }
 
-/* Skills Section */
+/* Projects entries use .project-entry wrapper (same base as job-entry) */
+.project-entry {
+    background: var(--content-background);
+}
+
+/* Skills groups */
 .skills-group {
-    /* Use variables */
     background: var(--content-background);
     padding: 15px;
     margin-bottom: 15px;
@@ -214,7 +262,6 @@ section h2 {
 }
 
 .skills-group h3 {
-    /* Use variables */
     color: var(--primary-color);
     margin-bottom: 5px;
 }
@@ -222,19 +269,67 @@ section h2 {
 .skills-group p {
     font-size: 1.1em;
     line-height: 1.8;
+    color: var(--body-text-color);
 }
 
 /* Footer */
 footer {
     text-align: center;
     padding: 20px 0;
-    /* Use variables */
-    background: var(--text-color-dark);
-    color: var(--text-color-light);
+    background: var(--text-color-dark, #111); /* fallback */
+    color: var(--accent-text);
     font-size: 0.9em;
 }
 
-/* Responsive Design */
+/* =========================
+   DARK-MODE: per-section translucent overlays
+   These override the entry background when .dark-mode is present
+   ========================= */
+
+/* Experience: transparent black */
+.dark-mode #experience .job-entry {
+    background: rgba(0, 0, 0, 0.55); /* transparent black */
+    border-left-color: rgba(255,255,255,0.06);
+}
+
+/* Projects: transparent grey */
+.dark-mode #projects .project-entry {
+    background: rgba(120, 120, 120, 0.18); /* soft transparent grey */
+    border-left-color: rgba(255,255,255,0.08);
+}
+
+/* Skills: transparent greenish-black */
+.dark-mode #skills .skills-group {
+    background: rgba(6, 40, 24, 0.40); /* greenish-black translucent */
+    border-left: 5px solid rgba(6, 200, 160, 0.35);
+}
+
+/* Education: transparent bluish-black */
+.dark-mode #education .edu-entry {
+    background: rgba(6, 20, 60, 0.44); /* bluish-black translucent */
+    border-left-color: rgba(6, 120, 180, 0.28);
+}
+
+/* Keep hero text readable on dark-mode overlays */
+.dark-mode .hero-section h1,
+.dark-mode section h2 {
+    /* gradient text - already set above; ensure it sits on top of dark overlays */
+    text-shadow: 0 1px 0 rgba(0,0,0,0.35);
+}
+
+/* Ensure strong headings inside entries remain readable */
+.dark-mode .job-entry h3,
+.dark-mode .project-entry h3,
+.dark-mode .edu-entry h3 {
+    color: var(--accent-text);
+}
+
+/* Meta remains subtle */
+.dark-mode .meta {
+    color: rgba(230,230,230,0.85);
+}
+
+/* Responsive */
 @media (max-width: 768px) {
     .main-nav ul {
         flex-direction: column;
@@ -248,8 +343,7 @@ footer {
     .hero-section {
         padding: 50px 20px;
     }
-    
-    /* Adjust logo position for smaller screens if needed */
+
     .site-logo {
         position: relative;
         top: 0;

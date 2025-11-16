@@ -13,6 +13,9 @@
 
   <!-- Main stylesheet -->
   <link rel="stylesheet" href="style.css">
+
+  <!-- EmailJS browser SDK (required) -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 </head>
 
 <!-- default theme: dark-mode (keeps your previous dark look) -->
@@ -69,7 +72,7 @@
         <div class="social-row">
           <a href="https://github.com/Eppasrikanth57" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
           <a href="https://www.linkedin.com/in/srikanth-reddy-eppa/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a>
-          <a href="mailto:eppasrikanth57@gmail.com"><i class="fas fa-envelope"></i></a>
+          <a id="mailto-link" href="mailto:eppasrikanth57@gmail.com"><i class="fas fa-envelope"></i></a>
         </div>
       </div>
     </div>
@@ -178,7 +181,7 @@
           </div>
 
           <div class="form-row form-row--center">
-            <button type="submit" class="btn-send" aria-label="Send Message">
+            <button id="contact-submit" type="submit" class="btn-send" aria-label="Send Message">
               <i class="fas fa-paper-plane"></i>
               <span>Send Message</span>
             </button>
@@ -187,7 +190,7 @@
       </div>
 
       <p id="form-status" class="form-status" aria-live="polite"></p>
-      <p class="small-note">Or email me directly at <a href="mailto:eppasrikanth57@gmail.com">eppasrikanth57@gmail.com</a></p>
+      <p class="small-note">Or email me directly at <a id="mailto-link" href="mailto:eppasrikanth57@gmail.com">eppasrikanth57@gmail.com</a></p>
     </section>
 
   </main>
@@ -200,11 +203,8 @@
   <!-- =========================
        SCRIPTS
        - Theme toggle (uses localStorage)
-       - EmailJS form submit handler
+       - EmailJS form submit handler (improved)
      ========================= -->
-
-  <!-- EmailJS client (paste your IDs below) -->
-  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 
   <script>
     /* THEME TOGGLE (default dark-mode) */
@@ -238,33 +238,113 @@
         }
       });
     })();
+  </script>
 
-    /* EMAILJS: replace the placeholders below with your EmailJS values */
+  <script>
+    /* =========================
+       EMAILJS FORM HANDLER (improved + auto-reply)
+       - Uses @emailjs/browser loaded in the page head
+       - Sends owner notification then auto-reply to visitor
+       - Disables button while sending
+       - Logs errors to console for debugging
+       - Builds mailto fallback when needed
+       IMPORTANT:
+         - Create an auto-reply template in EmailJS and set AUTO_REPLY_TEMPLATE_ID to its ID.
+         - Ensure owner template (template_wfhkq5c) has Reply-To: {{reply_to}} and To Email = your email.
+       ========================= */
+
     (function () {
+      // --- Your EmailJS credentials (already provided earlier) ---
       const PUBLIC_KEY = "VJfDt6cbIDWVebWfX";
       const SERVICE_ID = "service_gpxbcq7";
-      const TEMPLATE_ID = "template_wfhkq5c";
+      const OWNER_TEMPLATE_ID = "template_wfhkq5c"; // owner notification template (already created)
 
-      if (typeof emailjs !== 'undefined') {
-        emailjs.init(PUBLIC_KEY);
+      // Replace this with the actual auto-reply template ID you create in EmailJS:
+      // If you created template_autoreply_contact, keep the name; otherwise replace with the actual ID shown in EmailJS.
+      const AUTO_REPLY_TEMPLATE_ID = "template_6he0kxw"; // <-- REPLACE with actual auto-reply template id
+
+      // Init EmailJS
+      if (window.emailjs && typeof window.emailjs.init === 'function') {
+        window.emailjs.init(PUBLIC_KEY);
+        console.info('EmailJS initialized.');
       } else {
-        console.warn('EmailJS library not loaded.');
+        console.warn('EmailJS SDK not found. Make sure @emailjs/browser script is loaded.');
       }
 
       const form = document.getElementById('contact-form');
       const statusEl = document.getElementById('form-status');
+      const submitBtn = document.getElementById('contact-submit');
+      const mailtoLink = document.getElementById('mailto-link');
 
+      // small helper to set status text + color
+      function setStatus(text, color) {
+        statusEl.textContent = text;
+        statusEl.style.color = color || '';
+      }
+
+      // sanity check: ensure form has the expected name attributes
+      const requiredNames = ['from_name', 'reply_to', 'subject', 'message'];
+      const presentNames = Array.from(form.elements).map(e => e.name).filter(Boolean);
+      const missing = requiredNames.filter(n => !presentNames.includes(n));
+      if (missing.length) {
+        console.error('Contact form missing required name attributes:', missing);
+        setStatus('Contact form misconfigured. Please refresh or use the direct email.', 'darkred');
+      }
+
+      // Submit handler
       form.addEventListener('submit', function (e) {
         e.preventDefault();
-        statusEl.textContent = 'Sending...';
+        if (missing.length) return;
 
-        emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, this)
-          .then(function () {
-            statusEl.textContent = 'Message sent successfully! I will reply to your email.';
-            form.reset();
-          }, function (error) {
-            console.error('EmailJS error:', error);
-            statusEl.textContent = 'Failed to send message. Please try again or email directly.';
+        submitBtn.disabled = true;
+        submitBtn.style.opacity = '0.7';
+        setStatus('Sending...', '#666');
+
+        // 1) Send owner notification using sendForm (maps inputs by name to template variables)
+        window.emailjs.sendForm(SERVICE_ID, OWNER_TEMPLATE_ID, this)
+          .then(function (ownerRes) {
+            console.log('Owner email sent:', ownerRes);
+
+            // Prepare params for auto-reply
+            const params = {
+              from_name: form.elements['from_name'].value || '',
+              reply_to: form.elements['reply_to'].value || '',
+              subject: form.elements['subject'].value || '',
+              message: form.elements['message'].value || ''
+            };
+
+            // 2) Send auto-reply to visitor
+            return window.emailjs.send(SERVICE_ID, AUTO_REPLY_TEMPLATE_ID, params)
+              .then(function (autoRes) {
+                console.log('Auto-reply sent:', autoRes);
+                setStatus('Message sent — a confirmation email has been sent to the sender. I will reply soon.', 'green');
+                form.reset();
+              })
+              .catch(function (autoErr) {
+                console.warn('Auto-reply failed:', autoErr);
+                // owner received message, but auto-reply failed
+                setStatus('Message sent to me, but automatic confirmation failed.', 'orange');
+              });
+          })
+          .catch(function (ownerErr) {
+            console.error('Failed to send owner email:', ownerErr);
+            setStatus('Failed to send message. Please try again or email directly.', 'darkred');
+
+            // Build mailto fallback URL (pre-fill subject & body)
+            try {
+              const name = encodeURIComponent(form.elements['from_name'].value || '');
+              const email = encodeURIComponent(form.elements['reply_to'].value || '');
+              const subject = encodeURIComponent(form.elements['subject'].value || 'Contact from portfolio');
+              const message = encodeURIComponent(form.elements['message'].value || '');
+              const body = encodeURIComponent(`Name: ${decodeURIComponent(name)}\nEmail: ${decodeURIComponent(email)}\n\n${decodeURIComponent(message)}`);
+              mailtoLink.href = `mailto:eppasrikanth57@gmail.com?subject=${subject}&body=${body}`;
+            } catch (err2) {
+              console.warn('Could not build mailto fallback', err2);
+            }
+          })
+          .finally(function () {
+            submitBtn.disabled = false;
+            submitBtn.style.opacity = '';
           });
       });
     })();

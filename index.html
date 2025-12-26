@@ -432,50 +432,56 @@
       <div class="gear-container">
         <svg class="gear-wheel" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
           <defs>
-            <filter id="gearGlow" x="-50%" y="-50%" width="200%" height="200%">
-              <feGaussianBlur in="SourceGraphic" stdDeviation="3" />
+            <filter id="gearShadow" x="-50%" y="-50%" width="200%" height="200%">
+              <feDropShadow dx="0" dy="8" stdDeviation="12" flood-opacity="0.95" flood-color="#00d4ff"/>
             </filter>
-            <radialGradient id="gearGradient" cx="50%" cy="50%" r="50%">
+            <radialGradient id="gearGrad" cx="50%" cy="50%" r="50%">
               <stop offset="0%" style="stop-color:#1a5f7a;stop-opacity:1" />
               <stop offset="100%" style="stop-color:#0d3a52;stop-opacity:1" />
             </radialGradient>
           </defs>
           
-          <!-- Main gear body -->
-          <circle cx="300" cy="300" r="200" fill="url(#gearGradient)" stroke="#00d4ff" stroke-width="2"/>
+          <!-- Center circle (visible through teeth) -->
+          <circle cx="300" cy="300" r="130" fill="#0a0e27" stroke="#00d4ff" stroke-width="2"/>
           
-          <!-- Teeth -->
-          <g id="teeth" stroke="#00d4ff" stroke-width="1.5" fill="#0d3a52" filter="url(#gearGlow)">
-            <!-- Tooth 1 -->
-            <rect x="275" y="80" width="50" height="60" rx="3"/>
-            <!-- Tooth 2 -->
-            <rect x="308" y="95" width="50" height="60" rx="3" transform="rotate(30 333 125)"/>
-            <!-- Tooth 3 -->
-            <rect x="308" y="95" width="50" height="60" rx="3" transform="rotate(60 333 125)"/>
-            <!-- Tooth 4 -->
-            <rect x="275" y="80" width="50" height="60" rx="3" transform="rotate(90 300 300)"/>
-            <!-- Tooth 5 -->
-            <rect x="275" y="80" width="50" height="60" rx="3" transform="rotate(120 300 300)"/>
-            <!-- Tooth 6 -->
-            <rect x="275" y="80" width="50" height="60" rx="3" transform="rotate(150 300 300)"/>
-            <!-- Tooth 7 -->
-            <rect x="275" y="80" width="50" height="60" rx="3" transform="rotate(180 300 300)"/>
-            <!-- Tooth 8 -->
-            <rect x="275" y="80" width="50" height="60" rx="3" transform="rotate(210 300 300)"/>
-            <!-- Tooth 9 -->
-            <rect x="275" y="80" width="50" height="60" rx="3" transform="rotate(240 300 300)"/>
-            <!-- Tooth 10 -->
-            <rect x="275" y="80" width="50" height="60" rx="3" transform="rotate(270 300 300)"/>
-            <!-- Tooth 11 -->
-            <rect x="275" y="80" width="50" height="60" rx="3" transform="rotate(300 300 300)"/>
-            <!-- Tooth 12 -->
-            <rect x="275" y="80" width="50" height="60" rx="3" transform="rotate(330 300 300)"/>
+          <!-- Main gear body with teeth cut out -->
+          <g filter="url(#gearShadow)">
+            <!-- Tooth 1 (top) -->
+            <rect x="260" y="60" width="80" height="80" fill="url(#gearGrad)" stroke="#00d4ff" stroke-width="1.5"/>
+            
+            <!-- Tooth 2 (top-right) -->
+            <rect x="360" y="100" width="80" height="80" fill="url(#gearGrad)" stroke="#00d4ff" stroke-width="1.5" transform="rotate(60 400 140)"/>
+            
+            <!-- Tooth 3 (right-top) -->
+            <rect x="430" y="210" width="80" height="80" fill="url(#gearGrad)" stroke="#00d4ff" stroke-width="1.5" transform="rotate(120 470 250)"/>
+            
+            <!-- Tooth 4 (right-bottom) -->
+            <rect x="430" y="310" width="80" height="80" fill="url(#gearGrad)" stroke="#00d4ff" stroke-width="1.5" transform="rotate(180 470 350)"/>
+            
+            <!-- Tooth 5 (bottom-right) -->
+            <rect x="360" y="420" width="80" height="80" fill="url(#gearGrad)" stroke="#00d4ff" stroke-width="1.5" transform="rotate(240 400 460)"/>
+            
+            <!-- Tooth 6 (bottom) -->
+            <rect x="260" y="460" width="80" height="80" fill="url(#gearGrad)" stroke="#00d4ff" stroke-width="1.5" transform="rotate(300 300 500)"/>
+            
+            <!-- Tooth 7 (bottom-left) -->
+            <rect x="110" y="420" width="80" height="80" fill="url(#gearGrad)" stroke="#00d4ff" stroke-width="1.5" transform="rotate(240 150 460)"/>
+            
+            <!-- Tooth 8 (left-bottom) -->
+            <rect x="90" y="310" width="80" height="80" fill="url(#gearGrad)" stroke="#00d4ff" stroke-width="1.5" transform="rotate(180 130 350)"/>
+            
+            <!-- Tooth 9 (left-top) -->
+            <rect x="90" y="210" width="80" height="80" fill="url(#gearGrad)" stroke="#00d4ff" stroke-width="1.5" transform="rotate(120 130 250)"/>
+            
+            <!-- Tooth 10 (top-left) -->
+            <rect x="160" y="100" width="80" height="80" fill="url(#gearGrad)" stroke="#00d4ff" stroke-width="1.5" transform="rotate(60 200 140)"/>
           </g>
           
-          <!-- Inner circle -->
-          <circle cx="300" cy="300" r="120" fill="#1a3a4a" stroke="#00d4ff" stroke-width="2"/>
-          <!-- Center dot -->
-          <circle cx="300" cy="300" r="25" fill="#0a0e27" stroke="#00d4ff" stroke-width="2"/>
+          <!-- Connecting ring between teeth -->
+          <circle cx="300" cy="300" r="190" fill="none" stroke="#00d4ff" stroke-width="2" opacity="0.4"/>
+          
+          <!-- Inner ring -->
+          <circle cx="300" cy="300" r="130" fill="none" stroke="#00a8c4" stroke-width="2" opacity="0.6"/>
         </svg>
         
         <!-- Photo wrapper -->
@@ -637,11 +643,11 @@
       const gearWheel = document.querySelector('.gear-wheel');
       const sections = [
         { id: 'about', rotation: 0 },
-        { id: 'experience', rotation: 60 },
-        { id: 'projects', rotation: 120 },
-        { id: 'skills', rotation: 180 },
-        { id: 'education', rotation: 240 },
-        { id: 'contact', rotation: 300 }
+        { id: 'experience', rotation: 36 },
+        { id: 'projects', rotation: 72 },
+        { id: 'skills', rotation: 108 },
+        { id: 'education', rotation: 144 },
+        { id: 'contact', rotation: 180 }
       ];
 
       let currentSectionIndex = 0;

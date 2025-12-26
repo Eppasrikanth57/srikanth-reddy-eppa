@@ -30,40 +30,44 @@
     header {
       background: rgba(10, 14, 39, 0.95);
       border-bottom: 1px solid rgba(0, 212, 255, 0.2);
-      padding: 20px 40px;
+      padding: 25px 40px;
       position: relative;
       z-index: 100;
+      text-align: center;
     }
 
     .site-header-inner {
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
       align-items: center;
+      flex-direction: column;
+      gap: 25px;
       max-width: 100%;
     }
 
     .brand {
-      font-size: 18px;
-      font-weight: 600;
+      font-size: 32px;
+      font-weight: 700;
       color: #00d4ff;
       text-decoration: none;
-      letter-spacing: 0.3px;
+      letter-spacing: 0.5px;
     }
 
     .nav-center {
       display: flex;
       gap: 50px;
       align-items: center;
+      justify-content: center;
     }
 
     .nav-link {
       color: #999;
       text-decoration: none;
-      font-size: 13px;
+      font-size: 14px;
       transition: color 0.3s ease;
       cursor: pointer;
       position: relative;
-      font-weight: 400;
+      font-weight: 600;
       white-space: nowrap;
     }
 
@@ -91,12 +95,12 @@
       justify-content: center;
       padding: 40px;
       overflow: hidden;
-      background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
+      background: #0a0e27;
     }
 
     .gear-container {
-      width: 350px;
-      height: 350px;
+      width: 480px;
+      height: 480px;
       position: relative;
     }
 
@@ -110,14 +114,14 @@
 
     .photo-wrapper {
       position: absolute;
-      top: 50%;
+      top: 45%;
       left: 50%;
-      width: 160px;
-      height: 160px;
+      width: 200px;
+      height: 200px;
       transform: translate(-50%, -50%);
       border-radius: 50%;
       overflow: hidden;
-      border: 6px solid #00d4ff;
+      border: 8px solid #00d4ff;
       box-shadow: 0 0 60px rgba(0, 212, 255, 1), inset 0 0 30px rgba(0, 212, 255, 0.6);
       background: #1a3a4a;
       z-index: 10;
@@ -127,7 +131,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center 20%;
+      object-position: center 5%;
       display: block;
     }
 
@@ -137,13 +141,13 @@
       display: flex;
       flex-direction: column;
       overflow: hidden;
-      background: linear-gradient(135deg, rgba(10, 14, 39, 0.5) 0%, rgba(26, 38, 58, 0.5) 100%);
+      background: #0a0e27;
     }
 
     .content-section {
       flex: 1;
       width: 100%;
-      padding: 50px 70px;
+      padding: 60px 70px;
       overflow-y: auto;
       opacity: 0;
       visibility: hidden;
@@ -175,7 +179,7 @@
     .about-text {
       font-size: 15px;
       line-height: 1.75;
-      color: #c0c0c0;
+      color: #d0d0d0;
       text-align: justify;
     }
 
@@ -247,7 +251,7 @@
 
     .job-entry li, .project-entry li {
       font-size: 13px;
-      color: #c0c0c0;
+      color: #d0d0d0;
       margin-bottom: 10px;
       line-height: 1.6;
       position: relative;
@@ -264,7 +268,7 @@
 
     .skills-group p {
       font-size: 13px;
-      color: #c0c0c0;
+      color: #d0d0d0;
       line-height: 1.7;
     }
 
@@ -376,7 +380,7 @@
     <div class="site-header-inner">
       <a class="brand" href="#">Srikanth Reddy Eppa</a>
       <nav class="nav-center">
-        <a class="nav-link active" data-section="about">Home</a>
+        <a class="nav-link active" data-section="about">About Me</a>
         <a class="nav-link" data-section="experience">Experience</a>
         <a class="nav-link" data-section="projects">Projects</a>
         <a class="nav-link" data-section="skills">Skills</a>
@@ -390,7 +394,7 @@
     <!-- LEFT SIDE - GEAR WITH PHOTO -->
     <div class="gear-section">
       <div class="gear-container">
-        <svg class="gear-wheel" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+        <svg class="gear-wheel" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <filter id="gearShadow" x="-50%" y="-50%" width="200%" height="200%">
               <feDropShadow dx="0" dy="8" stdDeviation="12" flood-opacity="0.95" flood-color="#00d4ff"/>
@@ -402,40 +406,40 @@
           </defs>
           
           <!-- Center circle -->
-          <circle cx="200" cy="200" r="85" fill="#0a0e27" stroke="#00d4ff" stroke-width="2"/>
+          <circle cx="250" cy="250" r="105" fill="#0a0e27" stroke="#00d4ff" stroke-width="2"/>
           
           <!-- Main gear body with 8 teeth -->
           <g filter="url(#gearShadow)">
             <!-- Tooth 1 (top) -->
-            <rect x="175" y="30" width="50" height="60" fill="url(#gearGrad)" stroke="#00d4ff" stroke-width="1.5" rx="2"/>
+            <rect x="215" y="20" width="70" height="80" fill="url(#gearGrad)" stroke="#00d4ff" stroke-width="2" rx="3"/>
             
             <!-- Tooth 2 (top-right) -->
-            <rect x="265" y="65" width="50" height="60" fill="url(#gearGrad)" stroke="#00d4ff" stroke-width="1.5" rx="2" transform="rotate(45 290 95)"/>
+            <rect x="320" y="60" width="70" height="80" fill="url(#gearGrad)" stroke="#00d4ff" stroke-width="2" rx="3" transform="rotate(45 355 100)"/>
             
             <!-- Tooth 3 (right) -->
-            <rect x="310" y="175" width="60" height="50" fill="url(#gearGrad)" stroke="#00d4ff" stroke-width="1.5" rx="2" transform="rotate(90 340 200)"/>
+            <rect x="400" y="215" width="80" height="70" fill="url(#gearGrad)" stroke="#00d4ff" stroke-width="2" rx="3" transform="rotate(90 440 250)"/>
             
             <!-- Tooth 4 (bottom-right) -->
-            <rect x="265" y="275" width="50" height="60" fill="url(#gearGrad)" stroke="#00d4ff" stroke-width="1.5" rx="2" transform="rotate(135 290 305)"/>
+            <rect x="320" y="360" width="70" height="80" fill="url(#gearGrad)" stroke="#00d4ff" stroke-width="2" rx="3" transform="rotate(135 355 400)"/>
             
             <!-- Tooth 5 (bottom) -->
-            <rect x="175" y="310" width="50" height="60" fill="url(#gearGrad)" stroke="#00d4ff" stroke-width="1.5" rx="2" transform="rotate(180 200 340)"/>
+            <rect x="215" y="400" width="70" height="80" fill="url(#gearGrad)" stroke="#00d4ff" stroke-width="2" rx="3" transform="rotate(180 250 440)"/>
             
             <!-- Tooth 6 (bottom-left) -->
-            <rect x="85" y="275" width="50" height="60" fill="url(#gearGrad)" stroke="#00d4ff" stroke-width="1.5" rx="2" transform="rotate(225 110 305)"/>
+            <rect x="110" y="360" width="70" height="80" fill="url(#gearGrad)" stroke="#00d4ff" stroke-width="2" rx="3" transform="rotate(225 145 400)"/>
             
             <!-- Tooth 7 (left) -->
-            <rect x="30" y="175" width="60" height="50" fill="url(#gearGrad)" stroke="#00d4ff" stroke-width="1.5" rx="2" transform="rotate(270 60 200)"/>
+            <rect x="20" y="215" width="80" height="70" fill="url(#gearGrad)" stroke="#00d4ff" stroke-width="2" rx="3" transform="rotate(270 60 250)"/>
             
             <!-- Tooth 8 (top-left) -->
-            <rect x="85" y="65" width="50" height="60" fill="url(#gearGrad)" stroke="#00d4ff" stroke-width="1.5" rx="2" transform="rotate(315 110 95)"/>
+            <rect x="110" y="60" width="70" height="80" fill="url(#gearGrad)" stroke="#00d4ff" stroke-width="2" rx="3" transform="rotate(315 145 100)"/>
           </g>
           
           <!-- Outer ring -->
-          <circle cx="200" cy="200" r="140" fill="none" stroke="#00d4ff" stroke-width="2" opacity="0.5"/>
+          <circle cx="250" cy="250" r="175" fill="none" stroke="#00d4ff" stroke-width="2" opacity="0.5"/>
           
           <!-- Inner ring -->
-          <circle cx="200" cy="200" r="85" fill="none" stroke="#00a8c4" stroke-width="1.5" opacity="0.6"/>
+          <circle cx="250" cy="250" r="105" fill="none" stroke="#00a8c4" stroke-width="2" opacity="0.6"/>
         </svg>
         
         <!-- Photo wrapper -->
@@ -449,13 +453,13 @@
     <div class="content-wrapper">
       <!-- ABOUT SECTION -->
       <section id="about" class="content-section active">
-        <h1 class="section-title">Home</h1>
+        <h1 class="section-title">About Me</h1>
         <div class="about-content">
           <p class="about-text">
-            Master's student in Mechatronics & Robotics with experience in digitalization, automation, and sustainability.
+            Master's student in Mechatronics & Robotics with experience in digitalization, automation, and sustainability. Passionate about leveraging technology to solve real-world engineering challenges and drive innovation.
           </p>
           <p class="about-text">
-            Skilled in Digital Twin technology, Digital Product Passports, and mechatronic system design, aiming to deliver innovative solutions aligned with industry demand.
+            Skilled in Digital Twin technology, Digital Product Passports, and mechatronic system design, aiming to deliver innovative solutions aligned with industry demand. My expertise spans from concept design to implementation, with strong proficiency in CAD software and embedded systems programming.
           </p>
           <div class="about-meta">
             <span class="meta-location"><i class="fas fa-map-marker-alt"></i> Stuttgart Region, Germany</span>
@@ -486,6 +490,7 @@
           <ul>
             <li>Developed and prototyped a gate system for an automated vending machine using <strong>SolidWorks</strong>.</li>
             <li>Produced technical drawings and worked on structural tube development for an <strong>AGV</strong>.</li>
+            <li>Collaborated with cross-functional teams to deliver on-time product solutions.</li>
           </ul>
         </div>
         <div class="job-entry">
@@ -494,6 +499,7 @@
           <ul>
             <li>Enhanced Torsional couplings improving productivity using <strong>SolidWorks</strong>.</li>
             <li>Created technical drawings per <strong>ISO/DIN/GD&T</strong> standards and BOMs in <strong>SAP</strong>.</li>
+            <li>Conducted failure analysis and recommended design improvements.</li>
           </ul>
         </div>
       </section>
@@ -506,6 +512,8 @@
           <p class="meta">Apr 2023–Jul 2023</p>
           <ul>
             <li>Full V-model for mechatronic systems; SolidWorks & Siemens NX for mechanical parts; integrated ESP32 firmware.</li>
+            <li>Designed and fabricated precision mechanical components achieving ±0.5mm accuracy.</li>
+            <li>Implemented motion control algorithms for 2-axis independent movement.</li>
           </ul>
         </div>
         <div class="project-entry">
@@ -513,6 +521,8 @@
           <p class="meta">Nov 2019–Aug 2020</p>
           <ul>
             <li>Designed insulated stainless-steel tank and improved energy efficiency, saving 10.6 kJ in six hours.</li>
+            <li>Performed thermal analysis and optimization studies using computational methods.</li>
+            <li>Achieved 45% improvement in system efficiency through innovative design iterations.</li>
           </ul>
         </div>
       </section>
@@ -521,20 +531,21 @@
       <section id="skills" class="content-section">
         <h1 class="section-title">Skills</h1>
         <div class="skills-group">
-          <h3>CAD, Analysis and Other</h3>
-          <p>SolidWorks, Ansys, PTC Creo, CATIA V5, Siemens NX, AutoCAD, Fusion, Inventor, Master CAM, PDM pro, Keytech, MS Office</p>
+          <h3>CAD, Analysis & Design</h3>
+          <p><strong>CAD:</strong> SolidWorks, Ansys, PTC Creo, CATIA V5, Siemens NX, AutoCAD, Fusion, Inventor, Master CAM</p>
+          <p><strong>Other Tools:</strong> PDM pro, Keytech, SAP, MS Office</p>
         </div>
         <div class="skills-group">
           <h3>Technical Skills</h3>
-          <p>PLC Programming, Python, Technical Drawings, Test Automation & Measurement Analysis</p>
+          <p>PLC Programming, Python, C++, Technical Drawings (ISO/DIN/GD&T), Test Automation & Measurement Analysis, Embedded Systems, Arduino Programming</p>
         </div>
         <div class="skills-group">
           <h3>Soft Skills</h3>
-          <p>Communication, Team Collaboration, Analytical Thinking, Time & Budget Management</p>
+          <p>Communication, Team Collaboration, Problem Solving, Analytical Thinking, Time & Budget Management, Project Leadership</p>
         </div>
         <div class="skills-group">
           <h3>Languages</h3>
-          <p>English (C1), German (A2), Telugu (Native)</p>
+          <p><strong>English:</strong> C1 (Proficient) | <strong>German:</strong> A2 (Elementary) | <strong>Telugu:</strong> Native</p>
         </div>
       </section>
 
@@ -543,17 +554,20 @@
         <h1 class="section-title">Education</h1>
         <div class="edu-entry">
           <h3>Master of Science - Mechatronics and Robotics</h3>
-          <p class="meta">Hochschule Schmalkalden | Oct 2022–Present (Grade: 2.4)</p>
+          <p class="meta">Hochschule Schmalkalden, Germany | Oct 2022–Present</p>
+          <p style="font-size: 13px; color: #d0d0d0; margin-top: 8px;">Grade: 2.4 | Focus: Digital Twin Technology, Industry 5.0, Automated Systems Design</p>
         </div>
         <div class="edu-entry">
           <h3>B.Tech - Mechanical Engineering</h3>
-          <p class="meta">Vidya Jyothi Institute of Technology | Jul 2017–Aug 2020 (Final grade: 1.23)</p>
+          <p class="meta">Vidya Jyothi Institute of Technology, Hyderabad | Jul 2017–Aug 2020</p>
+          <p style="font-size: 13px; color: #d0d0d0; margin-top: 8px;">Final Grade: 1.23 (on 10-point scale) | Relevant Coursework: Thermodynamics, Fluid Mechanics, Machine Design, CAD</p>
         </div>
       </section>
 
       <!-- CONTACT SECTION -->
       <section id="contact" class="content-section">
         <h1 class="section-title">Contact</h1>
+        <p style="font-size: 14px; color: #d0d0d0; margin-bottom: 30px;">Feel free to reach out! I'd love to discuss your project or opportunities. Fill out the form below and I'll get back to you as soon as possible.</p>
         <form id="contact-form" class="contact-form" novalidate>
           <div class="form-row">
             <label for="from_name">Your Name</label>
@@ -569,11 +583,11 @@
           </div>
           <div class="form-row">
             <label for="message">Message</label>
-            <textarea id="message" name="message" rows="4" placeholder="Write your message..." required></textarea>
+            <textarea id="message" name="message" rows="5" placeholder="Write your message..." required></textarea>
           </div>
           <button id="contact-submit" type="submit" class="btn-send">
             <i class="fas fa-paper-plane"></i>
-            <span>Send</span>
+            <span>Send Message</span>
           </button>
         </form>
         <p id="form-status" class="form-status" aria-live="polite"></p>

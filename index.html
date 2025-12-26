@@ -142,17 +142,23 @@
       flex-direction: column;
       overflow: hidden;
       background: #0a0e27;
+      justify-content: center;
+      align-items: center;
     }
 
     .content-section {
-      flex: 1;
       width: 100%;
-      padding: 60px 70px;
-      overflow-y: auto;
+      max-width: 90%;
+      max-height: 85vh;
+      padding: 40px 60px;
       opacity: 0;
       visibility: hidden;
       transform: translateX(40px);
       transition: opacity 0.6s ease, visibility 0.6s ease, transform 0.6s ease;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
     .content-section.active {
@@ -165,7 +171,7 @@
       font-size: 42px;
       font-weight: 700;
       color: #00d4ff;
-      margin-bottom: 45px;
+      margin-bottom: 35px;
       letter-spacing: 0.3px;
       text-shadow: 0 0 15px rgba(0, 212, 255, 0.15);
     }
@@ -223,24 +229,24 @@
     }
 
     .job-entry, .project-entry, .edu-entry, .skills-group {
-      margin-bottom: 32px;
-      padding: 22px;
+      margin-bottom: 20px;
+      padding: 18px;
       background: rgba(0, 212, 255, 0.04);
       border-left: 4px solid #00d4ff;
       border-radius: 4px;
     }
 
     .job-entry h3, .project-entry h3, .edu-entry h3, .skills-group h3 {
-      font-size: 16px;
+      font-size: 15px;
       color: #00d4ff;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
       font-weight: 600;
     }
 
     .meta {
-      font-size: 12px;
+      font-size: 11px;
       color: #888;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
       font-style: italic;
     }
 
@@ -250,12 +256,12 @@
     }
 
     .job-entry li, .project-entry li {
-      font-size: 13px;
+      font-size: 12px;
       color: #d0d0d0;
-      margin-bottom: 10px;
-      line-height: 1.6;
+      margin-bottom: 6px;
+      line-height: 1.5;
       position: relative;
-      padding-left: 15px;
+      padding-left: 12px;
     }
 
     .job-entry li:before, .project-entry li:before {
@@ -263,34 +269,35 @@
       position: absolute;
       left: 0;
       color: #00d4ff;
-      font-size: 14px;
+      font-size: 12px;
     }
 
     .skills-group p {
-      font-size: 13px;
+      font-size: 12px;
       color: #d0d0d0;
-      line-height: 1.7;
+      line-height: 1.6;
+      margin-bottom: 8px;
     }
 
     .contact-form {
       display: flex;
       flex-direction: column;
-      gap: 18px;
+      gap: 16px;
       background: rgba(26, 58, 74, 0.2);
-      padding: 30px;
+      padding: 24px;
       border-radius: 6px;
       border: 1px solid rgba(0, 212, 255, 0.15);
-      max-width: 500px;
+      max-width: 450px;
     }
 
     .form-row {
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 6px;
     }
 
     .form-row label {
-      font-size: 11px;
+      font-size: 10px;
       color: #00d4ff;
       font-weight: 500;
       text-transform: uppercase;
@@ -299,13 +306,13 @@
 
     .form-row input,
     .form-row textarea {
-      padding: 11px 14px;
+      padding: 8px 12px;
       background: rgba(255, 255, 255, 0.04);
       border: 1px solid rgba(0, 212, 255, 0.15);
       border-radius: 4px;
       color: #e0e0e0;
       font-family: inherit;
-      font-size: 13px;
+      font-size: 12px;
       transition: all 0.3s ease;
     }
 
@@ -318,13 +325,13 @@
     }
 
     .btn-send {
-      padding: 11px 32px;
+      padding: 10px 28px;
       background: linear-gradient(135deg, #00d4ff, #00a8c4);
       border: none;
       border-radius: 4px;
       color: #0a0e27;
       font-weight: 600;
-      font-size: 13px;
+      font-size: 12px;
       cursor: pointer;
       transition: all 0.3s ease;
       display: flex;
@@ -332,7 +339,7 @@
       justify-content: center;
       gap: 8px;
       align-self: flex-start;
-      margin-top: 12px;
+      margin-top: 8px;
     }
 
     .btn-send:hover {
@@ -341,8 +348,8 @@
     }
 
     .form-status {
-      font-size: 12px;
-      margin-top: 12px;
+      font-size: 11px;
+      margin-top: 10px;
       color: #00d4ff;
     }
 
@@ -357,20 +364,7 @@
     }
 
     ::-webkit-scrollbar {
-      width: 5px;
-    }
-
-    ::-webkit-scrollbar-track {
-      background: transparent;
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background: rgba(0, 212, 255, 0.25);
-      border-radius: 3px;
-    }
-
-    ::-webkit-scrollbar-thumb:hover {
-      background: rgba(0, 212, 255, 0.5);
+      display: none;
     }
   </style>
 </head>
@@ -477,29 +471,29 @@
         <h1 class="section-title">Experience</h1>
         <div class="job-entry">
           <h3>Design and Prototyping of Soft Robot Arm</h3>
-          <p class="meta">Hochschule Schmalkalden, Germany | Feb 2025–Now</p>
+          <p class="meta">Hochschule Schmalkalden | Feb 2025–Now</p>
           <ul>
-            <li>Developed and optimized a Soft Robot for Industry 5.0 applications using <strong>SolidWorks</strong>.</li>
-            <li>Used additive manufacturing (<strong>3D printing</strong>) to create and optimize key components.</li>
-            <li>Engineered an <strong>Arduino Mega 2560</strong> circuit to control integrated sensors and motors.</li>
+            <li>Developed Soft Robot for Industry 5.0 using <strong>SolidWorks</strong></li>
+            <li>Additive manufacturing and <strong>3D printing</strong> optimization</li>
+            <li>Engineered <strong>Arduino Mega 2560</strong> control circuits</li>
           </ul>
         </div>
         <div class="job-entry">
           <h3>Working Student - Product Innovation</h3>
-          <p class="meta">Morgenwerk GmbH, Tamm, Germany | Sep 2024–Mar 2025</p>
+          <p class="meta">Morgenwerk GmbH, Tamm | Sep 2024–Mar 2025</p>
           <ul>
-            <li>Developed and prototyped a gate system for an automated vending machine using <strong>SolidWorks</strong>.</li>
-            <li>Produced technical drawings and worked on structural tube development for an <strong>AGV</strong>.</li>
-            <li>Collaborated with cross-functional teams to deliver on-time product solutions.</li>
+            <li>Automated vending machine gate system design</li>
+            <li>Technical drawings and AGV structural development</li>
+            <li>Cross-functional team collaboration</li>
           </ul>
         </div>
         <div class="job-entry">
           <h3>Engineer - Design | Intern</h3>
-          <p class="meta">Regal Rexnord India Private Limited, Hyderabad | Feb 2020–Aug 2022</p>
+          <p class="meta">Regal Rexnord India | Feb 2020–Aug 2022</p>
           <ul>
-            <li>Enhanced Torsional couplings improving productivity using <strong>SolidWorks</strong>.</li>
-            <li>Created technical drawings per <strong>ISO/DIN/GD&T</strong> standards and BOMs in <strong>SAP</strong>.</li>
-            <li>Conducted failure analysis and recommended design improvements.</li>
+            <li>Torsional coupling enhancement using <strong>SolidWorks</strong></li>
+            <li>Technical drawings per <strong>ISO/DIN/GD&T</strong> standards</li>
+            <li>Failure analysis and design improvements</li>
           </ul>
         </div>
       </section>
@@ -511,18 +505,18 @@
           <h3>Automated XY Pen Plotter</h3>
           <p class="meta">Apr 2023–Jul 2023</p>
           <ul>
-            <li>Full V-model for mechatronic systems; SolidWorks & Siemens NX for mechanical parts; integrated ESP32 firmware.</li>
-            <li>Designed and fabricated precision mechanical components achieving ±0.5mm accuracy.</li>
-            <li>Implemented motion control algorithms for 2-axis independent movement.</li>
+            <li>Full V-model design with <strong>SolidWorks & Siemens NX</strong></li>
+            <li>Precision components achieving ±0.5mm accuracy</li>
+            <li>Motion control for 2-axis independent movement</li>
           </ul>
         </div>
         <div class="project-entry">
           <h3>Thermal Energy Storage System</h3>
           <p class="meta">Nov 2019–Aug 2020</p>
           <ul>
-            <li>Designed insulated stainless-steel tank and improved energy efficiency, saving 10.6 kJ in six hours.</li>
-            <li>Performed thermal analysis and optimization studies using computational methods.</li>
-            <li>Achieved 45% improvement in system efficiency through innovative design iterations.</li>
+            <li>Insulated stainless-steel tank design</li>
+            <li>10.6 kJ energy efficiency improvement</li>
+            <li>45% system efficiency improvement achieved</li>
           </ul>
         </div>
       </section>
@@ -531,21 +525,16 @@
       <section id="skills" class="content-section">
         <h1 class="section-title">Skills</h1>
         <div class="skills-group">
-          <h3>CAD, Analysis & Design</h3>
-          <p><strong>CAD:</strong> SolidWorks, Ansys, PTC Creo, CATIA V5, Siemens NX, AutoCAD, Fusion, Inventor, Master CAM</p>
-          <p><strong>Other Tools:</strong> PDM pro, Keytech, SAP, MS Office</p>
+          <h3>CAD & Design Tools</h3>
+          <p><strong>CAD:</strong> SolidWorks, Ansys, PTC Creo, CATIA V5, Siemens NX, AutoCAD, Fusion</p>
         </div>
         <div class="skills-group">
           <h3>Technical Skills</h3>
-          <p>PLC Programming, Python, C++, Technical Drawings (ISO/DIN/GD&T), Test Automation & Measurement Analysis, Embedded Systems, Arduino Programming</p>
-        </div>
-        <div class="skills-group">
-          <h3>Soft Skills</h3>
-          <p>Communication, Team Collaboration, Problem Solving, Analytical Thinking, Time & Budget Management, Project Leadership</p>
+          <p>PLC Programming, Python, C++, GD&T, Embedded Systems, Arduino</p>
         </div>
         <div class="skills-group">
           <h3>Languages</h3>
-          <p><strong>English:</strong> C1 (Proficient) | <strong>German:</strong> A2 (Elementary) | <strong>Telugu:</strong> Native</p>
+          <p><strong>English:</strong> C1 | <strong>German:</strong> A2 | <strong>Telugu:</strong> Native</p>
         </div>
       </section>
 
@@ -554,20 +543,19 @@
         <h1 class="section-title">Education</h1>
         <div class="edu-entry">
           <h3>Master of Science - Mechatronics and Robotics</h3>
-          <p class="meta">Hochschule Schmalkalden, Germany | Oct 2022–Present</p>
-          <p style="font-size: 13px; color: #d0d0d0; margin-top: 8px;">Grade: 2.4 | Focus: Digital Twin Technology, Industry 5.0, Automated Systems Design</p>
+          <p class="meta">Hochschule Schmalkalden | Oct 2022–Present</p>
+          <p style="font-size: 12px; color: #d0d0d0; margin-top: 6px;">Grade: 2.4 | Focus: Digital Twin, Industry 5.0</p>
         </div>
         <div class="edu-entry">
           <h3>B.Tech - Mechanical Engineering</h3>
-          <p class="meta">Vidya Jyothi Institute of Technology, Hyderabad | Jul 2017–Aug 2020</p>
-          <p style="font-size: 13px; color: #d0d0d0; margin-top: 8px;">Final Grade: 1.23 (on 10-point scale) | Relevant Coursework: Thermodynamics, Fluid Mechanics, Machine Design, CAD</p>
+          <p class="meta">Vidya Jyothi Institute | Jul 2017–Aug 2020</p>
+          <p style="font-size: 12px; color: #d0d0d0; margin-top: 6px;">Grade: 1.23 | Coursework: CAD, Thermodynamics, Machine Design</p>
         </div>
       </section>
 
       <!-- CONTACT SECTION -->
       <section id="contact" class="content-section">
         <h1 class="section-title">Contact</h1>
-        <p style="font-size: 14px; color: #d0d0d0; margin-bottom: 30px;">Feel free to reach out! I'd love to discuss your project or opportunities. Fill out the form below and I'll get back to you as soon as possible.</p>
         <form id="contact-form" class="contact-form" novalidate>
           <div class="form-row">
             <label for="from_name">Your Name</label>
@@ -575,7 +563,7 @@
           </div>
           <div class="form-row">
             <label for="reply_to">Your Email</label>
-            <input type="email" id="reply_to" name="reply_to" placeholder="name@company.com" required>
+            <input type="email" id="reply_to" name="reply_to" placeholder="Email" required>
           </div>
           <div class="form-row">
             <label for="subject">Subject</label>
@@ -583,11 +571,11 @@
           </div>
           <div class="form-row">
             <label for="message">Message</label>
-            <textarea id="message" name="message" rows="5" placeholder="Write your message..." required></textarea>
+            <textarea id="message" name="message" rows="3" placeholder="Your message..." required></textarea>
           </div>
           <button id="contact-submit" type="submit" class="btn-send">
             <i class="fas fa-paper-plane"></i>
-            <span>Send Message</span>
+            <span>Send</span>
           </button>
         </form>
         <p id="form-status" class="form-status" aria-live="polite"></p>
@@ -709,7 +697,7 @@
               return window.emailjs.send(SERVICE_ID, AUTO_REPLY_TEMPLATE_ID, params);
             })
             .then(() => {
-              statusEl.textContent = 'Message sent — confirmation emailed to you.';
+              statusEl.textContent = 'Message sent — confirmation emailed!';
               statusEl.style.color = '#00d4ff';
               form.reset();
             })

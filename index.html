@@ -9,51 +9,352 @@
   <link rel="stylesheet" href="style.css">
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #0a0e27;
+      color: #e0e0e0;
+      overflow: hidden;
+    }
+
+    header {
+      background: rgba(10, 14, 39, 0.95);
+      border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+      padding: 20px 40px;
+      position: relative;
+      z-index: 100;
+    }
+
+    .site-header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .brand {
+      font-size: 24px;
+      font-weight: 600;
+      color: #00d4ff;
+      text-decoration: none;
+      letter-spacing: 0.5px;
+    }
+
+    .nav-center {
+      display: flex;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .nav-link {
+      color: #b0b0b0;
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.3s ease;
+      cursor: pointer;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: #00d4ff;
+    }
+
+    .main-wrapper {
+      display: flex;
+      height: calc(100vh - 70px);
+      overflow: hidden;
+    }
+
+    .gear-section {
+      flex: 0 0 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 40px;
+      background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
+      border-right: 1px solid rgba(0, 212, 255, 0.1);
+      position: relative;
+    }
+
+    .gear-container {
+      width: 400px;
+      height: 400px;
+      position: relative;
+    }
+
+    .gear-wheel {
+      width: 100%;
+      height: 100%;
+      filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.6));
+      transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
     .photo-wrapper {
       position: absolute;
       top: 50%;
       left: 50%;
-      width: 140px;
-      height: 140px;
+      width: 160px;
+      height: 160px;
       transform: translate(-50%, -50%);
       border-radius: 50%;
       overflow: hidden;
-      border: 3px solid #00d4ff;
-      box-shadow: 0 0 20px rgba(0, 212, 255, 0.5), inset 0 0 10px rgba(0, 212, 255, 0.3);
+      border: 4px solid #00d4ff;
+      box-shadow: 0 0 30px rgba(0, 212, 255, 0.6), inset 0 0 15px rgba(0, 212, 255, 0.2);
+      background: #1a3a4a;
+      z-index: 10;
     }
+
     .profile-photo {
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
     }
+
+    .content-section {
+      flex: 1;
+      overflow-y: auto;
+      padding: 60px 50px;
+      display: none;
+      animation: fadeIn 0.6s ease-in-out;
+    }
+
+    .content-section.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .section-title {
+      font-size: 32px;
+      font-weight: 600;
+      color: #00d4ff;
+      margin-bottom: 30px;
+      letter-spacing: 0.5px;
+    }
+
+    .about-content {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .about-text {
+      font-size: 16px;
+      line-height: 1.8;
+      color: #d0d0d0;
+    }
+
+    .about-meta {
+      margin-top: 10px;
+      font-size: 14px;
+      color: #00d4ff;
+    }
+
+    .meta-location {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .social-links a {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid #00d4ff;
+      border-radius: 50%;
+      color: #00d4ff;
+      text-decoration: none;
+      font-size: 18px;
+      transition: all 0.3s ease;
+    }
+
+    .social-links a:hover {
+      background: #00d4ff;
+      color: #0a0e27;
+      transform: scale(1.1);
+    }
+
+    .job-entry, .project-entry, .edu-entry, .skills-group {
+      margin-bottom: 30px;
+    }
+
+    .job-entry h3, .project-entry h3, .edu-entry h3, .skills-group h3 {
+      font-size: 18px;
+      color: #00d4ff;
+      margin-bottom: 8px;
+    }
+
+    .meta {
+      font-size: 13px;
+      color: #888;
+      margin-bottom: 12px;
+      font-style: italic;
+    }
+
+    .job-entry ul, .project-entry ul {
+      list-style: none;
+      padding-left: 20px;
+    }
+
+    .job-entry li, .project-entry li {
+      font-size: 14px;
+      color: #d0d0d0;
+      margin-bottom: 8px;
+      line-height: 1.6;
+      position: relative;
+      padding-left: 12px;
+    }
+
+    .job-entry li:before, .project-entry li:before {
+      content: "→";
+      position: absolute;
+      left: 0;
+      color: #00d4ff;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      background: rgba(26, 58, 74, 0.3);
+      padding: 30px;
+      border-radius: 8px;
+      border: 1px solid rgba(0, 212, 255, 0.1);
+    }
+
+    .form-row {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .form-row label {
+      font-size: 13px;
+      color: #00d4ff;
+      font-weight: 500;
+    }
+
+    .form-row input,
+    .form-row textarea {
+      padding: 12px 15px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(0, 212, 255, 0.2);
+      border-radius: 6px;
+      color: #e0e0e0;
+      font-family: inherit;
+      font-size: 14px;
+      transition: all 0.3s ease;
+    }
+
+    .form-row input:focus,
+    .form-row textarea:focus {
+      outline: none;
+      border-color: #00d4ff;
+      box-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .btn-send {
+      padding: 12px 30px;
+      background: linear-gradient(135deg, #00d4ff, #00a8c4);
+      border: none;
+      border-radius: 6px;
+      color: #0a0e27;
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      align-self: flex-start;
+    }
+
+    .btn-send:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(0, 212, 255, 0.4);
+    }
+
+    .form-status {
+      font-size: 13px;
+      margin-top: 10px;
+    }
+
+    footer {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 12px;
+      color: #666;
+      z-index: 50;
+    }
+
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: rgba(0, 212, 255, 0.05);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #00d4ff;
+      border-radius: 3px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #00a8c4;
+    }
   </style>
 </head>
 
-<body class="dark-mode">
-  <header class="site-header">
-    <div class="site-header-inner container-grid">
-      <div class="brand-wrap">
-        <a class="brand" href="#about">Srikanth Reddy Eppa</a>
-      </div>
-      <nav class="nav-center" aria-label="Main navigation">
-        <a href="#" class="nav-link" data-section="about">About Me</a>
-        <a href="#" class="nav-link" data-section="experience">Experience</a>
-        <a href="#" class="nav-link" data-section="projects">Projects</a>
-        <a href="#" class="nav-link" data-section="skills">Skills</a>
-        <a href="#" class="nav-link" data-section="education">Education</a>
-        <a href="#" class="nav-link" data-section="contact">Contact</a>
+<body>
+  <header>
+    <div class="site-header-inner">
+      <a class="brand" href="#">Srikanth Reddy Eppa</a>
+      <nav class="nav-center">
+        <a class="nav-link active" data-section="about">About Me</a>
+        <a class="nav-link" data-section="experience">Experience</a>
+        <a class="nav-link" data-section="projects">Projects</a>
+        <a class="nav-link" data-section="skills">Skills</a>
+        <a class="nav-link" data-section="education">Education</a>
+        <a class="nav-link" data-section="contact">Contact</a>
       </nav>
-      <div class="nav-right"></div>
     </div>
   </header>
 
-  <main class="main-container">
-    <div class="fullscreen-wrapper">
+  <div class="main-wrapper">
+    <div class="gear-section">
       <div class="gear-container">
         <svg class="gear-wheel" viewBox="0 0 520 520" xmlns="http://www.w3.org/2000/svg">
           <defs>
-            <filter id="gearShadow" x="-50%" y="-50%" width="200%" height="200%">
+            <filter id="gearShadow">
               <feDropShadow dx="0" dy="4" stdDeviation="4" flood-opacity="0.7" flood-color="#000000"/>
             </filter>
             <linearGradient id="gearGradient" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -62,7 +363,6 @@
               <stop offset="100%" style="stop-color:#0088c0;stop-opacity:1" />
             </linearGradient>
           </defs>
-
           <circle cx="260" cy="260" r="250" fill="#0a1a2e" stroke="#00d4ff" stroke-width="2" opacity="0.5" filter="url(#gearShadow)"/>
           <g id="teeth" filter="url(#gearShadow)"></g>
           <circle cx="260" cy="260" r="170" fill="#1a3a4a" stroke="#00d4ff" stroke-width="2.5"/>
@@ -121,218 +421,215 @@
             }
           })();
         </script>
-      </div>
-
-      <div class="photo-wrapper">
-        <img class="profile-photo" src="/srikanth-reddy-eppa/files/Resume_image_Professional.JPG" alt="Srikanth Reddy Eppa">
-      </div>
-
-      <div class="sections-container">
-        <section id="about" class="content-section active">
-          <h1 class="section-title">About Me</h1>
-          <div class="about-content">
-            <p class="about-text">Master's student in Mechatronics & Robotics with experience in digitalization, automation, and sustainability.</p>
-            <p class="about-text">Skilled in Digital Twin technology, Digital Product Passports, and mechatronic system design, aiming to deliver innovative solutions aligned with industry demand.</p>
-            <div class="about-meta">
-              <span class="meta-location"><i class="fas fa-map-marker-alt"></i> Stuttgart Region, Germany</span>
-            </div>
-            <div class="social-links">
-              <a href="https://github.com/Eppasrikanth57" target="_blank" rel="noopener" title="GitHub"><i class="fab fa-github"></i></a>
-              <a href="https://www.linkedin.com/in/srikanth-reddy-eppa/" target="_blank" rel="noopener" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-              <a href="mailto:eppasrikanth57@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
-            </div>
-          </div>
-        </section>
-
-        <section id="experience" class="content-section">
-          <h2 class="section-title">Experience</h2>
-          <div class="section-content">
-            <div class="job-entry">
-              <h3>Design and Prototyping of Soft Robot Arm (MASTER THESIS)</h3>
-              <p class="meta">Hochschule Schmalkalden, Germany | Feb 2025–Now</p>
-              <ul>
-                <li>Developed and optimized a Soft Robot for Industry 5.0 applications, created two prototypes using <strong>SolidWorks</strong>.</li>
-                <li>Used additive manufacturing (<strong>3D printing</strong>) to create and optimize key components.</li>
-                <li>Engineered an <strong>Arduino Mega 2560</strong> circuit to control integrated sensors and motors.</li>
-              </ul>
-            </div>
-            <div class="job-entry">
-              <h3>Working Student in Product Innovation - Design and Development</h3>
-              <p class="meta">Morgenwerk GmbH, Tamm, Germany | Sep 2024–Mar 2025</p>
-              <ul>
-                <li>Developed and prototyped a gate system for an automated vending machine using <strong>SolidWorks</strong>.</li>
-                <li>Produced technical drawings and worked on structural tube development for an <strong>AGV</strong>.</li>
-              </ul>
-            </div>
-            <div class="job-entry">
-              <h3>Engineer - Design | Intern - Design</h3>
-              <p class="meta">Regal Rexnord India Private Limited, Hyderabad, India | Feb 2020 – Aug 2022</p>
-              <ul>
-                <li>Enhanced Torsional couplings (CENTAMAX, CENTAFLEX) improving productivity using <strong>SolidWorks</strong>.</li>
-                <li>Created technical drawings per <strong>ISO/DIN/GD&T</strong> standards and BOMs in <strong>SAP</strong>.</li>
-              </ul>
-            </div>
-          </div>
-        </section>
-
-        <section id="projects" class="content-section">
-          <h2 class="section-title">Projects</h2>
-          <div class="section-content">
-            <div class="project-entry">
-              <h3>Automated XY Pen Plotter</h3>
-              <p class="meta">Apr 2023–Jul 2023</p>
-              <ul>
-                <li>Full V-model for mechatronic systems; SolidWorks & Siemens NX for mechanical parts; integrated ESP32 firmware.</li>
-              </ul>
-            </div>
-            <div class="project-entry">
-              <h3>Thermal Energy Storage System</h3>
-              <p class="meta">Nov 2019–Aug 2020</p>
-              <ul>
-                <li>Designed insulated stainless-steel tank and improved energy efficiency, saving 10.6 kJ in six hours.</li>
-              </ul>
-            </div>
-          </div>
-        </section>
-
-        <section id="skills" class="content-section">
-          <h2 class="section-title">Skills</h2>
-          <div class="section-content">
-            <div class="skills-group">
-              <h3>CAD, Analysis and Other</h3>
-              <p>SolidWorks, Ansys, PTC Creo, CATIA V5, Siemens NX, AutoCAD, Fusion, Inventor, Master CAM, PDM pro, Keytech, MS Office</p>
-            </div>
-            <div class="skills-group">
-              <h3>Technical Skills</h3>
-              <p>PLC Programming, Python, Technical Drawings, Test Automation & Measurement Analysis</p>
-            </div>
-            <div class="skills-group">
-              <h3>Soft Skills</h3>
-              <p>Communication, Team Collaboration, Analytical Thinking, Time & Budget Management</p>
-            </div>
-            <div class="skills-group">
-              <h3>Languages</h3>
-              <p>English (C1), German (A2), Telugu (Native)</p>
-            </div>
-          </div>
-        </section>
-
-        <section id="education" class="content-section">
-          <h2 class="section-title">Education</h2>
-          <div class="section-content">
-            <div class="edu-entry">
-              <h3>Master of Science - Mechatronics and Robotics (Grade: 2.4)</h3>
-              <p class="meta">Hochschule Schmalkalden | Oct 2022 – Present</p>
-            </div>
-            <div class="edu-entry">
-              <h3>B.Tech - Mechanical Engineering (Final grade: 1.23)</h3>
-              <p class="meta">Vidya Jyothi Institute of Technology | Jul 2017 – Aug 2020</p>
-            </div>
-          </div>
-        </section>
-
-        <section id="contact" class="content-section">
-          <h2 class="section-title">Get In Touch</h2>
-          <div class="section-content">
-            <div class="contact-card">
-              <form id="contact-form" class="contact-form" novalidate>
-                <div class="form-row">
-                  <label for="from_name">Your Name</label>
-                  <input type="text" id="from_name" name="from_name" placeholder="Your name" required>
-                </div>
-                <div class="form-row">
-                  <label for="reply_to">Your Email</label>
-                  <input type="email" id="reply_to" name="reply_to" placeholder="name@company.com" required>
-                </div>
-                <div class="form-row">
-                  <label for="subject">Subject</label>
-                  <input type="text" id="subject" name="subject" placeholder="Subject" required>
-                </div>
-                <div class="form-row">
-                  <label for="message">Message</label>
-                  <textarea id="message" name="message" rows="6" placeholder="Write your message..." required></textarea>
-                </div>
-                <div class="form-row form-row--center">
-                  <button id="contact-submit" type="submit" class="btn-send" aria-label="Send Message">
-                    <i class="fas fa-paper-plane"></i>
-                    <span>Send Message</span>
-                  </button>
-                </div>
-              </form>
-            </div>
-            <p id="form-status" class="form-status" aria-live="polite"></p>
-          </div>
-        </section>
+        <div class="photo-wrapper">
+          <img class="profile-photo" src="/srikanth-reddy-eppa/files/Resume_image_Professional.JPG" alt="Srikanth Reddy Eppa">
+        </div>
       </div>
     </div>
-  </main>
+
+    <div class="content-area">
+      <!-- ABOUT SECTION -->
+      <section id="about" class="content-section active">
+        <h1 class="section-title">About Me</h1>
+        <div class="about-content">
+          <p class="about-text">
+            Master's student in Mechatronics & Robotics with experience in digitalization, automation, and sustainability.
+          </p>
+          <p class="about-text">
+            Skilled in Digital Twin technology, Digital Product Passports, and mechatronic system design, aiming to deliver innovative solutions aligned with industry demand.
+          </p>
+          <div class="about-meta">
+            <span class="meta-location"><i class="fas fa-map-marker-alt"></i> Stuttgart Region, Germany</span>
+          </div>
+          <div class="social-links">
+            <a href="https://github.com/Eppasrikanth57" target="_blank" rel="noopener" title="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/srikanth-reddy-eppa/" target="_blank" rel="noopener" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="mailto:eppasrikanth57@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+          </div>
+        </div>
+      </section>
+
+      <!-- EXPERIENCE SECTION -->
+      <section id="experience" class="content-section">
+        <h1 class="section-title">Experience</h1>
+        <div class="job-entry">
+          <h3>Design and Prototyping of Soft Robot Arm (MASTER THESIS)</h3>
+          <p class="meta">Hochschule Schmalkalden, Germany | Feb 2025–Now</p>
+          <ul>
+            <li>Developed and optimized a Soft Robot for Industry 5.0 applications, created two prototypes using <strong>SolidWorks</strong>.</li>
+            <li>Used additive manufacturing (<strong>3D printing</strong>) to create and optimize key components.</li>
+            <li>Engineered an <strong>Arduino Mega 2560</strong> circuit to control integrated sensors and motors.</li>
+          </ul>
+        </div>
+        <div class="job-entry">
+          <h3>Working Student in Product Innovation - Design and Development</h3>
+          <p class="meta">Morgenwerk GmbH, Tamm, Germany | Sep 2024–Mar 2025</p>
+          <ul>
+            <li>Developed and prototyped a gate system for an automated vending machine using <strong>SolidWorks</strong>.</li>
+            <li>Produced technical drawings and worked on structural tube development for an <strong>AGV</strong>.</li>
+          </ul>
+        </div>
+        <div class="job-entry">
+          <h3>Engineer - Design | Intern - Design</h3>
+          <p class="meta">Regal Rexnord India Private Limited, Hyderabad, India | Feb 2020 – Aug 2022</p>
+          <ul>
+            <li>Enhanced Torsional couplings (CENTAMAX, CENTAFLEX) improving productivity using <strong>SolidWorks</strong>.</li>
+            <li>Created technical drawings per <strong>ISO/DIN/GD&T</strong> standards and BOMs in <strong>SAP</strong>.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- PROJECTS SECTION -->
+      <section id="projects" class="content-section">
+        <h1 class="section-title">Projects</h1>
+        <div class="project-entry">
+          <h3>Automated XY Pen Plotter</h3>
+          <p class="meta">Apr 2023–Jul 2023</p>
+          <ul>
+            <li>Full V-model for mechatronic systems; SolidWorks & Siemens NX for mechanical parts; integrated ESP32 firmware.</li>
+          </ul>
+        </div>
+        <div class="project-entry">
+          <h3>Thermal Energy Storage System</h3>
+          <p class="meta">Nov 2019–Aug 2020</p>
+          <ul>
+            <li>Designed insulated stainless-steel tank and improved energy efficiency, saving 10.6 kJ in six hours.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- SKILLS SECTION -->
+      <section id="skills" class="content-section">
+        <h1 class="section-title">Skills</h1>
+        <div class="skills-group">
+          <h3>CAD, Analysis and Other</h3>
+          <p>SolidWorks, Ansys, PTC Creo, CATIA V5, Siemens NX, AutoCAD, Fusion, Inventor, Master CAM, PDM pro, Keytech, MS Office</p>
+        </div>
+        <div class="skills-group">
+          <h3>Technical Skills</h3>
+          <p>PLC Programming, Python, Technical Drawings, Test Automation & Measurement Analysis</p>
+        </div>
+        <div class="skills-group">
+          <h3>Soft Skills</h3>
+          <p>Communication, Team Collaboration, Analytical Thinking, Time & Budget Management</p>
+        </div>
+        <div class="skills-group">
+          <h3>Languages</h3>
+          <p>English (C1), German (A2), Telugu (Native)</p>
+        </div>
+      </section>
+
+      <!-- EDUCATION SECTION -->
+      <section id="education" class="content-section">
+        <h1 class="section-title">Education</h1>
+        <div class="edu-entry">
+          <h3>Master of Science - Mechatronics and Robotics (Grade: 2.4)</h3>
+          <p class="meta">Hochschule Schmalkalden | Oct 2022 – Present</p>
+        </div>
+        <div class="edu-entry">
+          <h3>B.Tech - Mechanical Engineering (Final grade: 1.23)</h3>
+          <p class="meta">Vidya Jyothi Institute of Technology | Jul 2017 – Aug 2020</p>
+        </div>
+      </section>
+
+      <!-- CONTACT SECTION -->
+      <section id="contact" class="content-section">
+        <h1 class="section-title">Get In Touch</h1>
+        <form id="contact-form" class="contact-form" novalidate>
+          <div class="form-row">
+            <label for="from_name">Your Name</label>
+            <input type="text" id="from_name" name="from_name" placeholder="Your name" required>
+          </div>
+          <div class="form-row">
+            <label for="reply_to">Your Email</label>
+            <input type="email" id="reply_to" name="reply_to" placeholder="name@company.com" required>
+          </div>
+          <div class="form-row">
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" name="subject" placeholder="Subject" required>
+          </div>
+          <div class="form-row">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="6" placeholder="Write your message..." required></textarea>
+          </div>
+          <button id="contact-submit" type="submit" class="btn-send">
+            <i class="fas fa-paper-plane"></i>
+            <span>Send Message</span>
+          </button>
+        </form>
+        <p id="form-status" class="form-status" aria-live="polite"></p>
+      </section>
+    </div>
+  </div>
 
   <footer>
     <p>&copy; 2025 Srikanth Reddy Eppa. Built with creativity and code.</p>
   </footer>
 
   <script>
-    (function () {
+    (function() {
       const gearWheel = document.querySelector('.gear-wheel');
+      const contentArea = document.querySelector('.content-area');
       const sections = [
-        { id: 'about', element: document.getElementById('about'), startRotation: 0 },
-        { id: 'experience', element: document.getElementById('experience'), startRotation: 54 },
-        { id: 'projects', element: document.getElementById('projects'), startRotation: 108 },
-        { id: 'skills', element: document.getElementById('skills'), startRotation: 162 },
-        { id: 'education', element: document.getElementById('education'), startRotation: 216 },
-        { id: 'contact', element: document.getElementById('contact'), startRotation: 270 }
+        { id: 'about', rotation: 0 },
+        { id: 'experience', rotation: 54 },
+        { id: 'projects', rotation: 108 },
+        { id: 'skills', rotation: 162 },
+        { id: 'education', rotation: 216 },
+        { id: 'contact', rotation: 270 }
       ];
 
-      let currentRotation = 0;
       let currentSectionIndex = 0;
       let isTransitioning = false;
 
-      function rotateGearToSection(targetRotation) {
-        currentRotation = targetRotation % 360;
-        gearWheel.style.transform = `rotate(${currentRotation}deg)`;
-      }
-
-      function showSection(sectionIndex) {
-        if (isTransitioning || currentSectionIndex === sectionIndex) return;
+      function showSection(index) {
+        if (isTransitioning || currentSectionIndex === index) return;
         isTransitioning = true;
-        sections[currentSectionIndex].element.classList.remove('active');
-        currentSectionIndex = sectionIndex;
-        sections[sectionIndex].element.classList.add('active');
-        rotateGearToSection(sections[sectionIndex].startRotation);
+
+        // Hide current section
+        document.getElementById(sections[currentSectionIndex].id).classList.remove('active');
+
+        // Show new section
+        currentSectionIndex = index;
+        document.getElementById(sections[index].id).classList.add('active');
+        gearWheel.style.transform = `rotate(${sections[index].rotation}deg)`;
+
+        // Update nav links
+        document.querySelectorAll('.nav-link').forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('data-section') === sections[index].id) {
+            link.classList.add('active');
+          }
+        });
+
         setTimeout(() => { isTransitioning = false; }, 600);
       }
 
-      let wheelDelta = 0;
-      window.addEventListener('wheel', (e) => {
+      // Scroll on gear wheel area
+      const gearSection = document.querySelector('.gear-section');
+      gearSection.addEventListener('wheel', (e) => {
         e.preventDefault();
-        wheelDelta += e.deltaY;
-        if (Math.abs(wheelDelta) > 100) {
-          if (wheelDelta > 0) {
-            const nextIndex = (currentSectionIndex + 1) % sections.length;
-            showSection(nextIndex);
-          } else {
-            const prevIndex = (currentSectionIndex - 1 + sections.length) % sections.length;
-            showSection(prevIndex);
-          }
-          wheelDelta = 0;
+        if (e.deltaY > 0) {
+          showSection((currentSectionIndex + 1) % sections.length);
+        } else {
+          showSection((currentSectionIndex - 1 + sections.length) % sections.length);
         }
       }, { passive: false });
 
+      // Nav links
       document.querySelectorAll('.nav-link').forEach(link => {
         link.addEventListener('click', (e) => {
           e.preventDefault();
           const sectionId = link.getAttribute('data-section');
-          const sectionIndex = sections.findIndex(s => s.id === sectionId);
-          if (sectionIndex !== -1) { showSection(sectionIndex); }
+          const index = sections.findIndex(s => s.id === sectionId);
+          if (index !== -1) showSection(index);
         });
       });
-
-      showSection(0);
     })();
   </script>
 
   <script>
-    (function () {
+    (function() {
       const PUBLIC_KEY = "VJfDt6cbIDWVebWfX";
       const SERVICE_ID = "service_gpxbcq7";
       const OWNER_TEMPLATE_ID = "template_wfhkq5c";
@@ -346,40 +643,32 @@
       const statusEl = document.getElementById('form-status');
       const submitBtn = document.getElementById('contact-submit');
 
-      function setStatus(text, color) {
-        statusEl.textContent = text;
-        statusEl.style.color = color || '';
-      }
-
-      form.addEventListener('submit', function (e) {
+      form.addEventListener('submit', (e) => {
         e.preventDefault();
         submitBtn.disabled = true;
-        submitBtn.style.opacity = '0.7';
-        setStatus('Sending...', '#666');
+        statusEl.textContent = 'Sending...';
 
-        window.emailjs.sendForm(SERVICE_ID, OWNER_TEMPLATE_ID, this)
-          .then(function (ownerRes) {
+        window.emailjs.sendForm(SERVICE_ID, OWNER_TEMPLATE_ID, form)
+          .then(() => {
             const params = {
-              from_name: form.elements['from_name'].value || '',
-              reply_to: form.elements['reply_to'].value || '',
-              subject: form.elements['subject'].value || '',
-              message: form.elements['message'].value || ''
+              from_name: form.elements['from_name'].value,
+              reply_to: form.elements['reply_to'].value,
+              subject: form.elements['subject'].value,
+              message: form.elements['message'].value
             };
-            return window.emailjs.send(SERVICE_ID, AUTO_REPLY_TEMPLATE_ID, params)
-              .then(function (autoRes) {
-                setStatus('Message sent — confirmation emailed to you.', 'green');
-                form.reset();
-              })
-              .catch(function (autoErr) {
-                setStatus('Message delivered, but confirmation email failed.', 'orange');
-              });
+            return window.emailjs.send(SERVICE_ID, AUTO_REPLY_TEMPLATE_ID, params);
           })
-          .catch(function (ownerErr) {
-            setStatus('Failed to send message. Please try again later.', 'darkred');
+          .then(() => {
+            statusEl.textContent = 'Message sent — confirmation emailed to you.';
+            statusEl.style.color = 'green';
+            form.reset();
           })
-          .finally(function () {
+          .catch(() => {
+            statusEl.textContent = 'Failed to send message. Please try again.';
+            statusEl.style.color = '#ff6b6b';
+          })
+          .finally(() => {
             submitBtn.disabled = false;
-            submitBtn.style.opacity = '';
           });
       });
     })();

@@ -61,77 +61,104 @@
             </filter>
           </defs>
 
-          <!-- Outer ring with teeth (main gear body) -->
+          <!-- Dedendum circle (root) - smaller -->
+          <circle cx="250" cy="250" r="130" fill="none" stroke="#00a8c4" stroke-width="1" opacity="0.2" stroke-dasharray="2,2"/>
+          
+          <!-- Main gear body -->
           <g filter="url(#gearShadow)">
-            <!-- Gear teeth (12 distinct teeth) -->
-            <!-- Tooth 1 (top) -->
-            <rect x="235" y="15" width="30" height="50" fill="#00d4ff" rx="2"/>
-            <!-- Tooth 2 (30 degrees) -->
-            <g transform="rotate(30 250 250)">
-              <rect x="235" y="15" width="30" height="50" fill="#00d4ff" rx="2"/>
-            </g>
-            <!-- Tooth 3 (60 degrees) -->
-            <g transform="rotate(60 250 250)">
-              <rect x="235" y="15" width="30" height="50" fill="#00d4ff" rx="2"/>
-            </g>
-            <!-- Tooth 4 (90 degrees) -->
-            <g transform="rotate(90 250 250)">
-              <rect x="235" y="15" width="30" height="50" fill="#00d4ff" rx="2"/>
-            </g>
-            <!-- Tooth 5 (120 degrees) -->
-            <g transform="rotate(120 250 250)">
-              <rect x="235" y="15" width="30" height="50" fill="#00d4ff" rx="2"/>
-            </g>
-            <!-- Tooth 6 (150 degrees) -->
-            <g transform="rotate(150 250 250)">
-              <rect x="235" y="15" width="30" height="50" fill="#00d4ff" rx="2"/>
-            </g>
-            <!-- Tooth 7 (180 degrees) -->
-            <g transform="rotate(180 250 250)">
-              <rect x="235" y="15" width="30" height="50" fill="#00d4ff" rx="2"/>
-            </g>
-            <!-- Tooth 8 (210 degrees) -->
-            <g transform="rotate(210 250 250)">
-              <rect x="235" y="15" width="30" height="50" fill="#00d4ff" rx="2"/>
-            </g>
-            <!-- Tooth 9 (240 degrees) -->
-            <g transform="rotate(240 250 250)">
-              <rect x="235" y="15" width="30" height="50" fill="#00d4ff" rx="2"/>
-            </g>
-            <!-- Tooth 10 (270 degrees) -->
-            <g transform="rotate(270 250 250)">
-              <rect x="235" y="15" width="30" height="50" fill="#00d4ff" rx="2"/>
-            </g>
-            <!-- Tooth 11 (300 degrees) -->
-            <g transform="rotate(300 250 250)">
-              <rect x="235" y="15" width="30" height="50" fill="#00d4ff" rx="2"/>
-            </g>
-            <!-- Tooth 12 (330 degrees) -->
-            <g transform="rotate(330 250 250)">
-              <rect x="235" y="15" width="30" height="50" fill="#00d4ff" rx="2"/>
-            </g>
-
-            <!-- Main gear body circle -->
-            <circle cx="250" cy="250" r="210" fill="#1a3a4a" stroke="#00d4ff" stroke-width="3"/>
+            <circle cx="250" cy="250" r="160" fill="#1a3a4a" stroke="#00d4ff" stroke-width="2"/>
           </g>
 
-          <!-- Inner metallic ring -->
-          <circle cx="250" cy="250" r="160" fill="none" stroke="#00e8ff" stroke-width="8" opacity="0.8"/>
-          <circle cx="250" cy="250" r="155" fill="none" stroke="#00a8c4" stroke-width="2" opacity="0.5"/>
-          <circle cx="250" cy="250" r="150" fill="none" stroke="#00e8ff" stroke-width="1" opacity="0.3"/>
+          <!-- Generate 48 teeth dynamically with proper addendum/dedendum profile -->
+          <g id="teeth">
+            <!-- SVG will have teeth generated via the script below -->
+          </g>
 
-          <!-- Center boss (raised center) -->
+          <!-- Addendum circle (outer) - larger -->
+          <circle cx="250" cy="250" r="195" fill="none" stroke="#00d4ff" stroke-width="2" opacity="0.6"/>
+
+          <!-- Pitch circle -->
+          <circle cx="250" cy="250" r="160" fill="none" stroke="#00e8ff" stroke-width="1" opacity="0.3" stroke-dasharray="3,3"/>
+
+          <!-- Center boss -->
           <circle cx="250" cy="250" r="65" fill="#1a3a4a" stroke="#00d4ff" stroke-width="3"/>
           <circle cx="250" cy="250" r="62" fill="#2d5a6f" stroke="#00a8c4" stroke-width="1"/>
 
           <!-- Inner highlight for 3D effect -->
           <ellipse cx="250" cy="240" rx="55" ry="50" fill="#00e8ff" opacity="0.15"/>
         </svg>
+        <script>
+          // Generate 48 gear teeth with proper involute profile
+          (function() {
+            const svg = document.querySelector('.gear-wheel');
+            const teethGroup = svg.querySelector('#teeth');
+            const numTeeth = 48;
+            const pitchRadius = 160;
+            const addendumRadius = 195;  // Increased
+            const dedendumRadius = 130;  // Decreased
+            const toothWidth = 8;  // Width at pitch circle
+            const center = 250;
 
-        <!-- Photo container (centered in gear) -->
-        <div class="photo-container">
-          <img class="profile-photo" src="/srikanth-reddy-eppa/files/Resume_image_Professional.JPG" alt="Srikanth Reddy Eppa">
-        </div>
+            // Create teeth
+            for (let i = 0; i < numTeeth; i++) {
+              const angle = (i * 360) / numTeeth;
+              const angleRad = (angle * Math.PI) / 180;
+
+              // Calculate tooth coordinates
+              const toothAngleHalf = (180 / numTeeth);
+              const toothAngleHalfRad = (toothAngleHalf * Math.PI) / 180;
+
+              // Top land (addendum) coordinates
+              const topLeftAngle = angleRad - toothAngleHalfRad * 0.6;
+              const topRightAngle = angleRad + toothAngleHalfRad * 0.6;
+              
+              const topLeftX = center + addendumRadius * Math.cos(topLeftAngle);
+              const topLeftY = center + addendumRadius * Math.sin(topLeftAngle);
+              const topRightX = center + addendumRadius * Math.cos(topRightAngle);
+              const topRightY = center + addendumRadius * Math.sin(topRightAngle);
+
+              // Flank coordinates (middle)
+              const flankLeftAngle = angleRad - toothAngleHalfRad * 0.85;
+              const flankRightAngle = angleRad + toothAngleHalfRad * 0.85;
+              
+              const flankLeftX = center + pitchRadius * Math.cos(flankLeftAngle);
+              const flankLeftY = center + pitchRadius * Math.sin(flankLeftAngle);
+              const flankRightX = center + pitchRadius * Math.cos(flankRightAngle);
+              const flankRightY = center + pitchRadius * Math.sin(flankRightAngle);
+
+              // Root/dedendum coordinates
+              const rootLeftAngle = angleRad - toothAngleHalfRad;
+              const rootRightAngle = angleRad + toothAngleHalfRad;
+              
+              const rootLeftX = center + dedendumRadius * Math.cos(rootLeftAngle);
+              const rootLeftY = center + dedendumRadius * Math.sin(rootLeftAngle);
+              const rootRightX = center + dedendumRadius * Math.cos(rootRightAngle);
+              const rootRightY = center + dedendumRadius * Math.sin(rootRightAngle);
+
+              // Create tooth path with curves (addendum, flank, dedendum)
+              const pathData = `
+                M ${topLeftX} ${topLeftY}
+                L ${topRightX} ${topRightY}
+                Q ${center + pitchRadius * 1.15 * Math.cos(angleRad)} ${center + pitchRadius * 1.15 * Math.sin(angleRad)}
+                  ${flankRightX} ${flankRightY}
+                L ${rootRightX} ${rootRightY}
+                Q ${center + dedendumRadius * 0.95 * Math.cos(angleRad)} ${center + dedendumRadius * 0.95 * Math.sin(angleRad)}
+                  ${rootLeftX} ${rootLeftY}
+                L ${flankLeftX} ${flankLeftY}
+                Q ${center + pitchRadius * 1.15 * Math.cos(angleRad)} ${center + pitchRadius * 1.15 * Math.sin(angleRad)}
+                  ${topLeftX} ${topLeftY}
+              `;
+
+              const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+              path.setAttribute('d', pathData);
+              path.setAttribute('fill', '#00d4ff');
+              path.setAttribute('stroke', '#00b8d4');
+              path.setAttribute('stroke-width', '0.5');
+              path.setAttribute('opacity', '0.9');
+              teethGroup.appendChild(path);
+            }
+          })();
+        </script>
       </div>
 
       <!-- CONTENT SECTIONS -->

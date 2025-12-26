@@ -33,41 +33,37 @@
       padding: 20px 40px;
       position: relative;
       z-index: 100;
-      text-align: center;
     }
 
     .site-header-inner {
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
       align-items: center;
-      gap: 80px;
-      max-width: 1400px;
-      margin: 0 auto;
+      max-width: 100%;
     }
 
     .brand {
-      font-size: 26px;
+      font-size: 18px;
       font-weight: 600;
       color: #00d4ff;
       text-decoration: none;
-      letter-spacing: 0.5px;
-      white-space: nowrap;
+      letter-spacing: 0.3px;
     }
 
     .nav-center {
       display: flex;
-      gap: 40px;
+      gap: 50px;
       align-items: center;
     }
 
     .nav-link {
-      color: #b0b0b0;
+      color: #999;
       text-decoration: none;
       font-size: 13px;
       transition: color 0.3s ease;
       cursor: pointer;
       position: relative;
-      font-weight: 500;
+      font-weight: 400;
       white-space: nowrap;
     }
 
@@ -77,14 +73,7 @@
     }
 
     .nav-link.active::after {
-      content: '';
-      position: absolute;
-      bottom: -8px;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background: #00d4ff;
-      border-radius: 1px;
+      display: none;
     }
 
     .main-wrapper {
@@ -94,23 +83,20 @@
       position: relative;
     }
 
-    /* LEFT SIDE - GEAR (Fixed Background, z-index 5) */
+    /* LEFT SIDE - GEAR */
     .gear-section {
-      position: fixed;
-      left: 0;
-      top: 70px;
-      width: 45%;
-      height: calc(100vh - 70px);
+      flex: 0 0 35%;
       display: flex;
       align-items: center;
       justify-content: center;
       padding: 40px;
-      z-index: 5;
+      overflow: hidden;
+      background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
     }
 
     .gear-container {
-      width: 500px;
-      height: 500px;
+      width: 350px;
+      height: 350px;
       position: relative;
     }
 
@@ -124,14 +110,14 @@
 
     .photo-wrapper {
       position: absolute;
-      top: 42%;
+      top: 50%;
       left: 50%;
-      width: 260px;
-      height: 260px;
+      width: 160px;
+      height: 160px;
       transform: translate(-50%, -50%);
       border-radius: 50%;
       overflow: hidden;
-      border: 8px solid #00d4ff;
+      border: 6px solid #00d4ff;
       box-shadow: 0 0 60px rgba(0, 212, 255, 1), inset 0 0 30px rgba(0, 212, 255, 0.6);
       background: #1a3a4a;
       z-index: 10;
@@ -145,26 +131,23 @@
       display: block;
     }
 
-    /* RIGHT SIDE - CONTENT (Overlay Float, z-index 20) */
+    /* RIGHT SIDE - CONTENT */
     .content-wrapper {
-      position: fixed;
-      right: 0;
-      top: 70px;
-      width: 65%;
-      height: calc(100vh - 70px);
+      flex: 1;
+      display: flex;
+      flex-direction: column;
       overflow: hidden;
-      z-index: 20;
+      background: linear-gradient(135deg, rgba(10, 14, 39, 0.5) 0%, rgba(26, 38, 58, 0.5) 100%);
     }
 
     .content-section {
-      position: absolute;
+      flex: 1;
       width: 100%;
-      height: 100%;
-      padding: 60px 80px;
+      padding: 50px 70px;
       overflow-y: auto;
       opacity: 0;
       visibility: hidden;
-      transform: translateX(60px);
+      transform: translateX(40px);
       transition: opacity 0.6s ease, visibility 0.6s ease, transform 0.6s ease;
     }
 
@@ -175,12 +158,12 @@
     }
 
     .section-title {
-      font-size: 44px;
+      font-size: 42px;
       font-weight: 700;
       color: #00d4ff;
-      margin-bottom: 35px;
-      letter-spacing: 0.5px;
-      text-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+      margin-bottom: 45px;
+      letter-spacing: 0.3px;
+      text-shadow: 0 0 15px rgba(0, 212, 255, 0.15);
     }
 
     .about-content {
@@ -190,15 +173,15 @@
     }
 
     .about-text {
-      font-size: 16px;
-      line-height: 1.8;
+      font-size: 15px;
+      line-height: 1.75;
       color: #c0c0c0;
       text-align: justify;
     }
 
     .about-meta {
-      margin-top: 15px;
-      font-size: 14px;
+      margin-top: 20px;
+      font-size: 13px;
       color: #00d4ff;
     }
 
@@ -210,13 +193,13 @@
 
     .social-links {
       display: flex;
-      gap: 25px;
-      margin-top: 30px;
+      gap: 22px;
+      margin-top: 32px;
     }
 
     .social-links a {
-      width: 50px;
-      height: 50px;
+      width: 48px;
+      height: 48px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -224,7 +207,7 @@
       border-radius: 50%;
       color: #00d4ff;
       text-decoration: none;
-      font-size: 22px;
+      font-size: 20px;
       transition: all 0.3s ease;
     }
 
@@ -237,10 +220,14 @@
 
     .job-entry, .project-entry, .edu-entry, .skills-group {
       margin-bottom: 32px;
+      padding: 22px;
+      background: rgba(0, 212, 255, 0.04);
+      border-left: 4px solid #00d4ff;
+      border-radius: 4px;
     }
 
     .job-entry h3, .project-entry h3, .edu-entry h3, .skills-group h3 {
-      font-size: 17px;
+      font-size: 16px;
       color: #00d4ff;
       margin-bottom: 8px;
       font-weight: 600;
@@ -259,7 +246,7 @@
     }
 
     .job-entry li, .project-entry li {
-      font-size: 14px;
+      font-size: 13px;
       color: #c0c0c0;
       margin-bottom: 10px;
       line-height: 1.6;
@@ -272,11 +259,11 @@
       position: absolute;
       left: 0;
       color: #00d4ff;
-      font-size: 18px;
+      font-size: 14px;
     }
 
     .skills-group p {
-      font-size: 14px;
+      font-size: 13px;
       color: #c0c0c0;
       line-height: 1.7;
     }
@@ -287,9 +274,9 @@
       gap: 18px;
       background: rgba(26, 58, 74, 0.2);
       padding: 30px;
-      border-radius: 10px;
-      border: 1px solid rgba(0, 212, 255, 0.2);
-      max-width: 450px;
+      border-radius: 6px;
+      border: 1px solid rgba(0, 212, 255, 0.15);
+      max-width: 500px;
     }
 
     .form-row {
@@ -299,7 +286,7 @@
     }
 
     .form-row label {
-      font-size: 12px;
+      font-size: 11px;
       color: #00d4ff;
       font-weight: 500;
       text-transform: uppercase;
@@ -308,13 +295,13 @@
 
     .form-row input,
     .form-row textarea {
-      padding: 12px 15px;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(0, 212, 255, 0.2);
-      border-radius: 6px;
+      padding: 11px 14px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(0, 212, 255, 0.15);
+      border-radius: 4px;
       color: #e0e0e0;
       font-family: inherit;
-      font-size: 14px;
+      font-size: 13px;
       transition: all 0.3s ease;
     }
 
@@ -322,75 +309,47 @@
     .form-row textarea:focus {
       outline: none;
       border-color: #00d4ff;
-      box-shadow: 0 0 12px rgba(0, 212, 255, 0.4);
-      background: rgba(255, 255, 255, 0.08);
+      box-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
+      background: rgba(255, 255, 255, 0.07);
     }
 
     .btn-send {
-      padding: 12px 35px;
+      padding: 11px 32px;
       background: linear-gradient(135deg, #00d4ff, #00a8c4);
       border: none;
-      border-radius: 6px;
+      border-radius: 4px;
       color: #0a0e27;
       font-weight: 600;
-      font-size: 14px;
+      font-size: 13px;
       cursor: pointer;
       transition: all 0.3s ease;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
+      gap: 8px;
       align-self: flex-start;
-      margin-top: 10px;
+      margin-top: 12px;
     }
 
     .btn-send:hover {
       transform: translateY(-2px);
-      box-shadow: 0 10px 20px rgba(0, 212, 255, 0.5);
+      box-shadow: 0 8px 16px rgba(0, 212, 255, 0.4);
     }
 
     .form-status {
-      font-size: 13px;
+      font-size: 12px;
       margin-top: 12px;
       color: #00d4ff;
     }
 
     footer {
       position: fixed;
-      bottom: 20px;
+      bottom: 18px;
       left: 50%;
       transform: translateX(-50%);
-      font-size: 11px;
-      color: #666;
+      font-size: 10px;
+      color: #555;
       z-index: 50;
-    }
-
-    .scroll-indicator {
-      position: fixed;
-      top: 130px;
-      right: 30px;
-      font-size: 11px;
-      color: #00d4ff;
-      opacity: 0.6;
-      transition: opacity 0.3s ease;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 6px;
-      z-index: 40;
-    }
-
-    .scroll-indicator:hover {
-      opacity: 1;
-    }
-
-    .scroll-indicator i {
-      animation: bounce 2s infinite;
-    }
-
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-5px); }
     }
 
     ::-webkit-scrollbar {
@@ -402,12 +361,12 @@
     }
 
     ::-webkit-scrollbar-thumb {
-      background: rgba(0, 212, 255, 0.4);
+      background: rgba(0, 212, 255, 0.25);
       border-radius: 3px;
     }
 
     ::-webkit-scrollbar-thumb:hover {
-      background: #00d4ff;
+      background: rgba(0, 212, 255, 0.5);
     }
   </style>
 </head>
@@ -428,10 +387,10 @@
   </header>
 
   <div class="main-wrapper">
-    <!-- LEFT SIDE - PROPER GEAR WITH PHOTO -->
+    <!-- LEFT SIDE - GEAR WITH PHOTO -->
     <div class="gear-section">
       <div class="gear-container">
-        <svg class="gear-wheel" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+        <svg class="gear-wheel" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <filter id="gearShadow" x="-50%" y="-50%" width="200%" height="200%">
               <feDropShadow dx="0" dy="8" stdDeviation="12" flood-opacity="0.95" flood-color="#00d4ff"/>
@@ -442,47 +401,41 @@
             </radialGradient>
           </defs>
           
-          <!-- Center circle (visible through teeth) -->
-          <circle cx="300" cy="300" r="130" fill="#0a0e27" stroke="#00d4ff" stroke-width="2"/>
+          <!-- Center circle -->
+          <circle cx="200" cy="200" r="85" fill="#0a0e27" stroke="#00d4ff" stroke-width="2"/>
           
-          <!-- Main gear body with teeth cut out -->
+          <!-- Main gear body with 8 teeth -->
           <g filter="url(#gearShadow)">
             <!-- Tooth 1 (top) -->
-            <rect x="260" y="60" width="80" height="80" fill="url(#gearGrad)" stroke="#00d4ff" stroke-width="1.5"/>
+            <rect x="175" y="30" width="50" height="60" fill="url(#gearGrad)" stroke="#00d4ff" stroke-width="1.5" rx="2"/>
             
             <!-- Tooth 2 (top-right) -->
-            <rect x="360" y="100" width="80" height="80" fill="url(#gearGrad)" stroke="#00d4ff" stroke-width="1.5" transform="rotate(60 400 140)"/>
+            <rect x="265" y="65" width="50" height="60" fill="url(#gearGrad)" stroke="#00d4ff" stroke-width="1.5" rx="2" transform="rotate(45 290 95)"/>
             
-            <!-- Tooth 3 (right-top) -->
-            <rect x="430" y="210" width="80" height="80" fill="url(#gearGrad)" stroke="#00d4ff" stroke-width="1.5" transform="rotate(120 470 250)"/>
+            <!-- Tooth 3 (right) -->
+            <rect x="310" y="175" width="60" height="50" fill="url(#gearGrad)" stroke="#00d4ff" stroke-width="1.5" rx="2" transform="rotate(90 340 200)"/>
             
-            <!-- Tooth 4 (right-bottom) -->
-            <rect x="430" y="310" width="80" height="80" fill="url(#gearGrad)" stroke="#00d4ff" stroke-width="1.5" transform="rotate(180 470 350)"/>
+            <!-- Tooth 4 (bottom-right) -->
+            <rect x="265" y="275" width="50" height="60" fill="url(#gearGrad)" stroke="#00d4ff" stroke-width="1.5" rx="2" transform="rotate(135 290 305)"/>
             
-            <!-- Tooth 5 (bottom-right) -->
-            <rect x="360" y="420" width="80" height="80" fill="url(#gearGrad)" stroke="#00d4ff" stroke-width="1.5" transform="rotate(240 400 460)"/>
+            <!-- Tooth 5 (bottom) -->
+            <rect x="175" y="310" width="50" height="60" fill="url(#gearGrad)" stroke="#00d4ff" stroke-width="1.5" rx="2" transform="rotate(180 200 340)"/>
             
-            <!-- Tooth 6 (bottom) -->
-            <rect x="260" y="460" width="80" height="80" fill="url(#gearGrad)" stroke="#00d4ff" stroke-width="1.5" transform="rotate(300 300 500)"/>
+            <!-- Tooth 6 (bottom-left) -->
+            <rect x="85" y="275" width="50" height="60" fill="url(#gearGrad)" stroke="#00d4ff" stroke-width="1.5" rx="2" transform="rotate(225 110 305)"/>
             
-            <!-- Tooth 7 (bottom-left) -->
-            <rect x="110" y="420" width="80" height="80" fill="url(#gearGrad)" stroke="#00d4ff" stroke-width="1.5" transform="rotate(240 150 460)"/>
+            <!-- Tooth 7 (left) -->
+            <rect x="30" y="175" width="60" height="50" fill="url(#gearGrad)" stroke="#00d4ff" stroke-width="1.5" rx="2" transform="rotate(270 60 200)"/>
             
-            <!-- Tooth 8 (left-bottom) -->
-            <rect x="90" y="310" width="80" height="80" fill="url(#gearGrad)" stroke="#00d4ff" stroke-width="1.5" transform="rotate(180 130 350)"/>
-            
-            <!-- Tooth 9 (left-top) -->
-            <rect x="90" y="210" width="80" height="80" fill="url(#gearGrad)" stroke="#00d4ff" stroke-width="1.5" transform="rotate(120 130 250)"/>
-            
-            <!-- Tooth 10 (top-left) -->
-            <rect x="160" y="100" width="80" height="80" fill="url(#gearGrad)" stroke="#00d4ff" stroke-width="1.5" transform="rotate(60 200 140)"/>
+            <!-- Tooth 8 (top-left) -->
+            <rect x="85" y="65" width="50" height="60" fill="url(#gearGrad)" stroke="#00d4ff" stroke-width="1.5" rx="2" transform="rotate(315 110 95)"/>
           </g>
           
-          <!-- Connecting ring between teeth -->
-          <circle cx="300" cy="300" r="190" fill="none" stroke="#00d4ff" stroke-width="2" opacity="0.4"/>
+          <!-- Outer ring -->
+          <circle cx="200" cy="200" r="140" fill="none" stroke="#00d4ff" stroke-width="2" opacity="0.5"/>
           
           <!-- Inner ring -->
-          <circle cx="300" cy="300" r="130" fill="none" stroke="#00a8c4" stroke-width="2" opacity="0.6"/>
+          <circle cx="200" cy="200" r="85" fill="none" stroke="#00a8c4" stroke-width="1.5" opacity="0.6"/>
         </svg>
         
         <!-- Photo wrapper -->
@@ -492,7 +445,7 @@
       </div>
     </div>
 
-    <!-- RIGHT SIDE - CONTENT SECTIONS (Overlay) -->
+    <!-- RIGHT SIDE - CONTENT SECTIONS -->
     <div class="content-wrapper">
       <!-- ABOUT SECTION -->
       <section id="about" class="content-section active">
@@ -628,11 +581,6 @@
     </div>
   </div>
 
-  <div class="scroll-indicator">
-    <i class="fas fa-arrow-down"></i>
-    Scroll
-  </div>
-
   <footer>
     <p>&copy; 2025 Srikanth Reddy Eppa. Built with creativity and code.</p>
   </footer>
@@ -644,11 +592,11 @@
       const gearWheel = document.querySelector('.gear-wheel');
       const sections = [
         { id: 'about', rotation: 0 },
-        { id: 'experience', rotation: 36 },
-        { id: 'projects', rotation: 72 },
-        { id: 'skills', rotation: 108 },
-        { id: 'education', rotation: 144 },
-        { id: 'contact', rotation: 180 }
+        { id: 'experience', rotation: 45 },
+        { id: 'projects', rotation: 90 },
+        { id: 'skills', rotation: 135 },
+        { id: 'education', rotation: 180 },
+        { id: 'contact', rotation: 225 }
       ];
 
       let currentSectionIndex = 0;

@@ -17,7 +17,7 @@
 
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background: #0a0e27;
+      background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
       color: #e0e0e0;
       overflow: hidden;
     }
@@ -34,7 +34,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      max-width: 1400px;
+      max-width: 1600px;
       margin: 0 auto;
     }
 
@@ -69,24 +69,28 @@
       display: flex;
       height: calc(100vh - 70px);
       overflow: hidden;
-      position: relative;
+      gap: 40px;
+      padding: 40px;
     }
 
-    .gear-overlay {
-      position: absolute;
-      top: 50%;
-      left: 80px;
-      transform: translateY(-50%);
-      width: 280px;
-      height: 280px;
-      z-index: 5;
-      pointer-events: none;
+    /* LEFT SIDE - GEAR */
+    .gear-section {
+      flex: 0 0 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .gear-container {
+      width: 340px;
+      height: 340px;
+      position: relative;
     }
 
     .gear-wheel {
       width: 100%;
       height: 100%;
-      filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.6));
+      filter: drop-shadow(0 8px 20px rgba(0, 212, 255, 0.4));
       transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
 
@@ -94,13 +98,13 @@
       position: absolute;
       top: 50%;
       left: 50%;
-      width: 130px;
-      height: 130px;
+      width: 140px;
+      height: 140px;
       transform: translate(-50%, -50%);
       border-radius: 50%;
       overflow: hidden;
-      border: 3px solid #00d4ff;
-      box-shadow: 0 0 25px rgba(0, 212, 255, 0.6), inset 0 0 12px rgba(0, 212, 255, 0.2);
+      border: 4px solid #00d4ff;
+      box-shadow: 0 0 30px rgba(0, 212, 255, 0.8), inset 0 0 15px rgba(0, 212, 255, 0.3);
       background: #1a3a4a;
       z-index: 10;
     }
@@ -112,19 +116,13 @@
       display: block;
     }
 
-    .content-wrapper {
-      width: 100%;
-      height: 100%;
-      overflow-y: auto;
-      padding: 60px 80px;
-      padding-left: 380px;
-    }
-
+    /* RIGHT SIDE - CONTENT */
     .content-section {
-      min-height: 100%;
+      flex: 1;
+      overflow-y: auto;
+      padding-right: 20px;
       display: none;
       animation: fadeIn 0.6s ease-in-out;
-      padding-bottom: 60px;
     }
 
     .content-section.active {
@@ -143,8 +141,8 @@
     }
 
     .section-title {
-      font-size: 32px;
-      font-weight: 600;
+      font-size: 36px;
+      font-weight: 700;
       color: #00d4ff;
       margin-bottom: 30px;
       letter-spacing: 0.5px;
@@ -157,13 +155,14 @@
     }
 
     .about-text {
-      font-size: 16px;
+      font-size: 15px;
       line-height: 1.8;
-      color: #d0d0d0;
+      color: #c0c0c0;
+      text-align: justify;
     }
 
     .about-meta {
-      margin-top: 10px;
+      margin-top: 15px;
       font-size: 14px;
       color: #00d4ff;
     }
@@ -176,13 +175,13 @@
 
     .social-links {
       display: flex;
-      gap: 20px;
-      margin-top: 20px;
+      gap: 25px;
+      margin-top: 25px;
     }
 
     .social-links a {
-      width: 40px;
-      height: 40px;
+      width: 45px;
+      height: 45px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -190,28 +189,30 @@
       border-radius: 50%;
       color: #00d4ff;
       text-decoration: none;
-      font-size: 18px;
+      font-size: 20px;
       transition: all 0.3s ease;
     }
 
     .social-links a:hover {
       background: #00d4ff;
       color: #0a0e27;
-      transform: scale(1.1);
+      transform: scale(1.15);
+      box-shadow: 0 0 15px rgba(0, 212, 255, 0.6);
     }
 
     .job-entry, .project-entry, .edu-entry, .skills-group {
-      margin-bottom: 30px;
+      margin-bottom: 35px;
     }
 
     .job-entry h3, .project-entry h3, .edu-entry h3, .skills-group h3 {
-      font-size: 18px;
+      font-size: 17px;
       color: #00d4ff;
       margin-bottom: 8px;
+      font-weight: 600;
     }
 
     .meta {
-      font-size: 13px;
+      font-size: 12px;
       color: #888;
       margin-bottom: 12px;
       font-style: italic;
@@ -224,7 +225,7 @@
 
     .job-entry li, .project-entry li {
       font-size: 14px;
-      color: #d0d0d0;
+      color: #c0c0c0;
       margin-bottom: 8px;
       line-height: 1.6;
       position: relative;
@@ -242,10 +243,10 @@
       display: flex;
       flex-direction: column;
       gap: 20px;
-      background: rgba(26, 58, 74, 0.3);
-      padding: 30px;
+      background: rgba(26, 58, 74, 0.2);
+      padding: 25px;
       border-radius: 8px;
-      border: 1px solid rgba(0, 212, 255, 0.1);
+      border: 1px solid rgba(0, 212, 255, 0.15);
       max-width: 500px;
     }
 
@@ -256,9 +257,11 @@
     }
 
     .form-row label {
-      font-size: 13px;
+      font-size: 12px;
       color: #00d4ff;
       font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
 
     .form-row input,
@@ -313,7 +316,7 @@
       bottom: 20px;
       left: 50%;
       transform: translateX(-50%);
-      font-size: 12px;
+      font-size: 11px;
       color: #666;
       z-index: 50;
     }
@@ -353,220 +356,216 @@
   </header>
 
   <div class="main-wrapper">
-    <!-- SPUR GEAR OVERLAY -->
-    <div class="gear-overlay">
-      <svg class="gear-wheel" viewBox="0 0 520 520" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <filter id="gearShadow">
-            <feDropShadow dx="0" dy="4" stdDeviation="4" flood-opacity="0.7" flood-color="#000000"/>
-          </filter>
-          <linearGradient id="gearGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" style="stop-color:#00f0ff;stop-opacity:1" />
-            <stop offset="50%" style="stop-color:#00d4ff;stop-opacity:1" />
-            <stop offset="100%" style="stop-color:#0088c0;stop-opacity:1" />
-          </linearGradient>
-        </defs>
-        <!-- Outer ring -->
-        <circle cx="260" cy="260" r="250" fill="#0a1a2e" stroke="#00d4ff" stroke-width="2" opacity="0.5" filter="url(#gearShadow)"/>
-        <!-- Teeth group -->
-        <g id="teeth" filter="url(#gearShadow)"></g>
-        <!-- Main gear body -->
-        <circle cx="260" cy="260" r="170" fill="#1a3a4a" stroke="#00d4ff" stroke-width="2.5"/>
-        <circle cx="260" cy="260" r="155" fill="none" stroke="#00a8c4" stroke-width="1.5" opacity="0.6"/>
-        <circle cx="260" cy="260" r="145" fill="none" stroke="#00d4ff" stroke-width="0.8" opacity="0.3" stroke-dasharray="3,2"/>
-        <!-- Center boss -->
-        <circle cx="260" cy="260" r="75" fill="#1a3a4a" stroke="#00d4ff" stroke-width="2.5"/>
-        <circle cx="260" cy="260" r="70" fill="#2d5a6f" stroke="#00a8c4" stroke-width="1"/>
-        <ellipse cx="260" cy="250" rx="65" ry="60" fill="#00e8ff" opacity="0.12"/>
-      </svg>
-      <script>
-        (function() {
-          const svg = document.querySelector('.gear-wheel');
-          const teethGroup = svg.querySelector('#teeth');
-          const numTeeth = 20;
-          const centerX = 260;
-          const centerY = 260;
-          const baseRadius = 170;
-          const toothHeight = 50;
-          const outerRadius = baseRadius + toothHeight;
+    <!-- LEFT SIDE - GEAR -->
+    <div class="gear-section">
+      <div class="gear-container">
+        <svg class="gear-wheel" viewBox="0 0 520 520" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <filter id="gearShadow">
+              <feDropShadow dx="0" dy="4" stdDeviation="4" flood-opacity="0.7" flood-color="#000000"/>
+            </filter>
+            <linearGradient id="gearGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#00f0ff;stop-opacity:1" />
+              <stop offset="50%" style="stop-color:#00d4ff;stop-opacity:1" />
+              <stop offset="100%" style="stop-color:#0088c0;stop-opacity:1" />
+            </linearGradient>
+          </defs>
+          <circle cx="260" cy="260" r="250" fill="#0a1a2e" stroke="#00d4ff" stroke-width="2" opacity="0.5" filter="url(#gearShadow)"/>
+          <g id="teeth" filter="url(#gearShadow)"></g>
+          <circle cx="260" cy="260" r="170" fill="#1a3a4a" stroke="#00d4ff" stroke-width="2.5"/>
+          <circle cx="260" cy="260" r="155" fill="none" stroke="#00a8c4" stroke-width="1.5" opacity="0.6"/>
+          <circle cx="260" cy="260" r="145" fill="none" stroke="#00d4ff" stroke-width="0.8" opacity="0.3" stroke-dasharray="3,2"/>
+          <circle cx="260" cy="260" r="80" fill="#1a3a4a" stroke="#00d4ff" stroke-width="3"/>
+          <circle cx="260" cy="260" r="76" fill="#2d5a6f" stroke="#00a8c4" stroke-width="1.5"/>
+          <ellipse cx="260" cy="250" rx="70" ry="64" fill="#00e8ff" opacity="0.12"/>
+        </svg>
+        <script>
+          (function() {
+            const svg = document.querySelector('.gear-wheel');
+            const teethGroup = svg.querySelector('#teeth');
+            const numTeeth = 12;
+            const centerX = 260;
+            const centerY = 260;
+            const baseRadius = 170;
+            const toothHeight = 50;
+            const outerRadius = baseRadius + toothHeight;
 
-          for (let i = 0; i < numTeeth; i++) {
-            const angle = (i * 360) / numTeeth;
-            const angleRad = (angle * Math.PI) / 180;
-            const toothSpacing = 360 / numTeeth;
-            const halfSpacing = toothSpacing / 2;
-            const halfSpacingRad = (halfSpacing * Math.PI) / 180;
+            for (let i = 0; i < numTeeth; i++) {
+              const angle = (i * 360) / numTeeth;
+              const angleRad = (angle * Math.PI) / 180;
+              const toothSpacing = 360 / numTeeth;
+              const halfSpacing = toothSpacing / 2;
+              const halfSpacingRad = (halfSpacing * Math.PI) / 180;
 
-            const leftAngleRad = angleRad - halfSpacingRad;
-            const leftBaseX = centerX + baseRadius * Math.cos(leftAngleRad);
-            const leftBaseY = centerY + baseRadius * Math.sin(leftAngleRad);
-            const leftTipX = centerX + outerRadius * Math.cos(leftAngleRad);
-            const leftTipY = centerY + outerRadius * Math.sin(leftAngleRad);
+              const leftAngleRad = angleRad - halfSpacingRad;
+              const leftBaseX = centerX + baseRadius * Math.cos(leftAngleRad);
+              const leftBaseY = centerY + baseRadius * Math.sin(leftAngleRad);
+              const leftTipX = centerX + outerRadius * Math.cos(leftAngleRad);
+              const leftTipY = centerY + outerRadius * Math.sin(leftAngleRad);
 
-            const rightAngleRad = angleRad + halfSpacingRad;
-            const rightBaseX = centerX + baseRadius * Math.cos(rightAngleRad);
-            const rightBaseY = centerY + baseRadius * Math.sin(rightAngleRad);
-            const rightTipX = centerX + outerRadius * Math.cos(rightAngleRad);
-            const rightTipY = centerY + outerRadius * Math.sin(rightAngleRad);
+              const rightAngleRad = angleRad + halfSpacingRad;
+              const rightBaseX = centerX + baseRadius * Math.cos(rightAngleRad);
+              const rightBaseY = centerY + baseRadius * Math.sin(rightAngleRad);
+              const rightTipX = centerX + outerRadius * Math.cos(rightAngleRad);
+              const rightTipY = centerY + outerRadius * Math.sin(rightAngleRad);
 
-            const pathData = `
-              M ${leftBaseX} ${leftBaseY}
-              L ${leftTipX} ${leftTipY}
-              L ${rightTipX} ${rightTipY}
-              L ${rightBaseX} ${rightBaseY}
-              Z
-            `;
+              const pathData = `
+                M ${leftBaseX} ${leftBaseY}
+                L ${leftTipX} ${leftTipY}
+                L ${rightTipX} ${rightTipY}
+                L ${rightBaseX} ${rightBaseY}
+                Z
+              `;
 
-            const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-            path.setAttribute('d', pathData);
-            path.setAttribute('fill', 'url(#gearGradient)');
-            path.setAttribute('stroke', '#00b8d4');
-            path.setAttribute('stroke-width', '0.8');
-            path.setAttribute('stroke-linejoin', 'miter');
-            path.setAttribute('stroke-linecap', 'butt');
-            teethGroup.appendChild(path);
-          }
-        })();
-      </script>
-      <div class="photo-wrapper">
-        <img class="profile-photo" src="/srikanth-reddy-eppa/files/Resume_image_Professional.JPG" alt="Srikanth Reddy Eppa">
+              const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+              path.setAttribute('d', pathData);
+              path.setAttribute('fill', 'url(#gearGradient)');
+              path.setAttribute('stroke', '#00b8d4');
+              path.setAttribute('stroke-width', '0.8');
+              path.setAttribute('stroke-linejoin', 'miter');
+              path.setAttribute('stroke-linecap', 'butt');
+              teethGroup.appendChild(path);
+            }
+          })();
+        </script>
+        <div class="photo-wrapper">
+          <img class="profile-photo" src="/srikanth-reddy-eppa/files/Resume_image_Professional.JPG" alt="Srikanth Reddy Eppa">
+        </div>
       </div>
     </div>
 
-    <!-- CONTENT -->
-    <div class="content-wrapper">
-      <!-- ABOUT SECTION -->
-      <section id="about" class="content-section active">
-        <h1 class="section-title">About Me</h1>
-        <div class="about-content">
-          <p class="about-text">
-            Master's student in Mechatronics & Robotics with experience in digitalization, automation, and sustainability.
-          </p>
-          <p class="about-text">
-            Skilled in Digital Twin technology, Digital Product Passports, and mechatronic system design, aiming to deliver innovative solutions aligned with industry demand.
-          </p>
-          <div class="about-meta">
-            <span class="meta-location"><i class="fas fa-map-marker-alt"></i> Stuttgart Region, Germany</span>
-          </div>
-          <div class="social-links">
-            <a href="https://github.com/Eppasrikanth57" target="_blank" rel="noopener" title="GitHub"><i class="fab fa-github"></i></a>
-            <a href="https://www.linkedin.com/in/srikanth-reddy-eppa/" target="_blank" rel="noopener" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-            <a href="mailto:eppasrikanth57@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
-          </div>
+    <!-- RIGHT SIDE - CONTENT -->
+    <!-- ABOUT SECTION -->
+    <section id="about" class="content-section active">
+      <h1 class="section-title">About Me</h1>
+      <div class="about-content">
+        <p class="about-text">
+          Master's student in Mechatronics & Robotics with experience in digitalization, automation, and sustainability.
+        </p>
+        <p class="about-text">
+          Skilled in Digital Twin technology, Digital Product Passports, and mechatronic system design, aiming to deliver innovative solutions aligned with industry demand.
+        </p>
+        <div class="about-meta">
+          <span class="meta-location"><i class="fas fa-map-marker-alt"></i> Stuttgart Region, Germany</span>
         </div>
-      </section>
+        <div class="social-links">
+          <a href="https://github.com/Eppasrikanth57" target="_blank" rel="noopener" title="GitHub"><i class="fab fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/srikanth-reddy-eppa/" target="_blank" rel="noopener" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          <a href="mailto:eppasrikanth57@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+        </div>
+      </div>
+    </section>
 
-      <!-- EXPERIENCE SECTION -->
-      <section id="experience" class="content-section">
-        <h1 class="section-title">Experience</h1>
-        <div class="job-entry">
-          <h3>Design and Prototyping of Soft Robot Arm (MASTER THESIS)</h3>
-          <p class="meta">Hochschule Schmalkalden, Germany | Feb 2025–Now</p>
-          <ul>
-            <li>Developed and optimized a Soft Robot for Industry 5.0 applications, created two prototypes using <strong>SolidWorks</strong>.</li>
-            <li>Used additive manufacturing (<strong>3D printing</strong>) to create and optimize key components.</li>
-            <li>Engineered an <strong>Arduino Mega 2560</strong> circuit to control integrated sensors and motors.</li>
-          </ul>
-        </div>
-        <div class="job-entry">
-          <h3>Working Student in Product Innovation - Design and Development</h3>
-          <p class="meta">Morgenwerk GmbH, Tamm, Germany | Sep 2024–Mar 2025</p>
-          <ul>
-            <li>Developed and prototyped a gate system for an automated vending machine using <strong>SolidWorks</strong>.</li>
-            <li>Produced technical drawings and worked on structural tube development for an <strong>AGV</strong>.</li>
-          </ul>
-        </div>
-        <div class="job-entry">
-          <h3>Engineer - Design | Intern - Design</h3>
-          <p class="meta">Regal Rexnord India Private Limited, Hyderabad, India | Feb 2020 – Aug 2022</p>
-          <ul>
-            <li>Enhanced Torsional couplings (CENTAMAX, CENTAFLEX) improving productivity using <strong>SolidWorks</strong>.</li>
-            <li>Created technical drawings per <strong>ISO/DIN/GD&T</strong> standards and BOMs in <strong>SAP</strong>.</li>
-          </ul>
-        </div>
-      </section>
+    <!-- EXPERIENCE SECTION -->
+    <section id="experience" class="content-section">
+      <h1 class="section-title">Experience</h1>
+      <div class="job-entry">
+        <h3>Design and Prototyping of Soft Robot Arm (MASTER THESIS)</h3>
+        <p class="meta">Hochschule Schmalkalden, Germany | Feb 2025–Now</p>
+        <ul>
+          <li>Developed and optimized a Soft Robot for Industry 5.0 applications, created two prototypes using <strong>SolidWorks</strong>.</li>
+          <li>Used additive manufacturing (<strong>3D printing</strong>) to create and optimize key components.</li>
+          <li>Engineered an <strong>Arduino Mega 2560</strong> circuit to control integrated sensors and motors.</li>
+        </ul>
+      </div>
+      <div class="job-entry">
+        <h3>Working Student in Product Innovation - Design and Development</h3>
+        <p class="meta">Morgenwerk GmbH, Tamm, Germany | Sep 2024–Mar 2025</p>
+        <ul>
+          <li>Developed and prototyped a gate system for an automated vending machine using <strong>SolidWorks</strong>.</li>
+          <li>Produced technical drawings and worked on structural tube development for an <strong>AGV</strong>.</li>
+        </ul>
+      </div>
+      <div class="job-entry">
+        <h3>Engineer - Design | Intern - Design</h3>
+        <p class="meta">Regal Rexnord India Private Limited, Hyderabad, India | Feb 2020 – Aug 2022</p>
+        <ul>
+          <li>Enhanced Torsional couplings (CENTAMAX, CENTAFLEX) improving productivity using <strong>SolidWorks</strong>.</li>
+          <li>Created technical drawings per <strong>ISO/DIN/GD&T</strong> standards and BOMs in <strong>SAP</strong>.</li>
+        </ul>
+      </div>
+    </section>
 
-      <!-- PROJECTS SECTION -->
-      <section id="projects" class="content-section">
-        <h1 class="section-title">Projects</h1>
-        <div class="project-entry">
-          <h3>Automated XY Pen Plotter</h3>
-          <p class="meta">Apr 2023–Jul 2023</p>
-          <ul>
-            <li>Full V-model for mechatronic systems; SolidWorks & Siemens NX for mechanical parts; integrated ESP32 firmware.</li>
-          </ul>
-        </div>
-        <div class="project-entry">
-          <h3>Thermal Energy Storage System</h3>
-          <p class="meta">Nov 2019–Aug 2020</p>
-          <ul>
-            <li>Designed insulated stainless-steel tank and improved energy efficiency, saving 10.6 kJ in six hours.</li>
-          </ul>
-        </div>
-      </section>
+    <!-- PROJECTS SECTION -->
+    <section id="projects" class="content-section">
+      <h1 class="section-title">Projects</h1>
+      <div class="project-entry">
+        <h3>Automated XY Pen Plotter</h3>
+        <p class="meta">Apr 2023–Jul 2023</p>
+        <ul>
+          <li>Full V-model for mechatronic systems; SolidWorks & Siemens NX for mechanical parts; integrated ESP32 firmware.</li>
+        </ul>
+      </div>
+      <div class="project-entry">
+        <h3>Thermal Energy Storage System</h3>
+        <p class="meta">Nov 2019–Aug 2020</p>
+        <ul>
+          <li>Designed insulated stainless-steel tank and improved energy efficiency, saving 10.6 kJ in six hours.</li>
+        </ul>
+      </div>
+    </section>
 
-      <!-- SKILLS SECTION -->
-      <section id="skills" class="content-section">
-        <h1 class="section-title">Skills</h1>
-        <div class="skills-group">
-          <h3>CAD, Analysis and Other</h3>
-          <p>SolidWorks, Ansys, PTC Creo, CATIA V5, Siemens NX, AutoCAD, Fusion, Inventor, Master CAM, PDM pro, Keytech, MS Office</p>
-        </div>
-        <div class="skills-group">
-          <h3>Technical Skills</h3>
-          <p>PLC Programming, Python, Technical Drawings, Test Automation & Measurement Analysis</p>
-        </div>
-        <div class="skills-group">
-          <h3>Soft Skills</h3>
-          <p>Communication, Team Collaboration, Analytical Thinking, Time & Budget Management</p>
-        </div>
-        <div class="skills-group">
-          <h3>Languages</h3>
-          <p>English (C1), German (A2), Telugu (Native)</p>
-        </div>
-      </section>
+    <!-- SKILLS SECTION -->
+    <section id="skills" class="content-section">
+      <h1 class="section-title">Skills</h1>
+      <div class="skills-group">
+        <h3>CAD, Analysis and Other</h3>
+        <p>SolidWorks, Ansys, PTC Creo, CATIA V5, Siemens NX, AutoCAD, Fusion, Inventor, Master CAM, PDM pro, Keytech, MS Office</p>
+      </div>
+      <div class="skills-group">
+        <h3>Technical Skills</h3>
+        <p>PLC Programming, Python, Technical Drawings, Test Automation & Measurement Analysis</p>
+      </div>
+      <div class="skills-group">
+        <h3>Soft Skills</h3>
+        <p>Communication, Team Collaboration, Analytical Thinking, Time & Budget Management</p>
+      </div>
+      <div class="skills-group">
+        <h3>Languages</h3>
+        <p>English (C1), German (A2), Telugu (Native)</p>
+      </div>
+    </section>
 
-      <!-- EDUCATION SECTION -->
-      <section id="education" class="content-section">
-        <h1 class="section-title">Education</h1>
-        <div class="edu-entry">
-          <h3>Master of Science - Mechatronics and Robotics (Grade: 2.4)</h3>
-          <p class="meta">Hochschule Schmalkalden | Oct 2022 – Present</p>
-        </div>
-        <div class="edu-entry">
-          <h3>B.Tech - Mechanical Engineering (Final grade: 1.23)</h3>
-          <p class="meta">Vidya Jyothi Institute of Technology | Jul 2017 – Aug 2020</p>
-        </div>
-      </section>
+    <!-- EDUCATION SECTION -->
+    <section id="education" class="content-section">
+      <h1 class="section-title">Education</h1>
+      <div class="edu-entry">
+        <h3>Master of Science - Mechatronics and Robotics (Grade: 2.4)</h3>
+        <p class="meta">Hochschule Schmalkalden | Oct 2022 – Present</p>
+      </div>
+      <div class="edu-entry">
+        <h3>B.Tech - Mechanical Engineering (Final grade: 1.23)</h3>
+        <p class="meta">Vidya Jyothi Institute of Technology | Jul 2017 – Aug 2020</p>
+      </div>
+    </section>
 
-      <!-- CONTACT SECTION -->
-      <section id="contact" class="content-section">
-        <h1 class="section-title">Get In Touch</h1>
-        <form id="contact-form" class="contact-form" novalidate>
-          <div class="form-row">
-            <label for="from_name">Your Name</label>
-            <input type="text" id="from_name" name="from_name" placeholder="Your name" required>
-          </div>
-          <div class="form-row">
-            <label for="reply_to">Your Email</label>
-            <input type="email" id="reply_to" name="reply_to" placeholder="name@company.com" required>
-          </div>
-          <div class="form-row">
-            <label for="subject">Subject</label>
-            <input type="text" id="subject" name="subject" placeholder="Subject" required>
-          </div>
-          <div class="form-row">
-            <label for="message">Message</label>
-            <textarea id="message" name="message" rows="6" placeholder="Write your message..." required></textarea>
-          </div>
-          <button id="contact-submit" type="submit" class="btn-send">
-            <i class="fas fa-paper-plane"></i>
-            <span>Send Message</span>
-          </button>
-        </form>
-        <p id="form-status" class="form-status" aria-live="polite"></p>
-      </section>
-    </div>
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="content-section">
+      <h1 class="section-title">Get In Touch</h1>
+      <form id="contact-form" class="contact-form" novalidate>
+        <div class="form-row">
+          <label for="from_name">Your Name</label>
+          <input type="text" id="from_name" name="from_name" placeholder="Your name" required>
+        </div>
+        <div class="form-row">
+          <label for="reply_to">Your Email</label>
+          <input type="email" id="reply_to" name="reply_to" placeholder="name@company.com" required>
+        </div>
+        <div class="form-row">
+          <label for="subject">Subject</label>
+          <input type="text" id="subject" name="subject" placeholder="Subject" required>
+        </div>
+        <div class="form-row">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="6" placeholder="Write your message..." required></textarea>
+        </div>
+        <button id="contact-submit" type="submit" class="btn-send">
+          <i class="fas fa-paper-plane"></i>
+          <span>Send Message</span>
+        </button>
+      </form>
+      <p id="form-status" class="form-status" aria-live="polite"></p>
+    </section>
   </div>
 
   <footer>
@@ -576,14 +575,13 @@
   <script>
     (function() {
       const gearWheel = document.querySelector('.gear-wheel');
-      const contentWrapper = document.querySelector('.content-wrapper');
       const sections = [
         { id: 'about', rotation: 0 },
-        { id: 'experience', rotation: 54 },
-        { id: 'projects', rotation: 108 },
-        { id: 'skills', rotation: 162 },
-        { id: 'education', rotation: 216 },
-        { id: 'contact', rotation: 270 }
+        { id: 'experience', rotation: 30 },
+        { id: 'projects', rotation: 60 },
+        { id: 'skills', rotation: 90 },
+        { id: 'education', rotation: 120 },
+        { id: 'contact', rotation: 150 }
       ];
 
       let currentSectionIndex = 0;
@@ -607,15 +605,6 @@
 
         setTimeout(() => { isTransitioning = false; }, 600);
       }
-
-      contentWrapper.addEventListener('wheel', (e) => {
-        e.preventDefault();
-        if (e.deltaY > 0) {
-          showSection((currentSectionIndex + 1) % sections.length);
-        } else {
-          showSection((currentSectionIndex - 1 + sections.length) % sections.length);
-        }
-      }, { passive: false });
 
       document.querySelectorAll('.nav-link').forEach(link => {
         link.addEventListener('click', (e) => {

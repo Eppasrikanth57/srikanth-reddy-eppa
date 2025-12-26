@@ -34,6 +34,7 @@
       position: relative;
       z-index: 100;
       text-align: center;
+      flex-shrink: 0;
     }
 
     .site-header-inner {
@@ -93,7 +94,7 @@
       display: flex;
       align-items: center;
       justify-content: flex-start;
-      padding: 10px 10px 10px 30px;
+      padding: 20px 10px 20px 30px;
       overflow: hidden;
       background: #0a0e27;
     }
@@ -142,23 +143,21 @@
       flex-direction: column;
       overflow: hidden;
       background: #0a0e27;
-      justify-content: center;
-      align-items: center;
     }
 
     .content-section {
       width: 100%;
-      max-width: 90%;
-      max-height: 85vh;
-      padding: 40px 60px;
+      height: 100%;
+      padding: 50px 80px;
       opacity: 0;
       visibility: hidden;
       transform: translateX(40px);
       transition: opacity 0.6s ease, visibility 0.6s ease, transform 0.6s ease;
-      overflow: hidden;
+      overflow-y: auto;
+      overflow-x: hidden;
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: flex-start;
     }
 
     .content-section.active {
@@ -167,31 +166,50 @@
       transform: translateX(0);
     }
 
+    .content-section::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .content-section::-webkit-scrollbar-track {
+      background: rgba(0, 212, 255, 0.05);
+    }
+
+    .content-section::-webkit-scrollbar-thumb {
+      background: rgba(0, 212, 255, 0.3);
+      border-radius: 3px;
+    }
+
+    .content-section::-webkit-scrollbar-thumb:hover {
+      background: rgba(0, 212, 255, 0.5);
+    }
+
     .section-title {
       font-size: 56px;
       font-weight: 800;
       color: #00d4ff;
-      margin-bottom: 45px;
+      margin-bottom: 50px;
       letter-spacing: 0.3px;
       text-shadow: 0 0 15px rgba(0, 212, 255, 0.15);
+      flex-shrink: 0;
     }
 
     .about-content {
       display: flex;
       flex-direction: column;
-      gap: 28px;
+      gap: 32px;
     }
 
     .about-text {
       font-size: 16px;
-      line-height: 1.85;
+      line-height: 1.9;
       color: #d0d0d0;
-      text-align: justify;
+      text-align: left;
       letter-spacing: 0.3px;
+      margin: 0;
     }
 
     .about-meta {
-      margin-top: 28px;
+      margin-top: 32px;
       font-size: 14px;
       color: #00d4ff;
     }
@@ -230,17 +248,19 @@
     }
 
     .job-entry, .project-entry, .edu-entry, .skills-group {
-      margin-bottom: 28px;
-      padding: 20px;
+      margin-bottom: 32px;
+      padding: 24px;
       background: rgba(0, 212, 255, 0.04);
-      border-left: 5px solid #00d4ff;
+      border-left: 6px solid #00d4ff;
       border-radius: 4px;
+      display: block;
     }
 
     .job-entry h3, .project-entry h3, .edu-entry h3, .skills-group h3 {
       font-size: 17px;
       color: #00d4ff;
       margin-bottom: 8px;
+      margin-top: 0;
       font-weight: 700;
       letter-spacing: 0.2px;
     }
@@ -248,7 +268,7 @@
     .meta {
       font-size: 12px;
       color: #999;
-      margin-bottom: 14px;
+      margin: 8px 0 16px 0;
       font-style: italic;
       letter-spacing: 0.3px;
     }
@@ -256,49 +276,58 @@
     .job-entry ul, .project-entry ul {
       list-style: none;
       padding-left: 0;
+      margin: 0;
     }
 
     .job-entry li, .project-entry li {
       font-size: 14px;
       color: #d0d0d0;
-      margin-bottom: 10px;
+      margin: 0 0 12px 0;
       line-height: 1.7;
       position: relative;
-      padding-left: 16px;
+      padding-left: 18px;
       letter-spacing: 0.2px;
+      text-align: left;
+    }
+
+    .job-entry li:last-child, .project-entry li:last-child {
+      margin-bottom: 0;
     }
 
     .job-entry li:before, .project-entry li:before {
-      content: "\25b8";
+      content: "•";
       position: absolute;
       left: 0;
       color: #00d4ff;
-      font-size: 12px;
+      font-size: 14px;
+      font-weight: bold;
     }
 
     .skills-group p {
       font-size: 14px;
       color: #d0d0d0;
-      line-height: 1.7;
-      margin-bottom: 10px;
+      line-height: 1.8;
+      margin: 0;
       letter-spacing: 0.2px;
+      text-align: left;
     }
 
     .contact-form {
       display: flex;
       flex-direction: column;
-      gap: 20px;
+      gap: 24px;
       background: rgba(0, 50, 68, 0.3);
-      padding: 32px;
+      padding: 40px;
       border-radius: 8px;
       border: 1px solid rgba(0, 212, 255, 0.2);
-      max-width: 520px;
+      max-width: 600px;
+      margin-top: 20px;
     }
 
     .form-row {
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 12px;
     }
 
     .form-row label {
@@ -311,7 +340,7 @@
 
     .form-row input,
     .form-row textarea {
-      padding: 12px 16px;
+      padding: 14px 18px;
       background: rgba(0, 0, 0, 0.3);
       border: 1px solid rgba(0, 212, 255, 0.2);
       border-radius: 6px;
@@ -336,7 +365,7 @@
     }
 
     .btn-send {
-      padding: 12px 32px;
+      padding: 14px 36px;
       background: linear-gradient(135deg, #00d4ff, #00a8c4);
       border: none;
       border-radius: 6px;
@@ -345,11 +374,10 @@
       font-size: 13px;
       cursor: pointer;
       transition: all 0.3s ease;
-      display: flex;
+      display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 10px;
-      align-self: flex-start;
       margin-top: 12px;
       text-transform: uppercase;
       letter-spacing: 0.5px;
@@ -592,12 +620,12 @@
         <div class="edu-entry">
           <h3>Master of Science - Mechatronics and Robotics</h3>
           <p class="meta">Hochschule Schmalkalden | Oct 2022–Present</p>
-          <p style="font-size: 14px; color: #d0d0d0; margin-top: 8px;">Grade: 2.4 | Focus: Digital Twin, Industry 5.0</p>
+          <p style="font-size: 14px; color: #d0d0d0; margin: 0; text-align: left;">Grade: 2.4 | Focus: Digital Twin, Industry 5.0</p>
         </div>
         <div class="edu-entry">
           <h3>B.Tech - Mechanical Engineering</h3>
           <p class="meta">Vidya Jyothi Institute | Jul 2017–Aug 2020</p>
-          <p style="font-size: 14px; color: #d0d0d0; margin-top: 8px;">Grade: 1.23 | Coursework: CAD, Thermodynamics, Machine Design</p>
+          <p style="font-size: 14px; color: #d0d0d0; margin: 0; text-align: left;">Grade: 1.23 | Coursework: CAD, Thermodynamics, Machine Design</p>
         </div>
       </section>
 

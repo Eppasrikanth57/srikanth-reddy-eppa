@@ -124,14 +124,14 @@
 
     .photo-wrapper {
       position: absolute;
-      top: 50%;
+      top: 42%;
       left: 50%;
-      width: 240px;
-      height: 240px;
+      width: 280px;
+      height: 280px;
       transform: translate(-50%, -50%);
       border-radius: 50%;
       overflow: hidden;
-      border: 8px solid #00d4ff;
+      border: 10px solid #00d4ff;
       box-shadow: 0 0 60px rgba(0, 212, 255, 1), inset 0 0 30px rgba(0, 212, 255, 0.6);
       background: #1a3a4a;
       z-index: 10;
@@ -141,6 +141,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      object-position: center 20%;
       display: block;
     }
 
@@ -426,101 +427,56 @@
   </header>
 
   <div class="main-wrapper">
-    <!-- LEFT SIDE - LARGE GEAR WITH PHOTO -->
+    <!-- LEFT SIDE - PROPER GEAR WITH PHOTO -->
     <div class="gear-section">
       <div class="gear-container">
         <svg class="gear-wheel" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
           <defs>
-            <filter id="gearShadow" x="-50%" y="-50%" width="200%" height="200%">
-              <feDropShadow dx="0" dy="8" stdDeviation="10" flood-opacity="0.9" flood-color="#00d4ff"/>
+            <filter id="gearGlow" x="-50%" y="-50%" width="200%" height="200%">
+              <feGaussianBlur in="SourceGraphic" stdDeviation="3" />
             </filter>
-            <linearGradient id="outerGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" style="stop-color:#00f5ff;stop-opacity:1" />
-              <stop offset="50%" style="stop-color:#00d4ff;stop-opacity:1" />
-              <stop offset="100%" style="stop-color:#0088c0;stop-opacity:1" />
-            </linearGradient>
-            <linearGradient id="innerGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <radialGradient id="gearGradient" cx="50%" cy="50%" r="50%">
               <stop offset="0%" style="stop-color:#1a5f7a;stop-opacity:1" />
               <stop offset="100%" style="stop-color:#0d3a52;stop-opacity:1" />
-            </linearGradient>
+            </radialGradient>
           </defs>
           
-          <!-- Outer glow circle -->
-          <circle cx="300" cy="300" r="290" fill="none" stroke="rgba(0, 212, 255, 0.2)" stroke-width="2" filter="url(#gearShadow)"/>
+          <!-- Main gear body -->
+          <circle cx="300" cy="300" r="200" fill="url(#gearGradient)" stroke="#00d4ff" stroke-width="2"/>
           
-          <!-- Gear teeth group -->
-          <g id="teeth-group" filter="url(#gearShadow)"></g>
+          <!-- Teeth -->
+          <g id="teeth" stroke="#00d4ff" stroke-width="1.5" fill="#0d3a52" filter="url(#gearGlow)">
+            <!-- Tooth 1 -->
+            <rect x="275" y="80" width="50" height="60" rx="3"/>
+            <!-- Tooth 2 -->
+            <rect x="308" y="95" width="50" height="60" rx="3" transform="rotate(30 333 125)"/>
+            <!-- Tooth 3 -->
+            <rect x="308" y="95" width="50" height="60" rx="3" transform="rotate(60 333 125)"/>
+            <!-- Tooth 4 -->
+            <rect x="275" y="80" width="50" height="60" rx="3" transform="rotate(90 300 300)"/>
+            <!-- Tooth 5 -->
+            <rect x="275" y="80" width="50" height="60" rx="3" transform="rotate(120 300 300)"/>
+            <!-- Tooth 6 -->
+            <rect x="275" y="80" width="50" height="60" rx="3" transform="rotate(150 300 300)"/>
+            <!-- Tooth 7 -->
+            <rect x="275" y="80" width="50" height="60" rx="3" transform="rotate(180 300 300)"/>
+            <!-- Tooth 8 -->
+            <rect x="275" y="80" width="50" height="60" rx="3" transform="rotate(210 300 300)"/>
+            <!-- Tooth 9 -->
+            <rect x="275" y="80" width="50" height="60" rx="3" transform="rotate(240 300 300)"/>
+            <!-- Tooth 10 -->
+            <rect x="275" y="80" width="50" height="60" rx="3" transform="rotate(270 300 300)"/>
+            <!-- Tooth 11 -->
+            <rect x="275" y="80" width="50" height="60" rx="3" transform="rotate(300 300 300)"/>
+            <!-- Tooth 12 -->
+            <rect x="275" y="80" width="50" height="60" rx="3" transform="rotate(330 300 300)"/>
+          </g>
           
-          <!-- Outer ring -->
-          <circle cx="300" cy="300" r="220" fill="none" stroke="#00d4ff" stroke-width="3" opacity="0.8"/>
-          
-          <!-- Inner darker ring -->
-          <circle cx="300" cy="300" r="190" fill="url(#innerGradient)" stroke="#00a8c4" stroke-width="2" opacity="0.9"/>
-          
-          <!-- Center hole -->
-          <circle cx="300" cy="300" r="100" fill="#0a1a2e" stroke="#00d4ff" stroke-width="2"/>
-          <circle cx="300" cy="300" r="95" fill="#1a3a4a" stroke="#00a8c4" stroke-width="1"/>
+          <!-- Inner circle -->
+          <circle cx="300" cy="300" r="120" fill="#1a3a4a" stroke="#00d4ff" stroke-width="2"/>
+          <!-- Center dot -->
+          <circle cx="300" cy="300" r="25" fill="#0a0e27" stroke="#00d4ff" stroke-width="2"/>
         </svg>
-        <script>
-          (function() {
-            const svg = document.querySelector('.gear-wheel');
-            const teethGroup = svg.querySelector('#teeth-group');
-            
-            const numTeeth = 20;
-            const centerX = 300;
-            const centerY = 300;
-            const baseRadius = 220;
-            const toothHeight = 85;
-            const toothWidth = 18;
-            const outerRadius = baseRadius + toothHeight;
-            
-            for (let i = 0; i < numTeeth; i++) {
-              const angle = (i * 360) / numTeeth;
-              const angleRad = (angle * Math.PI) / 180;
-              const toothSpacing = 360 / numTeeth;
-              const halfSpacing = toothSpacing / 2.2;
-              const halfSpacingRad = (halfSpacing * Math.PI) / 180;
-              
-              // Outer tooth points
-              const tipAngleRad = angleRad;
-              const tipX = centerX + outerRadius * Math.cos(tipAngleRad);
-              const tipY = centerY + outerRadius * Math.sin(tipAngleRad);
-              
-              // Left side of tooth
-              const leftAngleRad = angleRad - halfSpacingRad;
-              const leftBaseX = centerX + baseRadius * Math.cos(leftAngleRad);
-              const leftBaseY = centerY + baseRadius * Math.sin(leftAngleRad);
-              const leftTipX = centerX + (outerRadius - 15) * Math.cos(leftAngleRad);
-              const leftTipY = centerY + (outerRadius - 15) * Math.sin(leftAngleRad);
-              
-              // Right side of tooth
-              const rightAngleRad = angleRad + halfSpacingRad;
-              const rightBaseX = centerX + baseRadius * Math.cos(rightAngleRad);
-              const rightBaseY = centerY + baseRadius * Math.sin(rightAngleRad);
-              const rightTipX = centerX + (outerRadius - 15) * Math.cos(rightAngleRad);
-              const rightTipY = centerY + (outerRadius - 15) * Math.sin(rightAngleRad);
-              
-              const pathData = `
-                M ${leftBaseX} ${leftBaseY}
-                L ${leftTipX} ${leftTipY}
-                L ${tipX} ${tipY}
-                L ${rightTipX} ${rightTipY}
-                L ${rightBaseX} ${rightBaseY}
-                L ${centerX + (baseRadius - 10) * Math.cos(angleRad)} ${centerY + (baseRadius - 10) * Math.sin(angleRad)}
-                Z
-              `;
-              
-              const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-              path.setAttribute('d', pathData);
-              path.setAttribute('fill', 'url(#outerGradient)');
-              path.setAttribute('stroke', '#00e8ff');
-              path.setAttribute('stroke-width', '1');
-              path.setAttribute('stroke-linejoin', 'round');
-              path.setAttribute('stroke-linecap', 'round');
-              teethGroup.appendChild(path);
-            }
-          })();
-        </script>
         
         <!-- Photo wrapper -->
         <div class="photo-wrapper">

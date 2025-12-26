@@ -28,7 +28,7 @@
       </div>
 
       <nav class="nav-center" aria-label="Main navigation">
-        <a href="#" class="nav-link" data-section="about">Home</a>
+        <a href="#" class="nav-link" data-section="about">About Me</a>
         <a href="#" class="nav-link" data-section="experience">Experience</a>
         <a href="#" class="nav-link" data-section="projects">Projects</a>
         <a href="#" class="nav-link" data-section="skills">Skills</a>
@@ -37,7 +37,6 @@
       </nav>
 
       <div class="nav-right">
-        <span class="mode-indicator">Dark Mode</span>
       </div>
     </div>
   </header>
@@ -62,35 +61,58 @@
             </filter>
           </defs>
 
-          <!-- Outer ring (main gear body) -->
-          <circle cx="250" cy="250" r="240" fill="#1a3a4a" stroke="#00d4ff" stroke-width="2" filter="url(#gearShadow)"/>
-          
-          <!-- Gear teeth (12 teeth) -->
-          <g fill="#2d5a6f" stroke="#00b8d4" stroke-width="1">
+          <!-- Outer ring with teeth (main gear body) -->
+          <g filter="url(#gearShadow)">
+            <!-- Gear teeth (12 distinct teeth) -->
             <!-- Tooth 1 (top) -->
-            <polygon points="250,30 290,50 290,90 250,70" />
-            <!-- Tooth 2 (30deg) -->
-            <polygon points="333,60 370,95 355,130 318,95" />
-            <!-- Tooth 3 (60deg) -->
-            <polygon points="383,136 420,155 410,195 373,176" />
-            <!-- Tooth 4 (90deg) -->
-            <polygon points="410,250 430,290 390,290 370,250" />
-            <!-- Tooth 5 (120deg) -->
-            <polygon points="383,364 420,345 410,385 373,404" />
-            <!-- Tooth 6 (150deg) -->
-            <polygon points="333,440 370,405 355,370 318,405" />
-            <!-- Tooth 7 (180deg) -->
-            <polygon points="250,470 290,450 290,410 250,430" />
-            <!-- Tooth 8 (210deg) -->
-            <polygon points="167,440 130,405 145,370 182,405" />
-            <!-- Tooth 9 (240deg) -->
-            <polygon points="117,364 80,345 90,385 127,404" />
-            <!-- Tooth 10 (270deg) -->
-            <polygon points="90,250 70,290 110,290 130,250" />
-            <!-- Tooth 11 (300deg) -->
-            <polygon points="117,136 80,155 90,195 127,176" />
-            <!-- Tooth 12 (330deg) -->
-            <polygon points="167,60 130,95 145,130 182,95" />
+            <rect x="235" y="15" width="30" height="50" fill="#00d4ff" rx="2"/>
+            <!-- Tooth 2 (30 degrees) -->
+            <g transform="rotate(30 250 250)">
+              <rect x="235" y="15" width="30" height="50" fill="#00d4ff" rx="2"/>
+            </g>
+            <!-- Tooth 3 (60 degrees) -->
+            <g transform="rotate(60 250 250)">
+              <rect x="235" y="15" width="30" height="50" fill="#00d4ff" rx="2"/>
+            </g>
+            <!-- Tooth 4 (90 degrees) -->
+            <g transform="rotate(90 250 250)">
+              <rect x="235" y="15" width="30" height="50" fill="#00d4ff" rx="2"/>
+            </g>
+            <!-- Tooth 5 (120 degrees) -->
+            <g transform="rotate(120 250 250)">
+              <rect x="235" y="15" width="30" height="50" fill="#00d4ff" rx="2"/>
+            </g>
+            <!-- Tooth 6 (150 degrees) -->
+            <g transform="rotate(150 250 250)">
+              <rect x="235" y="15" width="30" height="50" fill="#00d4ff" rx="2"/>
+            </g>
+            <!-- Tooth 7 (180 degrees) -->
+            <g transform="rotate(180 250 250)">
+              <rect x="235" y="15" width="30" height="50" fill="#00d4ff" rx="2"/>
+            </g>
+            <!-- Tooth 8 (210 degrees) -->
+            <g transform="rotate(210 250 250)">
+              <rect x="235" y="15" width="30" height="50" fill="#00d4ff" rx="2"/>
+            </g>
+            <!-- Tooth 9 (240 degrees) -->
+            <g transform="rotate(240 250 250)">
+              <rect x="235" y="15" width="30" height="50" fill="#00d4ff" rx="2"/>
+            </g>
+            <!-- Tooth 10 (270 degrees) -->
+            <g transform="rotate(270 250 250)">
+              <rect x="235" y="15" width="30" height="50" fill="#00d4ff" rx="2"/>
+            </g>
+            <!-- Tooth 11 (300 degrees) -->
+            <g transform="rotate(300 250 250)">
+              <rect x="235" y="15" width="30" height="50" fill="#00d4ff" rx="2"/>
+            </g>
+            <!-- Tooth 12 (330 degrees) -->
+            <g transform="rotate(330 250 250)">
+              <rect x="235" y="15" width="30" height="50" fill="#00d4ff" rx="2"/>
+            </g>
+
+            <!-- Main gear body circle -->
+            <circle cx="250" cy="250" r="210" fill="#1a3a4a" stroke="#00d4ff" stroke-width="3"/>
           </g>
 
           <!-- Inner metallic ring -->

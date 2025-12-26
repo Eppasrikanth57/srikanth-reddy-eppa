@@ -34,7 +34,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      max-width: 1200px;
+      max-width: 1400px;
       margin: 0 auto;
     }
 
@@ -69,23 +69,18 @@
       display: flex;
       height: calc(100vh - 70px);
       overflow: hidden;
-    }
-
-    .gear-section {
-      flex: 0 0 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 60px 40px;
-      background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
-      border-right: 1px solid rgba(0, 212, 255, 0.1);
       position: relative;
     }
 
-    .gear-container {
-      width: 400px;
-      height: 400px;
-      position: relative;
+    .gear-overlay {
+      position: absolute;
+      top: 50%;
+      left: 80px;
+      transform: translateY(-50%);
+      width: 280px;
+      height: 280px;
+      z-index: 5;
+      pointer-events: none;
     }
 
     .gear-wheel {
@@ -99,13 +94,13 @@
       position: absolute;
       top: 50%;
       left: 50%;
-      width: 160px;
-      height: 160px;
+      width: 130px;
+      height: 130px;
       transform: translate(-50%, -50%);
       border-radius: 50%;
       overflow: hidden;
-      border: 4px solid #00d4ff;
-      box-shadow: 0 0 30px rgba(0, 212, 255, 0.6), inset 0 0 15px rgba(0, 212, 255, 0.2);
+      border: 3px solid #00d4ff;
+      box-shadow: 0 0 25px rgba(0, 212, 255, 0.6), inset 0 0 12px rgba(0, 212, 255, 0.2);
       background: #1a3a4a;
       z-index: 10;
     }
@@ -117,12 +112,19 @@
       display: block;
     }
 
-    .content-section {
-      flex: 1;
+    .content-wrapper {
+      width: 100%;
+      height: 100%;
       overflow-y: auto;
-      padding: 60px 50px;
+      padding: 60px 80px;
+      padding-left: 380px;
+    }
+
+    .content-section {
+      min-height: 100%;
       display: none;
       animation: fadeIn 0.6s ease-in-out;
+      padding-bottom: 60px;
     }
 
     .content-section.active {
@@ -244,6 +246,7 @@
       padding: 30px;
       border-radius: 8px;
       border: 1px solid rgba(0, 212, 255, 0.1);
+      max-width: 500px;
     }
 
     .form-row {
@@ -350,84 +353,88 @@
   </header>
 
   <div class="main-wrapper">
-    <div class="gear-section">
-      <div class="gear-container">
-        <svg class="gear-wheel" viewBox="0 0 520 520" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <filter id="gearShadow">
-              <feDropShadow dx="0" dy="4" stdDeviation="4" flood-opacity="0.7" flood-color="#000000"/>
-            </filter>
-            <linearGradient id="gearGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" style="stop-color:#00f0ff;stop-opacity:1" />
-              <stop offset="50%" style="stop-color:#00d4ff;stop-opacity:1" />
-              <stop offset="100%" style="stop-color:#0088c0;stop-opacity:1" />
-            </linearGradient>
-          </defs>
-          <circle cx="260" cy="260" r="250" fill="#0a1a2e" stroke="#00d4ff" stroke-width="2" opacity="0.5" filter="url(#gearShadow)"/>
-          <g id="teeth" filter="url(#gearShadow)"></g>
-          <circle cx="260" cy="260" r="170" fill="#1a3a4a" stroke="#00d4ff" stroke-width="2.5"/>
-          <circle cx="260" cy="260" r="155" fill="none" stroke="#00a8c4" stroke-width="1.5" opacity="0.6"/>
-          <circle cx="260" cy="260" r="145" fill="none" stroke="#00d4ff" stroke-width="0.8" opacity="0.3" stroke-dasharray="3,2"/>
-          <circle cx="260" cy="260" r="80" fill="#1a3a4a" stroke="#00d4ff" stroke-width="3"/>
-          <circle cx="260" cy="260" r="76" fill="#2d5a6f" stroke="#00a8c4" stroke-width="1.5"/>
-          <ellipse cx="260" cy="250" rx="70" ry="64" fill="#00e8ff" opacity="0.12"/>
-        </svg>
-        <script>
-          (function() {
-            const svg = document.querySelector('.gear-wheel');
-            const teethGroup = svg.querySelector('#teeth');
-            const numTeeth = 20;
-            const centerX = 260;
-            const centerY = 260;
-            const baseRadius = 170;
-            const toothHeight = 50;
-            const outerRadius = baseRadius + toothHeight;
+    <!-- SPUR GEAR OVERLAY -->
+    <div class="gear-overlay">
+      <svg class="gear-wheel" viewBox="0 0 520 520" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <filter id="gearShadow">
+            <feDropShadow dx="0" dy="4" stdDeviation="4" flood-opacity="0.7" flood-color="#000000"/>
+          </filter>
+          <linearGradient id="gearGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#00f0ff;stop-opacity:1" />
+            <stop offset="50%" style="stop-color:#00d4ff;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#0088c0;stop-opacity:1" />
+          </linearGradient>
+        </defs>
+        <!-- Outer ring -->
+        <circle cx="260" cy="260" r="250" fill="#0a1a2e" stroke="#00d4ff" stroke-width="2" opacity="0.5" filter="url(#gearShadow)"/>
+        <!-- Teeth group -->
+        <g id="teeth" filter="url(#gearShadow)"></g>
+        <!-- Main gear body -->
+        <circle cx="260" cy="260" r="170" fill="#1a3a4a" stroke="#00d4ff" stroke-width="2.5"/>
+        <circle cx="260" cy="260" r="155" fill="none" stroke="#00a8c4" stroke-width="1.5" opacity="0.6"/>
+        <circle cx="260" cy="260" r="145" fill="none" stroke="#00d4ff" stroke-width="0.8" opacity="0.3" stroke-dasharray="3,2"/>
+        <!-- Center boss -->
+        <circle cx="260" cy="260" r="75" fill="#1a3a4a" stroke="#00d4ff" stroke-width="2.5"/>
+        <circle cx="260" cy="260" r="70" fill="#2d5a6f" stroke="#00a8c4" stroke-width="1"/>
+        <ellipse cx="260" cy="250" rx="65" ry="60" fill="#00e8ff" opacity="0.12"/>
+      </svg>
+      <script>
+        (function() {
+          const svg = document.querySelector('.gear-wheel');
+          const teethGroup = svg.querySelector('#teeth');
+          const numTeeth = 20;
+          const centerX = 260;
+          const centerY = 260;
+          const baseRadius = 170;
+          const toothHeight = 50;
+          const outerRadius = baseRadius + toothHeight;
 
-            for (let i = 0; i < numTeeth; i++) {
-              const angle = (i * 360) / numTeeth;
-              const angleRad = (angle * Math.PI) / 180;
-              const toothSpacing = 360 / numTeeth;
-              const halfSpacing = toothSpacing / 2;
-              const halfSpacingRad = (halfSpacing * Math.PI) / 180;
+          for (let i = 0; i < numTeeth; i++) {
+            const angle = (i * 360) / numTeeth;
+            const angleRad = (angle * Math.PI) / 180;
+            const toothSpacing = 360 / numTeeth;
+            const halfSpacing = toothSpacing / 2;
+            const halfSpacingRad = (halfSpacing * Math.PI) / 180;
 
-              const leftAngleRad = angleRad - halfSpacingRad;
-              const leftBaseX = centerX + baseRadius * Math.cos(leftAngleRad);
-              const leftBaseY = centerY + baseRadius * Math.sin(leftAngleRad);
-              const leftTipX = centerX + outerRadius * Math.cos(leftAngleRad);
-              const leftTipY = centerY + outerRadius * Math.sin(leftAngleRad);
+            const leftAngleRad = angleRad - halfSpacingRad;
+            const leftBaseX = centerX + baseRadius * Math.cos(leftAngleRad);
+            const leftBaseY = centerY + baseRadius * Math.sin(leftAngleRad);
+            const leftTipX = centerX + outerRadius * Math.cos(leftAngleRad);
+            const leftTipY = centerY + outerRadius * Math.sin(leftAngleRad);
 
-              const rightAngleRad = angleRad + halfSpacingRad;
-              const rightBaseX = centerX + baseRadius * Math.cos(rightAngleRad);
-              const rightBaseY = centerY + baseRadius * Math.sin(rightAngleRad);
-              const rightTipX = centerX + outerRadius * Math.cos(rightAngleRad);
-              const rightTipY = centerY + outerRadius * Math.sin(rightAngleRad);
+            const rightAngleRad = angleRad + halfSpacingRad;
+            const rightBaseX = centerX + baseRadius * Math.cos(rightAngleRad);
+            const rightBaseY = centerY + baseRadius * Math.sin(rightAngleRad);
+            const rightTipX = centerX + outerRadius * Math.cos(rightAngleRad);
+            const rightTipY = centerY + outerRadius * Math.sin(rightAngleRad);
 
-              const pathData = `
-                M ${leftBaseX} ${leftBaseY}
-                L ${leftTipX} ${leftTipY}
-                L ${rightTipX} ${rightTipY}
-                L ${rightBaseX} ${rightBaseY}
-                Z
-              `;
+            const pathData = `
+              M ${leftBaseX} ${leftBaseY}
+              L ${leftTipX} ${leftTipY}
+              L ${rightTipX} ${rightTipY}
+              L ${rightBaseX} ${rightBaseY}
+              Z
+            `;
 
-              const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-              path.setAttribute('d', pathData);
-              path.setAttribute('fill', 'url(#gearGradient)');
-              path.setAttribute('stroke', '#00b8d4');
-              path.setAttribute('stroke-width', '0.8');
-              path.setAttribute('stroke-linejoin', 'miter');
-              path.setAttribute('stroke-linecap', 'butt');
-              teethGroup.appendChild(path);
-            }
-          })();
-        </script>
-        <div class="photo-wrapper">
-          <img class="profile-photo" src="/srikanth-reddy-eppa/files/Resume_image_Professional.JPG" alt="Srikanth Reddy Eppa">
-        </div>
+            const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+            path.setAttribute('d', pathData);
+            path.setAttribute('fill', 'url(#gearGradient)');
+            path.setAttribute('stroke', '#00b8d4');
+            path.setAttribute('stroke-width', '0.8');
+            path.setAttribute('stroke-linejoin', 'miter');
+            path.setAttribute('stroke-linecap', 'butt');
+            teethGroup.appendChild(path);
+          }
+        })();
+      </script>
+      <div class="photo-wrapper">
+        <img class="profile-photo" src="/srikanth-reddy-eppa/files/Resume_image_Professional.JPG" alt="Srikanth Reddy Eppa">
       </div>
     </div>
 
-    <div class="content-area">
+    <!-- CONTENT -->
+    <div class="content-wrapper">
       <!-- ABOUT SECTION -->
       <section id="about" class="content-section active">
         <h1 class="section-title">About Me</h1>
@@ -569,7 +576,7 @@
   <script>
     (function() {
       const gearWheel = document.querySelector('.gear-wheel');
-      const contentArea = document.querySelector('.content-area');
+      const contentWrapper = document.querySelector('.content-wrapper');
       const sections = [
         { id: 'about', rotation: 0 },
         { id: 'experience', rotation: 54 },
@@ -586,15 +593,11 @@
         if (isTransitioning || currentSectionIndex === index) return;
         isTransitioning = true;
 
-        // Hide current section
         document.getElementById(sections[currentSectionIndex].id).classList.remove('active');
-
-        // Show new section
         currentSectionIndex = index;
         document.getElementById(sections[index].id).classList.add('active');
         gearWheel.style.transform = `rotate(${sections[index].rotation}deg)`;
 
-        // Update nav links
         document.querySelectorAll('.nav-link').forEach(link => {
           link.classList.remove('active');
           if (link.getAttribute('data-section') === sections[index].id) {
@@ -605,9 +608,7 @@
         setTimeout(() => { isTransitioning = false; }, 600);
       }
 
-      // Scroll on gear wheel area
-      const gearSection = document.querySelector('.gear-section');
-      gearSection.addEventListener('wheel', (e) => {
+      contentWrapper.addEventListener('wheel', (e) => {
         e.preventDefault();
         if (e.deltaY > 0) {
           showSection((currentSectionIndex + 1) % sections.length);
@@ -616,7 +617,6 @@
         }
       }, { passive: false });
 
-      // Nav links
       document.querySelectorAll('.nav-link').forEach(link => {
         link.addEventListener('click', (e) => {
           e.preventDefault();

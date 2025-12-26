@@ -61,21 +61,13 @@
             </filter>
           </defs>
 
-          <!-- Dedendum circle (root) - smaller -->
-          <circle cx="250" cy="250" r="130" fill="none" stroke="#00a8c4" stroke-width="1" opacity="0.2" stroke-dasharray="2,2"/>
-          
-          <!-- Main gear body -->
-          <g filter="url(#gearShadow)">
-            <circle cx="250" cy="250" r="160" fill="#1a3a4a" stroke="#00d4ff" stroke-width="2"/>
-          </g>
+          <!-- Main gear body circle -->
+          <circle cx="250" cy="250" r="160" fill="#1a3a4a" stroke="#00d4ff" stroke-width="2" filter="url(#gearShadow)"/>
 
-          <!-- Generate 48 teeth dynamically with proper addendum/dedendum profile -->
-          <g id="teeth">
-            <!-- SVG will have teeth generated via the script below -->
+          <!-- Generate 26 tapered teeth with fillets -->
+          <g id="teeth" filter="url(#gearShadow)">
+            <!-- SVG teeth will be generated via script -->
           </g>
-
-          <!-- Addendum circle (outer) - larger -->
-          <circle cx="250" cy="250" r="195" fill="none" stroke="#00d4ff" stroke-width="2" opacity="0.6"/>
 
           <!-- Pitch circle -->
           <circle cx="250" cy="250" r="160" fill="none" stroke="#00e8ff" stroke-width="1" opacity="0.3" stroke-dasharray="3,3"/>
@@ -88,73 +80,67 @@
           <ellipse cx="250" cy="240" rx="55" ry="50" fill="#00e8ff" opacity="0.15"/>
         </svg>
         <script>
-          // Generate 48 gear teeth with proper involute profile
+          // Generate 26 tapered teeth with rounded fillets
           (function() {
             const svg = document.querySelector('.gear-wheel');
             const teethGroup = svg.querySelector('#teeth');
-            const numTeeth = 48;
+            const numTeeth = 26;
             const pitchRadius = 160;
-            const addendumRadius = 195;  // Increased
-            const dedendumRadius = 130;  // Decreased
-            const toothWidth = 8;  // Width at pitch circle
+            const outerRadius = 190;   // Top of tooth
+            const innerRadius = 135;   // Root of tooth
             const center = 250;
 
-            // Create teeth
             for (let i = 0; i < numTeeth; i++) {
               const angle = (i * 360) / numTeeth;
               const angleRad = (angle * Math.PI) / 180;
+              const toothAngle = (360 / numTeeth) * 0.5;  // Half tooth spacing
+              const toothAngleRad = (toothAngle * Math.PI) / 180;
 
-              // Calculate tooth coordinates
-              const toothAngleHalf = (180 / numTeeth);
-              const toothAngleHalfRad = (toothAngleHalf * Math.PI) / 180;
-
-              // Top land (addendum) coordinates
-              const topLeftAngle = angleRad - toothAngleHalfRad * 0.6;
-              const topRightAngle = angleRad + toothAngleHalfRad * 0.6;
+              // Tapered tooth - wider at base, narrower at tip
+              const baseWidth = toothAngle * 0.7;
+              const tipWidth = toothAngle * 0.3;
               
-              const topLeftX = center + addendumRadius * Math.cos(topLeftAngle);
-              const topLeftY = center + addendumRadius * Math.sin(topLeftAngle);
-              const topRightX = center + addendumRadius * Math.cos(topRightAngle);
-              const topRightY = center + addendumRadius * Math.sin(topRightAngle);
+              const baseWidthRad = (baseWidth * Math.PI) / 180;
+              const tipWidthRad = (tipWidth * Math.PI) / 180;
 
-              // Flank coordinates (middle)
-              const flankLeftAngle = angleRad - toothAngleHalfRad * 0.85;
-              const flankRightAngle = angleRad + toothAngleHalfRad * 0.85;
-              
-              const flankLeftX = center + pitchRadius * Math.cos(flankLeftAngle);
-              const flankLeftY = center + pitchRadius * Math.sin(flankLeftAngle);
-              const flankRightX = center + pitchRadius * Math.cos(flankRightAngle);
-              const flankRightY = center + pitchRadius * Math.sin(flankRightAngle);
+              // Base points (at inner radius) - wider
+              const baseLeftAngle = angleRad - baseWidthRad;
+              const baseRightAngle = angleRad + baseWidthRad;
+              const baseLeftX = center + innerRadius * Math.cos(baseLeftAngle);
+              const baseLeftY = center + innerRadius * Math.sin(baseLeftAngle);
+              const baseRightX = center + innerRadius * Math.cos(baseRightAngle);
+              const baseRightY = center + innerRadius * Math.sin(baseRightAngle);
 
-              // Root/dedendum coordinates
-              const rootLeftAngle = angleRad - toothAngleHalfRad;
-              const rootRightAngle = angleRad + toothAngleHalfRad;
-              
-              const rootLeftX = center + dedendumRadius * Math.cos(rootLeftAngle);
-              const rootLeftY = center + dedendumRadius * Math.sin(rootLeftAngle);
-              const rootRightX = center + dedendumRadius * Math.cos(rootRightAngle);
-              const rootRightY = center + dedendumRadius * Math.sin(rootRightAngle);
+              // Tip points (at outer radius) - narrower
+              const tipLeftAngle = angleRad - tipWidthRad;
+              const tipRightAngle = angleRad + tipWidthRad;
+              const tipLeftX = center + outerRadius * Math.cos(tipLeftAngle);
+              const tipLeftY = center + outerRadius * Math.sin(tipLeftAngle);
+              const tipRightX = center + outerRadius * Math.cos(tipRightAngle);
+              const tipRightY = center + outerRadius * Math.sin(tipRightAngle);
 
-              // Create tooth path with curves (addendum, flank, dedendum)
+              // Center of tooth for fillet curves
+              const centerCenterX = center + pitchRadius * Math.cos(angleRad);
+              const centerCenterY = center + pitchRadius * Math.sin(angleRad);
+
+              // Create tapered tooth with fillet curves at base
               const pathData = `
-                M ${topLeftX} ${topLeftY}
-                L ${topRightX} ${topRightY}
-                Q ${center + pitchRadius * 1.15 * Math.cos(angleRad)} ${center + pitchRadius * 1.15 * Math.sin(angleRad)}
-                  ${flankRightX} ${flankRightY}
-                L ${rootRightX} ${rootRightY}
-                Q ${center + dedendumRadius * 0.95 * Math.cos(angleRad)} ${center + dedendumRadius * 0.95 * Math.sin(angleRad)}
-                  ${rootLeftX} ${rootLeftY}
-                L ${flankLeftX} ${flankLeftY}
-                Q ${center + pitchRadius * 1.15 * Math.cos(angleRad)} ${center + pitchRadius * 1.15 * Math.sin(angleRad)}
-                  ${topLeftX} ${topLeftY}
+                M ${tipLeftX} ${tipLeftY}
+                L ${tipRightX} ${tipRightY}
+                Q ${center + outerRadius * 0.98 * Math.cos(angleRad)} ${center + outerRadius * 0.98 * Math.sin(angleRad)}
+                  ${baseRightX} ${baseRightY}
+                Q ${centerCenterX} ${centerCenterY}
+                  ${baseLeftX} ${baseLeftY}
+                L ${tipLeftX} ${tipLeftY}
               `;
 
               const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
               path.setAttribute('d', pathData);
               path.setAttribute('fill', '#00d4ff');
-              path.setAttribute('stroke', '#00b8d4');
-              path.setAttribute('stroke-width', '0.5');
-              path.setAttribute('opacity', '0.9');
+              path.setAttribute('stroke', '#00a8c4');
+              path.setAttribute('stroke-width', '0.8');
+              path.setAttribute('stroke-linejoin', 'round');
+              path.setAttribute('opacity', '0.95');
               teethGroup.appendChild(path);
             }
           })();

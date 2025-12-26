@@ -4,29 +4,38 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Srikanth Reddy Eppa — Mechatronics Engineer</title>
-
-  <!-- favicon -->
   <link rel="icon" type="image/png" href="favicon.png">
-
-  <!-- Font Awesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
-  <!-- Main stylesheet -->
   <link rel="stylesheet" href="style.css">
-
-  <!-- EmailJS browser SDK -->
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <style>
+    .photo-wrapper {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 140px;
+      height: 140px;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      overflow: hidden;
+      border: 3px solid #00d4ff;
+      box-shadow: 0 0 20px rgba(0, 212, 255, 0.5), inset 0 0 10px rgba(0, 212, 255, 0.3);
+    }
+    .profile-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+  </style>
 </head>
 
 <body class="dark-mode">
-
-  <!-- HEADER / NAV -->
   <header class="site-header">
     <div class="site-header-inner container-grid">
       <div class="brand-wrap">
         <a class="brand" href="#about">Srikanth Reddy Eppa</a>
       </div>
-
       <nav class="nav-center" aria-label="Main navigation">
         <a href="#" class="nav-link" data-section="about">About Me</a>
         <a href="#" class="nav-link" data-section="experience">Experience</a>
@@ -35,21 +44,14 @@
         <a href="#" class="nav-link" data-section="education">Education</a>
         <a href="#" class="nav-link" data-section="contact">Contact</a>
       </nav>
-
-      <div class="nav-right">
-      </div>
+      <div class="nav-right"></div>
     </div>
   </header>
 
-  <!-- MAIN CONTENT AREA WITH GEAR & SECTIONS -->
   <main class="main-container">
-    
-    <!-- GEAR WHEEL & CONTENT SECTIONS -->
     <div class="fullscreen-wrapper">
-      <!-- Gear Wheel SVG -->
       <div class="gear-container">
         <svg class="gear-wheel" viewBox="0 0 520 520" xmlns="http://www.w3.org/2000/svg">
-          <!-- Define gradients and filters -->
           <defs>
             <filter id="gearShadow" x="-50%" y="-50%" width="200%" height="200%">
               <feDropShadow dx="0" dy="4" stdDeviation="4" flood-opacity="0.7" flood-color="#000000"/>
@@ -61,42 +63,24 @@
             </linearGradient>
           </defs>
 
-          <!-- Outer background ring -->
           <circle cx="260" cy="260" r="250" fill="#0a1a2e" stroke="#00d4ff" stroke-width="2" opacity="0.5" filter="url(#gearShadow)"/>
-
-          <!-- Generate 20 teeth with flat edges -->
-          <g id="teeth" filter="url(#gearShadow)">
-            <!-- Teeth will be generated via script -->
-          </g>
-
-          <!-- Main gear body circle -->
+          <g id="teeth" filter="url(#gearShadow)"></g>
           <circle cx="260" cy="260" r="170" fill="#1a3a4a" stroke="#00d4ff" stroke-width="2.5"/>
-
-          <!-- Middle ring decorative -->
           <circle cx="260" cy="260" r="155" fill="none" stroke="#00a8c4" stroke-width="1.5" opacity="0.6"/>
           <circle cx="260" cy="260" r="145" fill="none" stroke="#00d4ff" stroke-width="0.8" opacity="0.3" stroke-dasharray="3,2"/>
-
-          <!-- Center boss -->
           <circle cx="260" cy="260" r="80" fill="#1a3a4a" stroke="#00d4ff" stroke-width="3"/>
           <circle cx="260" cy="260" r="76" fill="#2d5a6f" stroke="#00a8c4" stroke-width="1.5"/>
-
-          <!-- Inner highlight for 3D effect -->
           <ellipse cx="260" cy="250" rx="70" ry="64" fill="#00e8ff" opacity="0.12"/>
-
-          <!-- Circular photo background -->
-          <circle cx="260" cy="260" r="70" fill="none" stroke="#00d4ff" stroke-width="2" opacity="0.5"/>
         </svg>
         <script>
-          // Generate 20 teeth with FLAT edges and proper geometry
           (function() {
             const svg = document.querySelector('.gear-wheel');
             const teethGroup = svg.querySelector('#teeth');
             const numTeeth = 20;
             const centerX = 260;
             const centerY = 260;
-            const baseRadius = 170;        // Inner radius where teeth attach
-            const toothHeight = 50;        // How far teeth protrude outward
-            const toothWidth = 20;         // Width of each tooth
+            const baseRadius = 170;
+            const toothHeight = 50;
             const outerRadius = baseRadius + toothHeight;
 
             for (let i = 0; i < numTeeth; i++) {
@@ -106,21 +90,18 @@
               const halfSpacing = toothSpacing / 2;
               const halfSpacingRad = (halfSpacing * Math.PI) / 180;
 
-              // Left edge of tooth
               const leftAngleRad = angleRad - halfSpacingRad;
               const leftBaseX = centerX + baseRadius * Math.cos(leftAngleRad);
               const leftBaseY = centerY + baseRadius * Math.sin(leftAngleRad);
               const leftTipX = centerX + outerRadius * Math.cos(leftAngleRad);
               const leftTipY = centerY + outerRadius * Math.sin(leftAngleRad);
 
-              // Right edge of tooth
               const rightAngleRad = angleRad + halfSpacingRad;
               const rightBaseX = centerX + baseRadius * Math.cos(rightAngleRad);
               const rightBaseY = centerY + baseRadius * Math.sin(rightAngleRad);
               const rightTipX = centerX + outerRadius * Math.cos(rightAngleRad);
               const rightTipY = centerY + outerRadius * Math.sin(rightAngleRad);
 
-              // Create tooth as a simple polygon with FLAT edges
               const pathData = `
                 M ${leftBaseX} ${leftBaseY}
                 L ${leftTipX} ${leftTipY}
@@ -142,25 +123,16 @@
         </script>
       </div>
 
-      <!-- Photo container - CENTERED in gear -->
       <div class="photo-wrapper">
         <img class="profile-photo" src="/srikanth-reddy-eppa/files/Resume_image_Professional.JPG" alt="Srikanth Reddy Eppa">
       </div>
 
-      <!-- CONTENT SECTIONS -->
       <div class="sections-container">
-        
-        <!-- ABOUT SECTION -->
         <section id="about" class="content-section active">
           <h1 class="section-title">About Me</h1>
           <div class="about-content">
-            <p class="about-text">
-              Master's student in Mechatronics & Robotics with experience in digitalization, automation, and sustainability.
-            </p>
-            <p class="about-text">
-              Skilled in Digital Twin technology, Digital Product Passports, and mechatronic system design, aiming to deliver
-              innovative solutions aligned with industry demand.
-            </p>
+            <p class="about-text">Master's student in Mechatronics & Robotics with experience in digitalization, automation, and sustainability.</p>
+            <p class="about-text">Skilled in Digital Twin technology, Digital Product Passports, and mechatronic system design, aiming to deliver innovative solutions aligned with industry demand.</p>
             <div class="about-meta">
               <span class="meta-location"><i class="fas fa-map-marker-alt"></i> Stuttgart Region, Germany</span>
             </div>
@@ -172,7 +144,6 @@
           </div>
         </section>
 
-        <!-- EXPERIENCE SECTION -->
         <section id="experience" class="content-section">
           <h2 class="section-title">Experience</h2>
           <div class="section-content">
@@ -185,7 +156,6 @@
                 <li>Engineered an <strong>Arduino Mega 2560</strong> circuit to control integrated sensors and motors.</li>
               </ul>
             </div>
-
             <div class="job-entry">
               <h3>Working Student in Product Innovation - Design and Development</h3>
               <p class="meta">Morgenwerk GmbH, Tamm, Germany | Sep 2024–Mar 2025</p>
@@ -194,7 +164,6 @@
                 <li>Produced technical drawings and worked on structural tube development for an <strong>AGV</strong>.</li>
               </ul>
             </div>
-
             <div class="job-entry">
               <h3>Engineer - Design | Intern - Design</h3>
               <p class="meta">Regal Rexnord India Private Limited, Hyderabad, India | Feb 2020 – Aug 2022</p>
@@ -206,7 +175,6 @@
           </div>
         </section>
 
-        <!-- PROJECTS SECTION -->
         <section id="projects" class="content-section">
           <h2 class="section-title">Projects</h2>
           <div class="section-content">
@@ -217,7 +185,6 @@
                 <li>Full V-model for mechatronic systems; SolidWorks & Siemens NX for mechanical parts; integrated ESP32 firmware.</li>
               </ul>
             </div>
-
             <div class="project-entry">
               <h3>Thermal Energy Storage System</h3>
               <p class="meta">Nov 2019–Aug 2020</p>
@@ -228,7 +195,6 @@
           </div>
         </section>
 
-        <!-- SKILLS SECTION -->
         <section id="skills" class="content-section">
           <h2 class="section-title">Skills</h2>
           <div class="section-content">
@@ -251,7 +217,6 @@
           </div>
         </section>
 
-        <!-- EDUCATION SECTION -->
         <section id="education" class="content-section">
           <h2 class="section-title">Education</h2>
           <div class="section-content">
@@ -266,7 +231,6 @@
           </div>
         </section>
 
-        <!-- CONTACT SECTION -->
         <section id="contact" class="content-section">
           <h2 class="section-title">Get In Touch</h2>
           <div class="section-content">
@@ -276,22 +240,18 @@
                   <label for="from_name">Your Name</label>
                   <input type="text" id="from_name" name="from_name" placeholder="Your name" required>
                 </div>
-
                 <div class="form-row">
                   <label for="reply_to">Your Email</label>
                   <input type="email" id="reply_to" name="reply_to" placeholder="name@company.com" required>
                 </div>
-
                 <div class="form-row">
                   <label for="subject">Subject</label>
                   <input type="text" id="subject" name="subject" placeholder="Subject" required>
                 </div>
-
                 <div class="form-row">
                   <label for="message">Message</label>
-                  <textarea id="message" name="message" rows="6" placeholder="Write your message..."></textarea>
+                  <textarea id="message" name="message" rows="6" placeholder="Write your message..." required></textarea>
                 </div>
-
                 <div class="form-row form-row--center">
                   <button id="contact-submit" type="submit" class="btn-send" aria-label="Send Message">
                     <i class="fas fa-paper-plane"></i>
@@ -300,24 +260,18 @@
                 </div>
               </form>
             </div>
-
             <p id="form-status" class="form-status" aria-live="polite"></p>
           </div>
         </section>
-
       </div>
     </div>
-
   </main>
 
-  <!-- FOOTER -->
   <footer>
     <p>&copy; 2025 Srikanth Reddy Eppa. Built with creativity and code.</p>
   </footer>
 
-  <!-- SCRIPTS -->
   <script>
-    /* GEAR WHEEL ROTATION & SECTION VISIBILITY */
     (function () {
       const gearWheel = document.querySelector('.gear-wheel');
       const sections = [
@@ -340,29 +294,18 @@
 
       function showSection(sectionIndex) {
         if (isTransitioning || currentSectionIndex === sectionIndex) return;
-        
         isTransitioning = true;
-
-        // Hide current section
         sections[currentSectionIndex].element.classList.remove('active');
-
-        // Show new section
         currentSectionIndex = sectionIndex;
         sections[sectionIndex].element.classList.add('active');
         rotateGearToSection(sections[sectionIndex].startRotation);
-
-        setTimeout(() => {
-          isTransitioning = false;
-        }, 600);
+        setTimeout(() => { isTransitioning = false; }, 600);
       }
 
-      // Scroll event listener
       let wheelDelta = 0;
       window.addEventListener('wheel', (e) => {
         e.preventDefault();
-        
         wheelDelta += e.deltaY;
-
         if (Math.abs(wheelDelta) > 100) {
           if (wheelDelta > 0) {
             const nextIndex = (currentSectionIndex + 1) % sections.length;
@@ -375,14 +318,71 @@
         }
       }, { passive: false });
 
-      // Navigation link clicks
       document.querySelectorAll('.nav-link').forEach(link => {
         link.addEventListener('click', (e) => {
           e.preventDefault();
           const sectionId = link.getAttribute('data-section');
           const sectionIndex = sections.findIndex(s => s.id === sectionId);
-          
-          if (sectionIndex !== -1) {
-            showSection(sectionIndex);
-          }
+          if (sectionIndex !== -1) { showSection(sectionIndex); }
         });
+      });
+
+      showSection(0);
+    })();
+  </script>
+
+  <script>
+    (function () {
+      const PUBLIC_KEY = "VJfDt6cbIDWVebWfX";
+      const SERVICE_ID = "service_gpxbcq7";
+      const OWNER_TEMPLATE_ID = "template_wfhkq5c";
+      const AUTO_REPLY_TEMPLATE_ID = "template_6he0kxw";
+
+      if (window.emailjs && typeof window.emailjs.init === 'function') {
+        window.emailjs.init(PUBLIC_KEY);
+      }
+
+      const form = document.getElementById('contact-form');
+      const statusEl = document.getElementById('form-status');
+      const submitBtn = document.getElementById('contact-submit');
+
+      function setStatus(text, color) {
+        statusEl.textContent = text;
+        statusEl.style.color = color || '';
+      }
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        submitBtn.disabled = true;
+        submitBtn.style.opacity = '0.7';
+        setStatus('Sending...', '#666');
+
+        window.emailjs.sendForm(SERVICE_ID, OWNER_TEMPLATE_ID, this)
+          .then(function (ownerRes) {
+            const params = {
+              from_name: form.elements['from_name'].value || '',
+              reply_to: form.elements['reply_to'].value || '',
+              subject: form.elements['subject'].value || '',
+              message: form.elements['message'].value || ''
+            };
+            return window.emailjs.send(SERVICE_ID, AUTO_REPLY_TEMPLATE_ID, params)
+              .then(function (autoRes) {
+                setStatus('Message sent — confirmation emailed to you.', 'green');
+                form.reset();
+              })
+              .catch(function (autoErr) {
+                setStatus('Message delivered, but confirmation email failed.', 'orange');
+              });
+          })
+          .catch(function (ownerErr) {
+            setStatus('Failed to send message. Please try again later.', 'darkred');
+          })
+          .finally(function () {
+            submitBtn.disabled = false;
+            submitBtn.style.opacity = '';
+          });
+      });
+    })();
+  </script>
+</body>
+</html>

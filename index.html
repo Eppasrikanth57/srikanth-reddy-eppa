@@ -99,7 +99,7 @@
       position: fixed;
       left: 0;
       top: 70px;
-      width: 45%;
+      width: 50%;
       height: calc(100vh - 70px);
       display: flex;
       align-items: center;
@@ -109,15 +109,15 @@
     }
 
     .gear-container {
-      width: 450px;
-      height: 450px;
+      width: 600px;
+      height: 600px;
       position: relative;
     }
 
     .gear-wheel {
       width: 100%;
       height: 100%;
-      filter: drop-shadow(0 15px 40px rgba(0, 212, 255, 0.6));
+      filter: drop-shadow(0 20px 50px rgba(0, 212, 255, 0.7)) drop-shadow(0 0 30px rgba(0, 212, 255, 0.5));
       transition: transform 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
       transform-origin: center;
     }
@@ -126,13 +126,13 @@
       position: absolute;
       top: 50%;
       left: 50%;
-      width: 200px;
-      height: 200px;
+      width: 240px;
+      height: 240px;
       transform: translate(-50%, -50%);
       border-radius: 50%;
       overflow: hidden;
       border: 8px solid #00d4ff;
-      box-shadow: 0 0 50px rgba(0, 212, 255, 1), inset 0 0 25px rgba(0, 212, 255, 0.5);
+      box-shadow: 0 0 60px rgba(0, 212, 255, 1), inset 0 0 30px rgba(0, 212, 255, 0.6);
       background: #1a3a4a;
       z-index: 10;
     }
@@ -149,7 +149,7 @@
       position: fixed;
       right: 0;
       top: 70px;
-      width: 60%;
+      width: 55%;
       height: calc(100vh - 70px);
       overflow: hidden;
       z-index: 10;
@@ -159,11 +159,11 @@
       position: absolute;
       width: 100%;
       height: 100%;
-      padding: 60px 70px;
+      padding: 60px 80px;
       overflow-y: auto;
       opacity: 0;
       visibility: hidden;
-      transform: translateX(50px);
+      transform: translateX(60px);
       transition: opacity 0.6s ease, visibility 0.6s ease, transform 0.6s ease;
     }
 
@@ -426,78 +426,103 @@
   </header>
 
   <div class="main-wrapper">
-    <!-- LEFT SIDE - GEAR WITH PHOTO -->
+    <!-- LEFT SIDE - LARGE GEAR WITH PHOTO -->
     <div class="gear-section">
       <div class="gear-container">
-        <svg class="gear-wheel" viewBox="0 0 520 520" xmlns="http://www.w3.org/2000/svg">
+        <svg class="gear-wheel" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
           <defs>
-            <filter id="gearShadow">
-              <feDropShadow dx="0" dy="4" stdDeviation="8" flood-opacity="0.9" flood-color="#000000"/>
+            <filter id="gearShadow" x="-50%" y="-50%" width="200%" height="200%">
+              <feDropShadow dx="0" dy="8" stdDeviation="10" flood-opacity="0.9" flood-color="#00d4ff"/>
             </filter>
-            <linearGradient id="gearGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" style="stop-color:#00f0ff;stop-opacity:1" />
+            <linearGradient id="outerGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#00f5ff;stop-opacity:1" />
               <stop offset="50%" style="stop-color:#00d4ff;stop-opacity:1" />
               <stop offset="100%" style="stop-color:#0088c0;stop-opacity:1" />
             </linearGradient>
+            <linearGradient id="innerGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#1a5f7a;stop-opacity:1" />
+              <stop offset="100%" style="stop-color:#0d3a52;stop-opacity:1" />
+            </linearGradient>
           </defs>
-          <circle cx="260" cy="260" r="250" fill="#0a1a2e" stroke="#00d4ff" stroke-width="2" opacity="0.5" filter="url(#gearShadow)"/>
-          <g id="teeth" filter="url(#gearShadow)"></g>
-          <circle cx="260" cy="260" r="170" fill="#1a3a4a" stroke="#00d4ff" stroke-width="2.5"/>
-          <circle cx="260" cy="260" r="155" fill="none" stroke="#00a8c4" stroke-width="1.5" opacity="0.6"/>
-          <circle cx="260" cy="260" r="145" fill="none" stroke="#00d4ff" stroke-width="0.8" opacity="0.3" stroke-dasharray="3,2"/>
-          <circle cx="260" cy="260" r="90" fill="#1a3a4a" stroke="#00d4ff" stroke-width="3"/>
-          <circle cx="260" cy="260" r="85" fill="#2d5a6f" stroke="#00a8c4" stroke-width="1.5"/>
-          <ellipse cx="260" cy="250" rx="80" ry="74" fill="#00e8ff" opacity="0.12"/>
+          
+          <!-- Outer glow circle -->
+          <circle cx="300" cy="300" r="290" fill="none" stroke="rgba(0, 212, 255, 0.2)" stroke-width="2" filter="url(#gearShadow)"/>
+          
+          <!-- Gear teeth group -->
+          <g id="teeth-group" filter="url(#gearShadow)"></g>
+          
+          <!-- Outer ring -->
+          <circle cx="300" cy="300" r="220" fill="none" stroke="#00d4ff" stroke-width="3" opacity="0.8"/>
+          
+          <!-- Inner darker ring -->
+          <circle cx="300" cy="300" r="190" fill="url(#innerGradient)" stroke="#00a8c4" stroke-width="2" opacity="0.9"/>
+          
+          <!-- Center hole -->
+          <circle cx="300" cy="300" r="100" fill="#0a1a2e" stroke="#00d4ff" stroke-width="2"/>
+          <circle cx="300" cy="300" r="95" fill="#1a3a4a" stroke="#00a8c4" stroke-width="1"/>
         </svg>
         <script>
           (function() {
             const svg = document.querySelector('.gear-wheel');
-            const teethGroup = svg.querySelector('#teeth');
-            const numTeeth = 18;
-            const centerX = 260;
-            const centerY = 260;
-            const baseRadius = 170;
-            const toothHeight = 60;
+            const teethGroup = svg.querySelector('#teeth-group');
+            
+            const numTeeth = 20;
+            const centerX = 300;
+            const centerY = 300;
+            const baseRadius = 220;
+            const toothHeight = 85;
+            const toothWidth = 18;
             const outerRadius = baseRadius + toothHeight;
-
+            
             for (let i = 0; i < numTeeth; i++) {
               const angle = (i * 360) / numTeeth;
               const angleRad = (angle * Math.PI) / 180;
               const toothSpacing = 360 / numTeeth;
-              const halfSpacing = toothSpacing / 2;
+              const halfSpacing = toothSpacing / 2.2;
               const halfSpacingRad = (halfSpacing * Math.PI) / 180;
-
+              
+              // Outer tooth points
+              const tipAngleRad = angleRad;
+              const tipX = centerX + outerRadius * Math.cos(tipAngleRad);
+              const tipY = centerY + outerRadius * Math.sin(tipAngleRad);
+              
+              // Left side of tooth
               const leftAngleRad = angleRad - halfSpacingRad;
               const leftBaseX = centerX + baseRadius * Math.cos(leftAngleRad);
               const leftBaseY = centerY + baseRadius * Math.sin(leftAngleRad);
-              const leftTipX = centerX + outerRadius * Math.cos(leftAngleRad);
-              const leftTipY = centerY + outerRadius * Math.sin(leftAngleRad);
-
+              const leftTipX = centerX + (outerRadius - 15) * Math.cos(leftAngleRad);
+              const leftTipY = centerY + (outerRadius - 15) * Math.sin(leftAngleRad);
+              
+              // Right side of tooth
               const rightAngleRad = angleRad + halfSpacingRad;
               const rightBaseX = centerX + baseRadius * Math.cos(rightAngleRad);
               const rightBaseY = centerY + baseRadius * Math.sin(rightAngleRad);
-              const rightTipX = centerX + outerRadius * Math.cos(rightAngleRad);
-              const rightTipY = centerY + outerRadius * Math.sin(rightAngleRad);
-
+              const rightTipX = centerX + (outerRadius - 15) * Math.cos(rightAngleRad);
+              const rightTipY = centerY + (outerRadius - 15) * Math.sin(rightAngleRad);
+              
               const pathData = `
                 M ${leftBaseX} ${leftBaseY}
                 L ${leftTipX} ${leftTipY}
+                L ${tipX} ${tipY}
                 L ${rightTipX} ${rightTipY}
                 L ${rightBaseX} ${rightBaseY}
+                L ${centerX + (baseRadius - 10) * Math.cos(angleRad)} ${centerY + (baseRadius - 10) * Math.sin(angleRad)}
                 Z
               `;
-
+              
               const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
               path.setAttribute('d', pathData);
-              path.setAttribute('fill', 'url(#gearGradient)');
-              path.setAttribute('stroke', '#00b8d4');
-              path.setAttribute('stroke-width', '0.8');
-              path.setAttribute('stroke-linejoin', 'miter');
-              path.setAttribute('stroke-linecap', 'butt');
+              path.setAttribute('fill', 'url(#outerGradient)');
+              path.setAttribute('stroke', '#00e8ff');
+              path.setAttribute('stroke-width', '1');
+              path.setAttribute('stroke-linejoin', 'round');
+              path.setAttribute('stroke-linecap', 'round');
               teethGroup.appendChild(path);
             }
           })();
         </script>
+        
+        <!-- Photo wrapper -->
         <div class="photo-wrapper">
           <img class="profile-photo" src="https://raw.githubusercontent.com/Eppasrikanth57/srikanth-reddy-eppa/main/files/Resume_image_Professional.JPG" alt="Srikanth Reddy Eppa">
         </div>

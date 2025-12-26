@@ -168,10 +168,10 @@
     }
 
     .section-title {
-      font-size: 42px;
-      font-weight: 700;
+      font-size: 56px;
+      font-weight: 800;
       color: #00d4ff;
-      margin-bottom: 35px;
+      margin-bottom: 45px;
       letter-spacing: 0.3px;
       text-shadow: 0 0 15px rgba(0, 212, 255, 0.15);
     }
@@ -179,19 +179,20 @@
     .about-content {
       display: flex;
       flex-direction: column;
-      gap: 22px;
+      gap: 28px;
     }
 
     .about-text {
-      font-size: 15px;
-      line-height: 1.75;
+      font-size: 16px;
+      line-height: 1.85;
       color: #d0d0d0;
       text-align: justify;
+      letter-spacing: 0.3px;
     }
 
     .about-meta {
-      margin-top: 20px;
-      font-size: 13px;
+      margin-top: 28px;
+      font-size: 14px;
       color: #00d4ff;
     }
 
@@ -203,13 +204,13 @@
 
     .social-links {
       display: flex;
-      gap: 22px;
-      margin-top: 32px;
+      gap: 28px;
+      margin-top: 40px;
     }
 
     .social-links a {
-      width: 48px;
-      height: 48px;
+      width: 56px;
+      height: 56px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -217,7 +218,7 @@
       border-radius: 50%;
       color: #00d4ff;
       text-decoration: none;
-      font-size: 20px;
+      font-size: 24px;
       transition: all 0.3s ease;
     }
 
@@ -229,43 +230,46 @@
     }
 
     .job-entry, .project-entry, .edu-entry, .skills-group {
-      margin-bottom: 20px;
-      padding: 18px;
+      margin-bottom: 28px;
+      padding: 20px;
       background: rgba(0, 212, 255, 0.04);
-      border-left: 4px solid #00d4ff;
+      border-left: 5px solid #00d4ff;
       border-radius: 4px;
     }
 
     .job-entry h3, .project-entry h3, .edu-entry h3, .skills-group h3 {
-      font-size: 15px;
+      font-size: 17px;
       color: #00d4ff;
-      margin-bottom: 6px;
-      font-weight: 600;
+      margin-bottom: 8px;
+      font-weight: 700;
+      letter-spacing: 0.2px;
     }
 
     .meta {
-      font-size: 11px;
-      color: #888;
-      margin-bottom: 10px;
+      font-size: 12px;
+      color: #999;
+      margin-bottom: 14px;
       font-style: italic;
+      letter-spacing: 0.3px;
     }
 
     .job-entry ul, .project-entry ul {
       list-style: none;
-      padding-left: 20px;
+      padding-left: 0;
     }
 
     .job-entry li, .project-entry li {
-      font-size: 12px;
+      font-size: 14px;
       color: #d0d0d0;
-      margin-bottom: 6px;
-      line-height: 1.5;
+      margin-bottom: 10px;
+      line-height: 1.7;
       position: relative;
-      padding-left: 12px;
+      padding-left: 16px;
+      letter-spacing: 0.2px;
     }
 
     .job-entry li:before, .project-entry li:before {
-      content: "▸";
+      content: "\25b8";
       position: absolute;
       left: 0;
       color: #00d4ff;
@@ -273,84 +277,94 @@
     }
 
     .skills-group p {
-      font-size: 12px;
+      font-size: 14px;
       color: #d0d0d0;
-      line-height: 1.6;
-      margin-bottom: 8px;
+      line-height: 1.7;
+      margin-bottom: 10px;
+      letter-spacing: 0.2px;
     }
 
     .contact-form {
       display: flex;
       flex-direction: column;
-      gap: 16px;
-      background: rgba(26, 58, 74, 0.2);
-      padding: 24px;
-      border-radius: 6px;
-      border: 1px solid rgba(0, 212, 255, 0.15);
-      max-width: 450px;
+      gap: 20px;
+      background: rgba(0, 50, 68, 0.3);
+      padding: 32px;
+      border-radius: 8px;
+      border: 1px solid rgba(0, 212, 255, 0.2);
+      max-width: 520px;
     }
 
     .form-row {
       display: flex;
       flex-direction: column;
-      gap: 6px;
+      gap: 10px;
     }
 
     .form-row label {
-      font-size: 10px;
+      font-size: 11px;
       color: #00d4ff;
-      font-weight: 500;
+      font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.5px;
+      letter-spacing: 1px;
     }
 
     .form-row input,
     .form-row textarea {
-      padding: 8px 12px;
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(0, 212, 255, 0.15);
-      border-radius: 4px;
+      padding: 12px 16px;
+      background: rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(0, 212, 255, 0.2);
+      border-radius: 6px;
       color: #e0e0e0;
       font-family: inherit;
-      font-size: 12px;
+      font-size: 13px;
       transition: all 0.3s ease;
+      letter-spacing: 0.3px;
+    }
+
+    .form-row input::placeholder,
+    .form-row textarea::placeholder {
+      color: #666;
     }
 
     .form-row input:focus,
     .form-row textarea:focus {
       outline: none;
       border-color: #00d4ff;
-      box-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
-      background: rgba(255, 255, 255, 0.07);
+      box-shadow: 0 0 15px rgba(0, 212, 255, 0.25);
+      background: rgba(0, 30, 40, 0.4);
     }
 
     .btn-send {
-      padding: 10px 28px;
+      padding: 12px 32px;
       background: linear-gradient(135deg, #00d4ff, #00a8c4);
       border: none;
-      border-radius: 4px;
+      border-radius: 6px;
       color: #0a0e27;
-      font-weight: 600;
-      font-size: 12px;
+      font-weight: 700;
+      font-size: 13px;
       cursor: pointer;
       transition: all 0.3s ease;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
+      gap: 10px;
       align-self: flex-start;
-      margin-top: 8px;
+      margin-top: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
 
     .btn-send:hover {
       transform: translateY(-2px);
-      box-shadow: 0 8px 16px rgba(0, 212, 255, 0.4);
+      box-shadow: 0 10px 25px rgba(0, 212, 255, 0.4);
     }
 
     .form-status {
-      font-size: 11px;
-      margin-top: 10px;
+      font-size: 12px;
+      margin-top: 14px;
       color: #00d4ff;
+      letter-spacing: 0.3px;
     }
 
     footer {
@@ -507,29 +521,27 @@
         <h1 class="section-title">Experience</h1>
         <div class="job-entry">
           <h3>Design and Prototyping of Soft Robot Arm</h3>
-          <p class="meta">Hochschule Schmalkalden | Feb 2025–Now</p>
+          <p class="meta">Hochschule Schmalkalden, Germany | Feb 2025–Now</p>
           <ul>
-            <li>Developed Soft Robot for Industry 5.0 using <strong>SolidWorks</strong></li>
-            <li>Additive manufacturing and <strong>3D printing</strong> optimization</li>
-            <li>Engineered <strong>Arduino Mega 2560</strong> control circuits</li>
+            <li>Developed and optimized a Soft Robot for Industry 5.0 applications using <strong>SolidWorks</strong>.</li>
+            <li>Used additive manufacturing (<strong>3D printing</strong>) to create and optimize key components.</li>
+            <li>Engineered an <strong>Arduino Mega 2560</strong> circuit to control integrated sensors and motors.</li>
           </ul>
         </div>
         <div class="job-entry">
           <h3>Working Student - Product Innovation</h3>
-          <p class="meta">Morgenwerk GmbH, Tamm | Sep 2024–Mar 2025</p>
+          <p class="meta">Morgenwerk GmbH, Tamm, Germany | Sep 2024–Mar 2025</p>
           <ul>
-            <li>Automated vending machine gate system design</li>
-            <li>Technical drawings and AGV structural development</li>
-            <li>Cross-functional team collaboration</li>
+            <li>Developed and prototyped a gate system for an automated vending machine using <strong>SolidWorks</strong>.</li>
+            <li>Produced technical drawings and worked on structural tube development for an <strong>AGV</strong>.</li>
           </ul>
         </div>
         <div class="job-entry">
           <h3>Engineer - Design | Intern</h3>
-          <p class="meta">Regal Rexnord India | Feb 2020–Aug 2022</p>
+          <p class="meta">Regal Rexnord India Private Limited, Hyderabad | Feb 2020–Aug 2022</p>
           <ul>
-            <li>Torsional coupling enhancement using <strong>SolidWorks</strong></li>
-            <li>Technical drawings per <strong>ISO/DIN/GD&T</strong> standards</li>
-            <li>Failure analysis and design improvements</li>
+            <li>Enhanced Torsional couplings improving productivity using <strong>SolidWorks</strong>.</li>
+            <li>Created technical drawings per <strong>ISO/DIN/GD&T</strong> standards and BOMs in <strong>SAP</strong>.</li>
           </ul>
         </div>
       </section>
@@ -580,18 +592,18 @@
         <div class="edu-entry">
           <h3>Master of Science - Mechatronics and Robotics</h3>
           <p class="meta">Hochschule Schmalkalden | Oct 2022–Present</p>
-          <p style="font-size: 12px; color: #d0d0d0; margin-top: 6px;">Grade: 2.4 | Focus: Digital Twin, Industry 5.0</p>
+          <p style="font-size: 14px; color: #d0d0d0; margin-top: 8px;">Grade: 2.4 | Focus: Digital Twin, Industry 5.0</p>
         </div>
         <div class="edu-entry">
           <h3>B.Tech - Mechanical Engineering</h3>
           <p class="meta">Vidya Jyothi Institute | Jul 2017–Aug 2020</p>
-          <p style="font-size: 12px; color: #d0d0d0; margin-top: 6px;">Grade: 1.23 | Coursework: CAD, Thermodynamics, Machine Design</p>
+          <p style="font-size: 14px; color: #d0d0d0; margin-top: 8px;">Grade: 1.23 | Coursework: CAD, Thermodynamics, Machine Design</p>
         </div>
       </section>
 
       <!-- CONTACT SECTION -->
       <section id="contact" class="content-section">
-        <h1 class="section-title">Contact</h1>
+        <h1 class="section-title">Get In Touch</h1>
         <form id="contact-form" class="contact-form" novalidate>
           <div class="form-row">
             <label for="from_name">Your Name</label>
@@ -599,7 +611,7 @@
           </div>
           <div class="form-row">
             <label for="reply_to">Your Email</label>
-            <input type="email" id="reply_to" name="reply_to" placeholder="Email" required>
+            <input type="email" id="reply_to" name="reply_to" placeholder="name@company.com" required>
           </div>
           <div class="form-row">
             <label for="subject">Subject</label>
@@ -607,7 +619,7 @@
           </div>
           <div class="form-row">
             <label for="message">Message</label>
-            <textarea id="message" name="message" rows="3" placeholder="Your message..." required></textarea>
+            <textarea id="message" name="message" rows="4" placeholder="Write your message..." required></textarea>
           </div>
           <button id="contact-submit" type="submit" class="btn-send">
             <i class="fas fa-paper-plane"></i>

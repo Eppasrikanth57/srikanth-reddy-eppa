@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Srikanth Reddy Eppa — Mechatronics Engineer</title>
 
-  <!-- favicon (relative) -->
+  <!-- favicon -->
   <link rel="icon" type="image/png" href="favicon.png">
 
   <!-- Font Awesome for icons -->
@@ -14,13 +14,13 @@
   <!-- Main stylesheet -->
   <link rel="stylesheet" href="style.css">
 
-  <!-- EmailJS browser SDK (required) -->
+  <!-- EmailJS browser SDK -->
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 </head>
 
 <body class="dark-mode">
 
-  <!-- NAV: brand left, centered links, toggle right -->
+  <!-- HEADER / NAV -->
   <header class="site-header">
     <div class="site-header-inner container-grid">
       <div class="brand-wrap">
@@ -28,178 +28,235 @@
       </div>
 
       <nav class="nav-center" aria-label="Main navigation">
-        <a href="#about">Home</a>
-        <a href="#experience">Experience</a>
-        <a href="#projects">Projects</a>
-        <a href="#skills">Skills</a>
-        <a href="#education">Education</a>
-        <a href="#contact">Contact</a>
+        <a href="#about" class="nav-link" data-section="about">Home</a>
+        <a href="#experience" class="nav-link" data-section="experience">Experience</a>
+        <a href="#projects" class="nav-link" data-section="projects">Projects</a>
+        <a href="#skills" class="nav-link" data-section="skills">Skills</a>
+        <a href="#education" class="nav-link" data-section="education">Education</a>
+        <a href="#contact" class="nav-link" data-section="contact">Contact</a>
       </nav>
 
       <div class="nav-right">
-        <!-- Theme toggle on right -->
         <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle theme">Switch Mode</button>
       </div>
     </div>
   </header>
 
-  <!-- HERO / ABOUT -->
-  <section id="about" class="hero-section">
-    <div class="hero-bg-layer"></div>
+  <!-- MAIN CONTENT AREA WITH GEAR & SECTIONS -->
+  <main class="main-container">
+    
+    <!-- GEAR WHEEL & ABOUT SECTION -->
+    <div class="gear-section-wrapper">
+      <!-- Gear Wheel with Photo -->
+      <div class="gear-container">
+        <svg class="gear-wheel" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+          <!-- Outer gear teeth -->
+          <g class="gear-outer">
+            <!-- Teeth -->
+            <rect x="180" y="10" width="40" height="50" fill="#00d4ff"/>
+            <rect x="180" y="340" width="40" height="50" fill="#00d4ff"/>
+            <rect x="10" y="180" width="50" height="40" fill="#00d4ff"/>
+            <rect x="340" y="180" width="50" height="40" fill="#00d4ff"/>
+            
+            <!-- Diagonal teeth -->
+            <g transform="rotate(45 200 200)">
+              <rect x="180" y="10" width="40" height="50" fill="#00d4ff"/>
+              <rect x="180" y="340" width="40" height="50" fill="#00d4ff"/>
+              <rect x="10" y="180" width="50" height="40" fill="#00d4ff"/>
+              <rect x="340" y="180" width="50" height="40" fill="#00d4ff"/>
+            </g>
 
-    <div class="hero-inner container">
-      <div class="hero-profile-wrap">
-        <img class="hero-photo" src="/srikanth-reddy-eppa/files/Resume_image_Professional.JPG" alt="Srikanth Reddy Eppa">
-      </div>
+            <g transform="rotate(90 200 200)">
+              <rect x="180" y="10" width="40" height="50" fill="#00d4ff"/>
+              <rect x="180" y="340" width="40" height="50" fill="#00d4ff"/>
+              <rect x="10" y="180" width="50" height="40" fill="#00d4ff"/>
+              <rect x="340" y="180" width="50" height="40" fill="#00d4ff"/>
+            </g>
 
-      <h1 class="hero-title">Mechanical Design Engineer, <br>Mechatronics and Robotics Engineer</h1>
+            <g transform="rotate(135 200 200)">
+              <rect x="180" y="10" width="40" height="50" fill="#00d4ff"/>
+              <rect x="180" y="340" width="40" height="50" fill="#00d4ff"/>
+              <rect x="10" y="180" width="50" height="40" fill="#00d4ff"/>
+              <rect x="340" y="180" width="50" height="40" fill="#00d4ff"/>
+            </g>
+          </g>
 
-      <p class="hero-sub">
-        Master's student in Mechatronics & Robotics with experience in digitalization, automation, and sustainability.
-        Skilled in Digital Twin technology, Digital Product Passports, and mechatronic system design, aiming to deliver
-        innovative solutions aligned with industry demand.
-      </p>
+          <!-- Inner circle (gear body) -->
+          <circle cx="200" cy="200" r="150" fill="rgba(0, 212, 255, 0.15)" stroke="#00d4ff" stroke-width="2"/>
+        </svg>
 
-      <div class="hero-meta">
-        <span class="meta-location"><i class="fas fa-map-marker-alt"></i> Stuttgart Region, DE</span>
-      </div>
-
-      <div class="hero-ctas">
-        <a class="down-link" href="#experience" aria-label="Scroll to experience"><i class="fas fa-chevron-down"></i></a>
-
-        <div class="social-row">
-          <a href="https://github.com/Eppasrikanth57" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
-          <a href="https://www.linkedin.com/in/srikanth-reddy-eppa/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a>
-          <a id="mailto-link" href="mailto:eppasrikanth57@gmail.com" style="display:none;"><i class="fas fa-envelope"></i></a>
+        <!-- Photo container (centered in gear) -->
+        <div class="photo-container">
+          <img class="profile-photo" src="/srikanth-reddy-eppa/files/Resume_image_Professional.JPG" alt="Srikanth Reddy Eppa">
         </div>
       </div>
+
+      <!-- About Section (beside gear) -->
+      <section id="about" class="content-section about-section">
+        <h1 class="section-title">About Me</h1>
+        <div class="about-content">
+          <p class="about-text">
+            Master's student in Mechatronics & Robotics with experience in digitalization, automation, and sustainability.
+          </p>
+          <p class="about-text">
+            Skilled in Digital Twin technology, Digital Product Passports, and mechatronic system design, aiming to deliver
+            innovative solutions aligned with industry demand.
+          </p>
+          <div class="about-meta">
+            <span class="meta-location"><i class="fas fa-map-marker-alt"></i> Stuttgart Region, Germany</span>
+          </div>
+          <div class="social-links">
+            <a href="https://github.com/Eppasrikanth57" target="_blank" rel="noopener" title="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/srikanth-reddy-eppa/" target="_blank" rel="noopener" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="mailto:eppasrikanth57@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+          </div>
+        </div>
+      </section>
     </div>
-  </section>
 
-  <!-- MAIN -->
-  <main class="container">
+    <!-- EXPERIENCE SECTION -->
+    <section id="experience" class="content-section">
+      <h2 class="section-title">Experience</h2>
+      <div class="section-content">
+        <div class="job-entry">
+          <h3>Design and Prototyping of Soft Robot Arm (MASTER THESIS)</h3>
+          <p class="meta">Hochschule Schmalkalden, Germany | Feb 2025–Now</p>
+          <ul>
+            <li>Developed and optimized a Soft Robot for Industry 5.0 applications, created two prototypes using <strong>SolidWorks</strong>.</li>
+            <li>Used additive manufacturing (<strong>3D printing</strong>) to create and optimize key components.</li>
+            <li>Engineered an <strong>Arduino Mega 2560</strong> circuit to control integrated sensors and motors.</li>
+          </ul>
+        </div>
 
-    <!-- EXPERIENCE -->
-    <section id="experience">
-      <h2>Experience</h2>
-      <div class="job-entry">
-        <h3>Design and Prototyping of Soft Robot Arm (MASTER THESIS)</h3>
-        <p class="meta">Hochschule Schmalkalden, Germany | Feb 2025–Now</p>
-        <ul>
-          <li>Developed and optimized a Soft Robot for Industry 5.0 applications, created two prototypes using <strong>SolidWorks</strong>.</li>
-          <li>Used additive manufacturing (<strong>3D printing</strong>) to create and optimize key components.</li>
-          <li>Engineered an <strong>Arduino Mega 2560</strong> circuit to control integrated sensors and motors.</li>
-        </ul>
-      </div>
+        <div class="job-entry">
+          <h3>Working Student in Product Innovation - Design and Development</h3>
+          <p class="meta">Morgenwerk GmbH, Tamm, Germany | Sep 2024–Mar 2025</p>
+          <ul>
+            <li>Developed and prototyped a gate system for an automated vending machine using <strong>SolidWorks</strong>.</li>
+            <li>Produced technical drawings and worked on structural tube development for an <strong>AGV</strong>.</li>
+          </ul>
+        </div>
 
-      <div class="job-entry">
-        <h3>Working Student in Product Innovation - Design and Development</h3>
-        <p class="meta">Morgenwerk GmbH, Tamm, Germany | Sep 2024–Mar 2025</p>
-        <ul>
-          <li>Developed and prototyped a gate system for an automated vending machine using <strong>SolidWorks</strong>.</li>
-          <li>Produced technical drawings and worked on structural tube development for an <strong>AGV</strong>.</li>
-        </ul>
-      </div>
-
-      <div class="job-entry">
-        <h3>Engineer - Design | Intern - Design</h3>
-        <p class="meta">Regal Rexnord India Private Limited, Hyderabad, India | Feb 2020 – Aug 2022</p>
-        <ul>
-          <li>Enhanced Torsional couplings (CENTAMAX, CENTAFLEX) improving productivity using <strong>SolidWorks</strong>.</li>
-          <li>Created technical drawings per <strong>ISO/DIN/GD&T</strong> standards and BOMs in <strong>SAP</strong>.</li>
-        </ul>
+        <div class="job-entry">
+          <h3>Engineer - Design | Intern - Design</h3>
+          <p class="meta">Regal Rexnord India Private Limited, Hyderabad, India | Feb 2020 – Aug 2022</p>
+          <ul>
+            <li>Enhanced Torsional couplings (CENTAMAX, CENTAFLEX) improving productivity using <strong>SolidWorks</strong>.</li>
+            <li>Created technical drawings per <strong>ISO/DIN/GD&T</strong> standards and BOMs in <strong>SAP</strong>.</li>
+          </ul>
+        </div>
       </div>
     </section>
 
-    <!-- PROJECTS -->
-    <section id="projects">
-      <h2>Projects</h2>
-      <div class="project-entry">
-        <h3>Automated XY Pen Plotter</h3>
-        <p class="meta">Apr 2023–Jul 2023</p>
-        <ul>
-          <li>Full V-model for mechatronic systems; SolidWorks & Siemens NX for mechanical parts; integrated ESP32 firmware.</li>
-        </ul>
-      </div>
-      <div class="project-entry">
-        <h3>Thermal Energy Storage System</h3>
-        <p class="meta">Nov 2019–Aug 2020</p>
-        <ul>
-          <li>Designed insulated stainless-steel tank and improved energy efficiency, saving 10.6 kJ in six hours.</li>
-        </ul>
-      </div>
-    </section>
+    <!-- PROJECTS SECTION -->
+    <section id="projects" class="content-section">
+      <h2 class="section-title">Projects</h2>
+      <div class="section-content">
+        <div class="project-entry">
+          <h3>Automated XY Pen Plotter</h3>
+          <p class="meta">Apr 2023–Jul 2023</p>
+          <ul>
+            <li>Full V-model for mechatronic systems; SolidWorks & Siemens NX for mechanical parts; integrated ESP32 firmware.</li>
+          </ul>
+        </div>
 
-    <!-- SKILLS -->
-    <section id="skills">
-      <h2>Skills</h2>
-      <div class="skills-group"><h3>CAD, Analysis and Other</h3><p>SolidWorks, Ansys, PTC Creo, CATIA V5, Siemens NX, AutoCAD, Fusion, Inventor, Master CAM, PDM pro, Keytech, MS Office</p></div>
-      <div class="skills-group"><h3>Technical Skills</h3><p>PLC Programming, Python, Technical Drawings, Test Automation & Measurement Analysis</p></div>
-      <div class="skills-group"><h3>Soft Skills</h3><p>Communication, Team Collaboration, Analytical Thinking, Time & Budget Management</p></div>
-      <div class="skills-group"><h3>Languages</h3><p>English (C1), German (A2), Telugu (Native)</p></div>
-    </section>
-
-    <!-- EDUCATION -->
-    <section id="education">
-      <h2>Education</h2>
-      <div class="edu-entry">
-        <h3>Master of Science - Mechatronics and Robotics (Grade: 2.4)</h3>
-        <p class="meta">Hochschule Schmalkalden | Oct 2022 – Present</p>
-      </div>
-      <div class="edu-entry">
-        <h3>B.Tech - Mechanical Engineering (Final grade: 1.23)</h3>
-        <p class="meta">Vidya Jyothi Institute of Technology | Jul 2017 – Aug 2020</p>
+        <div class="project-entry">
+          <h3>Thermal Energy Storage System</h3>
+          <p class="meta">Nov 2019–Aug 2020</p>
+          <ul>
+            <li>Designed insulated stainless-steel tank and improved energy efficiency, saving 10.6 kJ in six hours.</li>
+          </ul>
+        </div>
       </div>
     </section>
 
-    <!-- CONTACT (GET IN TOUCH) -->
-    <section id="contact" class="contact-section container">
-      <h2 class="contact-title">Get In Touch</h2>
-
-      <div class="contact-card">
-        <form id="contact-form" class="contact-form" novalidate>
-          <div class="form-row">
-            <label for="from_name">Your Name</label>
-            <input type="text" id="from_name" name="from_name" placeholder="Your name" required>
-          </div>
-
-          <div class="form-row">
-            <label for="reply_to">Your Email</label>
-            <input type="email" id="reply_to" name="reply_to" placeholder="name@company.com" required>
-          </div>
-
-          <div class="form-row">
-            <label for="subject">Subject</label>
-            <input type="text" id="subject" name="subject" placeholder="Subject" required>
-          </div>
-
-          <div class="form-row">
-            <label for="message">Message</label>
-            <textarea id="message" name="message" rows="6" placeholder="Write your message..." required></textarea>
-          </div>
-
-          <div class="form-row form-row--center">
-            <button id="contact-submit" type="submit" class="btn-send" aria-label="Send Message">
-              <i class="fas fa-paper-plane"></i>
-              <span>Send Message</span>
-            </button>
-          </div>
-        </form>
+    <!-- SKILLS SECTION -->
+    <section id="skills" class="content-section">
+      <h2 class="section-title">Skills</h2>
+      <div class="section-content">
+        <div class="skills-group">
+          <h3>CAD, Analysis and Other</h3>
+          <p>SolidWorks, Ansys, PTC Creo, CATIA V5, Siemens NX, AutoCAD, Fusion, Inventor, Master CAM, PDM pro, Keytech, MS Office</p>
+        </div>
+        <div class="skills-group">
+          <h3>Technical Skills</h3>
+          <p>PLC Programming, Python, Technical Drawings, Test Automation & Measurement Analysis</p>
+        </div>
+        <div class="skills-group">
+          <h3>Soft Skills</h3>
+          <p>Communication, Team Collaboration, Analytical Thinking, Time & Budget Management</p>
+        </div>
+        <div class="skills-group">
+          <h3>Languages</h3>
+          <p>English (C1), German (A2), Telugu (Native)</p>
+        </div>
       </div>
+    </section>
 
-      <p id="form-status" class="form-status" aria-live="polite"></p>
+    <!-- EDUCATION SECTION -->
+    <section id="education" class="content-section">
+      <h2 class="section-title">Education</h2>
+      <div class="section-content">
+        <div class="edu-entry">
+          <h3>Master of Science - Mechatronics and Robotics (Grade: 2.4)</h3>
+          <p class="meta">Hochschule Schmalkalden | Oct 2022 – Present</p>
+        </div>
+        <div class="edu-entry">
+          <h3>B.Tech - Mechanical Engineering (Final grade: 1.23)</h3>
+          <p class="meta">Vidya Jyothi Institute of Technology | Jul 2017 – Aug 2020</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="content-section contact-section">
+      <h2 class="section-title">Get In Touch</h2>
+      <div class="section-content">
+        <div class="contact-card">
+          <form id="contact-form" class="contact-form" novalidate>
+            <div class="form-row">
+              <label for="from_name">Your Name</label>
+              <input type="text" id="from_name" name="from_name" placeholder="Your name" required>
+            </div>
+
+            <div class="form-row">
+              <label for="reply_to">Your Email</label>
+              <input type="email" id="reply_to" name="reply_to" placeholder="name@company.com" required>
+            </div>
+
+            <div class="form-row">
+              <label for="subject">Subject</label>
+              <input type="text" id="subject" name="subject" placeholder="Subject" required>
+            </div>
+
+            <div class="form-row">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="6" placeholder="Write your message..." required></textarea>
+            </div>
+
+            <div class="form-row form-row--center">
+              <button id="contact-submit" type="submit" class="btn-send" aria-label="Send Message">
+                <i class="fas fa-paper-plane"></i>
+                <span>Send Message</span>
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <p id="form-status" class="form-status" aria-live="polite"></p>
+      </div>
     </section>
 
   </main>
 
   <!-- FOOTER -->
   <footer>
-    <p>&copy; 2025 Srikanth Reddy Eppa. Built for GitHub Pages.</p>
+    <p>&copy; 2025 Srikanth Reddy Eppa. Built with creativity and code.</p>
   </footer>
 
   <!-- SCRIPTS -->
   <script>
-    /* THEME TOGGLE (default dark-mode) */
+    /* THEME TOGGLE */
     (function () {
       const toggleButton = document.getElementById('theme-toggle');
       const body = document.body;
@@ -231,20 +288,100 @@
   </script>
 
   <script>
-    /* EMAILJS HANDLER: owner notification then auto-reply */
+    /* GEAR WHEEL ROTATION & SECTION VISIBILITY */
     (function () {
-      // Your EmailJS credentials
+      const gearWheel = document.querySelector('.gear-wheel');
+      const aboutSection = document.getElementById('about');
+      const sections = [
+        { id: 'about', element: document.getElementById('about'), startRotation: 0 },
+        { id: 'experience', element: document.getElementById('experience'), startRotation: 72 },
+        { id: 'projects', element: document.getElementById('projects'), startRotation: 144 },
+        { id: 'skills', element: document.getElementById('skills'), startRotation: 216 },
+        { id: 'education', element: document.getElementById('education'), startRotation: 288 },
+        { id: 'contact', element: document.getElementById('contact'), startRotation: 360 }
+      ];
+
+      let currentRotation = 0;
+      let isScrolling = false;
+      let scrollTimeout;
+
+      function rotateGearToSection(targetRotation) {
+        currentRotation = targetRotation % 360;
+        gearWheel.style.transform = `rotate(${currentRotation}deg)`;
+      }
+
+      function showSection(sectionIndex) {
+        // Hide all content sections
+        sections.forEach(section => {
+          section.element.classList.remove('active');
+        });
+
+        // Show selected section
+        if (sections[sectionIndex]) {
+          sections[sectionIndex].element.classList.add('active');
+          rotateGearToSection(sections[sectionIndex].startRotation);
+        }
+      }
+
+      // Scroll event listener
+      window.addEventListener('wheel', (e) => {
+        if (isScrolling) return;
+
+        const pageTop = window.scrollY;
+        let closestSectionIndex = 0;
+        let minDistance = Infinity;
+
+        sections.forEach((section, index) => {
+          const rect = section.element.getBoundingClientRect();
+          const sectionTop = window.scrollY + rect.top;
+          const distance = Math.abs(sectionTop - pageTop);
+
+          if (distance < minDistance) {
+            minDistance = distance;
+            closestSectionIndex = index;
+          }
+        });
+
+        isScrolling = true;
+        showSection(closestSectionIndex);
+
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(() => {
+          isScrolling = false;
+        }, 800);
+      }, { passive: true });
+
+      // Navigation link clicks
+      document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const sectionId = link.getAttribute('data-section');
+          const sectionIndex = sections.findIndex(s => s.id === sectionId);
+          
+          if (sectionIndex !== -1) {
+            showSection(sectionIndex);
+            const targetElement = sections[sectionIndex].element;
+            targetElement.scrollIntoView({ behavior: 'smooth' });
+          }
+        });
+      });
+
+      // Initialize with about section
+      showSection(0);
+    })();
+  </script>
+
+  <script>
+    /* EMAILJS HANDLER */
+    (function () {
       const PUBLIC_KEY = "VJfDt6cbIDWVebWfX";
       const SERVICE_ID = "service_gpxbcq7";
-      const OWNER_TEMPLATE_ID = "template_wfhkq5c";      // owner notification template
-      const AUTO_REPLY_TEMPLATE_ID = "template_6he0kxw"; // auto-reply template you provided
+      const OWNER_TEMPLATE_ID = "template_wfhkq5c";
+      const AUTO_REPLY_TEMPLATE_ID = "template_6he0kxw";
 
-      // init EmailJS
       if (window.emailjs && typeof window.emailjs.init === 'function') {
         window.emailjs.init(PUBLIC_KEY);
         console.info('EmailJS initialized.');
-      } else {
-        console.warn('EmailJS SDK not found. Make sure the script is loaded.');
       }
 
       const form = document.getElementById('contact-form');
@@ -256,7 +393,6 @@
         statusEl.style.color = color || '';
       }
 
-      // sanity check for input 'name' attributes
       const requiredNames = ['from_name', 'reply_to', 'subject', 'message'];
       const presentNames = Array.from(form.elements).map(e => e.name).filter(Boolean);
       const missing = requiredNames.filter(n => !presentNames.includes(n));
@@ -273,12 +409,10 @@
         submitBtn.style.opacity = '0.7';
         setStatus('Sending...', '#666');
 
-        // 1) send owner notification (maps form fields by name)
         window.emailjs.sendForm(SERVICE_ID, OWNER_TEMPLATE_ID, this)
           .then(function (ownerRes) {
             console.log('Owner email sent:', ownerRes);
 
-            // Prepare params for auto-reply template
             const params = {
               from_name: form.elements['from_name'].value || '',
               reply_to: form.elements['reply_to'].value || '',
@@ -286,17 +420,15 @@
               message: form.elements['message'].value || ''
             };
 
-            // 2) send auto-reply to visitor
             return window.emailjs.send(SERVICE_ID, AUTO_REPLY_TEMPLATE_ID, params)
               .then(function (autoRes) {
                 console.log('Auto-reply sent:', autoRes);
-                setStatus('Message sent — confirmation emailed to sender.', 'green');
+                setStatus('Message sent — confirmation emailed to you.', 'green');
                 form.reset();
               })
               .catch(function (autoErr) {
                 console.warn('Auto-reply failed:', autoErr);
-                // still a success for owner sent
-                setStatus('Message delivered to me, but confirmation email failed.', 'orange');
+                setStatus('Message delivered, but confirmation email failed.', 'orange');
               });
           })
           .catch(function (ownerErr) {
@@ -310,5 +442,6 @@
       });
     })();
   </script>
+
 </body>
 </html>

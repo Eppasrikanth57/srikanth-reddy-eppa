@@ -48,103 +48,124 @@
     <div class="fullscreen-wrapper">
       <!-- Gear Wheel with Photo -->
       <div class="gear-container">
-        <svg class="gear-wheel" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
-          <!-- Define gradients for 3D effect -->
+        <svg class="gear-wheel" viewBox="0 0 520 520" xmlns="http://www.w3.org/2000/svg">
+          <!-- Define gradients and filters -->
           <defs>
-            <radialGradient id="gearGradient" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" style="stop-color:#00e8ff;stop-opacity:1" />
-              <stop offset="70%" style="stop-color:#00b8d4;stop-opacity:1" />
-              <stop offset="100%" style="stop-color:#0088a0;stop-opacity:1" />
-            </radialGradient>
             <filter id="gearShadow" x="-50%" y="-50%" width="200%" height="200%">
-              <feDropShadow dx="0" dy="4" stdDeviation="3" flood-opacity="0.6" flood-color="#000000"/>
+              <feDropShadow dx="0" dy="4" stdDeviation="4" flood-opacity="0.7" flood-color="#000000"/>
             </filter>
+            <linearGradient id="gearGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#00f0ff;stop-opacity:1" />
+              <stop offset="50%" style="stop-color:#00d4ff;stop-opacity:1" />
+              <stop offset="100%" style="stop-color:#0088c0;stop-opacity:1" />
+            </linearGradient>
           </defs>
 
-          <!-- Main gear body circle -->
-          <circle cx="250" cy="250" r="160" fill="#1a3a4a" stroke="#00d4ff" stroke-width="2" filter="url(#gearShadow)"/>
+          <!-- Outer background ring -->
+          <circle cx="260" cy="260" r="250" fill="#0a1a2e" stroke="#00d4ff" stroke-width="2" opacity="0.5" filter="url(#gearShadow)"/>
 
-          <!-- Generate 26 tapered teeth with fillets -->
+          <!-- Generate 26 square teeth with rounded fillets -->
           <g id="teeth" filter="url(#gearShadow)">
-            <!-- SVG teeth will be generated via script -->
+            <!-- Teeth will be generated via script -->
           </g>
 
-          <!-- Pitch circle -->
-          <circle cx="250" cy="250" r="160" fill="none" stroke="#00e8ff" stroke-width="1" opacity="0.3" stroke-dasharray="3,3"/>
+          <!-- Main gear body circle -->
+          <circle cx="260" cy="260" r="170" fill="#1a3a4a" stroke="#00d4ff" stroke-width="2.5"/>
+
+          <!-- Middle ring decorative -->
+          <circle cx="260" cy="260" r="155" fill="none" stroke="#00a8c4" stroke-width="1.5" opacity="0.6"/>
+          <circle cx="260" cy="260" r="145" fill="none" stroke="#00d4ff" stroke-width="0.8" opacity="0.3" stroke-dasharray="3,2"/>
 
           <!-- Center boss -->
-          <circle cx="250" cy="250" r="65" fill="#1a3a4a" stroke="#00d4ff" stroke-width="3"/>
-          <circle cx="250" cy="250" r="62" fill="#2d5a6f" stroke="#00a8c4" stroke-width="1"/>
+          <circle cx="260" cy="260" r="72" fill="#1a3a4a" stroke="#00d4ff" stroke-width="3"/>
+          <circle cx="260" cy="260" r="68" fill="#2d5a6f" stroke="#00a8c4" stroke-width="1.5"/>
 
           <!-- Inner highlight for 3D effect -->
-          <ellipse cx="250" cy="240" rx="55" ry="50" fill="#00e8ff" opacity="0.15"/>
+          <ellipse cx="260" cy="250" rx="62" ry="56" fill="#00e8ff" opacity="0.12"/>
         </svg>
         <script>
-          // Generate 26 tapered teeth with rounded fillets
+          // Generate 26 square teeth with properly rounded fillets
           (function() {
             const svg = document.querySelector('.gear-wheel');
             const teethGroup = svg.querySelector('#teeth');
             const numTeeth = 26;
-            const pitchRadius = 160;
-            const outerRadius = 190;   // Top of tooth
-            const innerRadius = 135;   // Root of tooth
-            const center = 250;
+            const centerX = 260;
+            const centerY = 260;
+            const pitchRadius = 170;      // Where teeth start
+            const toothHeight = 45;       // How far teeth protrude
+            const toothWidth = 28;        // Width of each tooth
+            const filletRadius = 3;       // 1-2mm equivalent (scaled to SVG)
+            const outerRadius = pitchRadius + toothHeight;
 
             for (let i = 0; i < numTeeth; i++) {
               const angle = (i * 360) / numTeeth;
               const angleRad = (angle * Math.PI) / 180;
-              const toothAngle = (360 / numTeeth) * 0.5;  // Half tooth spacing
-              const toothAngleRad = (toothAngle * Math.PI) / 180;
+              const nextAngleRad = ((angle + 360 / numTeeth) * Math.PI) / 180;
 
-              // Tapered tooth - wider at base, narrower at tip
-              const baseWidth = toothAngle * 0.7;
-              const tipWidth = toothAngle * 0.3;
+              // Calculate tooth position
+              const toothCenterX = centerX + outerRadius * Math.cos(angleRad);
+              const toothCenterY = centerY + outerRadius * Math.sin(angleRad);
+
+              // Calculate the four corners of the tooth base
+              const halfWidth = toothWidth / 2;
               
-              const baseWidthRad = (baseWidth * Math.PI) / 180;
-              const tipWidthRad = (tipWidth * Math.PI) / 180;
+              // Perpendicular direction (along the radius)
+              const perpX = Math.cos(angleRad);
+              const perpY = Math.sin(angleRad);
+              
+              // Tangential direction
+              const tangentX = -Math.sin(angleRad);
+              const tangentY = Math.cos(angleRad);
 
-              // Base points (at inner radius) - wider
-              const baseLeftAngle = angleRad - baseWidthRad;
-              const baseRightAngle = angleRad + baseWidthRad;
-              const baseLeftX = center + innerRadius * Math.cos(baseLeftAngle);
-              const baseLeftY = center + innerRadius * Math.sin(baseLeftAngle);
-              const baseRightX = center + innerRadius * Math.cos(baseRightAngle);
-              const baseRightY = center + innerRadius * Math.sin(baseRightAngle);
+              // Tooth corners
+              // Outer edge (tip)
+              const tipX = centerX + (outerRadius) * perpX;
+              const tipY = centerY + (outerRadius) * perpY;
 
-              // Tip points (at outer radius) - narrower
-              const tipLeftAngle = angleRad - tipWidthRad;
-              const tipRightAngle = angleRad + tipWidthRad;
-              const tipLeftX = center + outerRadius * Math.cos(tipLeftAngle);
-              const tipLeftY = center + outerRadius * Math.sin(tipLeftAngle);
-              const tipRightX = center + outerRadius * Math.cos(tipRightAngle);
-              const tipRightY = center + outerRadius * Math.sin(tipRightAngle);
+              // Inner edge (base)
+              const baseX = centerX + (pitchRadius) * perpX;
+              const baseY = centerY + (pitchRadius) * perpY;
 
-              // Center of tooth for fillet curves
-              const centerCenterX = center + pitchRadius * Math.cos(angleRad);
-              const centerCenterY = center + pitchRadius * Math.sin(angleRad);
+              // Side edges
+              const tipLeftX = tipX + halfWidth * tangentX;
+              const tipLeftY = tipY + halfWidth * tangentY;
+              const tipRightX = tipX - halfWidth * tangentX;
+              const tipRightY = tipY - halfWidth * tangentY;
 
-              // Create tapered tooth with fillet curves at base
+              const baseLeftX = baseX + halfWidth * tangentX;
+              const baseLeftY = baseY + halfWidth * tangentY;
+              const baseRightX = baseX - halfWidth * tangentX;
+              const baseRightY = baseY - halfWidth * tangentY;
+
+              // Create tooth path with rounded fillets on all corners
               const pathData = `
-                M ${tipLeftX} ${tipLeftY}
-                L ${tipRightX} ${tipRightY}
-                Q ${center + outerRadius * 0.98 * Math.cos(angleRad)} ${center + outerRadius * 0.98 * Math.sin(angleRad)}
-                  ${baseRightX} ${baseRightY}
-                Q ${centerCenterX} ${centerCenterY}
-                  ${baseLeftX} ${baseLeftY}
-                L ${tipLeftX} ${tipLeftY}
+                M ${tipLeftX + filletRadius * tangentX} ${tipLeftY + filletRadius * tangentY}
+                Q ${tipLeftX} ${tipLeftY} ${tipLeftX - filletRadius * perpX} ${tipLeftY - filletRadius * perpY}
+                L ${baseLeftX - filletRadius * perpX} ${baseLeftY - filletRadius * perpY}
+                Q ${baseLeftX} ${baseLeftY} ${baseLeftX + filletRadius * tangentX} ${baseLeftY + filletRadius * tangentY}
+                L ${baseRightX - filletRadius * tangentX} ${baseRightY - filletRadius * tangentY}
+                Q ${baseRightX} ${baseRightY} ${baseRightX + filletRadius * perpX} ${baseRightY + filletRadius * perpY}
+                L ${tipRightX + filletRadius * perpX} ${tipRightY + filletRadius * perpY}
+                Q ${tipRightX} ${tipRightY} ${tipRightX + filletRadius * tangentX} ${tipRightY + filletRadius * tangentY}
+                Z
               `;
 
               const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
               path.setAttribute('d', pathData);
-              path.setAttribute('fill', '#00d4ff');
-              path.setAttribute('stroke', '#00a8c4');
-              path.setAttribute('stroke-width', '0.8');
+              path.setAttribute('fill', 'url(#gearGradient)');
+              path.setAttribute('stroke', '#00b8d4');
+              path.setAttribute('stroke-width', '1');
               path.setAttribute('stroke-linejoin', 'round');
-              path.setAttribute('opacity', '0.95');
+              path.setAttribute('stroke-linecap', 'round');
               teethGroup.appendChild(path);
             }
           })();
         </script>
+      </div>
+
+      <!-- Photo container (centered in gear) -->
+      <div class="photo-container">
+        <img class="profile-photo" src="/srikanth-reddy-eppa/files/Resume_image_Professional.JPG" alt="Srikanth Reddy Eppa">
       </div>
 
       <!-- CONTENT SECTIONS -->

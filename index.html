@@ -46,7 +46,7 @@
     
     <!-- GEAR WHEEL & CONTENT SECTIONS -->
     <div class="fullscreen-wrapper">
-      <!-- Gear Wheel with Photo -->
+      <!-- Gear Wheel SVG -->
       <div class="gear-container">
         <svg class="gear-wheel" viewBox="0 0 520 520" xmlns="http://www.w3.org/2000/svg">
           <!-- Define gradients and filters -->
@@ -64,7 +64,7 @@
           <!-- Outer background ring -->
           <circle cx="260" cy="260" r="250" fill="#0a1a2e" stroke="#00d4ff" stroke-width="2" opacity="0.5" filter="url(#gearShadow)"/>
 
-          <!-- Generate 26 square teeth with rounded fillets -->
+          <!-- Generate 20 teeth with flat edges -->
           <g id="teeth" filter="url(#gearShadow)">
             <!-- Teeth will be generated via script -->
           </g>
@@ -77,76 +77,55 @@
           <circle cx="260" cy="260" r="145" fill="none" stroke="#00d4ff" stroke-width="0.8" opacity="0.3" stroke-dasharray="3,2"/>
 
           <!-- Center boss -->
-          <circle cx="260" cy="260" r="72" fill="#1a3a4a" stroke="#00d4ff" stroke-width="3"/>
-          <circle cx="260" cy="260" r="68" fill="#2d5a6f" stroke="#00a8c4" stroke-width="1.5"/>
+          <circle cx="260" cy="260" r="80" fill="#1a3a4a" stroke="#00d4ff" stroke-width="3"/>
+          <circle cx="260" cy="260" r="76" fill="#2d5a6f" stroke="#00a8c4" stroke-width="1.5"/>
 
           <!-- Inner highlight for 3D effect -->
-          <ellipse cx="260" cy="250" rx="62" ry="56" fill="#00e8ff" opacity="0.12"/>
+          <ellipse cx="260" cy="250" rx="70" ry="64" fill="#00e8ff" opacity="0.12"/>
+
+          <!-- Circular photo background -->
+          <circle cx="260" cy="260" r="70" fill="none" stroke="#00d4ff" stroke-width="2" opacity="0.5"/>
         </svg>
         <script>
-          // Generate 26 square teeth with properly rounded fillets
+          // Generate 20 teeth with FLAT edges and proper geometry
           (function() {
             const svg = document.querySelector('.gear-wheel');
             const teethGroup = svg.querySelector('#teeth');
-            const numTeeth = 26;
+            const numTeeth = 20;
             const centerX = 260;
             const centerY = 260;
-            const pitchRadius = 170;      // Where teeth start
-            const toothHeight = 45;       // How far teeth protrude
-            const toothWidth = 28;        // Width of each tooth
-            const filletRadius = 3;       // 1-2mm equivalent (scaled to SVG)
-            const outerRadius = pitchRadius + toothHeight;
+            const baseRadius = 170;        // Inner radius where teeth attach
+            const toothHeight = 50;        // How far teeth protrude outward
+            const toothWidth = 20;         // Width of each tooth
+            const outerRadius = baseRadius + toothHeight;
 
             for (let i = 0; i < numTeeth; i++) {
               const angle = (i * 360) / numTeeth;
               const angleRad = (angle * Math.PI) / 180;
-              const nextAngleRad = ((angle + 360 / numTeeth) * Math.PI) / 180;
+              const toothSpacing = 360 / numTeeth;
+              const halfSpacing = toothSpacing / 2;
+              const halfSpacingRad = (halfSpacing * Math.PI) / 180;
 
-              // Calculate tooth position
-              const toothCenterX = centerX + outerRadius * Math.cos(angleRad);
-              const toothCenterY = centerY + outerRadius * Math.sin(angleRad);
+              // Left edge of tooth
+              const leftAngleRad = angleRad - halfSpacingRad;
+              const leftBaseX = centerX + baseRadius * Math.cos(leftAngleRad);
+              const leftBaseY = centerY + baseRadius * Math.sin(leftAngleRad);
+              const leftTipX = centerX + outerRadius * Math.cos(leftAngleRad);
+              const leftTipY = centerY + outerRadius * Math.sin(leftAngleRad);
 
-              // Calculate the four corners of the tooth base
-              const halfWidth = toothWidth / 2;
-              
-              // Perpendicular direction (along the radius)
-              const perpX = Math.cos(angleRad);
-              const perpY = Math.sin(angleRad);
-              
-              // Tangential direction
-              const tangentX = -Math.sin(angleRad);
-              const tangentY = Math.cos(angleRad);
+              // Right edge of tooth
+              const rightAngleRad = angleRad + halfSpacingRad;
+              const rightBaseX = centerX + baseRadius * Math.cos(rightAngleRad);
+              const rightBaseY = centerY + baseRadius * Math.sin(rightAngleRad);
+              const rightTipX = centerX + outerRadius * Math.cos(rightAngleRad);
+              const rightTipY = centerY + outerRadius * Math.sin(rightAngleRad);
 
-              // Tooth corners
-              // Outer edge (tip)
-              const tipX = centerX + (outerRadius) * perpX;
-              const tipY = centerY + (outerRadius) * perpY;
-
-              // Inner edge (base)
-              const baseX = centerX + (pitchRadius) * perpX;
-              const baseY = centerY + (pitchRadius) * perpY;
-
-              // Side edges
-              const tipLeftX = tipX + halfWidth * tangentX;
-              const tipLeftY = tipY + halfWidth * tangentY;
-              const tipRightX = tipX - halfWidth * tangentX;
-              const tipRightY = tipY - halfWidth * tangentY;
-
-              const baseLeftX = baseX + halfWidth * tangentX;
-              const baseLeftY = baseY + halfWidth * tangentY;
-              const baseRightX = baseX - halfWidth * tangentX;
-              const baseRightY = baseY - halfWidth * tangentY;
-
-              // Create tooth path with rounded fillets on all corners
+              // Create tooth as a simple polygon with FLAT edges
               const pathData = `
-                M ${tipLeftX + filletRadius * tangentX} ${tipLeftY + filletRadius * tangentY}
-                Q ${tipLeftX} ${tipLeftY} ${tipLeftX - filletRadius * perpX} ${tipLeftY - filletRadius * perpY}
-                L ${baseLeftX - filletRadius * perpX} ${baseLeftY - filletRadius * perpY}
-                Q ${baseLeftX} ${baseLeftY} ${baseLeftX + filletRadius * tangentX} ${baseLeftY + filletRadius * tangentY}
-                L ${baseRightX - filletRadius * tangentX} ${baseRightY - filletRadius * tangentY}
-                Q ${baseRightX} ${baseRightY} ${baseRightX + filletRadius * perpX} ${baseRightY + filletRadius * perpY}
-                L ${tipRightX + filletRadius * perpX} ${tipRightY + filletRadius * perpY}
-                Q ${tipRightX} ${tipRightY} ${tipRightX + filletRadius * tangentX} ${tipRightY + filletRadius * tangentY}
+                M ${leftBaseX} ${leftBaseY}
+                L ${leftTipX} ${leftTipY}
+                L ${rightTipX} ${rightTipY}
+                L ${rightBaseX} ${rightBaseY}
                 Z
               `;
 
@@ -154,17 +133,17 @@
               path.setAttribute('d', pathData);
               path.setAttribute('fill', 'url(#gearGradient)');
               path.setAttribute('stroke', '#00b8d4');
-              path.setAttribute('stroke-width', '1');
-              path.setAttribute('stroke-linejoin', 'round');
-              path.setAttribute('stroke-linecap', 'round');
+              path.setAttribute('stroke-width', '0.8');
+              path.setAttribute('stroke-linejoin', 'miter');
+              path.setAttribute('stroke-linecap', 'butt');
               teethGroup.appendChild(path);
             }
           })();
         </script>
       </div>
 
-      <!-- Photo container (centered in gear) -->
-      <div class="photo-container">
+      <!-- Photo container - CENTERED in gear -->
+      <div class="photo-wrapper">
         <img class="profile-photo" src="/srikanth-reddy-eppa/files/Resume_image_Professional.JPG" alt="Srikanth Reddy Eppa">
       </div>
 
@@ -310,7 +289,7 @@
 
                 <div class="form-row">
                   <label for="message">Message</label>
-                  <textarea id="message" name="message" rows="6" placeholder="Write your message..." required></textarea>
+                  <textarea id="message" name="message" rows="6" placeholder="Write your message..."></textarea>
                 </div>
 
                 <div class="form-row form-row--center">
@@ -343,11 +322,11 @@
       const gearWheel = document.querySelector('.gear-wheel');
       const sections = [
         { id: 'about', element: document.getElementById('about'), startRotation: 0 },
-        { id: 'experience', element: document.getElementById('experience'), startRotation: 60 },
-        { id: 'projects', element: document.getElementById('projects'), startRotation: 120 },
-        { id: 'skills', element: document.getElementById('skills'), startRotation: 180 },
-        { id: 'education', element: document.getElementById('education'), startRotation: 240 },
-        { id: 'contact', element: document.getElementById('contact'), startRotation: 300 }
+        { id: 'experience', element: document.getElementById('experience'), startRotation: 54 },
+        { id: 'projects', element: document.getElementById('projects'), startRotation: 108 },
+        { id: 'skills', element: document.getElementById('skills'), startRotation: 162 },
+        { id: 'education', element: document.getElementById('education'), startRotation: 216 },
+        { id: 'contact', element: document.getElementById('contact'), startRotation: 270 }
       ];
 
       let currentRotation = 0;
@@ -384,14 +363,11 @@
         
         wheelDelta += e.deltaY;
 
-        // Scroll threshold (adjust sensitivity)
         if (Math.abs(wheelDelta) > 100) {
           if (wheelDelta > 0) {
-            // Scroll down - next section
             const nextIndex = (currentSectionIndex + 1) % sections.length;
             showSection(nextIndex);
           } else {
-            // Scroll up - previous section
             const prevIndex = (currentSectionIndex - 1 + sections.length) % sections.length;
             showSection(prevIndex);
           }
@@ -410,84 +386,3 @@
             showSection(sectionIndex);
           }
         });
-      });
-
-      // Initialize with about section
-      showSection(0);
-    })();
-  </script>
-
-  <script>
-    /* EMAILJS HANDLER */
-    (function () {
-      const PUBLIC_KEY = "VJfDt6cbIDWVebWfX";
-      const SERVICE_ID = "service_gpxbcq7";
-      const OWNER_TEMPLATE_ID = "template_wfhkq5c";
-      const AUTO_REPLY_TEMPLATE_ID = "template_6he0kxw";
-
-      if (window.emailjs && typeof window.emailjs.init === 'function') {
-        window.emailjs.init(PUBLIC_KEY);
-        console.info('EmailJS initialized.');
-      }
-
-      const form = document.getElementById('contact-form');
-      const statusEl = document.getElementById('form-status');
-      const submitBtn = document.getElementById('contact-submit');
-
-      function setStatus(text, color) {
-        statusEl.textContent = text;
-        statusEl.style.color = color || '';
-      }
-
-      const requiredNames = ['from_name', 'reply_to', 'subject', 'message'];
-      const presentNames = Array.from(form.elements).map(e => e.name).filter(Boolean);
-      const missing = requiredNames.filter(n => !presentNames.includes(n));
-      if (missing.length) {
-        console.error('Form missing required fields:', missing);
-        setStatus('Contact form misconfigured. Please refresh.', 'darkred');
-      }
-
-      form.addEventListener('submit', function (e) {
-        e.preventDefault();
-        if (missing.length) return;
-
-        submitBtn.disabled = true;
-        submitBtn.style.opacity = '0.7';
-        setStatus('Sending...', '#666');
-
-        window.emailjs.sendForm(SERVICE_ID, OWNER_TEMPLATE_ID, this)
-          .then(function (ownerRes) {
-            console.log('Owner email sent:', ownerRes);
-
-            const params = {
-              from_name: form.elements['from_name'].value || '',
-              reply_to: form.elements['reply_to'].value || '',
-              subject: form.elements['subject'].value || '',
-              message: form.elements['message'].value || ''
-            };
-
-            return window.emailjs.send(SERVICE_ID, AUTO_REPLY_TEMPLATE_ID, params)
-              .then(function (autoRes) {
-                console.log('Auto-reply sent:', autoRes);
-                setStatus('Message sent — confirmation emailed to you.', 'green');
-                form.reset();
-              })
-              .catch(function (autoErr) {
-                console.warn('Auto-reply failed:', autoErr);
-                setStatus('Message delivered, but confirmation email failed.', 'orange');
-              });
-          })
-          .catch(function (ownerErr) {
-            console.error('Failed to send owner email:', ownerErr);
-            setStatus('Failed to send message. Please try again later.', 'darkred');
-          })
-          .finally(function () {
-            submitBtn.disabled = false;
-            submitBtn.style.opacity = '';
-          });
-      });
-    })();
-  </script>
-
-</body>
-</html>

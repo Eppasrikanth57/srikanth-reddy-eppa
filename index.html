@@ -143,9 +143,13 @@
       flex-direction: column;
       overflow: hidden;
       background: #0a0e27;
+      position: relative;
     }
 
     .content-section {
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
       padding: 50px 80px;
@@ -153,17 +157,18 @@
       visibility: hidden;
       transform: translateX(40px);
       transition: opacity 0.6s ease, visibility 0.6s ease, transform 0.6s ease;
-      overflow-y: auto;
-      overflow-x: hidden;
       display: flex;
       flex-direction: column;
-      justify-content: flex-start;
+      pointer-events: none;
     }
 
     .content-section.active {
       opacity: 1;
       visibility: visible;
       transform: translateX(0);
+      pointer-events: auto;
+      overflow-y: auto;
+      overflow-x: hidden;
     }
 
     .content-section::-webkit-scrollbar {
@@ -197,6 +202,7 @@
       display: flex;
       flex-direction: column;
       gap: 32px;
+      min-height: 0;
     }
 
     .about-text {
@@ -206,12 +212,14 @@
       text-align: left;
       letter-spacing: 0.3px;
       margin: 0;
+      flex-shrink: 0;
     }
 
     .about-meta {
       margin-top: 32px;
       font-size: 14px;
       color: #00d4ff;
+      flex-shrink: 0;
     }
 
     .meta-location {
@@ -224,6 +232,7 @@
       display: flex;
       gap: 28px;
       margin-top: 40px;
+      flex-shrink: 0;
     }
 
     .social-links a {
@@ -247,6 +256,13 @@
       box-shadow: 0 0 20px rgba(0, 212, 255, 0.7);
     }
 
+    .content-inner {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      flex-shrink: 0;
+    }
+
     .job-entry, .project-entry, .edu-entry, .skills-group {
       margin-bottom: 32px;
       padding: 24px;
@@ -254,6 +270,7 @@
       border-left: 6px solid #00d4ff;
       border-radius: 4px;
       display: block;
+      flex-shrink: 0;
     }
 
     .job-entry h3, .project-entry h3, .edu-entry h3, .skills-group h3 {
@@ -322,12 +339,14 @@
       border: 1px solid rgba(0, 212, 255, 0.2);
       max-width: 600px;
       margin-top: 20px;
+      flex-shrink: 0;
     }
 
     .form-row {
       display: flex;
       flex-direction: column;
       gap: 12px;
+      flex-shrink: 0;
     }
 
     .form-row label {
@@ -526,20 +545,22 @@
       <!-- ABOUT SECTION -->
       <section id="about" class="content-section active">
         <h1 class="section-title">About Me</h1>
-        <div class="about-content">
-          <p class="about-text">
-            Master's student in Mechatronics & Robotics with experience in digitalization, automation, and sustainability. Passionate about leveraging technology to solve real-world engineering challenges and drive innovation.
-          </p>
-          <p class="about-text">
-            Skilled in Digital Twin technology, Digital Product Passports, and mechatronic system design, aiming to deliver innovative solutions aligned with industry demand. My expertise spans from concept design to implementation, with strong proficiency in CAD software and embedded systems programming.
-          </p>
-          <div class="about-meta">
-            <span class="meta-location"><i class="fas fa-map-marker-alt"></i> Stuttgart Region, Germany</span>
-          </div>
-          <div class="social-links">
-            <a href="https://github.com/Eppasrikanth57" target="_blank" rel="noopener" title="GitHub"><i class="fab fa-github"></i></a>
-            <a href="https://www.linkedin.com/in/srikanth-reddy-eppa/" target="_blank" rel="noopener" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-            <a href="mailto:eppasrikanth57@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+        <div class="content-inner">
+          <div class="about-content">
+            <p class="about-text">
+              Master's student in Mechatronics & Robotics with experience in digitalization, automation, and sustainability. Passionate about leveraging technology to solve real-world engineering challenges and drive innovation.
+            </p>
+            <p class="about-text">
+              Skilled in Digital Twin technology, Digital Product Passports, and mechatronic system design, aiming to deliver innovative solutions aligned with industry demand. My expertise spans from concept design to implementation, with strong proficiency in CAD software and embedded systems programming.
+            </p>
+            <div class="about-meta">
+              <span class="meta-location"><i class="fas fa-map-marker-alt"></i> Stuttgart Region, Germany</span>
+            </div>
+            <div class="social-links">
+              <a href="https://github.com/Eppasrikanth57" target="_blank" rel="noopener" title="GitHub"><i class="fab fa-github"></i></a>
+              <a href="https://www.linkedin.com/in/srikanth-reddy-eppa/" target="_blank" rel="noopener" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+              <a href="mailto:eppasrikanth57@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+            </div>
           </div>
         </div>
       </section>
@@ -547,114 +568,124 @@
       <!-- EXPERIENCE SECTION -->
       <section id="experience" class="content-section">
         <h1 class="section-title">Experience</h1>
-        <div class="job-entry">
-          <h3>Design and Prototyping of Soft Robot Arm</h3>
-          <p class="meta">Hochschule Schmalkalden, Germany | Feb 2025–Now</p>
-          <ul>
-            <li>Developed and optimized a Soft Robot for Industry 5.0 applications using <strong>SolidWorks</strong>.</li>
-            <li>Used additive manufacturing (<strong>3D printing</strong>) to create and optimize key components.</li>
-            <li>Engineered an <strong>Arduino Mega 2560</strong> circuit to control integrated sensors and motors.</li>
-          </ul>
-        </div>
-        <div class="job-entry">
-          <h3>Working Student - Product Innovation</h3>
-          <p class="meta">Morgenwerk GmbH, Tamm, Germany | Sep 2024–Mar 2025</p>
-          <ul>
-            <li>Developed and prototyped a gate system for an automated vending machine using <strong>SolidWorks</strong>.</li>
-            <li>Produced technical drawings and worked on structural tube development for an <strong>AGV</strong>.</li>
-          </ul>
-        </div>
-        <div class="job-entry">
-          <h3>Engineer - Design | Intern</h3>
-          <p class="meta">Regal Rexnord India Private Limited, Hyderabad | Feb 2020–Aug 2022</p>
-          <ul>
-            <li>Enhanced Torsional couplings improving productivity using <strong>SolidWorks</strong>.</li>
-            <li>Created technical drawings per <strong>ISO/DIN/GD&T</strong> standards and BOMs in <strong>SAP</strong>.</li>
-          </ul>
+        <div class="content-inner">
+          <div class="job-entry">
+            <h3>Design and Prototyping of Soft Robot Arm</h3>
+            <p class="meta">Hochschule Schmalkalden, Germany | Feb 2025–Now</p>
+            <ul>
+              <li>Developed and optimized a Soft Robot for Industry 5.0 applications using <strong>SolidWorks</strong>.</li>
+              <li>Used additive manufacturing (<strong>3D printing</strong>) to create and optimize key components.</li>
+              <li>Engineered an <strong>Arduino Mega 2560</strong> circuit to control integrated sensors and motors.</li>
+            </ul>
+          </div>
+          <div class="job-entry">
+            <h3>Working Student - Product Innovation</h3>
+            <p class="meta">Morgenwerk GmbH, Tamm, Germany | Sep 2024–Mar 2025</p>
+            <ul>
+              <li>Developed and prototyped a gate system for an automated vending machine using <strong>SolidWorks</strong>.</li>
+              <li>Produced technical drawings and worked on structural tube development for an <strong>AGV</strong>.</li>
+            </ul>
+          </div>
+          <div class="job-entry">
+            <h3>Engineer - Design | Intern</h3>
+            <p class="meta">Regal Rexnord India Private Limited, Hyderabad | Feb 2020–Aug 2022</p>
+            <ul>
+              <li>Enhanced Torsional couplings improving productivity using <strong>SolidWorks</strong>.</li>
+              <li>Created technical drawings per <strong>ISO/DIN/GD&T</strong> standards and BOMs in <strong>SAP</strong>.</li>
+            </ul>
+          </div>
         </div>
       </section>
 
       <!-- PROJECTS SECTION -->
       <section id="projects" class="content-section">
         <h1 class="section-title">Projects</h1>
-        <div class="project-entry">
-          <h3>Automated XY Pen Plotter</h3>
-          <p class="meta">Apr 2023–Jul 2023</p>
-          <ul>
-            <li>Full V-model design with <strong>SolidWorks & Siemens NX</strong></li>
-            <li>Precision components achieving ±0.5mm accuracy</li>
-            <li>Motion control for 2-axis independent movement</li>
-          </ul>
-        </div>
-        <div class="project-entry">
-          <h3>Thermal Energy Storage System</h3>
-          <p class="meta">Nov 2019–Aug 2020</p>
-          <ul>
-            <li>Insulated stainless-steel tank design</li>
-            <li>10.6 kJ energy efficiency improvement</li>
-            <li>45% system efficiency improvement achieved</li>
-          </ul>
+        <div class="content-inner">
+          <div class="project-entry">
+            <h3>Automated XY Pen Plotter</h3>
+            <p class="meta">Apr 2023–Jul 2023</p>
+            <ul>
+              <li>Full V-model design with <strong>SolidWorks & Siemens NX</strong></li>
+              <li>Precision components achieving ±0.5mm accuracy</li>
+              <li>Motion control for 2-axis independent movement</li>
+            </ul>
+          </div>
+          <div class="project-entry">
+            <h3>Thermal Energy Storage System</h3>
+            <p class="meta">Nov 2019–Aug 2020</p>
+            <ul>
+              <li>Insulated stainless-steel tank design</li>
+              <li>10.6 kJ energy efficiency improvement</li>
+              <li>45% system efficiency improvement achieved</li>
+            </ul>
+          </div>
         </div>
       </section>
 
       <!-- SKILLS SECTION -->
       <section id="skills" class="content-section">
         <h1 class="section-title">Skills</h1>
-        <div class="skills-group">
-          <h3>CAD & Design Tools</h3>
-          <p><strong>CAD:</strong> SolidWorks, Ansys, PTC Creo, CATIA V5, Siemens NX, AutoCAD, Fusion</p>
-        </div>
-        <div class="skills-group">
-          <h3>Technical Skills</h3>
-          <p>PLC Programming, Python, C++, GD&T, Embedded Systems, Arduino</p>
-        </div>
-        <div class="skills-group">
-          <h3>Languages</h3>
-          <p><strong>English:</strong> C1 | <strong>German:</strong> A2 | <strong>Telugu:</strong> Native</p>
+        <div class="content-inner">
+          <div class="skills-group">
+            <h3>CAD & Design Tools</h3>
+            <p><strong>CAD:</strong> SolidWorks, Ansys, PTC Creo, CATIA V5, Siemens NX, AutoCAD, Fusion</p>
+          </div>
+          <div class="skills-group">
+            <h3>Technical Skills</h3>
+            <p>PLC Programming, Python, C++, GD&T, Embedded Systems, Arduino</p>
+          </div>
+          <div class="skills-group">
+            <h3>Languages</h3>
+            <p><strong>English:</strong> C1 | <strong>German:</strong> A2 | <strong>Telugu:</strong> Native</p>
+          </div>
         </div>
       </section>
 
       <!-- EDUCATION SECTION -->
       <section id="education" class="content-section">
         <h1 class="section-title">Education</h1>
-        <div class="edu-entry">
-          <h3>Master of Science - Mechatronics and Robotics</h3>
-          <p class="meta">Hochschule Schmalkalden | Oct 2022–Present</p>
-          <p style="font-size: 14px; color: #d0d0d0; margin: 0; text-align: left;">Grade: 2.4 | Focus: Digital Twin, Industry 5.0</p>
-        </div>
-        <div class="edu-entry">
-          <h3>B.Tech - Mechanical Engineering</h3>
-          <p class="meta">Vidya Jyothi Institute | Jul 2017–Aug 2020</p>
-          <p style="font-size: 14px; color: #d0d0d0; margin: 0; text-align: left;">Grade: 1.23 | Coursework: CAD, Thermodynamics, Machine Design</p>
+        <div class="content-inner">
+          <div class="edu-entry">
+            <h3>Master of Science - Mechatronics and Robotics</h3>
+            <p class="meta">Hochschule Schmalkalden | Oct 2022–Present</p>
+            <p style="font-size: 14px; color: #d0d0d0; margin: 0; text-align: left;">Grade: 2.4 | Focus: Digital Twin, Industry 5.0</p>
+          </div>
+          <div class="edu-entry">
+            <h3>B.Tech - Mechanical Engineering</h3>
+            <p class="meta">Vidya Jyothi Institute | Jul 2017–Aug 2020</p>
+            <p style="font-size: 14px; color: #d0d0d0; margin: 0; text-align: left;">Grade: 1.23 | Coursework: CAD, Thermodynamics, Machine Design</p>
+          </div>
         </div>
       </section>
 
       <!-- CONTACT SECTION -->
       <section id="contact" class="content-section">
         <h1 class="section-title">Get In Touch</h1>
-        <form id="contact-form" class="contact-form" novalidate>
-          <div class="form-row">
-            <label for="from_name">Your Name</label>
-            <input type="text" id="from_name" name="from_name" placeholder="Your name" required>
-          </div>
-          <div class="form-row">
-            <label for="reply_to">Your Email</label>
-            <input type="email" id="reply_to" name="reply_to" placeholder="name@company.com" required>
-          </div>
-          <div class="form-row">
-            <label for="subject">Subject</label>
-            <input type="text" id="subject" name="subject" placeholder="Subject" required>
-          </div>
-          <div class="form-row">
-            <label for="message">Message</label>
-            <textarea id="message" name="message" rows="4" placeholder="Write your message..." required></textarea>
-          </div>
-          <button id="contact-submit" type="submit" class="btn-send">
-            <i class="fas fa-paper-plane"></i>
-            <span>Send</span>
-          </button>
-        </form>
-        <p id="form-status" class="form-status" aria-live="polite"></p>
+        <div class="content-inner">
+          <form id="contact-form" class="contact-form" novalidate>
+            <div class="form-row">
+              <label for="from_name">Your Name</label>
+              <input type="text" id="from_name" name="from_name" placeholder="Your name" required>
+            </div>
+            <div class="form-row">
+              <label for="reply_to">Your Email</label>
+              <input type="email" id="reply_to" name="reply_to" placeholder="name@company.com" required>
+            </div>
+            <div class="form-row">
+              <label for="subject">Subject</label>
+              <input type="text" id="subject" name="subject" placeholder="Subject" required>
+            </div>
+            <div class="form-row">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="4" placeholder="Write your message..." required></textarea>
+            </div>
+            <button id="contact-submit" type="submit" class="btn-send">
+              <i class="fas fa-paper-plane"></i>
+              <span>Send</span>
+            </button>
+          </form>
+          <p id="form-status" class="form-status" aria-live="polite"></p>
+        </div>
       </section>
     </div>
   </div>

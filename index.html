@@ -324,6 +324,7 @@
       flex-direction: column;
       gap: clamp(0.75rem, 1.5vw, 1.25rem);
       position: relative;
+      padding-bottom: clamp(85px, 18vw, 120px);
     }
 
     .timeline-card:hover {
@@ -470,18 +471,19 @@
 
     .card-footer-logo {
       position: absolute;
-      bottom: clamp(0.75rem, 1.5vw, 1.25rem);
-      right: clamp(0.75rem, 1.5vw, 1.25rem);
-      width: clamp(40px, 8vw, 60px);
-      height: clamp(40px, 8vw, 60px);
-      border-radius: 6px;
-      background: rgba(0, 212, 255, 0.08);
-      border: 1px solid rgba(0, 212, 255, 0.2);
+      bottom: clamp(0.5rem, 1vw, 0.75rem);
+      right: clamp(0.5rem, 1vw, 0.75rem);
+      width: clamp(70px, 15vw, 110px);
+      height: clamp(70px, 15vw, 110px);
+      border-radius: 8px;
+      background: rgba(0, 212, 255, 0.1);
+      border: 1.5px solid rgba(0, 212, 255, 0.3);
       display: flex;
       align-items: center;
       justify-content: center;
       overflow: hidden;
-      padding: 0.35rem;
+      padding: clamp(0.5rem, 1vw, 0.75rem);
+      box-shadow: 0 4px 12px rgba(0, 212, 255, 0.1);
     }
 
     .card-footer-logo img {
@@ -680,18 +682,19 @@
       padding-top: clamp(1rem, 2vw, 1.5rem);
       border-top: 1px solid rgba(0, 212, 255, 0.2);
       display: flex;
-      justify-content: flex-end;
+      justify-content: center;
       flex-shrink: 0;
     }
 
     .modal-footer-logo img {
-      width: clamp(50px, 10vw, 80px);
-      height: clamp(50px, 10vw, 80px);
+      width: clamp(120px, 25vw, 200px);
+      height: clamp(120px, 25vw, 200px);
       object-fit: contain;
-      border-radius: 6px;
-      background: rgba(0, 212, 255, 0.08);
-      border: 1px solid rgba(0, 212, 255, 0.2);
-      padding: 0.5rem;
+      border-radius: 8px;
+      background: rgba(0, 212, 255, 0.1);
+      border: 2px solid rgba(0, 212, 255, 0.3);
+      padding: clamp(0.75rem, 1.5vw, 1.25rem);
+      box-shadow: 0 4px 15px rgba(0, 212, 255, 0.15);
     }
 
     /* ============ CONTACT FORM (2-COLUMN) ============ */

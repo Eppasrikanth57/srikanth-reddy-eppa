@@ -271,6 +271,345 @@
       box-shadow: 0 0 20px rgba(0, 212, 255, 0.7);
     }
 
+    /* ============ EXPERIENCE TIMELINE ============ */
+    .experience-timeline {
+      display: flex;
+      flex-direction: column;
+      gap: clamp(1.5rem, 3vw, 2.5rem);
+      position: relative;
+      padding-left: clamp(2rem, 4vw, 3rem);
+    }
+
+    .experience-timeline::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: linear-gradient(180deg, #00d4ff, #00a8c4);
+      border-radius: 2px;
+    }
+
+    .experience-card {
+      position: relative;
+      padding: clamp(1.25rem, 2.5vw, 1.75rem);
+      background: rgba(0, 212, 255, 0.04);
+      border: 1px solid rgba(0, 212, 255, 0.15);
+      border-radius: 10px;
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      gap: clamp(0.75rem, 1.5vw, 1.25rem);
+    }
+
+    .experience-card:hover {
+      background: rgba(0, 212, 255, 0.08);
+      border-color: rgba(0, 212, 255, 0.3);
+      box-shadow: 0 10px 30px rgba(0, 212, 255, 0.15);
+    }
+
+    .experience-card::before {
+      content: '';
+      position: absolute;
+      left: clamp(-1.75rem, -3.5vw, -2.5rem);
+      top: clamp(0.75rem, 1.5vw, 1.25rem);
+      width: clamp(12px, 2vw, 16px);
+      height: clamp(12px, 2vw, 16px);
+      background: #00d4ff;
+      border: 3px solid #0a0e27;
+      border-radius: 50%;
+      box-shadow: 0 0 15px rgba(0, 212, 255, 0.6);
+    }
+
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: clamp(0.75rem, 1.5vw, 1.25rem);
+      flex-wrap: wrap;
+    }
+
+    .exp-logo {
+      width: clamp(35px, 5vw, 50px);
+      height: clamp(35px, 5vw, 50px);
+      border-radius: 8px;
+      background: rgba(0, 212, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      border: 1px solid rgba(0, 212, 255, 0.2);
+      font-size: clamp(14px, 2.5vw, 20px);
+      color: #00d4ff;
+    }
+
+    .exp-header-content {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .exp-job-title {
+      font-size: clamp(13px, 2vw, 17px);
+      font-weight: 700;
+      color: #00d4ff;
+      margin: 0 0 0.25rem 0;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
+
+    .exp-company {
+      font-size: clamp(11px, 1.6vw, 14px);
+      color: #d0d0d0;
+      margin: 0;
+    }
+
+    .exp-popup-btn {
+      width: clamp(32px, 4vw, 42px);
+      height: clamp(32px, 4vw, 42px);
+      border: 2px solid rgba(0, 212, 255, 0.5);
+      background: rgba(0, 212, 255, 0.05);
+      color: #00d4ff;
+      border-radius: 6px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: clamp(14px, 2vw, 18px);
+      transition: all 0.3s ease;
+      flex-shrink: 0;
+      padding: 0;
+    }
+
+    .exp-popup-btn:hover {
+      background: rgba(0, 212, 255, 0.15);
+      border-color: #00d4ff;
+      box-shadow: 0 0 15px rgba(0, 212, 255, 0.4);
+      transform: scale(1.1);
+    }
+
+    .exp-location-date {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      font-size: clamp(10px, 1.4vw, 12px);
+      color: #999;
+    }
+
+    .exp-location {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .exp-date {
+      font-weight: 500;
+      color: #00d4ff;
+    }
+
+    .exp-skills {
+      padding: clamp(0.75rem, 1.5vw, 1.25rem);
+      background: rgba(0, 50, 68, 0.3);
+      border-radius: 6px;
+      border-left: 3px solid #00d4ff;
+    }
+
+    .exp-skills-title {
+      font-size: clamp(10px, 1.3vw, 12px);
+      color: #00d4ff;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 0.5rem;
+    }
+
+    .exp-skills-list {
+      font-size: clamp(11px, 1.5vw, 13px);
+      color: #d0d0d0;
+      line-height: 1.6;
+      margin: 0;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
+
+    /* ============ DUAL JOB TIMELINE (Experience 3) ============ */
+    .dual-job-timeline {
+      display: flex;
+      flex-direction: column;
+      gap: clamp(1rem, 2vw, 1.5rem);
+      position: relative;
+      padding-left: clamp(1.5rem, 2.5vw, 2rem);
+    }
+
+    .dual-job-timeline::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(180deg, #00a8c4, #00d4ff);
+      border-radius: 1px;
+    }
+
+    .dual-job-item {
+      position: relative;
+      padding: clamp(0.75rem, 1.5vw, 1rem);
+      background: rgba(0, 212, 255, 0.03);
+      border-left: 3px solid #00d4ff;
+      border-radius: 6px;
+    }
+
+    .dual-job-item::before {
+      content: '';
+      position: absolute;
+      left: clamp(-0.9rem, -1.8vw, -1.1rem);
+      top: clamp(0.5rem, 1vw, 0.75rem);
+      width: clamp(8px, 1.5vw, 10px);
+      height: clamp(8px, 1.5vw, 10px);
+      background: #00d4ff;
+      border: 2px solid #0a0e27;
+      border-radius: 50%;
+    }
+
+    .dual-job-title {
+      font-size: clamp(12px, 1.8vw, 15px);
+      font-weight: 600;
+      color: #00d4ff;
+      margin: 0 0 0.25rem 0;
+    }
+
+    .dual-job-date {
+      font-size: clamp(10px, 1.3vw, 11px);
+      color: #999;
+      margin: 0;
+    }
+
+    /* ============ MODAL POPUP ============ */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.8);
+      animation: fadeIn 0.3s ease;
+    }
+
+    .modal.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .modal-content {
+      background: linear-gradient(135deg, rgba(10, 14, 39, 0.98), rgba(26, 31, 58, 0.98));
+      margin: auto;
+      padding: clamp(1.5rem, 3vw, 2.5rem);
+      border: 1px solid rgba(0, 212, 255, 0.3);
+      border-radius: 12px;
+      width: 90%;
+      max-width: 600px;
+      max-height: 80vh;
+      overflow-y: auto;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      animation: slideIn 0.3s ease;
+    }
+
+    @keyframes slideIn {
+      from {
+        transform: translate(-50%, -60%);
+        opacity: 0;
+      }
+      to {
+        transform: translate(-50%, -50%);
+        opacity: 1;
+      }
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: clamp(1.25rem, 2.5vw, 2rem);
+      border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+      padding-bottom: clamp(0.75rem, 1.5vw, 1.25rem);
+    }
+
+    .modal-title {
+      font-size: clamp(18px, 3vw, 24px);
+      color: #00d4ff;
+      font-weight: 700;
+      margin: 0;
+    }
+
+    .modal-close {
+      background: none;
+      border: 2px solid rgba(0, 212, 255, 0.5);
+      color: #00d4ff;
+      font-size: clamp(18px, 3vw, 24px);
+      cursor: pointer;
+      width: clamp(32px, 5vw, 40px);
+      height: clamp(32px, 5vw, 40px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+      flex-shrink: 0;
+    }
+
+    .modal-close:hover {
+      background: rgba(0, 212, 255, 0.15);
+      border-color: #00d4ff;
+      box-shadow: 0 0 15px rgba(0, 212, 255, 0.4);
+    }
+
+    .modal-body {
+      color: #d0d0d0;
+    }
+
+    .modal-body h3 {
+      font-size: clamp(14px, 2vw, 16px);
+      color: #00d4ff;
+      margin: clamp(1rem, 2vw, 1.5rem) 0 clamp(0.5rem, 1vw, 0.75rem) 0;
+      font-weight: 700;
+    }
+
+    .modal-body ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 clamp(1rem, 2vw, 1.5rem) 0;
+    }
+
+    .modal-body li {
+      font-size: clamp(12px, 1.6vw, 14px);
+      color: #d0d0d0;
+      margin: 0 0 clamp(0.5rem, 1vw, 0.75rem) 0;
+      padding-left: 1.5rem;
+      position: relative;
+      line-height: 1.6;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
+
+    .modal-body li:before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: #00d4ff;
+      font-weight: bold;
+    }
+
     /* ============ CONTENT ENTRIES ============ */
     .content-inner {
       display: flex;
@@ -279,7 +618,6 @@
       flex-shrink: 0;
     }
 
-    .job-entry,
     .project-entry,
     .edu-entry,
     .skills-group {
@@ -292,7 +630,6 @@
       flex-shrink: 0;
     }
 
-    .job-entry h3,
     .project-entry h3,
     .edu-entry h3,
     .skills-group h3 {
@@ -314,14 +651,12 @@
       letter-spacing: 0.3px;
     }
 
-    .job-entry ul,
     .project-entry ul {
       list-style: none;
       padding: 0;
       margin: 0;
     }
 
-    .job-entry li,
     .project-entry li {
       font-size: clamp(12px, 1.6vw, 14px);
       color: #d0d0d0;
@@ -335,12 +670,10 @@
       overflow-wrap: break-word;
     }
 
-    .job-entry li:last-child,
     .project-entry li:last-child {
       margin-bottom: 0;
     }
 
-    .job-entry li:before,
     .project-entry li:before {
       content: "•";
       position: absolute;
@@ -569,10 +902,6 @@
         padding-top: clamp(0.75rem, 2vw, 1.25rem);
       }
 
-      .about-text {
-        font-size: clamp(12px, 1.6vw, 14px);
-      }
-
       .contact-form {
         max-width: 100%;
       }
@@ -632,78 +961,12 @@
         margin-bottom: clamp(0.75rem, 2vw, 1.5rem);
       }
 
-      .about-text {
-        font-size: clamp(11px, 1.4vw, 13px);
-        line-height: 1.7;
-      }
-
-      .job-entry,
-      .project-entry,
-      .edu-entry,
-      .skills-group {
-        padding: clamp(0.75rem, 2vw, 1.25rem);
-        border-left: clamp(3px, 0.8vw, 5px) solid #00d4ff;
-      }
-
-      .job-entry h3,
-      .project-entry h3,
-      .edu-entry h3,
-      .skills-group h3 {
-        font-size: clamp(12px, 2vw, 15px);
-      }
-
-      .job-entry li,
-      .project-entry li {
-        font-size: clamp(11px, 1.4vw, 13px);
-        margin: 0 0 0.5rem 0;
-        padding-left: clamp(0.8rem, 1.5vw, 1rem);
-      }
-
-      .meta {
-        font-size: clamp(9px, 1.2vw, 11px);
-      }
-
-      .social-links {
-        gap: clamp(0.75rem, 2vw, 1.5rem);
-        margin-top: clamp(1rem, 2vw, 1.5rem);
-      }
-
-      .social-links a {
-        width: clamp(36px, 7vw, 48px);
-        height: clamp(36px, 7vw, 48px);
-        font-size: clamp(14px, 2.5vw, 18px);
-      }
-
-      .about-content {
-        gap: clamp(1rem, 2vw, 1.5rem);
-      }
-
-      .about-meta {
-        margin-top: clamp(0.75rem, 1.5vw, 1.25rem);
-        font-size: clamp(10px, 1.2vw, 12px);
-      }
-
-      .contact-form {
-        padding: clamp(1rem, 2vw, 1.5rem);
-        gap: clamp(0.75rem, 1.5vw, 1.25rem);
-      }
-
-      .form-row {
-        gap: 0.5rem;
-      }
-
-      .btn-send {
-        padding: clamp(0.65rem, 1.2vw, 0.85rem) clamp(1rem, 2.5vw, 1.75rem);
-        font-size: clamp(9px, 1.2vw, 11px);
-      }
-
-      footer {
-        bottom: 0.75rem;
-        font-size: clamp(6px, 0.9vw, 8px);
+      .modal-content {
+        width: 95%;
+        max-height: 85vh;
       }
     }
 
-    /* ============ LANDSCAPE MODE (PHONES) ============ */
     @media (max-height: 600px) {
       header {
         padding: 0.5rem 1rem;
@@ -735,16 +998,6 @@
       .section-title {
         font-size: clamp(18px, 4vw, 24px);
         margin-bottom: clamp(0.5rem, 1.5vw, 1rem);
-      }
-
-      .about-text {
-        font-size: clamp(11px, 1.3vw, 12px);
-        line-height: 1.6;
-        margin: 0;
-      }
-
-      .about-content {
-        gap: clamp(0.75rem, 1.5vw, 1rem);
       }
 
       footer {
@@ -864,31 +1117,87 @@
       <!-- EXPERIENCE SECTION -->
       <section id="experience" class="content-section">
         <h1 class="section-title">Experience</h1>
-        <div class="content-inner">
-          <div class="job-entry">
-            <h3>Design and Prototyping of Soft Robot Arm</h3>
-            <p class="meta">Hochschule Schmalkalden, Germany | Feb 2025–Now</p>
-            <ul>
-              <li>Developed and optimized a Soft Robot for Industry 5.0 applications using <strong>SolidWorks</strong>.</li>
-              <li>Used additive manufacturing (<strong>3D printing</strong>) to create and optimize key components.</li>
-              <li>Engineered an <strong>Arduino Mega 2560</strong> circuit to control integrated sensors and motors.</li>
-            </ul>
+        <div class="experience-timeline">
+          <!-- Experience 1 -->
+          <div class="experience-card">
+            <div class="exp-header">
+              <div class="exp-logo">
+                <i class="fas fa-graduation-cap"></i>
+              </div>
+              <div class="exp-header-content">
+                <h3 class="exp-job-title">Design & Prototyping of Soft Robot Arm</h3>
+                <p class="exp-company">Hochschule Schmalkalden</p>
+              </div>
+              <button class="exp-popup-btn" data-modal="modal-exp-1" title="View Tasks">
+                <i class="fas fa-external-link-alt"></i>
+              </button>
+            </div>
+            <div class="exp-location-date">
+              <span class="exp-location"><i class="fas fa-map-marker-alt" style="font-size: 0.9em;"></i> Germany</span>
+              <span class="exp-date">Feb 2025 — Now</span>
+            </div>
+            <div class="exp-skills">
+              <div class="exp-skills-title">Skills Used & Learnt</div>
+              <p class="exp-skills-list">SolidWorks, 3D Printing, Arduino Mega 2560, Sensor Integration, CAD Design, Industry 5.0</p>
+            </div>
           </div>
-          <div class="job-entry">
-            <h3>Working Student - Product Innovation</h3>
-            <p class="meta">Morgenwerk GmbH, Tamm, Germany | Sep 2024–Mar 2025</p>
-            <ul>
-              <li>Developed and prototyped a gate system for an automated vending machine using <strong>SolidWorks</strong>.</li>
-              <li>Produced technical drawings and worked on structural tube development for an <strong>AGV</strong>.</li>
-            </ul>
+
+          <!-- Experience 2 -->
+          <div class="experience-card">
+            <div class="exp-header">
+              <div class="exp-logo">
+                <i class="fas fa-briefcase"></i>
+              </div>
+              <div class="exp-header-content">
+                <h3 class="exp-job-title">Working Student - Product Innovation</h3>
+                <p class="exp-company">Morgenwerk GmbH</p>
+              </div>
+              <button class="exp-popup-btn" data-modal="modal-exp-2" title="View Tasks">
+                <i class="fas fa-external-link-alt"></i>
+              </button>
+            </div>
+            <div class="exp-location-date">
+              <span class="exp-location"><i class="fas fa-map-marker-alt" style="font-size: 0.9em;"></i> Tamm, Germany</span>
+              <span class="exp-date">Sep 2024 — Mar 2025</span>
+            </div>
+            <div class="exp-skills">
+              <div class="exp-skills-title">Skills Used & Learnt</div>
+              <p class="exp-skills-list">SolidWorks, Technical Drawings, AGV Systems, Product Development, Prototyping</p>
+            </div>
           </div>
-          <div class="job-entry">
-            <h3>Engineer - Design | Intern</h3>
-            <p class="meta">Regal Rexnord India Private Limited, Hyderabad | Feb 2020–Aug 2022</p>
-            <ul>
-              <li>Enhanced Torsional couplings improving productivity using <strong>SolidWorks</strong>.</li>
-              <li>Created technical drawings per <strong>ISO/DIN/GD&T</strong> standards and BOMs in <strong>SAP</strong>.</li>
-            </ul>
+
+          <!-- Experience 3 (Dual Jobs) -->
+          <div class="experience-card">
+            <div class="exp-header">
+              <div class="exp-logo">
+                <i class="fas fa-cogs"></i>
+              </div>
+              <div class="exp-header-content">
+                <h3 class="exp-job-title">Engineer - Design | Intern</h3>
+                <p class="exp-company">Regal Rexnord India Private Limited</p>
+              </div>
+              <button class="exp-popup-btn" data-modal="modal-exp-3" title="View Tasks">
+                <i class="fas fa-external-link-alt"></i>
+              </button>
+            </div>
+            <div class="exp-location-date">
+              <span class="exp-location"><i class="fas fa-map-marker-alt" style="font-size: 0.9em;"></i> Hyderabad, India</span>
+            </div>
+            <!-- Dual Job Timeline -->
+            <div class="dual-job-timeline">
+              <div class="dual-job-item">
+                <h4 class="dual-job-title">Design Engineer</h4>
+                <p class="dual-job-date">Oct 2020 — Aug 2022</p>
+              </div>
+              <div class="dual-job-item">
+                <h4 class="dual-job-title">Intern - Design</h4>
+                <p class="dual-job-date">Feb 2020 — Sep 2020</p>
+              </div>
+            </div>
+            <div class="exp-skills" style="margin-top: clamp(0.75rem, 1.5vw, 1.25rem);">
+              <div class="exp-skills-title">Skills Used & Learnt</div>
+              <p class="exp-skills-list">SolidWorks, GD&T, ISO/DIN Standards, Technical Drawings, SAP, Coupling Design, Manufacturing</p>
+            </div>
           </div>
         </div>
       </section>
@@ -899,7 +1208,7 @@
         <div class="content-inner">
           <div class="project-entry">
             <h3>Automated XY Pen Plotter</h3>
-            <p class="meta">Apr 2023–Jul 2023</p>
+            <p class="meta">Apr 2023 – Jul 2023</p>
             <ul>
               <li>Full V-model design with <strong>SolidWorks & Siemens NX</strong></li>
               <li>Precision components achieving ±0.5mm accuracy</li>
@@ -908,7 +1217,7 @@
           </div>
           <div class="project-entry">
             <h3>Thermal Energy Storage System</h3>
-            <p class="meta">Nov 2019–Aug 2020</p>
+            <p class="meta">Nov 2019 – Aug 2020</p>
             <ul>
               <li>Insulated stainless-steel tank design</li>
               <li>10.6 kJ energy efficiency improvement</li>
@@ -943,12 +1252,12 @@
         <div class="content-inner">
           <div class="edu-entry">
             <h3>Master of Science - Mechatronics and Robotics</h3>
-            <p class="meta">Hochschule Schmalkalden | Oct 2022–Present</p>
+            <p class="meta">Hochschule Schmalkalden | Oct 2022 – Present</p>
             <p style="font-size: clamp(12px, 1.6vw, 14px); color: #d0d0d0; margin: 0; text-align: left;">Grade: 2.4 | Focus: Digital Twin, Industry 5.0</p>
           </div>
           <div class="edu-entry">
             <h3>B.Tech - Mechanical Engineering</h3>
-            <p class="meta">Vidya Jyothi Institute | Jul 2017–Aug 2020</p>
+            <p class="meta">Vidya Jyothi Institute | Jul 2017 – Aug 2020</p>
             <p style="font-size: clamp(12px, 1.6vw, 14px); color: #d0d0d0; margin: 0; text-align: left;">Grade: 1.23 | Coursework: CAD, Thermodynamics, Machine Design</p>
           </div>
         </div>
@@ -983,6 +1292,66 @@
           <p id="form-status" class="form-status" aria-live="polite"></p>
         </div>
       </section>
+    </div>
+  </div>
+
+  <!-- MODALS -->
+  <div id="modal-exp-1" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title">Design & Prototyping of Soft Robot Arm</h2>
+        <button class="modal-close" data-modal="modal-exp-1">×</button>
+      </div>
+      <div class="modal-body">
+        <h3>Key Tasks & Responsibilities</h3>
+        <ul>
+          <li>Developed and optimized a Soft Robot for Industry 5.0 applications using <strong>SolidWorks CAD</strong></li>
+          <li>Utilized additive manufacturing (<strong>3D printing</strong>) to create and iterate on key components with precision tolerances</li>
+          <li>Engineered an <strong>Arduino Mega 2560</strong> circuit to control integrated sensors and actuator motors</li>
+          <li>Conducted system testing and validated robot arm performance against design specifications</li>
+          <li>Collaborated with faculty and team members on design iterations and optimization</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div id="modal-exp-2" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title">Working Student - Product Innovation</h2>
+        <button class="modal-close" data-modal="modal-exp-2">×</button>
+      </div>
+      <div class="modal-body">
+        <h3>Key Tasks & Responsibilities</h3>
+        <ul>
+          <li>Developed and prototyped a gate system for an automated vending machine using <strong>SolidWorks</strong></li>
+          <li>Designed mechanical components meeting functional and safety requirements</li>
+          <li>Produced detailed technical drawings and manufacturing specifications</li>
+          <li>Worked on structural tube development and optimization for an <strong>Autonomous Guided Vehicle (AGV)</strong></li>
+          <li>Participated in design reviews and incorporated feedback for continuous improvement</li>
+          <li>Supported product development lifecycle from concept to prototype testing</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div id="modal-exp-3" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title">Engineer - Design | Intern</h2>
+        <button class="modal-close" data-modal="modal-exp-3">×</button>
+      </div>
+      <div class="modal-body">
+        <h3>Key Tasks & Responsibilities</h3>
+        <ul>
+          <li>Enhanced design of Torsional couplings improving productivity and reducing costs using <strong>SolidWorks</strong></li>
+          <li>Created detailed technical drawings adhering to <strong>ISO/DIN/GD&T</strong> standards for manufacturing</li>
+          <li>Generated Bills of Materials (BOMs) and managed component specifications in <strong>SAP ERP</strong> system</li>
+          <li>Conducted finite element analysis (FEA) to validate coupling performance under various load conditions</li>
+          <li>Collaborated with manufacturing teams to ensure design feasibility and cost optimization</li>
+          <li>Documented design changes and maintained engineering documentation standards</li>
+        </ul>
+      </div>
     </div>
   </div>
 
@@ -1065,6 +1434,41 @@
       });
 
       showSection(0);
+    })();
+  </script>
+
+  <script>
+    (function() {
+      // Modal functionality
+      document.querySelectorAll('.exp-popup-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          const modalId = btn.getAttribute('data-modal');
+          const modal = document.getElementById(modalId);
+          if (modal) {
+            modal.classList.add('active');
+          }
+        });
+      });
+
+      document.querySelectorAll('.modal-close').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          const modalId = btn.getAttribute('data-modal');
+          const modal = document.getElementById(modalId);
+          if (modal) {
+            modal.classList.remove('active');
+          }
+        });
+      });
+
+      document.querySelectorAll('.modal').forEach(modal => {
+        modal.addEventListener('click', (e) => {
+          if (e.target === modal) {
+            modal.classList.remove('active');
+          }
+        });
+      });
     })();
   </script>
 

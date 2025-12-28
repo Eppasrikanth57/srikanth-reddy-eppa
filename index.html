@@ -424,6 +424,11 @@
       background: rgba(0, 50, 68, 0.3);
       border-radius: 6px;
       border-left: 3px solid #00d4ff;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      min-height: 0;
     }
 
     .card-skills-title {
@@ -432,16 +437,57 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.5px;
-      margin-bottom: 0.5rem;
+      margin: 0;
     }
 
     .card-skills-list {
-      font-size: clamp(11px, 1.5vw, 13px);
-      color: #d0d0d0;
-      line-height: 1.6;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
       margin: 0;
-      word-wrap: break-word;
-      overflow-wrap: break-word;
+    }
+
+    .skill-tag {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: clamp(0.35rem, 0.7vw, 0.5rem) clamp(0.5rem, 1vw, 0.75rem);
+      background: rgba(0, 212, 255, 0.12);
+      border: 1px solid rgba(0, 212, 255, 0.25);
+      border-radius: 4px;
+      font-size: clamp(9px, 1.2vw, 11px);
+      color: #00d4ff;
+      font-weight: 500;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+    }
+
+    .skill-tag:hover {
+      background: rgba(0, 212, 255, 0.2);
+      border-color: rgba(0, 212, 255, 0.4);
+      box-shadow: 0 2px 8px rgba(0, 212, 255, 0.15);
+    }
+
+    .card-footer-logo {
+      position: absolute;
+      bottom: clamp(0.75rem, 1.5vw, 1.25rem);
+      right: clamp(0.75rem, 1.5vw, 1.25rem);
+      width: clamp(40px, 8vw, 60px);
+      height: clamp(40px, 8vw, 60px);
+      border-radius: 6px;
+      background: rgba(0, 212, 255, 0.08);
+      border: 1px solid rgba(0, 212, 255, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      padding: 0.35rem;
+    }
+
+    .card-footer-logo img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
     }
 
     /* ============ DUAL JOB TIMELINE ============ */
@@ -535,6 +581,8 @@
       left: 50%;
       transform: translate(-50%, -50%);
       animation: slideIn 0.3s ease;
+      display: flex;
+      flex-direction: column;
     }
 
     @keyframes slideIn {
@@ -555,6 +603,7 @@
       margin-bottom: clamp(1.25rem, 2.5vw, 2rem);
       border-bottom: 1px solid rgba(0, 212, 255, 0.2);
       padding-bottom: clamp(0.75rem, 1.5vw, 1.25rem);
+      flex-shrink: 0;
     }
 
     .modal-title {
@@ -588,6 +637,10 @@
 
     .modal-body {
       color: #d0d0d0;
+      flex: 1;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
     }
 
     .modal-body h3 {
@@ -620,6 +673,25 @@
       left: 0;
       color: #00d4ff;
       font-weight: bold;
+    }
+
+    .modal-footer-logo {
+      margin-top: clamp(1.5rem, 3vw, 2.5rem);
+      padding-top: clamp(1rem, 2vw, 1.5rem);
+      border-top: 1px solid rgba(0, 212, 255, 0.2);
+      display: flex;
+      justify-content: flex-end;
+      flex-shrink: 0;
+    }
+
+    .modal-footer-logo img {
+      width: clamp(50px, 10vw, 80px);
+      height: clamp(50px, 10vw, 80px);
+      object-fit: contain;
+      border-radius: 6px;
+      background: rgba(0, 212, 255, 0.08);
+      border: 1px solid rgba(0, 212, 255, 0.2);
+      padding: 0.5rem;
     }
 
     /* ============ CONTACT FORM (2-COLUMN) ============ */
@@ -1144,7 +1216,17 @@
               </div>
               <div class="card-skills">
                 <div class="card-skills-title">Skills Used & Learnt</div>
-                <p class="card-skills-list">SolidWorks, 3D Printing, Arduino Mega 2560, Sensor Integration, CAD Design, Industry 5.0</p>
+                <div class="card-skills-list">
+                  <span class="skill-tag">SolidWorks</span>
+                  <span class="skill-tag">3D Printing</span>
+                  <span class="skill-tag">Arduino Mega 2560</span>
+                  <span class="skill-tag">Sensor Integration</span>
+                  <span class="skill-tag">CAD Design</span>
+                  <span class="skill-tag">Industry 5.0</span>
+                </div>
+              </div>
+              <div class="card-footer-logo">
+                <img src="https://raw.githubusercontent.com/Eppasrikanth57/srikanth-reddy-eppa/main/files/HS_Schmalkalden_logo.png" alt="Hochschule Schmalkalden">
               </div>
             </div>
 
@@ -1168,7 +1250,16 @@
               </div>
               <div class="card-skills">
                 <div class="card-skills-title">Skills Used & Learnt</div>
-                <p class="card-skills-list">SolidWorks, Technical Drawings, AGV Systems, Product Development, Prototyping</p>
+                <div class="card-skills-list">
+                  <span class="skill-tag">SolidWorks</span>
+                  <span class="skill-tag">Technical Drawings</span>
+                  <span class="skill-tag">AGV Systems</span>
+                  <span class="skill-tag">Product Development</span>
+                  <span class="skill-tag">Prototyping</span>
+                </div>
+              </div>
+              <div class="card-footer-logo">
+                <img src="https://raw.githubusercontent.com/Eppasrikanth57/srikanth-reddy-eppa/main/files/Morgenwerk_logo.png" alt="Morgenwerk GmbH">
               </div>
             </div>
 
@@ -1202,7 +1293,17 @@
               </div>
               <div class="card-skills" style="margin-top: clamp(0.75rem, 1.5vw, 1.25rem);">
                 <div class="card-skills-title">Skills Used & Learnt</div>
-                <p class="card-skills-list">SolidWorks, GD&T, ISO/DIN, Technical Drawings, SAP, Coupling Design</p>
+                <div class="card-skills-list">
+                  <span class="skill-tag">SolidWorks</span>
+                  <span class="skill-tag">GD&T</span>
+                  <span class="skill-tag">ISO/DIN</span>
+                  <span class="skill-tag">Technical Drawings</span>
+                  <span class="skill-tag">SAP</span>
+                  <span class="skill-tag">Coupling Design</span>
+                </div>
+              </div>
+              <div class="card-footer-logo">
+                <img src="https://raw.githubusercontent.com/Eppasrikanth57/srikanth-reddy-eppa/main/files/Regal_Rexnord_logo.png" alt="Regal Rexnord India">
               </div>
             </div>
           </div>
@@ -1234,7 +1335,16 @@
               </div>
               <div class="card-skills">
                 <div class="card-skills-title">Skills Used</div>
-                <p class="card-skills-list">SolidWorks, Siemens NX, CAD Design, Precision Engineering, Motion Control</p>
+                <div class="card-skills-list">
+                  <span class="skill-tag">SolidWorks</span>
+                  <span class="skill-tag">Siemens NX</span>
+                  <span class="skill-tag">CAD Design</span>
+                  <span class="skill-tag">Precision Engineering</span>
+                  <span class="skill-tag">Motion Control</span>
+                </div>
+              </div>
+              <div class="card-footer-logo">
+                <img src="https://raw.githubusercontent.com/Eppasrikanth57/srikanth-reddy-eppa/main/files/HS_Schmalkalden_logo.png" alt="Hochschule Schmalkalden">
               </div>
             </div>
 
@@ -1258,7 +1368,16 @@
               </div>
               <div class="card-skills">
                 <div class="card-skills-title">Skills Used</div>
-                <p class="card-skills-list">SolidWorks, Thermal Analysis, System Design, Manufacturing, Optimization</p>
+                <div class="card-skills-list">
+                  <span class="skill-tag">SolidWorks</span>
+                  <span class="skill-tag">Thermal Analysis</span>
+                  <span class="skill-tag">System Design</span>
+                  <span class="skill-tag">Manufacturing</span>
+                  <span class="skill-tag">Optimization</span>
+                </div>
+              </div>
+              <div class="card-footer-logo">
+                <img src="https://raw.githubusercontent.com/Eppasrikanth57/srikanth-reddy-eppa/main/files/Vidya_Jyothi_logo.jpg" alt="Vidya Jyothi Institute of Technology">
               </div>
             </div>
           </div>
@@ -1354,6 +1473,9 @@
           <li>Conducted system testing and validated robot arm performance against design specifications</li>
           <li>Collaborated with faculty and team members on design iterations and optimization</li>
         </ul>
+        <div class="modal-footer-logo">
+          <img src="https://raw.githubusercontent.com/Eppasrikanth57/srikanth-reddy-eppa/main/files/HS_Schmalkalden_logo.png" alt="Hochschule Schmalkalden">
+        </div>
       </div>
     </div>
   </div>
@@ -1374,6 +1496,9 @@
           <li>Participated in design reviews and incorporated feedback for continuous improvement</li>
           <li>Supported product development lifecycle from concept to prototype testing</li>
         </ul>
+        <div class="modal-footer-logo">
+          <img src="https://raw.githubusercontent.com/Eppasrikanth57/srikanth-reddy-eppa/main/files/Morgenwerk_logo.png" alt="Morgenwerk GmbH">
+        </div>
       </div>
     </div>
   </div>
@@ -1394,6 +1519,9 @@
           <li>Collaborated with manufacturing teams to ensure design feasibility and cost optimization</li>
           <li>Documented design changes and maintained engineering documentation standards</li>
         </ul>
+        <div class="modal-footer-logo">
+          <img src="https://raw.githubusercontent.com/Eppasrikanth57/srikanth-reddy-eppa/main/files/Regal_Rexnord_logo.png" alt="Regal Rexnord India">
+        </div>
       </div>
     </div>
   </div>
@@ -1415,6 +1543,9 @@
           <li>Created detailed assembly drawings and bill of materials for prototype fabrication</li>
           <li>Performed system testing and calibration for optimal plotting accuracy</li>
         </ul>
+        <div class="modal-footer-logo">
+          <img src="https://raw.githubusercontent.com/Eppasrikanth57/srikanth-reddy-eppa/main/files/HS_Schmalkalden_logo.png" alt="Hochschule Schmalkalden">
+        </div>
       </div>
     </div>
   </div>
@@ -1436,6 +1567,9 @@
           <li>Prepared technical documentation and design validation reports</li>
           <li>Collaborated with team members on manufacturing process planning</li>
         </ul>
+        <div class="modal-footer-logo">
+          <img src="https://raw.githubusercontent.com/Eppasrikanth57/srikanth-reddy-eppa/main/files/Vidya_Jyothi_logo.jpg" alt="Vidya Jyothi Institute of Technology">
+        </div>
       </div>
     </div>
   </div>

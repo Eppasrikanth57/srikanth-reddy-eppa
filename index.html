@@ -164,7 +164,6 @@
             color: var(--primary-color);
             margin-bottom: 20px;
             font-size: 14px;
-            margin-top: 20px;
         }
 
         .social-links {
@@ -197,55 +196,12 @@
             width: 100%;
         }
 
-        .timeline-wrapper {
-            position: relative;
-            padding: 40px 0;
-        }
-
-        .timeline-line {
-            position: relative;
-            height: 2px;
-            background: linear-gradient(90deg, var(--primary-color) 0%, rgba(0, 217, 255, 0.3) 100%);
-            margin: 0 0 40px 0;
-        }
-
-        .timeline-dots {
-            position: absolute;
-            top: -8px;
-            display: flex;
-            width: 100%;
-            justify-content: flex-start;
-            gap: 0;
-        }
-
-        .timeline-dot {
-            width: 18px;
-            height: 18px;
-            background: var(--primary-color);
-            border: 3px solid var(--bg-darker);
-            border-radius: 50%;
-            position: relative;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .timeline-dot:hover {
-            width: 24px;
-            height: 24px;
-            box-shadow: 0 0 20px rgba(0, 217, 255, 0.6);
-        }
-
-        .timeline-dot.active {
-            box-shadow: 0 0 30px rgba(0, 217, 255, 0.8);
-        }
-
         .experience-scroll {
             display: flex;
             gap: 30px;
             overflow-x: auto;
             padding: 20px 0;
             scroll-behavior: smooth;
-            position: relative;
         }
 
         .experience-scroll::-webkit-scrollbar {
@@ -668,13 +624,13 @@
                     <p>Skilled in Digital Twin technology, Digital Product Passports, and mechatronic system design, aiming to deliver innovative solutions aligned with industry demand. My expertise spans from concept design to implementation, with strong proficiency in CAD software and embedded systems programming.</p>
                     
                     <div class="about-footer">
-                        <div class="social-links">
-                            <a href="https://github.com/Eppasrikanth57" target="_blank" class="social-icon" title="GitHub">🐙</a>
-                            <a href="https://linkedin.com/in/srikanth-reddy-eppa" target="_blank" class="social-icon" title="LinkedIn">in</a>
-                            <a href="mailto:srikanth.eppa@gmail.com" class="social-icon" title="Email">✉️</a>
-                        </div>
                         <div class="location">
                             📍 Stuttgart Region, Germany
+                        </div>
+                        <div class="social-links">
+                            <a href="https://github.com" class="social-icon" title="GitHub">🐙</a>
+                            <a href="https://linkedin.com" class="social-icon" title="LinkedIn">in</a>
+                            <a href="mailto:your.email@gmail.com" class="social-icon" title="Email">✉️</a>
                         </div>
                     </div>
                 </div>
@@ -685,15 +641,6 @@
         <section id="experience">
             <div class="experience-container">
                 <h2 class="section-title">Experience</h2>
-                <div class="timeline-wrapper">
-                    <div class="timeline-line">
-                        <div class="timeline-dots">
-                            <div class="timeline-dot active" onclick="scrollToExperience(0)"></div>
-                            <div class="timeline-dot" onclick="scrollToExperience(1)" style="margin-left: 350px;"></div>
-                            <div class="timeline-dot" onclick="scrollToExperience(2)" style="margin-left: 350px;"></div>
-                        </div>
-                    </div>
-                </div>
                 <div class="experience-scroll" id="experienceScroll">
                     <div class="experience-card">
                         <h3>Graduate Student Researcher</h3>
@@ -733,14 +680,6 @@
         <section id="projects">
             <div class="experience-container">
                 <h2 class="section-title">Projects</h2>
-                <div class="timeline-wrapper">
-                    <div class="timeline-line">
-                        <div class="timeline-dots">
-                            <div class="timeline-dot active" onclick="scrollToProject(0)"></div>
-                            <div class="timeline-dot" onclick="scrollToProject(1)" style="margin-left: 350px;"></div>
-                        </div>
-                    </div>
-                </div>
                 <div class="projects-scroll" id="projectsScroll">
                     <div class="project-card" onclick="openProjectModal('xy-plotter')">
                         <h3>Automated XY Pen Plotter</h3>
@@ -808,7 +747,7 @@
                         </div>
                         <div class="form-group">
                             <label for="email">Your Email</label>
-                            <input type="email" id="email" placeholder="name@domain.de" required>
+                            <input type="email" id="email" placeholder="name@company.com" required>
                         </div>
                     </div>
                     
@@ -928,60 +867,6 @@
                 const targetId = this.getAttribute('href').slice(1);
                 const targetSection = document.getElementById(targetId);
                 targetSection.scrollIntoView({ behavior: 'smooth' });
-            });
-        });
-
-        // Timeline dot scroll functions
-        function scrollToExperience(index) {
-            const cards = document.querySelectorAll('#experienceScroll .experience-card');
-            if (cards[index]) {
-                cards[index].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
-                updateTimelineDots('experience', index);
-            }
-        }
-
-        function scrollToProject(index) {
-            const cards = document.querySelectorAll('#projectsScroll .project-card');
-            if (cards[index]) {
-                cards[index].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
-                updateTimelineDots('projects', index);
-            }
-        }
-
-        function updateTimelineDots(section, activeIndex) {
-            const container = section === 'experience' ? '#experience' : '#projects';
-            const dots = document.querySelectorAll(`${container} .timeline-dot`);
-            dots.forEach((dot, index) => {
-                dot.classList.remove('active');
-                if (index === activeIndex) {
-                    dot.classList.add('active');
-                }
-            });
-        }
-
-        // Track active dot while scrolling
-        document.querySelectorAll('.experience-scroll, .projects-scroll').forEach(scroll => {
-            scroll.addEventListener('scroll', () => {
-                const cards = scroll.querySelectorAll('.experience-card, .project-card');
-                const scrollLeft = scroll.scrollLeft;
-                let activeIndex = 0;
-                
-                cards.forEach((card, index) => {
-                    if (card.offsetLeft <= scrollLeft + 50) {
-                        activeIndex = index;
-                    }
-                });
-
-                const section = scroll.closest('section');
-                if (section) {
-                    const dots = section.querySelectorAll('.timeline-dot');
-                    dots.forEach((dot, index) => {
-                        dot.classList.remove('active');
-                        if (index === activeIndex) {
-                            dot.classList.add('active');
-                        }
-                    });
-                }
             });
         });
 

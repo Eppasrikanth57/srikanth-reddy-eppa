@@ -1,911 +1,1598 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Srikanth Reddy Eppa - Mechatronics Engineer</title>
-    <style>
-        :root {
-            --primary-color: #00d9ff;
-            --primary-dark: #0099bb;
-            --bg-dark: #001a2e;
-            --bg-darker: #0a0f1b;
-            --text-light: #e0e0e0;
-            --text-secondary: #a0a0a0;
-            --accent-red: #ff4444;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html, body {
-            width: 100%;
-            height: 100%;
-            overflow-x: hidden;
-        }
-
-        body {
-            background: linear-gradient(135deg, #001a2e 0%, #0a0f1b 100%);
-            color: var(--text-light);
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-        }
-
-        header {
-            background: rgba(10, 15, 27, 0.95);
-            padding: 20px 0;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 1px solid rgba(0, 217, 255, 0.2);
-        }
-
-        .header-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-            color: var(--primary-color);
-        }
-
-        nav {
-            display: flex;
-            gap: 30px;
-            list-style: none;
-        }
-
-        nav a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            transition: color 0.3s ease;
-            font-size: 14px;
-        }
-
-        nav a:hover,
-        nav a.active {
-            color: var(--primary-color);
-        }
-
-        main {
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        section {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            padding: 80px 20px;
-            scroll-behavior: smooth;
-        }
-
-        .section-title {
-            font-size: 48px;
-            color: var(--primary-color);
-            margin-bottom: 60px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        /* ABOUT ME SECTION */
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 60px;
-            align-items: flex-start;
-        }
-
-        .about-image {
-            position: relative;
-            display: flex;
-            justify-content: center;
-        }
-
-        .profile-ring {
-            width: 300px;
-            height: 300px;
-            border: 3px solid var(--primary-color);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 0 50px rgba(0, 217, 255, 0.3);
-            animation: pulse 3s ease-in-out infinite;
-        }
-
-        .profile-image {
-            width: 250px;
-            height: 250px;
-            border-radius: 50%;
-            background: radial-gradient(circle at 30% 30%, rgba(0, 217, 255, 0.5), rgba(0, 217, 255, 0.1));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 120px;
-        }
-
-        @keyframes pulse {
-            0%, 100% { box-shadow: 0 0 50px rgba(0, 217, 255, 0.3); }
-            50% { box-shadow: 0 0 80px rgba(0, 217, 255, 0.6); }
-        }
-
-        .about-text h3 {
-            font-size: 20px;
-            color: var(--text-light);
-            margin-bottom: 20px;
-            line-height: 1.8;
-        }
-
-        .about-text p {
-            color: var(--text-secondary);
-            margin-bottom: 20px;
-            line-height: 1.8;
-            font-size: 15px;
-        }
-
-        .about-footer {
-            margin-top: 40px;
-        }
-
-        .location {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            color: var(--primary-color);
-            margin-bottom: 20px;
-            font-size: 14px;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 20px;
-            margin-top: 20px;
-        }
-
-        .social-icon {
-            width: 50px;
-            height: 50px;
-            border: 2px solid var(--primary-color);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 24px;
-        }
-
-        .social-icon:hover {
-            background: var(--primary-color);
-            color: var(--bg-dark);
-            box-shadow: 0 0 30px rgba(0, 217, 255, 0.5);
-        }
-
-        /* EXPERIENCE SECTION */
-        .experience-container {
-            width: 100%;
-        }
-
-        .experience-scroll {
-            display: flex;
-            gap: 30px;
-            overflow-x: auto;
-            padding: 20px 0;
-            scroll-behavior: smooth;
-        }
-
-        .experience-scroll::-webkit-scrollbar {
-            height: 8px;
-        }
-
-        .experience-scroll::-webkit-scrollbar-track {
-            background: rgba(0, 217, 255, 0.1);
-            border-radius: 10px;
-        }
-
-        .experience-scroll::-webkit-scrollbar-thumb {
-            background: var(--primary-color);
-            border-radius: 10px;
-        }
-
-        .experience-card {
-            flex: 0 0 350px;
-            background: rgba(0, 217, 255, 0.05);
-            border: 1px solid rgba(0, 217, 255, 0.2);
-            border-radius: 10px;
-            padding: 30px;
-            transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .experience-card:hover {
-            background: rgba(0, 217, 255, 0.1);
-            border-color: var(--primary-color);
-            box-shadow: 0 0 30px rgba(0, 217, 255, 0.3);
-            transform: translateY(-5px);
-        }
-
-        .experience-card h3 {
-            color: var(--primary-color);
-            margin-bottom: 10px;
-            font-size: 18px;
-        }
-
-        .experience-card .company {
-            color: var(--text-secondary);
-            font-size: 14px;
-            margin-bottom: 15px;
-        }
-
-        .experience-card .duration {
-            color: var(--primary-color);
-            font-size: 12px;
-            margin-bottom: 15px;
-        }
-
-        .experience-card ul {
-            list-style: none;
-            color: var(--text-secondary);
-            font-size: 13px;
-        }
-
-        .experience-card li {
-            margin-bottom: 10px;
-            padding-left: 15px;
-            position: relative;
-        }
-
-        .experience-card li:before {
-            content: "▹";
-            position: absolute;
-            left: 0;
-            color: var(--primary-color);
-        }
-
-        /* PROJECTS SECTION */
-        .projects-scroll {
-            display: flex;
-            gap: 30px;
-            overflow-x: auto;
-            padding: 20px 0;
-            scroll-behavior: smooth;
-        }
-
-        .projects-scroll::-webkit-scrollbar {
-            height: 8px;
-        }
-
-        .projects-scroll::-webkit-scrollbar-track {
-            background: rgba(0, 217, 255, 0.1);
-            border-radius: 10px;
-        }
-
-        .projects-scroll::-webkit-scrollbar-thumb {
-            background: var(--primary-color);
-            border-radius: 10px;
-        }
-
-        .project-card {
-            flex: 0 0 350px;
-            background: rgba(0, 217, 255, 0.05);
-            border: 1px solid rgba(0, 217, 255, 0.2);
-            border-radius: 10px;
-            padding: 30px;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .project-card:hover {
-            background: rgba(0, 217, 255, 0.1);
-            border-color: var(--primary-color);
-            box-shadow: 0 0 30px rgba(0, 217, 255, 0.3);
-            transform: translateY(-5px);
-        }
-
-        .project-card h3 {
-            color: var(--primary-color);
-            margin-bottom: 10px;
-            font-size: 18px;
-        }
-
-        .project-card .institute {
-            color: var(--text-secondary);
-            font-size: 14px;
-            margin-bottom: 8px;
-        }
-
-        .project-card .location {
-            color: var(--text-secondary);
-            font-size: 13px;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .project-card .duration {
-            color: var(--primary-color);
-            font-size: 12px;
-            margin-bottom: 20px;
-        }
-
-        .project-link {
-            display: inline-block;
-            color: var(--primary-color);
-            text-decoration: none;
-            font-size: 14px;
-            padding: 8px 16px;
-            border: 1px solid var(--primary-color);
-            border-radius: 5px;
-            transition: all 0.3s ease;
-        }
-
-        .project-link:hover {
-            background: var(--primary-color);
-            color: var(--bg-dark);
-        }
-
-        /* CONTACT SECTION */
-        .contact-container {
-            width: 100%;
-            max-width: 900px;
-        }
-
-        .form-group {
-            margin-bottom: 25px;
-        }
-
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            color: var(--primary-color);
-            font-size: 12px;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 12px 15px;
-            background: rgba(0, 217, 255, 0.05);
-            border: 1px solid rgba(0, 217, 255, 0.2);
-            border-radius: 5px;
-            color: var(--text-light);
-            font-size: 14px;
-            transition: all 0.3s ease;
-            font-family: inherit;
-        }
-
-        .form-group input::placeholder,
-        .form-group textarea::placeholder {
-            color: var(--text-secondary);
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--primary-color);
-            background: rgba(0, 217, 255, 0.1);
-            box-shadow: 0 0 20px rgba(0, 217, 255, 0.2);
-        }
-
-        .form-group textarea {
-            grid-column: 1 / -1;
-            resize: vertical;
-            min-height: 150px;
-        }
-
-        .message-row {
-            display: grid;
-            grid-template-columns: 1fr auto;
-            gap: 20px;
-            align-items: flex-end;
-        }
-
-        .message-row textarea {
-            grid-column: 1;
-        }
-
-        .submit-btn {
-            background: var(--primary-color);
-            color: var(--bg-dark);
-            padding: 12px 30px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: bold;
-            font-size: 14px;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            white-space: nowrap;
-        }
-
-        .submit-btn:hover {
-            background: var(--primary-dark);
-            box-shadow: 0 0 30px rgba(0, 217, 255, 0.5);
-            transform: translateY(-2px);
-        }
-
-        /* MODAL POPUP */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 2000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            animation: fadeIn 0.3s ease;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        .modal-content {
-            background-color: var(--bg-darker);
-            margin: 10% auto;
-            padding: 40px;
-            border: 1px solid rgba(0, 217, 255, 0.3);
-            border-radius: 10px;
-            width: 90%;
-            max-width: 600px;
-            max-height: 80vh;
-            overflow-y: auto;
-            animation: slideIn 0.3s ease;
-        }
-
-        @keyframes slideIn {
-            from { transform: translateY(-50px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-
-        .close-btn {
-            color: var(--primary-color);
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: color 0.3s ease;
-        }
-
-        .close-btn:hover {
-            color: var(--accent-red);
-        }
-
-        .modal h2 {
-            color: var(--primary-color);
-            margin-bottom: 20px;
-            margin-top: 10px;
-        }
-
-        .modal h3 {
-            color: var(--primary-color);
-            margin-top: 20px;
-            margin-bottom: 10px;
-            font-size: 16px;
-        }
-
-        .modal p {
-            color: var(--text-secondary);
-            margin-bottom: 10px;
-            font-size: 14px;
-        }
-
-        .modal ul {
-            color: var(--text-secondary);
-            margin-left: 20px;
-            margin-bottom: 15px;
-        }
-
-        .modal li {
-            margin-bottom: 8px;
-        }
-
-        /* MOBILE RESPONSIVE */
-        @media (max-width: 768px) {
-            nav {
-                gap: 15px;
-                font-size: 12px;
-            }
-
-            section {
-                min-height: auto;
-                padding: 50px 20px;
-            }
-
-            .section-title {
-                font-size: 32px;
-                margin-bottom: 40px;
-            }
-
-            .about-content {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-
-            .profile-ring {
-                width: 200px;
-                height: 200px;
-            }
-
-            .profile-image {
-                width: 150px;
-                height: 150px;
-                font-size: 80px;
-            }
-
-            .form-row {
-                grid-template-columns: 1fr;
-            }
-
-            .message-row {
-                grid-template-columns: 1fr;
-            }
-
-            .message-row textarea {
-                grid-column: 1;
-            }
-
-            .submit-btn {
-                width: 100%;
-                justify-content: center;
-            }
-
-            .modal-content {
-                width: 95%;
-                margin: 20% auto;
-                padding: 30px;
-            }
-
-            .experience-card,
-            .project-card {
-                flex: 0 0 280px;
-            }
-        }
-
-        footer {
-            text-align: center;
-            padding: 30px 20px;
-            color: var(--text-secondary);
-            font-size: 12px;
-            border-top: 1px solid rgba(0, 217, 255, 0.1);
-        }
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Srikanth Reddy Eppa — Mechatronics Engineer</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
+      color: #e0e0e0;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ============ HEADER ============ */
+    header {
+      background: rgba(10, 14, 39, 0.95);
+      border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+      padding: 1.5rem 2rem;
+      position: relative;
+      z-index: 100;
+      flex-shrink: 0;
+      min-height: auto;
+    }
+
+    .site-header-inner {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      gap: 1.5rem;
+      max-width: 100%;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      font-size: clamp(20px, 4vw, 32px);
+      font-weight: 700;
+      color: #00d4ff;
+      text-decoration: none;
+      letter-spacing: 0.5px;
+      white-space: nowrap;
+    }
+
+    .nav-center {
+      display: flex;
+      gap: clamp(1rem, 3vw, 3.5rem);
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .nav-link {
+      color: #999;
+      text-decoration: none;
+      font-size: clamp(12px, 2vw, 18px);
+      transition: color 0.3s ease;
+      cursor: pointer;
+      position: relative;
+      font-weight: 600;
+      white-space: nowrap;
+      padding: 0.25rem 0;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: #00d4ff;
+    }
+
+    /* ============ MAIN LAYOUT ============ */
+    .main-wrapper {
+      display: flex;
+      flex: 1;
+      overflow: hidden;
+      position: relative;
+      gap: 2vw;
+      min-height: 0;
+    }
+
+    /* LEFT SIDE - GEAR */
+    .gear-section {
+      flex: 0 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1rem;
+      overflow: hidden;
+      background: #0a0e27;
+      min-height: 0;
+    }
+
+    .gear-container {
+      width: clamp(200px, 35vmin, 400px);
+      height: clamp(200px, 35vmin, 400px);
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    .gear-wheel {
+      width: 100%;
+      height: 100%;
+      filter: drop-shadow(0 20px 50px rgba(0, 212, 255, 0.7)) drop-shadow(0 0 30px rgba(0, 212, 255, 0.5));
+      transition: transform 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      transform-origin: center;
+    }
+
+    .photo-wrapper {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 40%;
+      height: 40%;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      overflow: hidden;
+      border: clamp(6px, 2vmin, 12px) solid #00d4ff;
+      box-shadow: 0 0 60px rgba(0, 212, 255, 1), inset 0 0 30px rgba(0, 212, 255, 0.6);
+      background: #1a3a4a;
+      z-index: 10;
+    }
+
+    .profile-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 10%;
+      display: block;
+    }
+
+    /* RIGHT SIDE - CONTENT */
+    .content-wrapper {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      background: #0a0e27;
+      position: relative;
+      min-width: 0;
+      min-height: 0;
+    }
+
+    .content-section {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateX(40px);
+      transition: opacity 0.6s ease, visibility 0.6s ease, transform 0.6s ease;
+      display: flex;
+      flex-direction: column;
+      pointer-events: none;
+      overflow: hidden;
+      padding: clamp(1.5rem, 4vw, 3.5rem);
+      padding-top: clamp(1.5rem, 3vw, 2.5rem);
+    }
+
+    .content-section.active {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(0);
+      pointer-events: auto;
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
+
+    .content-section::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .content-section::-webkit-scrollbar-track {
+      background: rgba(0, 212, 255, 0.05);
+    }
+
+    .content-section::-webkit-scrollbar-thumb {
+      background: rgba(0, 212, 255, 0.3);
+      border-radius: 3px;
+    }
+
+    .content-section::-webkit-scrollbar-thumb:hover {
+      background: rgba(0, 212, 255, 0.5);
+    }
+
+    .section-title {
+      font-size: clamp(32px, 8vw, 56px);
+      font-weight: 800;
+      color: #00d4ff;
+      margin-bottom: clamp(1.5rem, 4vw, 3rem);
+      letter-spacing: 0.3px;
+      text-shadow: 0 0 15px rgba(0, 212, 255, 0.15);
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
+
+    /* ============ ABOUT SECTION ============ */
+    .about-content {
+      display: flex;
+      flex-direction: column;
+      gap: clamp(1.5rem, 3vw, 2rem);
+      min-height: 0;
+      flex-shrink: 0;
+    }
+
+    .about-text {
+      font-size: clamp(13px, 1.8vw, 16px);
+      line-height: 1.9;
+      color: #d0d0d0;
+      text-align: left;
+      letter-spacing: 0.3px;
+      margin: 0;
+      flex-shrink: 0;
+    }
+
+    .about-meta {
+      margin-top: 0;
+      font-size: clamp(11px, 1.4vw, 14px);
+      color: #00d4ff;
+      flex-shrink: 0;
+    }
+
+    .meta-location {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .social-links {
+      display: flex;
+      gap: clamp(1rem, 2.5vw, 2rem);
+      margin-top: clamp(0.75rem, 1.5vw, 1.5rem);
+      flex-wrap: wrap;
+      flex-shrink: 0;
+    }
+
+    .social-links a {
+      width: clamp(40px, 8vw, 56px);
+      height: clamp(40px, 8vw, 56px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid #00d4ff;
+      border-radius: 50%;
+      color: #00d4ff;
+      text-decoration: none;
+      font-size: clamp(16px, 3vw, 24px);
+      transition: all 0.3s ease;
+      flex-shrink: 0;
+    }
+
+    .social-links a:hover {
+      background: #00d4ff;
+      color: #0a0e27;
+      transform: scale(1.15);
+      box-shadow: 0 0 20px rgba(0, 212, 255, 0.7);
+    }
+
+    /* ============ HORIZONTAL TIMELINE (Experience & Projects) ============ */
+    .horizontal-timeline {
+      display: flex;
+      gap: clamp(1.25rem, 2.5vw, 2rem);
+      overflow-x: auto;
+      padding-bottom: 1rem;
+      scroll-behavior: smooth;
+      flex-shrink: 0;
+    }
+
+    .horizontal-timeline::-webkit-scrollbar {
+      height: 6px;
+    }
+
+    .horizontal-timeline::-webkit-scrollbar-track {
+      background: rgba(0, 212, 255, 0.05);
+      border-radius: 3px;
+    }
+
+    .horizontal-timeline::-webkit-scrollbar-thumb {
+      background: rgba(0, 212, 255, 0.3);
+      border-radius: 3px;
+    }
+
+    .horizontal-timeline::-webkit-scrollbar-thumb:hover {
+      background: rgba(0, 212, 255, 0.5);
+    }
+
+    .timeline-card {
+      flex: 0 0 clamp(250px, 35vw, 380px);
+      padding: clamp(1.25rem, 2.5vw, 1.75rem);
+      background: rgba(0, 212, 255, 0.04);
+      border: 1px solid rgba(0, 212, 255, 0.15);
+      border-radius: 10px;
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      gap: clamp(0.75rem, 1.5vw, 1.25rem);
+    }
+
+    .timeline-card:hover {
+      background: rgba(0, 212, 255, 0.08);
+      border-color: rgba(0, 212, 255, 0.3);
+      box-shadow: 0 10px 30px rgba(0, 212, 255, 0.15);
+      transform: translateY(-5px);
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: clamp(0.75rem, 1.5vw, 1.25rem);
+      flex-wrap: wrap;
+    }
+
+    .card-logo {
+      width: clamp(35px, 5vw, 50px);
+      height: clamp(35px, 5vw, 50px);
+      border-radius: 8px;
+      background: rgba(0, 212, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      border: 1px solid rgba(0, 212, 255, 0.2);
+      font-size: clamp(14px, 2.5vw, 20px);
+      color: #00d4ff;
+    }
+
+    .card-header-content {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .card-job-title {
+      font-size: clamp(13px, 2vw, 17px);
+      font-weight: 700;
+      color: #00d4ff;
+      margin: 0 0 0.25rem 0;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      line-height: 1.3;
+    }
+
+    .card-company {
+      font-size: clamp(11px, 1.6vw, 14px);
+      color: #d0d0d0;
+      margin: 0;
+    }
+
+    .card-popup-btn {
+      width: clamp(32px, 4vw, 42px);
+      height: clamp(32px, 4vw, 42px);
+      border: 2px solid rgba(0, 212, 255, 0.5);
+      background: rgba(0, 212, 255, 0.05);
+      color: #00d4ff;
+      border-radius: 6px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: clamp(14px, 2vw, 18px);
+      transition: all 0.3s ease;
+      flex-shrink: 0;
+      padding: 0;
+    }
+
+    .card-popup-btn:hover {
+      background: rgba(0, 212, 255, 0.15);
+      border-color: #00d4ff;
+      box-shadow: 0 0 15px rgba(0, 212, 255, 0.4);
+      transform: scale(1.1);
+    }
+
+    .card-location-date {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      font-size: clamp(10px, 1.4vw, 12px);
+      color: #999;
+    }
+
+    .card-location {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .card-date {
+      font-weight: 500;
+      color: #00d4ff;
+    }
+
+    .card-skills {
+      padding: clamp(0.75rem, 1.5vw, 1.25rem);
+      background: rgba(0, 50, 68, 0.3);
+      border-radius: 6px;
+      border-left: 3px solid #00d4ff;
+    }
+
+    .card-skills-title {
+      font-size: clamp(10px, 1.3vw, 12px);
+      color: #00d4ff;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 0.5rem;
+    }
+
+    .card-skills-list {
+      font-size: clamp(11px, 1.5vw, 13px);
+      color: #d0d0d0;
+      line-height: 1.6;
+      margin: 0;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
+
+    /* ============ DUAL JOB TIMELINE ============ */
+    .dual-job-timeline {
+      display: flex;
+      flex-direction: column;
+      gap: clamp(0.75rem, 1.5vw, 1.25rem);
+      position: relative;
+      padding-left: clamp(1.5rem, 2.5vw, 2rem);
+    }
+
+    .dual-job-timeline::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(180deg, #00a8c4, #00d4ff);
+      border-radius: 1px;
+    }
+
+    .dual-job-item {
+      position: relative;
+      padding: clamp(0.75rem, 1.5vw, 1rem);
+      background: rgba(0, 212, 255, 0.03);
+      border-left: 3px solid #00d4ff;
+      border-radius: 6px;
+    }
+
+    .dual-job-item::before {
+      content: '';
+      position: absolute;
+      left: clamp(-0.9rem, -1.8vw, -1.1rem);
+      top: clamp(0.5rem, 1vw, 0.75rem);
+      width: clamp(8px, 1.5vw, 10px);
+      height: clamp(8px, 1.5vw, 10px);
+      background: #00d4ff;
+      border: 2px solid #0a0e27;
+      border-radius: 50%;
+    }
+
+    .dual-job-title {
+      font-size: clamp(12px, 1.8vw, 15px);
+      font-weight: 600;
+      color: #00d4ff;
+      margin: 0 0 0.25rem 0;
+    }
+
+    .dual-job-date {
+      font-size: clamp(10px, 1.3vw, 11px);
+      color: #999;
+      margin: 0;
+    }
+
+    /* ============ MODAL POPUP ============ */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.8);
+      animation: fadeIn 0.3s ease;
+    }
+
+    .modal.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .modal-content {
+      background: linear-gradient(135deg, rgba(10, 14, 39, 0.98), rgba(26, 31, 58, 0.98));
+      margin: auto;
+      padding: clamp(1.5rem, 3vw, 2.5rem);
+      border: 1px solid rgba(0, 212, 255, 0.3);
+      border-radius: 12px;
+      width: 90%;
+      max-width: 600px;
+      max-height: 80vh;
+      overflow-y: auto;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      animation: slideIn 0.3s ease;
+    }
+
+    @keyframes slideIn {
+      from {
+        transform: translate(-50%, -60%);
+        opacity: 0;
+      }
+      to {
+        transform: translate(-50%, -50%);
+        opacity: 1;
+      }
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: clamp(1.25rem, 2.5vw, 2rem);
+      border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+      padding-bottom: clamp(0.75rem, 1.5vw, 1.25rem);
+    }
+
+    .modal-title {
+      font-size: clamp(18px, 3vw, 24px);
+      color: #00d4ff;
+      font-weight: 700;
+      margin: 0;
+    }
+
+    .modal-close {
+      background: none;
+      border: 2px solid rgba(0, 212, 255, 0.5);
+      color: #00d4ff;
+      font-size: clamp(18px, 3vw, 24px);
+      cursor: pointer;
+      width: clamp(32px, 5vw, 40px);
+      height: clamp(32px, 5vw, 40px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+      flex-shrink: 0;
+    }
+
+    .modal-close:hover {
+      background: rgba(0, 212, 255, 0.15);
+      border-color: #00d4ff;
+      box-shadow: 0 0 15px rgba(0, 212, 255, 0.4);
+    }
+
+    .modal-body {
+      color: #d0d0d0;
+    }
+
+    .modal-body h3 {
+      font-size: clamp(14px, 2vw, 16px);
+      color: #00d4ff;
+      margin: clamp(1rem, 2vw, 1.5rem) 0 clamp(0.5rem, 1vw, 0.75rem) 0;
+      font-weight: 700;
+    }
+
+    .modal-body ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 clamp(1rem, 2vw, 1.5rem) 0;
+    }
+
+    .modal-body li {
+      font-size: clamp(12px, 1.6vw, 14px);
+      color: #d0d0d0;
+      margin: 0 0 clamp(0.5rem, 1vw, 0.75rem) 0;
+      padding-left: 1.5rem;
+      position: relative;
+      line-height: 1.6;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
+
+    .modal-body li:before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: #00d4ff;
+      font-weight: bold;
+    }
+
+    /* ============ CONTACT FORM (2-COLUMN) ============ */
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: clamp(1rem, 2vw, 1.5rem);
+      background: rgba(0, 50, 68, 0.3);
+      padding: clamp(1.5rem, 3vw, 2.5rem);
+      border-radius: 8px;
+      border: 1px solid rgba(0, 212, 255, 0.2);
+      max-width: 100%;
+      margin-top: clamp(1rem, 2vw, 1.5rem);
+      flex-shrink: 0;
+    }
+
+    .form-row {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      flex-shrink: 0;
+    }
+
+    .form-row-inline {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(0.75rem, 1.5vw, 1.25rem);
+      flex-shrink: 0;
+    }
+
+    .form-row-inline .form-row {
+      gap: 0.5rem;
+    }
+
+    .form-row-inline-vertical {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: clamp(0.75rem, 1.5vw, 1.25rem);
+      align-items: flex-end;
+      flex-shrink: 0;
+    }
+
+    .form-row label {
+      font-size: clamp(9px, 1.3vw, 11px);
+      color: #00d4ff;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .form-row input,
+    .form-row textarea {
+      padding: clamp(0.75rem, 1.5vw, 1rem);
+      background: rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(0, 212, 255, 0.2);
+      border-radius: 6px;
+      color: #e0e0e0;
+      font-family: inherit;
+      font-size: clamp(11px, 1.5vw, 13px);
+      transition: all 0.3s ease;
+      letter-spacing: 0.3px;
+      width: 100%;
+      min-width: 0;
+    }
+
+    .form-row input::placeholder,
+    .form-row textarea::placeholder {
+      color: #666;
+    }
+
+    .form-row input:focus,
+    .form-row textarea:focus {
+      outline: none;
+      border-color: #00d4ff;
+      box-shadow: 0 0 15px rgba(0, 212, 255, 0.25);
+      background: rgba(0, 30, 40, 0.4);
+    }
+
+    .btn-send {
+      padding: clamp(0.75rem, 1.5vw, 1rem) clamp(1.5rem, 3vw, 2.25rem);
+      background: linear-gradient(135deg, #00d4ff, #00a8c4);
+      border: none;
+      border-radius: 6px;
+      color: #0a0e27;
+      font-weight: 700;
+      font-size: clamp(10px, 1.4vw, 13px);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      flex-shrink: 0;
+    }
+
+    .btn-send:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(0, 212, 255, 0.4);
+    }
+
+    .form-status {
+      font-size: clamp(10px, 1.3vw, 12px);
+      margin-top: 0.75rem;
+      color: #00d4ff;
+      letter-spacing: 0.3px;
+      flex-shrink: 0;
+    }
+
+    /* ============ SKILLS & EDUCATION ============ */
+    .content-inner {
+      display: flex;
+      flex-direction: column;
+      gap: clamp(1rem, 2vw, 2rem);
+      flex-shrink: 0;
+    }
+
+    .edu-entry,
+    .skills-group {
+      margin: 0;
+      padding: clamp(1rem, 2.5vw, 1.5rem);
+      background: rgba(0, 212, 255, 0.04);
+      border-left: clamp(4px, 1vw, 6px) solid #00d4ff;
+      border-radius: 4px;
+      display: block;
+      flex-shrink: 0;
+    }
+
+    .edu-entry h3,
+    .skills-group h3 {
+      font-size: clamp(14px, 2.5vw, 17px);
+      color: #00d4ff;
+      margin: 0 0 0.5rem 0;
+      font-weight: 700;
+      letter-spacing: 0.2px;
+      line-height: 1.4;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
+
+    .meta {
+      font-size: clamp(10px, 1.3vw, 12px);
+      color: #999;
+      margin: 0.5rem 0 1rem 0;
+      font-style: italic;
+      letter-spacing: 0.3px;
+    }
+
+    .skills-group p {
+      font-size: clamp(12px, 1.6vw, 14px);
+      color: #d0d0d0;
+      line-height: 1.8;
+      margin: 0;
+      letter-spacing: 0.2px;
+      text-align: left;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
+
+    footer {
+      position: fixed;
+      bottom: 1rem;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: clamp(8px, 1.2vw, 10px);
+      color: #555;
+      z-index: 50;
+      text-align: center;
+      padding: 0 1rem;
+      max-width: 90vw;
+    }
+
+    ::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* ============ MOBILE & TABLET RESPONSIVE ============ */
+    @media (max-width: 1200px) {
+      .main-wrapper {
+        gap: 1rem;
+      }
+
+      .gear-section {
+        flex: 0 0 auto;
+        padding: 1rem 0.5rem;
+      }
+
+      .content-section {
+        padding: clamp(1rem, 3vw, 2rem);
+        padding-top: clamp(1rem, 2.5vw, 1.5rem);
+      }
+    }
+
+    @media (max-width: 992px) {
+      .main-wrapper {
+        flex-direction: column;
+        gap: 0;
+      }
+
+      .gear-section {
+        flex: 0 0 auto;
+        max-height: 45vh;
+        padding: 1.5rem 1rem;
+        border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+      }
+
+      .gear-container {
+        width: clamp(150px, 30vmin, 280px);
+        height: clamp(150px, 30vmin, 280px);
+      }
+
+      .content-wrapper {
+        flex: 1;
+        min-height: 0;
+      }
+
+      .content-section {
+        padding: clamp(1.25rem, 3vw, 2.25rem);
+      }
+
+      header {
+        padding: 1rem 1.5rem;
+      }
+
+      .nav-center {
+        gap: clamp(0.8rem, 2.5vw, 2rem);
+      }
+
+      .brand {
+        font-size: clamp(18px, 3.5vw, 28px);
+      }
+
+      .form-row-inline {
+        grid-template-columns: 1fr;
+      }
+
+      .form-row-inline-vertical {
+        grid-template-columns: 1fr;
+        align-items: stretch;
+      }
+
+      .btn-send {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .site-header-inner {
+        gap: 1rem;
+      }
+
+      header {
+        padding: 1rem 1rem;
+      }
+
+      .brand {
+        font-size: clamp(16px, 3vw, 24px);
+      }
+
+      .nav-link {
+        font-size: clamp(11px, 1.8vw, 14px);
+      }
+
+      .nav-center {
+        gap: clamp(0.5rem, 2vw, 1.5rem);
+        max-width: 100vw;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .section-title {
+        font-size: clamp(24px, 6vw, 40px);
+        margin-bottom: clamp(1rem, 2.5vw, 2rem);
+      }
+
+      .gear-section {
+        max-height: 40vh;
+        padding: 1rem;
+      }
+
+      .gear-container {
+        width: clamp(120px, 25vmin, 200px);
+        height: clamp(120px, 25vmin, 200px);
+      }
+
+      .content-section {
+        padding: clamp(1rem, 2.5vw, 1.75rem);
+        padding-top: clamp(0.75rem, 2vw, 1.25rem);
+      }
+
+      .contact-form {
+        max-width: 100%;
+      }
+
+      footer {
+        font-size: clamp(7px, 1vw, 9px);
+      }
+    }
+
+    @media (max-width: 480px) {
+      html, body {
+        font-size: 14px;
+      }
+
+      header {
+        padding: 0.75rem 1rem;
+      }
+
+      .site-header-inner {
+        gap: 0.75rem;
+      }
+
+      .brand {
+        font-size: clamp(14px, 2.5vw, 18px);
+      }
+
+      .nav-link {
+        font-size: clamp(10px, 1.5vw, 12px);
+        padding: 0.2rem 0;
+      }
+
+      .nav-center {
+        gap: clamp(0.4rem, 1.5vw, 1rem);
+      }
+
+      .main-wrapper {
+        gap: 0;
+      }
+
+      .gear-section {
+        max-height: 35vh;
+        padding: 0.75rem;
+      }
+
+      .gear-container {
+        width: clamp(100px, 22vmin, 160px);
+        height: clamp(100px, 22vmin, 160px);
+      }
+
+      .content-section {
+        padding: clamp(0.75rem, 2vw, 1.5rem);
+        padding-top: clamp(0.5rem, 1.5vw, 1rem);
+      }
+
+      .section-title {
+        font-size: clamp(20px, 5vw, 28px);
+        margin-bottom: clamp(0.75rem, 2vw, 1.5rem);
+      }
+
+      .modal-content {
+        width: 95%;
+        max-height: 85vh;
+      }
+    }
+
+    @media (max-height: 600px) {
+      header {
+        padding: 0.5rem 1rem;
+      }
+
+      .brand {
+        font-size: clamp(14px, 2.5vw, 18px);
+      }
+
+      .nav-link {
+        font-size: clamp(10px, 1.5vw, 12px);
+      }
+
+      .gear-section {
+        max-height: 30vh;
+        padding: 0.5rem;
+      }
+
+      .gear-container {
+        width: clamp(80px, 18vmin, 150px);
+        height: clamp(80px, 18vmin, 150px);
+      }
+
+      .content-section {
+        padding: clamp(0.5rem, 1.5vw, 1rem);
+        padding-top: clamp(0.25rem, 1vw, 0.75rem);
+      }
+
+      .section-title {
+        font-size: clamp(18px, 4vw, 24px);
+        margin-bottom: clamp(0.5rem, 1.5vw, 1rem);
+      }
+
+      footer {
+        bottom: 0.5rem;
+        font-size: clamp(6px, 0.8vw, 7px);
+      }
+    }
+  </style>
 </head>
+
 <body>
-    <header>
-        <div class="header-container">
-            <div class="logo">Srikanth Reddy Eppa</div>
-            <nav>
-                <a href="#about" class="nav-link active">About Me</a>
-                <a href="#experience" class="nav-link">Experience</a>
-                <a href="#projects" class="nav-link">Projects</a>
-                <a href="#skills" class="nav-link">Skills</a>
-                <a href="#contact" class="nav-link">Get In Touch</a>
-            </nav>
+  <header>
+    <div class="site-header-inner">
+      <a class="brand" href="#">Srikanth Reddy Eppa</a>
+      <nav class="nav-center">
+        <a class="nav-link active" data-section="about">About Me</a>
+        <a class="nav-link" data-section="experience">Experience</a>
+        <a class="nav-link" data-section="projects">Projects</a>
+        <a class="nav-link" data-section="skills">Skills</a>
+        <a class="nav-link" data-section="education">Education</a>
+        <a class="nav-link" data-section="contact">Get In Touch</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="main-wrapper">
+    <!-- LEFT SIDE - GEAR WITH PHOTO -->
+    <div class="gear-section">
+      <div class="gear-container">
+        <svg class="gear-wheel" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <filter id="gearShadow" x="-50%" y="-50%" width="200%" height="200%">
+              <feDropShadow dx="0" dy="8" stdDeviation="12" flood-opacity="0.95" flood-color="#00d4ff"/>
+            </filter>
+            <radialGradient id="gearGrad" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" style="stop-color:#1a5f7a;stop-opacity:1" />
+              <stop offset="100%" style="stop-color:#0d3a52;stop-opacity:1" />
+            </radialGradient>
+          </defs>
+          
+          <circle cx="250" cy="250" r="175" fill="none" stroke="#00d4ff" stroke-width="2" opacity="0.5"/>
+          
+          <g filter="url(#gearShadow)">
+            <g transform="rotate(0 250 250)">
+              <rect x="232" y="90" width="36" height="55" fill="url(#gearGrad)" stroke="#00d4ff" stroke-width="2" rx="3"/>
+            </g>
+            <g transform="rotate(30 250 250)">
+              <rect x="232" y="90" width="36" height="55" fill="url(#gearGrad)" stroke="#00d4ff" stroke-width="2" rx="3"/>
+            </g>
+            <g transform="rotate(60 250 250)">
+              <rect x="232" y="90" width="36" height="55" fill="url(#gearGrad)" stroke="#00d4ff" stroke-width="2" rx="3"/>
+            </g>
+            <g transform="rotate(90 250 250)">
+              <rect x="232" y="90" width="36" height="55" fill="url(#gearGrad)" stroke="#00d4ff" stroke-width="2" rx="3"/>
+            </g>
+            <g transform="rotate(120 250 250)">
+              <rect x="232" y="90" width="36" height="55" fill="url(#gearGrad)" stroke="#00d4ff" stroke-width="2" rx="3"/>
+            </g>
+            <g transform="rotate(150 250 250)">
+              <rect x="232" y="90" width="36" height="55" fill="url(#gearGrad)" stroke="#00d4ff" stroke-width="2" rx="3"/>
+            </g>
+            <g transform="rotate(180 250 250)">
+              <rect x="232" y="90" width="36" height="55" fill="url(#gearGrad)" stroke="#00d4ff" stroke-width="2" rx="3"/>
+            </g>
+            <g transform="rotate(210 250 250)">
+              <rect x="232" y="90" width="36" height="55" fill="url(#gearGrad)" stroke="#00d4ff" stroke-width="2" rx="3"/>
+            </g>
+            <g transform="rotate(240 250 250)">
+              <rect x="232" y="90" width="36" height="55" fill="url(#gearGrad)" stroke="#00d4ff" stroke-width="2" rx="3"/>
+            </g>
+            <g transform="rotate(270 250 250)">
+              <rect x="232" y="90" width="36" height="55" fill="url(#gearGrad)" stroke="#00d4ff" stroke-width="2" rx="3"/>
+            </g>
+            <g transform="rotate(300 250 250)">
+              <rect x="232" y="90" width="36" height="55" fill="url(#gearGrad)" stroke="#00d4ff" stroke-width="2" rx="3"/>
+            </g>
+            <g transform="rotate(330 250 250)">
+              <rect x="232" y="90" width="36" height="55" fill="url(#gearGrad)" stroke="#00d4ff" stroke-width="2" rx="3"/>
+            </g>
+          </g>
+          
+          <circle cx="250" cy="250" r="105" fill="#0a0e27" stroke="#00d4ff" stroke-width="2"/>
+          <circle cx="250" cy="250" r="105" fill="none" stroke="#00a8c4" stroke-width="2" opacity="0.6"/>
+        </svg>
+        
+        <div class="photo-wrapper">
+          <img class="profile-photo" src="https://raw.githubusercontent.com/Eppasrikanth57/srikanth-reddy-eppa/main/files/Resume_image_Professional.JPG" alt="Srikanth Reddy Eppa">
         </div>
-    </header>
-
-    <main>
-        <!-- ABOUT ME SECTION -->
-        <section id="about">
-            <div class="about-content">
-                <div class="about-image">
-                    <div class="profile-ring">
-                        <div class="profile-image">👨‍💼</div>
-                    </div>
-                </div>
-                <div class="about-text">
-                    <h1 class="section-title">About Me</h1>
-                    <h3>Master's student in Mechatronics & Robotics with experience in digitalization, automation, and sustainability. Passionate about leveraging technology to solve real-world engineering challenges and drive innovation.</h3>
-                    <p>Skilled in Digital Twin technology, Digital Product Passports, and mechatronic system design, aiming to deliver innovative solutions aligned with industry demand. My expertise spans from concept design to implementation, with strong proficiency in CAD software and embedded systems programming.</p>
-                    
-                    <div class="about-footer">
-                        <div class="location">
-                            📍 Stuttgart Region, Germany
-                        </div>
-                        <div class="social-links">
-                            <a href="https://github.com" class="social-icon" title="GitHub">🐙</a>
-                            <a href="https://linkedin.com" class="social-icon" title="LinkedIn">in</a>
-                            <a href="mailto:your.email@gmail.com" class="social-icon" title="Email">✉️</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- EXPERIENCE SECTION -->
-        <section id="experience">
-            <div class="experience-container">
-                <h2 class="section-title">Experience</h2>
-                <div class="experience-scroll" id="experienceScroll">
-                    <div class="experience-card">
-                        <h3>Graduate Student Researcher</h3>
-                        <div class="company">University Name</div>
-                        <div class="duration">Jan 2023 - Present</div>
-                        <ul>
-                            <li>Developed Digital Twin solutions for manufacturing</li>
-                            <li>Implemented automation systems using Python</li>
-                            <li>Collaborated on sustainability initiatives</li>
-                        </ul>
-                    </div>
-                    <div class="experience-card">
-                        <h3>Mechatronics Engineer</h3>
-                        <div class="company">Tech Company</div>
-                        <div class="duration">Jun 2021 - Dec 2022</div>
-                        <ul>
-                            <li>Designed robotic systems for industrial automation</li>
-                            <li>CAD modeling and simulation</li>
-                            <li>Embedded systems programming with C++</li>
-                        </ul>
-                    </div>
-                    <div class="experience-card">
-                        <h3>Internship</h3>
-                        <div class="company">Innovation Lab</div>
-                        <div class="duration">Jan 2021 - May 2021</div>
-                        <ul>
-                            <li>Prototype development and testing</li>
-                            <li>Technical documentation</li>
-                            <li>3D printing and CAD design</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- PROJECTS SECTION -->
-        <section id="projects">
-            <div class="experience-container">
-                <h2 class="section-title">Projects</h2>
-                <div class="projects-scroll" id="projectsScroll">
-                    <div class="project-card" onclick="openProjectModal('xy-plotter')">
-                        <h3>Automated XY Pen Plotter</h3>
-                        <div class="institute">Hochschule Schmalkalden</div>
-                        <div class="location">📍 Schmalkalden, Germany</div>
-                        <div class="duration">2023</div>
-                        <a href="#" onclick="event.stopPropagation(); openProjectModal('xy-plotter')" class="project-link">View Details</a>
-                    </div>
-                    <div class="project-card" onclick="openProjectModal('thermal-energy')">
-                        <h3>Thermal Energy Storage System</h3>
-                        <div class="institute">Vidya Jyothi Institute of Technology</div>
-                        <div class="location">📍 Hyderabad, India</div>
-                        <div class="duration">2022</div>
-                        <a href="#" onclick="event.stopPropagation(); openProjectModal('thermal-energy')" class="project-link">View Details</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SKILLS SECTION -->
-        <section id="skills">
-            <div class="experience-container">
-                <h2 class="section-title">Skills</h2>
-                <div class="experience-scroll">
-                    <div class="experience-card">
-                        <h3>Engineering</h3>
-                        <ul>
-                            <li>CAD Design (CATIA, SolidWorks)</li>
-                            <li>FEA & Simulation</li>
-                            <li>Mechatronic Systems</li>
-                            <li>Robotics & Automation</li>
-                        </ul>
-                    </div>
-                    <div class="experience-card">
-                        <h3>Programming</h3>
-                        <ul>
-                            <li>Python</li>
-                            <li>C++</li>
-                            <li>MATLAB</li>
-                            <li>Arduino Programming</li>
-                        </ul>
-                    </div>
-                    <div class="experience-card">
-                        <h3>Digital Technologies</h3>
-                        <ul>
-                            <li>Digital Twin</li>
-                            <li>Digital Product Passports</li>
-                            <li>IoT Systems</li>
-                            <li>Cloud Computing</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- CONTACT SECTION -->
-        <section id="contact">
-            <div class="contact-container">
-                <h2 class="section-title">Get In Touch</h2>
-                <form onsubmit="handleSubmit(event)">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="name">Your Name</label>
-                            <input type="text" id="name" placeholder="Your name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Your Email</label>
-                            <input type="email" id="email" placeholder="name@company.com" required>
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="subject">Subject</label>
-                        <input type="text" id="subject" placeholder="Subject" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <div class="message-row">
-                            <textarea id="message" placeholder="Write your message..." required></textarea>
-                            <button type="submit" class="submit-btn">
-                                <span>SEND</span>
-                                <span>🚀</span>
-                            </button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </section>
-    </main>
-
-    <!-- PROJECT MODALS -->
-    <div id="xyPlotterModal" class="modal">
-        <div class="modal-content">
-            <span class="close-btn" onclick="closeProjectModal('xy-plotter')">&times;</span>
-            <h2>Automated XY Pen Plotter</h2>
-            <p><strong>Institute:</strong> Hochschule Schmalkalden</p>
-            <p><strong>Location:</strong> Schmalkalden, Germany</p>
-            <p><strong>Year:</strong> 2023</p>
-            
-            <h3>Project Description</h3>
-            <p>Designed and implemented an automated XY pen plotter system capable of drawing complex patterns and images. The system uses stepper motors for precise movement control and is integrated with a microcontroller for task automation.</p>
-            
-            <h3>Key Tasks & Responsibilities</h3>
-            <ul>
-                <li>Mechanical design and CAD modeling using SolidWorks</li>
-                <li>Stepper motor control and power electronics</li>
-                <li>Arduino-based embedded systems programming</li>
-                <li>Image-to-coordinates conversion algorithm</li>
-                <li>System testing and calibration</li>
-                <li>Technical documentation and reports</li>
-            </ul>
-            
-            <h3>Technologies Used</h3>
-            <ul>
-                <li>SolidWorks for CAD design</li>
-                <li>Arduino IDE for embedded programming</li>
-                <li>C++ for motor control algorithms</li>
-                <li>Python for image processing</li>
-            </ul>
-        </div>
+      </div>
     </div>
 
-    <div id="thermalEnergyModal" class="modal">
-        <div class="modal-content">
-            <span class="close-btn" onclick="closeProjectModal('thermal-energy')">&times;</span>
-            <h2>Thermal Energy Storage System</h2>
-            <p><strong>Institute:</strong> Vidya Jyothi Institute of Technology</p>
-            <p><strong>Affiliated to:</strong> Jawaharlal Nehru Technological University Hyderabad</p>
-            <p><strong>Location:</strong> Hyderabad, India</p>
-            <p><strong>Year:</strong> 2022</p>
-            
-            <h3>Project Description</h3>
-            <p>Developed a thermal energy storage system for efficient heat management and sustainable energy solutions. The project focused on optimizing thermal performance through advanced material selection and system design.</p>
-            
-            <h3>Key Tasks & Responsibilities</h3>
-            <ul>
-                <li>Thermal analysis and simulation using ANSYS</li>
-                <li>Material selection and characterization</li>
-                <li>System design and optimization</li>
-                <li>Prototype development and testing</li>
-                <li>Performance evaluation and reporting</li>
-                <li>Sustainability impact assessment</li>
-            </ul>
-            
-            <h3>Technologies Used</h3>
-            <ul>
-                <li>ANSYS for thermal simulation</li>
-                <li>CATIA for mechanical design</li>
-                <li>MATLAB for data analysis</li>
-                <li>Experimental testing methods</li>
-            </ul>
+    <!-- RIGHT SIDE - CONTENT SECTIONS -->
+    <div class="content-wrapper">
+      <!-- ABOUT SECTION -->
+      <section id="about" class="content-section active">
+        <h1 class="section-title">About Me</h1>
+        <div class="content-inner">
+          <div class="about-content">
+            <div class="about-meta">
+              <span class="meta-location"><i class="fas fa-map-marker-alt"></i> Stuttgart Region, Germany</span>
+            </div>
+            <p class="about-text">
+              Master's student in Mechatronics & Robotics with experience in digitalization, automation, and sustainability. Passionate about leveraging technology to solve real-world engineering challenges and drive innovation.
+            </p>
+            <p class="about-text">
+              Skilled in Digital Twin technology, Digital Product Passports, and mechatronic system design, aiming to deliver innovative solutions aligned with industry demand. My expertise spans from concept design to implementation, with strong proficiency in CAD software and embedded systems programming.
+            </p>
+            <div class="social-links">
+              <a href="https://github.com/Eppasrikanth57" target="_blank" rel="noopener" title="GitHub"><i class="fab fa-github"></i></a>
+              <a href="https://www.linkedin.com/in/srikanth-reddy-eppa/" target="_blank" rel="noopener" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+              <a href="mailto:eppasrikanth57@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+            </div>
+          </div>
         </div>
+      </section>
+
+      <!-- EXPERIENCE SECTION -->
+      <section id="experience" class="content-section">
+        <h1 class="section-title">Experience</h1>
+        <div class="horizontal-timeline">
+          <!-- Experience 1 -->
+          <div class="timeline-card">
+            <div class="card-header">
+              <div class="card-logo">
+                <i class="fas fa-graduation-cap"></i>
+              </div>
+              <div class="card-header-content">
+                <h3 class="card-job-title">Design & Prototyping of Soft Robot Arm</h3>
+                <p class="card-company">Hochschule Schmalkalden</p>
+              </div>
+              <button class="card-popup-btn" data-modal="modal-exp-1" title="View Tasks">
+                <i class="fas fa-external-link-alt"></i>
+              </button>
+            </div>
+            <div class="card-location-date">
+              <span class="card-location"><i class="fas fa-map-marker-alt" style="font-size: 0.9em;"></i> Germany</span>
+              <span class="card-date">Feb 2025 — Now</span>
+            </div>
+            <div class="card-skills">
+              <div class="card-skills-title">Skills Used & Learnt</div>
+              <p class="card-skills-list">SolidWorks, 3D Printing, Arduino Mega 2560, Sensor Integration, CAD Design, Industry 5.0</p>
+            </div>
+          </div>
+
+          <!-- Experience 2 -->
+          <div class="timeline-card">
+            <div class="card-header">
+              <div class="card-logo">
+                <i class="fas fa-briefcase"></i>
+              </div>
+              <div class="card-header-content">
+                <h3 class="card-job-title">Working Student - Product Innovation</h3>
+                <p class="card-company">Morgenwerk GmbH</p>
+              </div>
+              <button class="card-popup-btn" data-modal="modal-exp-2" title="View Tasks">
+                <i class="fas fa-external-link-alt"></i>
+              </button>
+            </div>
+            <div class="card-location-date">
+              <span class="card-location"><i class="fas fa-map-marker-alt" style="font-size: 0.9em;"></i> Tamm, Germany</span>
+              <span class="card-date">Sep 2024 — Mar 2025</span>
+            </div>
+            <div class="card-skills">
+              <div class="card-skills-title">Skills Used & Learnt</div>
+              <p class="card-skills-list">SolidWorks, Technical Drawings, AGV Systems, Product Development, Prototyping</p>
+            </div>
+          </div>
+
+          <!-- Experience 3 (Dual Jobs) -->
+          <div class="timeline-card">
+            <div class="card-header">
+              <div class="card-logo">
+                <i class="fas fa-cogs"></i>
+              </div>
+              <div class="card-header-content">
+                <h3 class="card-job-title">Engineer - Design | Intern</h3>
+                <p class="card-company">Regal Rexnord India</p>
+              </div>
+              <button class="card-popup-btn" data-modal="modal-exp-3" title="View Tasks">
+                <i class="fas fa-external-link-alt"></i>
+              </button>
+            </div>
+            <div class="card-location-date">
+              <span class="card-location"><i class="fas fa-map-marker-alt" style="font-size: 0.9em;"></i> Hyderabad, India</span>
+            </div>
+            <!-- Dual Job Timeline -->
+            <div class="dual-job-timeline">
+              <div class="dual-job-item">
+                <h4 class="dual-job-title">Design Engineer</h4>
+                <p class="dual-job-date">Oct 2020 — Aug 2022</p>
+              </div>
+              <div class="dual-job-item">
+                <h4 class="dual-job-title">Intern - Design</h4>
+                <p class="dual-job-date">Feb 2020 — Sep 2020</p>
+              </div>
+            </div>
+            <div class="card-skills" style="margin-top: clamp(0.75rem, 1.5vw, 1.25rem);">
+              <div class="card-skills-title">Skills Used & Learnt</div>
+              <p class="card-skills-list">SolidWorks, GD&T, ISO/DIN, Technical Drawings, SAP, Coupling Design</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROJECTS SECTION -->
+      <section id="projects" class="content-section">
+        <h1 class="section-title">Projects</h1>
+        <div class="horizontal-timeline">
+          <!-- Project 1 -->
+          <div class="timeline-card">
+            <div class="card-header">
+              <div class="card-logo">
+                <i class="fas fa-cube"></i>
+              </div>
+              <div class="card-header-content">
+                <h3 class="card-job-title">Automated XY Pen Plotter</h3>
+                <p class="card-company">Hochschule Schmalkalden</p>
+              </div>
+              <button class="card-popup-btn" data-modal="modal-proj-1" title="View Tasks">
+                <i class="fas fa-external-link-alt"></i>
+              </button>
+            </div>
+            <div class="card-location-date">
+              <span class="card-location"><i class="fas fa-map-marker-alt" style="font-size: 0.9em;"></i> Germany</span>
+              <span class="card-date">Apr 2023 — Jul 2023</span>
+            </div>
+            <div class="card-skills">
+              <div class="card-skills-title">Skills Used</div>
+              <p class="card-skills-list">SolidWorks, Siemens NX, CAD Design, Precision Engineering, Motion Control</p>
+            </div>
+          </div>
+
+          <!-- Project 2 -->
+          <div class="timeline-card">
+            <div class="card-header">
+              <div class="card-logo">
+                <i class="fas fa-flask"></i>
+              </div>
+              <div class="card-header-content">
+                <h3 class="card-job-title">Thermal Energy Storage System</h3>
+                <p class="card-company">Vidya Jyothi Institute of Technology</p>
+              </div>
+              <button class="card-popup-btn" data-modal="modal-proj-2" title="View Tasks">
+                <i class="fas fa-external-link-alt"></i>
+              </button>
+            </div>
+            <div class="card-location-date">
+              <span class="card-location"><i class="fas fa-map-marker-alt" style="font-size: 0.9em;"></i> Hyderabad, India</span>
+              <span class="card-date">Nov 2019 — Aug 2020</span>
+            </div>
+            <div class="card-skills">
+              <div class="card-skills-title">Skills Used</div>
+              <p class="card-skills-list">SolidWorks, Thermal Analysis, System Design, Manufacturing, Optimization</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SKILLS SECTION -->
+      <section id="skills" class="content-section">
+        <h1 class="section-title">Skills</h1>
+        <div class="content-inner">
+          <div class="skills-group">
+            <h3>CAD & Design Tools</h3>
+            <p><strong>CAD:</strong> SolidWorks, Ansys, PTC Creo, CATIA V5, Siemens NX, AutoCAD, Fusion</p>
+          </div>
+          <div class="skills-group">
+            <h3>Technical Skills</h3>
+            <p>PLC Programming, Python, C++, GD&T, Embedded Systems, Arduino</p>
+          </div>
+          <div class="skills-group">
+            <h3>Languages</h3>
+            <p><strong>English:</strong> C1 | <strong>German:</strong> A2 | <strong>Telugu:</strong> Native</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- EDUCATION SECTION -->
+      <section id="education" class="content-section">
+        <h1 class="section-title">Education</h1>
+        <div class="content-inner">
+          <div class="edu-entry">
+            <h3>Master of Science - Mechatronics and Robotics</h3>
+            <p class="meta">Hochschule Schmalkalden | Oct 2022 – Present</p>
+            <p style="font-size: clamp(12px, 1.6vw, 14px); color: #d0d0d0; margin: 0; text-align: left;">Grade: 2.4 | Focus: Digital Twin, Industry 5.0</p>
+          </div>
+          <div class="edu-entry">
+            <h3>B.Tech - Mechanical Engineering</h3>
+            <p class="meta">Vidya Jyothi Institute | Jul 2017 – Aug 2020</p>
+            <p style="font-size: clamp(12px, 1.6vw, 14px); color: #d0d0d0; margin: 0; text-align: left;">Grade: 1.23 | Affiliated to Jawaharlal Nehru Technological University Hyderabad</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT SECTION -->
+      <section id="contact" class="content-section">
+        <h1 class="section-title">Get In Touch</h1>
+        <div class="content-inner">
+          <form id="contact-form" class="contact-form" novalidate>
+            <div class="form-row-inline">
+              <div class="form-row">
+                <label for="from_name">Your Name</label>
+                <input type="text" id="from_name" name="from_name" placeholder="Your name" required>
+              </div>
+              <div class="form-row">
+                <label for="reply_to">Your Email</label>
+                <input type="email" id="reply_to" name="reply_to" placeholder="name@company.com" required>
+              </div>
+            </div>
+            <div class="form-row">
+              <label for="subject">Subject</label>
+              <input type="text" id="subject" name="subject" placeholder="Subject" required>
+            </div>
+            <div class="form-row-inline-vertical">
+              <div class="form-row">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="3" placeholder="Write your message..." required></textarea>
+              </div>
+              <button id="contact-submit" type="submit" class="btn-send">
+                <i class="fas fa-paper-plane"></i>
+                <span>Send</span>
+              </button>
+            </div>
+          </form>
+          <p id="form-status" class="form-status" aria-live="polite"></p>
+        </div>
+      </section>
     </div>
+  </div>
 
-    <footer>
-        © 2025 Srikanth Reddy Eppa. Built with creativity and code.
-    </footer>
+  <!-- MODALS -->
+  <!-- Experience Modals -->
+  <div id="modal-exp-1" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title">Design & Prototyping of Soft Robot Arm</h2>
+        <button class="modal-close" data-modal="modal-exp-1">×</button>
+      </div>
+      <div class="modal-body">
+        <h3>Key Tasks & Responsibilities</h3>
+        <ul>
+          <li>Developed and optimized a Soft Robot for Industry 5.0 applications using <strong>SolidWorks CAD</strong></li>
+          <li>Utilized additive manufacturing (<strong>3D printing</strong>) to create and iterate on key components with precision tolerances</li>
+          <li>Engineered an <strong>Arduino Mega 2560</strong> circuit to control integrated sensors and actuator motors</li>
+          <li>Conducted system testing and validated robot arm performance against design specifications</li>
+          <li>Collaborated with faculty and team members on design iterations and optimization</li>
+        </ul>
+      </div>
+    </div>
+  </div>
 
-    <script>
-        // Navigation active link tracking
-        window.addEventListener('scroll', () => {
-            let current = '';
-            const sections = document.querySelectorAll('section');
-            
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                if (pageYOffset >= sectionTop - 200) {
-                    current = section.getAttribute('id');
-                }
-            });
+  <div id="modal-exp-2" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title">Working Student - Product Innovation</h2>
+        <button class="modal-close" data-modal="modal-exp-2">×</button>
+      </div>
+      <div class="modal-body">
+        <h3>Key Tasks & Responsibilities</h3>
+        <ul>
+          <li>Developed and prototyped a gate system for an automated vending machine using <strong>SolidWorks</strong></li>
+          <li>Designed mechanical components meeting functional and safety requirements</li>
+          <li>Produced detailed technical drawings and manufacturing specifications</li>
+          <li>Worked on structural tube development and optimization for an <strong>Autonomous Guided Vehicle (AGV)</strong></li>
+          <li>Participated in design reviews and incorporated feedback for continuous improvement</li>
+          <li>Supported product development lifecycle from concept to prototype testing</li>
+        </ul>
+      </div>
+    </div>
+  </div>
 
-            document.querySelectorAll('.nav-link').forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href').slice(1) === current) {
-                    link.classList.add('active');
-                }
-            });
+  <div id="modal-exp-3" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title">Engineer - Design | Intern</h2>
+        <button class="modal-close" data-modal="modal-exp-3">×</button>
+      </div>
+      <div class="modal-body">
+        <h3>Key Tasks & Responsibilities</h3>
+        <ul>
+          <li>Enhanced design of Torsional couplings improving productivity and reducing costs using <strong>SolidWorks</strong></li>
+          <li>Created detailed technical drawings adhering to <strong>ISO/DIN/GD&T</strong> standards for manufacturing</li>
+          <li>Generated Bills of Materials (BOMs) and managed component specifications in <strong>SAP ERP</strong> system</li>
+          <li>Conducted finite element analysis (FEA) to validate coupling performance under various load conditions</li>
+          <li>Collaborated with manufacturing teams to ensure design feasibility and cost optimization</li>
+          <li>Documented design changes and maintained engineering documentation standards</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Project Modals -->
+  <div id="modal-proj-1" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title">Automated XY Pen Plotter</h2>
+        <button class="modal-close" data-modal="modal-proj-1">×</button>
+      </div>
+      <div class="modal-body">
+        <h3>Project Overview & Tasks</h3>
+        <ul>
+          <li>Completed full V-model design cycle for precision XY plotting system using <strong>SolidWorks & Siemens NX</strong></li>
+          <li>Designed precision components achieving ±0.5mm accuracy for reliable pen positioning</li>
+          <li>Implemented motion control system for 2-axis independent movement with stepper motor integration</li>
+          <li>Conducted tolerance analysis and GD&T specifications for manufacturing</li>
+          <li>Created detailed assembly drawings and bill of materials for prototype fabrication</li>
+          <li>Performed system testing and calibration for optimal plotting accuracy</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div id="modal-proj-2" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title">Thermal Energy Storage System</h2>
+        <button class="modal-close" data-modal="modal-proj-2">×</button>
+      </div>
+      <div class="modal-body">
+        <h3>Project Overview & Tasks</h3>
+        <ul>
+          <li>Designed insulated stainless-steel tank for thermal energy storage with optimized geometry</li>
+          <li>Performed thermal analysis and heat transfer simulations to minimize energy loss</li>
+          <li>Achieved 10.6 kJ energy efficiency improvement through insulation optimization</li>
+          <li>Implemented 45% system efficiency improvement through design enhancements</li>
+          <li>Conducted cost-benefit analysis and material selection for industrial applications</li>
+          <li>Prepared technical documentation and design validation reports</li>
+          <li>Collaborated with team members on manufacturing process planning</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Srikanth Reddy Eppa. Built with creativity and code.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+  <script>
+    (function() {
+      const gearWheel = document.querySelector('.gear-wheel');
+      const sections = [
+        { id: 'about', rotation: 0 },
+        { id: 'experience', rotation: 30 },
+        { id: 'projects', rotation: 60 },
+        { id: 'skills', rotation: 90 },
+        { id: 'education', rotation: 120 },
+        { id: 'contact', rotation: 150 }
+      ];
+
+      let currentSectionIndex = 0;
+      let isTransitioning = false;
+      let wheelRotation = 0;
+      let scrollAccumulator = 0;
+      const scrollThreshold = 100;
+
+      function showSection(index) {
+        if (isTransitioning || currentSectionIndex === index) return;
+        isTransitioning = true;
+
+        const activeSection = document.querySelector('.content-section.active');
+        if (activeSection) activeSection.classList.remove('active');
+        
+        currentSectionIndex = index;
+        document.getElementById(sections[index].id).classList.add('active');
+        
+        wheelRotation = sections[index].rotation;
+        gearWheel.style.transform = `rotate(${wheelRotation}deg)`;
+
+        document.querySelectorAll('.nav-link').forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('data-section') === sections[index].id) {
+            link.classList.add('active');
+          }
         });
 
-        // Smooth scrolling for navigation
-        document.querySelectorAll('nav a').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href').slice(1);
-                const targetSection = document.getElementById(targetId);
-                targetSection.scrollIntoView({ behavior: 'smooth' });
+        setTimeout(() => { 
+          isTransitioning = false;
+          scrollAccumulator = 0;
+        }, 900);
+      }
+
+      window.addEventListener('wheel', (e) => {
+        const activeSection = document.querySelector('.content-section.active');
+        if (!activeSection) return;
+
+        const isAtTop = activeSection.scrollTop === 0;
+        const isAtBottom = activeSection.scrollTop + activeSection.clientHeight >= activeSection.scrollHeight - 5;
+
+        if ((e.deltaY < 0 && isAtTop) || (e.deltaY > 0 && isAtBottom)) {
+          e.preventDefault();
+          
+          scrollAccumulator += e.deltaY;
+          
+          if (Math.abs(scrollAccumulator) >= scrollThreshold) {
+            if (scrollAccumulator > 0) {
+              const nextIndex = (currentSectionIndex + 1) % sections.length;
+              showSection(nextIndex);
+            } else {
+              const prevIndex = (currentSectionIndex - 1 + sections.length) % sections.length;
+              showSection(prevIndex);
+            }
+            scrollAccumulator = 0;
+          }
+        }
+      }, { passive: false });
+
+      document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const sectionId = link.getAttribute('data-section');
+          const index = sections.findIndex(s => s.id === sectionId);
+          if (index !== -1) showSection(index);
+        });
+      });
+
+      showSection(0);
+    })();
+  </script>
+
+  <script>
+    (function() {
+      document.querySelectorAll('.card-popup-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          const modalId = btn.getAttribute('data-modal');
+          const modal = document.getElementById(modalId);
+          if (modal) {
+            modal.classList.add('active');
+          }
+        });
+      });
+
+      document.querySelectorAll('.modal-close').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          const modalId = btn.getAttribute('data-modal');
+          const modal = document.getElementById(modalId);
+          if (modal) {
+            modal.classList.remove('active');
+          }
+        });
+      });
+
+      document.querySelectorAll('.modal').forEach(modal => {
+        modal.addEventListener('click', (e) => {
+          if (e.target === modal) {
+            modal.classList.remove('active');
+          }
+        });
+      });
+    })();
+  </script>
+
+  <script>
+    (function() {
+      const PUBLIC_KEY = "VJfDt6cbIDWVebWfX";
+      const SERVICE_ID = "service_gpxbcq7";
+      const OWNER_TEMPLATE_ID = "template_wfhkq5c";
+      const AUTO_REPLY_TEMPLATE_ID = "template_6he0kxw";
+
+      if (window.emailjs && typeof window.emailjs.init === 'function') {
+        window.emailjs.init(PUBLIC_KEY);
+      }
+
+      const form = document.getElementById('contact-form');
+      const statusEl = document.getElementById('form-status');
+      const submitBtn = document.getElementById('contact-submit');
+
+      if (form) {
+        form.addEventListener('submit', (e) => {
+          e.preventDefault();
+          submitBtn.disabled = true;
+          statusEl.textContent = 'Sending...';
+
+          window.emailjs.sendForm(SERVICE_ID, OWNER_TEMPLATE_ID, form)
+            .then(() => {
+              const params = {
+                from_name: form.elements['from_name'].value,
+                reply_to: form.elements['reply_to'].value,
+                subject: form.elements['subject'].value,
+                message: form.elements['message'].value
+              };
+              return window.emailjs.send(SERVICE_ID, AUTO_REPLY_TEMPLATE_ID, params);
+            })
+            .then(() => {
+              statusEl.textContent = 'Message sent — confirmation emailed!';
+              statusEl.style.color = '#00d4ff';
+              form.reset();
+            })
+            .catch(() => {
+              statusEl.textContent = 'Failed to send message. Please try again.';
+              statusEl.style.color = '#ff6b6b';
+            })
+            .finally(() => {
+              submitBtn.disabled = false;
             });
         });
-
-        // Project modal functions
-        function openProjectModal(projectId) {
-            const modalMap = {
-                'xy-plotter': 'xyPlotterModal',
-                'thermal-energy': 'thermalEnergyModal'
-            };
-            const modalId = modalMap[projectId];
-            if (modalId) {
-                document.getElementById(modalId).style.display = 'block';
-            }
-        }
-
-        function closeProjectModal(projectId) {
-            const modalMap = {
-                'xy-plotter': 'xyPlotterModal',
-                'thermal-energy': 'thermalEnergyModal'
-            };
-            const modalId = modalMap[projectId];
-            if (modalId) {
-                document.getElementById(modalId).style.display = 'none';
-            }
-        }
-
-        // Close modal when clicking outside
-        window.onclick = function(event) {
-            if (event.target.classList.contains('modal')) {
-                event.target.style.display = 'none';
-            }
-        }
-
-        // Form submission
-        function handleSubmit(event) {
-            event.preventDefault();
-            alert('Thank you for your message! I will get back to you soon.');
-            event.target.reset();
-        }
-    </script>
+      }
+    })();
+  </script>
 </body>
 </html>

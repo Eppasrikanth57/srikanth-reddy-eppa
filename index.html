@@ -289,16 +289,19 @@
       top: 0;
       left: 0;
       width: 100%;
-      height: 50px;
+      height: 60px;
       pointer-events: none;
       z-index: 5;
       display: flex;
       align-items: center;
+      justify-content: flex-start;
+      padding-left: clamp(1.25rem, 2.5vw, 2rem);
+      padding-right: clamp(1.25rem, 2.5vw, 2rem);
     }
 
     .journey-line-svg {
-      width: 100%;
-      height: 2px;
+      width: calc(100% - clamp(2.5rem, 5vw, 4rem));
+      height: 60px;
       display: block;
     }
 
@@ -1145,14 +1148,19 @@
         <h1 class="section-title">Experience</h1>
         <div class="timeline-wrapper">
           <div class="timeline-journey-line">
-            <svg class="journey-line-svg" viewBox="0 0 1000 4" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <svg class="journey-line-svg" viewBox="0 0 1000 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
               <defs>
-                <linearGradient id="lineGradExp" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" style="stop-color:#00d4ff;stop-opacity:0.8"/>
-                  <stop offset="100%" style="stop-color:#00a8c4;stop-opacity:0.8"/>
+                <linearGradient id="expGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" style="stop-color:#ff4444;stop-opacity:1"/>
+                  <stop offset="100%" style="stop-color:#ff5555;stop-opacity:1"/>
                 </linearGradient>
               </defs>
-              <line x1="0" y1="2" x2="1000" y2="2" stroke="url(#lineGradExp)" stroke-width="2"/>
+              <!-- Main horizontal line -->
+              <line x1="25" y1="30" x2="975" y2="30" stroke="url(#expGradient)" stroke-width="3" stroke-linecap="round"/>
+              <!-- Dots at positions (scaled to match 3 cards) -->
+              <circle cx="100" cy="30" r="12" fill="#ff5555" stroke="#0a0e27" stroke-width="3"/>
+              <circle cx="500" cy="30" r="12" fill="#ff5555" stroke="#0a0e27" stroke-width="3"/>
+              <circle cx="900" cy="30" r="12" fill="#ff5555" stroke="#0a0e27" stroke-width="3"/>
             </svg>
           </div>
           <div class="horizontal-timeline" id="exp-timeline">
@@ -1246,14 +1254,18 @@
         <h1 class="section-title">Projects</h1>
         <div class="timeline-wrapper">
           <div class="timeline-journey-line">
-            <svg class="journey-line-svg" viewBox="0 0 1000 4" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <svg class="journey-line-svg" viewBox="0 0 1000 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
               <defs>
-                <linearGradient id="lineGradProj" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" style="stop-color:#00d4ff;stop-opacity:0.8"/>
-                  <stop offset="100%" style="stop-color:#00a8c4;stop-opacity:0.8"/>
+                <linearGradient id="projGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" style="stop-color:#ff4444;stop-opacity:1"/>
+                  <stop offset="100%" style="stop-color:#ff5555;stop-opacity:1"/>
                 </linearGradient>
               </defs>
-              <line x1="0" y1="2" x2="1000" y2="2" stroke="url(#lineGradProj)" stroke-width="2"/>
+              <!-- Main horizontal line -->
+              <line x1="25" y1="30" x2="975" y2="30" stroke="url(#projGradient)" stroke-width="3" stroke-linecap="round"/>
+              <!-- Dots at positions (scaled to match 2 cards) -->
+              <circle cx="200" cy="30" r="12" fill="#ff5555" stroke="#0a0e27" stroke-width="3"/>
+              <circle cx="800" cy="30" r="12" fill="#ff5555" stroke="#0a0e27" stroke-width="3"/>
             </svg>
           </div>
           <div class="horizontal-timeline" id="proj-timeline">

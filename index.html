@@ -289,14 +289,17 @@
       top: 0;
       left: 0;
       width: 100%;
-      height: 60px;
+      height: 50px;
       pointer-events: none;
       z-index: 5;
+      display: flex;
+      align-items: center;
     }
 
     .journey-line-svg {
       width: 100%;
-      height: 100%;
+      height: 2px;
+      display: block;
     }
 
     .horizontal-timeline {
@@ -304,27 +307,30 @@
       gap: clamp(1.25rem, 2.5vw, 2rem);
       overflow-x: auto;
       overflow-y: hidden;
-      padding: clamp(2rem, 3vw, 2.5rem) 0 1rem 0;
+      padding: clamp(2.5rem, 3vw, 3rem) 0 1rem 0;
       scroll-behavior: smooth;
       flex-shrink: 0;
     }
 
+    /* Show horizontal scrollbar */
     .horizontal-timeline::-webkit-scrollbar {
-      height: 6px;
+      height: 8px;
     }
 
     .horizontal-timeline::-webkit-scrollbar-track {
       background: rgba(0, 212, 255, 0.05);
-      border-radius: 3px;
+      border-radius: 4px;
+      margin: 0 10px;
     }
 
     .horizontal-timeline::-webkit-scrollbar-thumb {
-      background: rgba(0, 212, 255, 0.3);
-      border-radius: 3px;
+      background: rgba(0, 212, 255, 0.4);
+      border-radius: 4px;
+      border: 2px solid rgba(0, 212, 255, 0.1);
     }
 
     .horizontal-timeline::-webkit-scrollbar-thumb:hover {
-      background: rgba(0, 212, 255, 0.5);
+      background: rgba(0, 212, 255, 0.6);
     }
 
     .timeline-card {
@@ -337,6 +343,8 @@
       display: flex;
       flex-direction: column;
       gap: clamp(0.75rem, 1.5vw, 1.25rem);
+      position: relative;
+      margin-top: clamp(0.5rem, 1vw, 1rem);
     }
 
     .timeline-card:hover {
@@ -806,10 +814,6 @@
       max-width: 90vw;
     }
 
-    ::-webkit-scrollbar {
-      display: none;
-    }
-
     /* ============ MOBILE & TABLET RESPONSIVE ============ */
     @media (max-width: 1200px) {
       .main-wrapper {
@@ -1141,20 +1145,17 @@
         <h1 class="section-title">Experience</h1>
         <div class="timeline-wrapper">
           <div class="timeline-journey-line">
-            <svg class="journey-line-svg" viewBox="0 0 1200 60" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+            <svg class="journey-line-svg" viewBox="0 0 1000 4" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
               <defs>
-                <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                <linearGradient id="lineGradExp" x1="0%" y1="0%" x2="100%" y2="0%">
                   <stop offset="0%" style="stop-color:#00d4ff;stop-opacity:0.8"/>
                   <stop offset="100%" style="stop-color:#00a8c4;stop-opacity:0.8"/>
                 </linearGradient>
               </defs>
-              <line x1="50" y1="30" x2="1150" y2="30" stroke="url(#lineGradient)" stroke-width="2"/>
-              <circle cx="50" cy="30" r="6" fill="#00d4ff" stroke="rgba(0,212,255,0.3)" stroke-width="2"/>
-              <circle cx="600" cy="30" r="6" fill="#00d4ff" stroke="rgba(0,212,255,0.3)" stroke-width="2"/>
-              <circle cx="1150" cy="30" r="6" fill="#00d4ff" stroke="rgba(0,212,255,0.3)" stroke-width="2"/>
+              <line x1="0" y1="2" x2="1000" y2="2" stroke="url(#lineGradExp)" stroke-width="2"/>
             </svg>
           </div>
-          <div class="horizontal-timeline">
+          <div class="horizontal-timeline" id="exp-timeline">
             <!-- Experience 1 -->
             <div class="timeline-card">
               <div class="card-header">
@@ -1245,20 +1246,17 @@
         <h1 class="section-title">Projects</h1>
         <div class="timeline-wrapper">
           <div class="timeline-journey-line">
-            <svg class="journey-line-svg" viewBox="0 0 1200 60" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+            <svg class="journey-line-svg" viewBox="0 0 1000 4" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
               <defs>
-                <linearGradient id="lineGradientProj" x1="0%" y1="0%" x2="100%" y2="0%">
+                <linearGradient id="lineGradProj" x1="0%" y1="0%" x2="100%" y2="0%">
                   <stop offset="0%" style="stop-color:#00d4ff;stop-opacity:0.8"/>
                   <stop offset="100%" style="stop-color:#00a8c4;stop-opacity:0.8"/>
                 </linearGradient>
               </defs>
-              <line x1="50" y1="30" x2="1150" y2="30" stroke="url(#lineGradientProj)" stroke-width="2"/>
-              <circle cx="50" cy="30" r="6" fill="#00d4ff" stroke="rgba(0,212,255,0.3)" stroke-width="2"/>
-              <circle cx="600" cy="30" r="6" fill="#00d4ff" stroke="rgba(0,212,255,0.3)" stroke-width="2"/>
-              <circle cx="1150" cy="30" r="6" fill="#00d4ff" stroke="rgba(0,212,255,0.3)" stroke-width="2"/>
+              <line x1="0" y1="2" x2="1000" y2="2" stroke="url(#lineGradProj)" stroke-width="2"/>
             </svg>
           </div>
-          <div class="horizontal-timeline">
+          <div class="horizontal-timeline" id="proj-timeline">
             <!-- Project 1 -->
             <div class="timeline-card">
               <div class="card-header">

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Srikanth Reddy Eppa — Mechatronics Engineer</title>
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -27,14 +27,15 @@
       flex-direction: column;
     }
 
+    /* ============ HEADER ============ */
     header {
       background: rgba(10, 14, 39, 0.95);
       border-bottom: 1px solid rgba(0, 212, 255, 0.2);
-      padding: 25px 40px;
+      padding: 1.5rem 2rem;
       position: relative;
       z-index: 100;
-      text-align: center;
       flex-shrink: 0;
+      min-height: auto;
     }
 
     .site-header-inner {
@@ -42,34 +43,38 @@
       justify-content: center;
       align-items: center;
       flex-direction: column;
-      gap: 25px;
+      gap: 1.5rem;
       max-width: 100%;
+      flex-wrap: wrap;
     }
 
     .brand {
-      font-size: 32px;
+      font-size: clamp(20px, 4vw, 32px);
       font-weight: 700;
       color: #00d4ff;
       text-decoration: none;
       letter-spacing: 0.5px;
+      white-space: nowrap;
     }
 
     .nav-center {
       display: flex;
-      gap: 50px;
+      gap: clamp(1rem, 3vw, 3.5rem);
       align-items: center;
       justify-content: center;
+      flex-wrap: wrap;
     }
 
     .nav-link {
       color: #999;
       text-decoration: none;
-      font-size: 18px;
+      font-size: clamp(12px, 2vw, 18px);
       transition: color 0.3s ease;
       cursor: pointer;
       position: relative;
       font-weight: 600;
       white-space: nowrap;
+      padding: 0.25rem 0;
     }
 
     .nav-link:hover,
@@ -77,32 +82,33 @@
       color: #00d4ff;
     }
 
-    .nav-link.active::after {
-      display: none;
-    }
-
+    /* ============ MAIN LAYOUT ============ */
     .main-wrapper {
       display: flex;
       flex: 1;
       overflow: hidden;
       position: relative;
+      gap: 2vw;
+      min-height: 0;
     }
 
     /* LEFT SIDE - GEAR */
     .gear-section {
-      flex: 0 0 40%;
+      flex: 0 0 auto;
       display: flex;
       align-items: center;
-      justify-content: flex-start;
-      padding: 20px 10px 20px 30px;
+      justify-content: center;
+      padding: 2rem 1rem;
       overflow: hidden;
       background: #0a0e27;
+      min-height: 0;
     }
 
     .gear-container {
-      width: 680px;
-      height: 680px;
+      width: clamp(200px, 35vmin, 400px);
+      height: clamp(200px, 35vmin, 400px);
       position: relative;
+      flex-shrink: 0;
     }
 
     .gear-wheel {
@@ -117,12 +123,12 @@
       position: absolute;
       top: 50%;
       left: 50%;
-      width: 280px;
-      height: 280px;
+      width: 40%;
+      height: 40%;
       transform: translate(-50%, -50%);
       border-radius: 50%;
       overflow: hidden;
-      border: 12px solid #00d4ff;
+      border: clamp(6px, 2vmin, 12px) solid #00d4ff;
       box-shadow: 0 0 60px rgba(0, 212, 255, 1), inset 0 0 30px rgba(0, 212, 255, 0.6);
       background: #1a3a4a;
       z-index: 10;
@@ -144,6 +150,8 @@
       overflow: hidden;
       background: #0a0e27;
       position: relative;
+      min-width: 0;
+      min-height: 0;
     }
 
     .content-section {
@@ -152,7 +160,6 @@
       left: 0;
       width: 100%;
       height: 100%;
-      padding: 50px 80px;
       opacity: 0;
       visibility: hidden;
       transform: translateX(40px);
@@ -160,6 +167,9 @@
       display: flex;
       flex-direction: column;
       pointer-events: none;
+      overflow: hidden;
+      padding: clamp(1.5rem, 4vw, 3.5rem);
+      padding-top: clamp(1.5rem, 3vw, 2.5rem);
     }
 
     .content-section.active {
@@ -189,24 +199,27 @@
     }
 
     .section-title {
-      font-size: 56px;
+      font-size: clamp(32px, 8vw, 56px);
       font-weight: 800;
       color: #00d4ff;
-      margin-bottom: 50px;
+      margin-bottom: clamp(1.5rem, 4vw, 3rem);
       letter-spacing: 0.3px;
       text-shadow: 0 0 15px rgba(0, 212, 255, 0.15);
       flex-shrink: 0;
+      white-space: nowrap;
     }
 
+    /* ============ ABOUT SECTION ============ */
     .about-content {
       display: flex;
       flex-direction: column;
-      gap: 32px;
+      gap: clamp(1.5rem, 3vw, 2rem);
       min-height: 0;
+      flex-shrink: 0;
     }
 
     .about-text {
-      font-size: 16px;
+      font-size: clamp(13px, 1.8vw, 16px);
       line-height: 1.9;
       color: #d0d0d0;
       text-align: left;
@@ -216,8 +229,8 @@
     }
 
     .about-meta {
-      margin-top: 32px;
-      font-size: 14px;
+      margin-top: clamp(1rem, 2vw, 2rem);
+      font-size: clamp(11px, 1.4vw, 14px);
       color: #00d4ff;
       flex-shrink: 0;
     }
@@ -225,19 +238,20 @@
     .meta-location {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 0.5rem;
     }
 
     .social-links {
       display: flex;
-      gap: 28px;
-      margin-top: 40px;
+      gap: clamp(1rem, 2.5vw, 2rem);
+      margin-top: clamp(1.5rem, 3vw, 2.5rem);
+      flex-wrap: wrap;
       flex-shrink: 0;
     }
 
     .social-links a {
-      width: 56px;
-      height: 56px;
+      width: clamp(40px, 8vw, 56px);
+      height: clamp(40px, 8vw, 56px);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -245,8 +259,9 @@
       border-radius: 50%;
       color: #00d4ff;
       text-decoration: none;
-      font-size: 24px;
+      font-size: clamp(16px, 3vw, 24px);
       transition: all 0.3s ease;
+      flex-shrink: 0;
     }
 
     .social-links a:hover {
@@ -256,101 +271,119 @@
       box-shadow: 0 0 20px rgba(0, 212, 255, 0.7);
     }
 
+    /* ============ CONTENT ENTRIES ============ */
     .content-inner {
       display: flex;
       flex-direction: column;
-      gap: 0;
+      gap: clamp(1rem, 2vw, 2rem);
       flex-shrink: 0;
     }
 
-    .job-entry, .project-entry, .edu-entry, .skills-group {
-      margin-bottom: 32px;
-      padding: 24px;
+    .job-entry,
+    .project-entry,
+    .edu-entry,
+    .skills-group {
+      margin: 0;
+      padding: clamp(1rem, 2.5vw, 1.5rem);
       background: rgba(0, 212, 255, 0.04);
-      border-left: 6px solid #00d4ff;
+      border-left: clamp(4px, 1vw, 6px) solid #00d4ff;
       border-radius: 4px;
       display: block;
       flex-shrink: 0;
     }
 
-    .job-entry h3, .project-entry h3, .edu-entry h3, .skills-group h3 {
-      font-size: 17px;
+    .job-entry h3,
+    .project-entry h3,
+    .edu-entry h3,
+    .skills-group h3 {
+      font-size: clamp(14px, 2.5vw, 17px);
       color: #00d4ff;
-      margin-bottom: 8px;
-      margin-top: 0;
+      margin: 0 0 0.5rem 0;
       font-weight: 700;
       letter-spacing: 0.2px;
+      line-height: 1.4;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
     }
 
     .meta {
-      font-size: 12px;
+      font-size: clamp(10px, 1.3vw, 12px);
       color: #999;
-      margin: 8px 0 16px 0;
+      margin: 0.5rem 0 1rem 0;
       font-style: italic;
       letter-spacing: 0.3px;
     }
 
-    .job-entry ul, .project-entry ul {
+    .job-entry ul,
+    .project-entry ul {
       list-style: none;
-      padding-left: 0;
+      padding: 0;
       margin: 0;
     }
 
-    .job-entry li, .project-entry li {
-      font-size: 14px;
+    .job-entry li,
+    .project-entry li {
+      font-size: clamp(12px, 1.6vw, 14px);
       color: #d0d0d0;
-      margin: 0 0 12px 0;
+      margin: 0 0 0.75rem 0;
       line-height: 1.7;
       position: relative;
-      padding-left: 18px;
+      padding-left: clamp(1rem, 2vw, 1.25rem);
       letter-spacing: 0.2px;
       text-align: left;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
     }
 
-    .job-entry li:last-child, .project-entry li:last-child {
+    .job-entry li:last-child,
+    .project-entry li:last-child {
       margin-bottom: 0;
     }
 
-    .job-entry li:before, .project-entry li:before {
+    .job-entry li:before,
+    .project-entry li:before {
       content: "•";
       position: absolute;
       left: 0;
       color: #00d4ff;
-      font-size: 14px;
+      font-size: clamp(12px, 1.6vw, 14px);
       font-weight: bold;
     }
 
     .skills-group p {
-      font-size: 14px;
+      font-size: clamp(12px, 1.6vw, 14px);
       color: #d0d0d0;
       line-height: 1.8;
       margin: 0;
       letter-spacing: 0.2px;
       text-align: left;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
     }
 
+    /* ============ CONTACT FORM ============ */
     .contact-form {
       display: flex;
       flex-direction: column;
-      gap: 24px;
+      gap: clamp(1rem, 2vw, 1.5rem);
       background: rgba(0, 50, 68, 0.3);
-      padding: 40px;
+      padding: clamp(1.5rem, 3vw, 2.5rem);
       border-radius: 8px;
       border: 1px solid rgba(0, 212, 255, 0.2);
-      max-width: 600px;
-      margin-top: 20px;
+      max-width: 100%;
+      margin-top: clamp(1rem, 2vw, 1.5rem);
       flex-shrink: 0;
     }
 
     .form-row {
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 0.75rem;
       flex-shrink: 0;
     }
 
     .form-row label {
-      font-size: 11px;
+      font-size: clamp(9px, 1.3vw, 11px);
       color: #00d4ff;
       font-weight: 700;
       text-transform: uppercase;
@@ -359,15 +392,17 @@
 
     .form-row input,
     .form-row textarea {
-      padding: 14px 18px;
+      padding: clamp(0.75rem, 1.5vw, 1rem);
       background: rgba(0, 0, 0, 0.3);
       border: 1px solid rgba(0, 212, 255, 0.2);
       border-radius: 6px;
       color: #e0e0e0;
       font-family: inherit;
-      font-size: 13px;
+      font-size: clamp(11px, 1.5vw, 13px);
       transition: all 0.3s ease;
       letter-spacing: 0.3px;
+      width: 100%;
+      min-width: 0;
     }
 
     .form-row input::placeholder,
@@ -384,22 +419,23 @@
     }
 
     .btn-send {
-      padding: 14px 36px;
+      padding: clamp(0.75rem, 1.5vw, 1rem) clamp(1.5rem, 3vw, 2.25rem);
       background: linear-gradient(135deg, #00d4ff, #00a8c4);
       border: none;
       border-radius: 6px;
       color: #0a0e27;
       font-weight: 700;
-      font-size: 13px;
+      font-size: clamp(10px, 1.4vw, 13px);
       cursor: pointer;
       transition: all 0.3s ease;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
-      margin-top: 12px;
+      gap: 0.5rem;
+      margin-top: 0.75rem;
       text-transform: uppercase;
       letter-spacing: 0.5px;
+      flex-shrink: 0;
     }
 
     .btn-send:hover {
@@ -408,24 +444,313 @@
     }
 
     .form-status {
-      font-size: 12px;
-      margin-top: 14px;
+      font-size: clamp(10px, 1.3vw, 12px);
+      margin-top: 0.75rem;
       color: #00d4ff;
       letter-spacing: 0.3px;
+      flex-shrink: 0;
     }
 
     footer {
       position: fixed;
-      bottom: 18px;
+      bottom: 1rem;
       left: 50%;
       transform: translateX(-50%);
-      font-size: 10px;
+      font-size: clamp(8px, 1.2vw, 10px);
       color: #555;
       z-index: 50;
+      text-align: center;
+      padding: 0 1rem;
+      max-width: 90vw;
     }
 
     ::-webkit-scrollbar {
       display: none;
+    }
+
+    /* ============ MOBILE & TABLET RESPONSIVE ============ */
+    @media (max-width: 1200px) {
+      .main-wrapper {
+        gap: 1rem;
+      }
+
+      .gear-section {
+        flex: 0 0 auto;
+        padding: 1rem 0.5rem;
+      }
+
+      .content-section {
+        padding: clamp(1rem, 3vw, 2rem);
+        padding-top: clamp(1rem, 2.5vw, 1.5rem);
+      }
+    }
+
+    @media (max-width: 992px) {
+      .main-wrapper {
+        flex-direction: column;
+        gap: 0;
+      }
+
+      .gear-section {
+        flex: 0 0 auto;
+        max-height: 45vh;
+        padding: 1.5rem 1rem;
+        border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+      }
+
+      .gear-container {
+        width: clamp(150px, 30vmin, 280px);
+        height: clamp(150px, 30vmin, 280px);
+      }
+
+      .content-wrapper {
+        flex: 1;
+        min-height: 0;
+      }
+
+      .content-section {
+        padding: clamp(1.25rem, 3vw, 2.25rem);
+      }
+
+      header {
+        padding: 1rem 1.5rem;
+      }
+
+      .nav-center {
+        gap: clamp(0.8rem, 2.5vw, 2rem);
+      }
+
+      .brand {
+        font-size: clamp(18px, 3.5vw, 28px);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .site-header-inner {
+        gap: 1rem;
+      }
+
+      header {
+        padding: 1rem 1rem;
+      }
+
+      .brand {
+        font-size: clamp(16px, 3vw, 24px);
+      }
+
+      .nav-link {
+        font-size: clamp(11px, 1.8vw, 14px);
+      }
+
+      .nav-center {
+        gap: clamp(0.5rem, 2vw, 1.5rem);
+        max-width: 100vw;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .section-title {
+        font-size: clamp(24px, 6vw, 40px);
+        margin-bottom: clamp(1rem, 2.5vw, 2rem);
+      }
+
+      .gear-section {
+        max-height: 40vh;
+        padding: 1rem;
+      }
+
+      .gear-container {
+        width: clamp(120px, 25vmin, 200px);
+        height: clamp(120px, 25vmin, 200px);
+      }
+
+      .content-section {
+        padding: clamp(1rem, 2.5vw, 1.75rem);
+        padding-top: clamp(0.75rem, 2vw, 1.25rem);
+      }
+
+      .about-text {
+        font-size: clamp(12px, 1.6vw, 14px);
+      }
+
+      .contact-form {
+        max-width: 100%;
+      }
+
+      footer {
+        font-size: clamp(7px, 1vw, 9px);
+      }
+    }
+
+    @media (max-width: 480px) {
+      html, body {
+        font-size: 14px;
+      }
+
+      header {
+        padding: 0.75rem 1rem;
+      }
+
+      .site-header-inner {
+        gap: 0.75rem;
+      }
+
+      .brand {
+        font-size: clamp(14px, 2.5vw, 18px);
+      }
+
+      .nav-link {
+        font-size: clamp(10px, 1.5vw, 12px);
+        padding: 0.2rem 0;
+      }
+
+      .nav-center {
+        gap: clamp(0.4rem, 1.5vw, 1rem);
+      }
+
+      .main-wrapper {
+        gap: 0;
+      }
+
+      .gear-section {
+        max-height: 35vh;
+        padding: 0.75rem;
+      }
+
+      .gear-container {
+        width: clamp(100px, 22vmin, 160px);
+        height: clamp(100px, 22vmin, 160px);
+      }
+
+      .content-section {
+        padding: clamp(0.75rem, 2vw, 1.5rem);
+        padding-top: clamp(0.5rem, 1.5vw, 1rem);
+      }
+
+      .section-title {
+        font-size: clamp(20px, 5vw, 28px);
+        margin-bottom: clamp(0.75rem, 2vw, 1.5rem);
+      }
+
+      .about-text {
+        font-size: clamp(11px, 1.4vw, 13px);
+        line-height: 1.7;
+      }
+
+      .job-entry,
+      .project-entry,
+      .edu-entry,
+      .skills-group {
+        padding: clamp(0.75rem, 2vw, 1.25rem);
+        border-left: clamp(3px, 0.8vw, 5px) solid #00d4ff;
+      }
+
+      .job-entry h3,
+      .project-entry h3,
+      .edu-entry h3,
+      .skills-group h3 {
+        font-size: clamp(12px, 2vw, 15px);
+      }
+
+      .job-entry li,
+      .project-entry li {
+        font-size: clamp(11px, 1.4vw, 13px);
+        margin: 0 0 0.5rem 0;
+        padding-left: clamp(0.8rem, 1.5vw, 1rem);
+      }
+
+      .meta {
+        font-size: clamp(9px, 1.2vw, 11px);
+      }
+
+      .social-links {
+        gap: clamp(0.75rem, 2vw, 1.5rem);
+        margin-top: clamp(1rem, 2vw, 1.5rem);
+      }
+
+      .social-links a {
+        width: clamp(36px, 7vw, 48px);
+        height: clamp(36px, 7vw, 48px);
+        font-size: clamp(14px, 2.5vw, 18px);
+      }
+
+      .about-content {
+        gap: clamp(1rem, 2vw, 1.5rem);
+      }
+
+      .about-meta {
+        margin-top: clamp(0.75rem, 1.5vw, 1.25rem);
+        font-size: clamp(10px, 1.2vw, 12px);
+      }
+
+      .contact-form {
+        padding: clamp(1rem, 2vw, 1.5rem);
+        gap: clamp(0.75rem, 1.5vw, 1.25rem);
+      }
+
+      .form-row {
+        gap: 0.5rem;
+      }
+
+      .btn-send {
+        padding: clamp(0.65rem, 1.2vw, 0.85rem) clamp(1rem, 2.5vw, 1.75rem);
+        font-size: clamp(9px, 1.2vw, 11px);
+      }
+
+      footer {
+        bottom: 0.75rem;
+        font-size: clamp(6px, 0.9vw, 8px);
+      }
+    }
+
+    /* ============ LANDSCAPE MODE (PHONES) ============ */
+    @media (max-height: 600px) {
+      header {
+        padding: 0.5rem 1rem;
+      }
+
+      .brand {
+        font-size: clamp(14px, 2.5vw, 18px);
+      }
+
+      .nav-link {
+        font-size: clamp(10px, 1.5vw, 12px);
+      }
+
+      .gear-section {
+        max-height: 30vh;
+        padding: 0.5rem;
+      }
+
+      .gear-container {
+        width: clamp(80px, 18vmin, 150px);
+        height: clamp(80px, 18vmin, 150px);
+      }
+
+      .content-section {
+        padding: clamp(0.5rem, 1.5vw, 1rem);
+        padding-top: clamp(0.25rem, 1vw, 0.75rem);
+      }
+
+      .section-title {
+        font-size: clamp(18px, 4vw, 24px);
+        margin-bottom: clamp(0.5rem, 1.5vw, 1rem);
+      }
+
+      .about-text {
+        font-size: clamp(11px, 1.3vw, 12px);
+        line-height: 1.6;
+        margin: 0;
+      }
+
+      .about-content {
+        gap: clamp(0.75rem, 1.5vw, 1rem);
+      }
+
+      footer {
+        bottom: 0.5rem;
+        font-size: clamp(6px, 0.8vw, 7px);
+      }
     }
   </style>
 </head>
@@ -460,80 +785,51 @@
             </radialGradient>
           </defs>
           
-          <!-- Outer ring -->
           <circle cx="250" cy="250" r="175" fill="none" stroke="#00d4ff" stroke-width="2" opacity="0.5"/>
           
-          <!-- Main gear body with 12 equally spaced teeth -->
           <g filter="url(#gearShadow)">
-            <!-- Tooth 1 (0°) -->
             <g transform="rotate(0 250 250)">
               <rect x="232" y="90" width="36" height="55" fill="url(#gearGrad)" stroke="#00d4ff" stroke-width="2" rx="3"/>
             </g>
-            
-            <!-- Tooth 2 (30°) -->
             <g transform="rotate(30 250 250)">
               <rect x="232" y="90" width="36" height="55" fill="url(#gearGrad)" stroke="#00d4ff" stroke-width="2" rx="3"/>
             </g>
-            
-            <!-- Tooth 3 (60°) -->
             <g transform="rotate(60 250 250)">
               <rect x="232" y="90" width="36" height="55" fill="url(#gearGrad)" stroke="#00d4ff" stroke-width="2" rx="3"/>
             </g>
-            
-            <!-- Tooth 4 (90°) -->
             <g transform="rotate(90 250 250)">
               <rect x="232" y="90" width="36" height="55" fill="url(#gearGrad)" stroke="#00d4ff" stroke-width="2" rx="3"/>
             </g>
-            
-            <!-- Tooth 5 (120°) -->
             <g transform="rotate(120 250 250)">
               <rect x="232" y="90" width="36" height="55" fill="url(#gearGrad)" stroke="#00d4ff" stroke-width="2" rx="3"/>
             </g>
-            
-            <!-- Tooth 6 (150°) -->
             <g transform="rotate(150 250 250)">
               <rect x="232" y="90" width="36" height="55" fill="url(#gearGrad)" stroke="#00d4ff" stroke-width="2" rx="3"/>
             </g>
-            
-            <!-- Tooth 7 (180°) -->
             <g transform="rotate(180 250 250)">
               <rect x="232" y="90" width="36" height="55" fill="url(#gearGrad)" stroke="#00d4ff" stroke-width="2" rx="3"/>
             </g>
-            
-            <!-- Tooth 8 (210°) -->
             <g transform="rotate(210 250 250)">
               <rect x="232" y="90" width="36" height="55" fill="url(#gearGrad)" stroke="#00d4ff" stroke-width="2" rx="3"/>
             </g>
-            
-            <!-- Tooth 9 (240°) -->
             <g transform="rotate(240 250 250)">
               <rect x="232" y="90" width="36" height="55" fill="url(#gearGrad)" stroke="#00d4ff" stroke-width="2" rx="3"/>
             </g>
-            
-            <!-- Tooth 10 (270°) -->
             <g transform="rotate(270 250 250)">
               <rect x="232" y="90" width="36" height="55" fill="url(#gearGrad)" stroke="#00d4ff" stroke-width="2" rx="3"/>
             </g>
-            
-            <!-- Tooth 11 (300°) -->
             <g transform="rotate(300 250 250)">
               <rect x="232" y="90" width="36" height="55" fill="url(#gearGrad)" stroke="#00d4ff" stroke-width="2" rx="3"/>
             </g>
-            
-            <!-- Tooth 12 (330°) -->
             <g transform="rotate(330 250 250)">
               <rect x="232" y="90" width="36" height="55" fill="url(#gearGrad)" stroke="#00d4ff" stroke-width="2" rx="3"/>
             </g>
           </g>
           
-          <!-- Center circle -->
           <circle cx="250" cy="250" r="105" fill="#0a0e27" stroke="#00d4ff" stroke-width="2"/>
-          
-          <!-- Inner ring -->
           <circle cx="250" cy="250" r="105" fill="none" stroke="#00a8c4" stroke-width="2" opacity="0.6"/>
         </svg>
         
-        <!-- Photo wrapper -->
         <div class="photo-wrapper">
           <img class="profile-photo" src="https://raw.githubusercontent.com/Eppasrikanth57/srikanth-reddy-eppa/main/files/Resume_image_Professional.JPG" alt="Srikanth Reddy Eppa">
         </div>
@@ -648,12 +944,12 @@
           <div class="edu-entry">
             <h3>Master of Science - Mechatronics and Robotics</h3>
             <p class="meta">Hochschule Schmalkalden | Oct 2022–Present</p>
-            <p style="font-size: 14px; color: #d0d0d0; margin: 0; text-align: left;">Grade: 2.4 | Focus: Digital Twin, Industry 5.0</p>
+            <p style="font-size: clamp(12px, 1.6vw, 14px); color: #d0d0d0; margin: 0; text-align: left;">Grade: 2.4 | Focus: Digital Twin, Industry 5.0</p>
           </div>
           <div class="edu-entry">
             <h3>B.Tech - Mechanical Engineering</h3>
             <p class="meta">Vidya Jyothi Institute | Jul 2017–Aug 2020</p>
-            <p style="font-size: 14px; color: #d0d0d0; margin: 0; text-align: left;">Grade: 1.23 | Coursework: CAD, Thermodynamics, Machine Design</p>
+            <p style="font-size: clamp(12px, 1.6vw, 14px); color: #d0d0d0; margin: 0; text-align: left;">Grade: 1.23 | Coursework: CAD, Thermodynamics, Machine Design</p>
           </div>
         </div>
       </section>

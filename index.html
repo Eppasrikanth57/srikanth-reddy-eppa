@@ -27,6 +27,10 @@
       flex-direction: column;
     }
 
+    body.modal-open {
+      overflow: hidden;
+    }
+
     /* ============ HEADER ============ */
     header {
       background: rgba(10, 14, 39, 0.95);
@@ -233,6 +237,7 @@
       font-size: clamp(11px, 1.4vw, 14px);
       color: #00d4ff;
       flex-shrink: 0;
+      order: 3;
     }
 
     .meta-location {
@@ -271,12 +276,35 @@
       box-shadow: 0 0 20px rgba(0, 212, 255, 0.7);
     }
 
-    /* ============ HORIZONTAL TIMELINE (Experience & Projects) ============ */
+    /* ============ HORIZONTAL TIMELINE WITH JOURNEY LINE ============ */
+    .timeline-wrapper {
+      position: relative;
+      width: 100%;
+      margin-bottom: clamp(1rem, 2vw, 1.5rem);
+      flex-shrink: 0;
+    }
+
+    .timeline-journey-line {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 60px;
+      pointer-events: none;
+      z-index: 5;
+    }
+
+    .journey-line-svg {
+      width: 100%;
+      height: 100%;
+    }
+
     .horizontal-timeline {
       display: flex;
       gap: clamp(1.25rem, 2.5vw, 2rem);
       overflow-x: auto;
-      padding-bottom: 1rem;
+      overflow-y: hidden;
+      padding: clamp(2rem, 3vw, 2.5rem) 0 1rem 0;
       scroll-behavior: smooth;
       flex-shrink: 0;
     }
@@ -1090,15 +1118,15 @@
         <h1 class="section-title">About Me</h1>
         <div class="content-inner">
           <div class="about-content">
-            <div class="about-meta">
-              <span class="meta-location"><i class="fas fa-map-marker-alt"></i> Stuttgart Region, Germany</span>
-            </div>
             <p class="about-text">
               Master's student in Mechatronics & Robotics with experience in digitalization, automation, and sustainability. Passionate about leveraging technology to solve real-world engineering challenges and drive innovation.
             </p>
             <p class="about-text">
               Skilled in Digital Twin technology, Digital Product Passports, and mechatronic system design, aiming to deliver innovative solutions aligned with industry demand. My expertise spans from concept design to implementation, with strong proficiency in CAD software and embedded systems programming.
             </p>
+            <div class="about-meta">
+              <span class="meta-location"><i class="fas fa-map-marker-alt"></i> Stuttgart Region, Germany</span>
+            </div>
             <div class="social-links">
               <a href="https://github.com/Eppasrikanth57" target="_blank" rel="noopener" title="GitHub"><i class="fab fa-github"></i></a>
               <a href="https://www.linkedin.com/in/srikanth-reddy-eppa/" target="_blank" rel="noopener" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
@@ -1111,86 +1139,102 @@
       <!-- EXPERIENCE SECTION -->
       <section id="experience" class="content-section">
         <h1 class="section-title">Experience</h1>
-        <div class="horizontal-timeline">
-          <!-- Experience 1 -->
-          <div class="timeline-card">
-            <div class="card-header">
-              <div class="card-logo">
-                <i class="fas fa-graduation-cap"></i>
-              </div>
-              <div class="card-header-content">
-                <h3 class="card-job-title">Design & Prototyping of Soft Robot Arm</h3>
-                <p class="card-company">Hochschule Schmalkalden</p>
-              </div>
-              <button class="card-popup-btn" data-modal="modal-exp-1" title="View Tasks">
-                <i class="fas fa-external-link-alt"></i>
-              </button>
-            </div>
-            <div class="card-location-date">
-              <span class="card-location"><i class="fas fa-map-marker-alt" style="font-size: 0.9em;"></i> Germany</span>
-              <span class="card-date">Feb 2025 — Now</span>
-            </div>
-            <div class="card-skills">
-              <div class="card-skills-title">Skills Used & Learnt</div>
-              <p class="card-skills-list">SolidWorks, 3D Printing, Arduino Mega 2560, Sensor Integration, CAD Design, Industry 5.0</p>
-            </div>
+        <div class="timeline-wrapper">
+          <div class="timeline-journey-line">
+            <svg class="journey-line-svg" viewBox="0 0 1200 60" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" style="stop-color:#00d4ff;stop-opacity:0.8"/>
+                  <stop offset="100%" style="stop-color:#00a8c4;stop-opacity:0.8"/>
+                </linearGradient>
+              </defs>
+              <line x1="50" y1="30" x2="1150" y2="30" stroke="url(#lineGradient)" stroke-width="2"/>
+              <circle cx="50" cy="30" r="6" fill="#00d4ff" stroke="rgba(0,212,255,0.3)" stroke-width="2"/>
+              <circle cx="600" cy="30" r="6" fill="#00d4ff" stroke="rgba(0,212,255,0.3)" stroke-width="2"/>
+              <circle cx="1150" cy="30" r="6" fill="#00d4ff" stroke="rgba(0,212,255,0.3)" stroke-width="2"/>
+            </svg>
           </div>
+          <div class="horizontal-timeline">
+            <!-- Experience 1 -->
+            <div class="timeline-card">
+              <div class="card-header">
+                <div class="card-logo">
+                  <i class="fas fa-graduation-cap"></i>
+                </div>
+                <div class="card-header-content">
+                  <h3 class="card-job-title">Design & Prototyping of Soft Robot Arm</h3>
+                  <p class="card-company">Hochschule Schmalkalden</p>
+                </div>
+                <button class="card-popup-btn" data-modal="modal-exp-1" title="View Tasks">
+                  <i class="fas fa-external-link-alt"></i>
+                </button>
+              </div>
+              <div class="card-location-date">
+                <span class="card-location"><i class="fas fa-map-marker-alt" style="font-size: 0.9em;"></i> Germany</span>
+                <span class="card-date">Feb 2025 — Now</span>
+              </div>
+              <div class="card-skills">
+                <div class="card-skills-title">Skills Used & Learnt</div>
+                <p class="card-skills-list">SolidWorks, 3D Printing, Arduino Mega 2560, Sensor Integration, CAD Design, Industry 5.0</p>
+              </div>
+            </div>
 
-          <!-- Experience 2 -->
-          <div class="timeline-card">
-            <div class="card-header">
-              <div class="card-logo">
-                <i class="fas fa-briefcase"></i>
+            <!-- Experience 2 -->
+            <div class="timeline-card">
+              <div class="card-header">
+                <div class="card-logo">
+                  <i class="fas fa-briefcase"></i>
+                </div>
+                <div class="card-header-content">
+                  <h3 class="card-job-title">Working Student - Product Innovation</h3>
+                  <p class="card-company">Morgenwerk GmbH</p>
+                </div>
+                <button class="card-popup-btn" data-modal="modal-exp-2" title="View Tasks">
+                  <i class="fas fa-external-link-alt"></i>
+                </button>
               </div>
-              <div class="card-header-content">
-                <h3 class="card-job-title">Working Student - Product Innovation</h3>
-                <p class="card-company">Morgenwerk GmbH</p>
+              <div class="card-location-date">
+                <span class="card-location"><i class="fas fa-map-marker-alt" style="font-size: 0.9em;"></i> Tamm, Germany</span>
+                <span class="card-date">Sep 2024 — Mar 2025</span>
               </div>
-              <button class="card-popup-btn" data-modal="modal-exp-2" title="View Tasks">
-                <i class="fas fa-external-link-alt"></i>
-              </button>
+              <div class="card-skills">
+                <div class="card-skills-title">Skills Used & Learnt</div>
+                <p class="card-skills-list">SolidWorks, Technical Drawings, AGV Systems, Product Development, Prototyping</p>
+              </div>
             </div>
-            <div class="card-location-date">
-              <span class="card-location"><i class="fas fa-map-marker-alt" style="font-size: 0.9em;"></i> Tamm, Germany</span>
-              <span class="card-date">Sep 2024 — Mar 2025</span>
-            </div>
-            <div class="card-skills">
-              <div class="card-skills-title">Skills Used & Learnt</div>
-              <p class="card-skills-list">SolidWorks, Technical Drawings, AGV Systems, Product Development, Prototyping</p>
-            </div>
-          </div>
 
-          <!-- Experience 3 (Dual Jobs) -->
-          <div class="timeline-card">
-            <div class="card-header">
-              <div class="card-logo">
-                <i class="fas fa-cogs"></i>
+            <!-- Experience 3 (Dual Jobs) -->
+            <div class="timeline-card">
+              <div class="card-header">
+                <div class="card-logo">
+                  <i class="fas fa-cogs"></i>
+                </div>
+                <div class="card-header-content">
+                  <h3 class="card-job-title">Engineer - Design | Intern</h3>
+                  <p class="card-company">Regal Rexnord India</p>
+                </div>
+                <button class="card-popup-btn" data-modal="modal-exp-3" title="View Tasks">
+                  <i class="fas fa-external-link-alt"></i>
+                </button>
               </div>
-              <div class="card-header-content">
-                <h3 class="card-job-title">Engineer - Design | Intern</h3>
-                <p class="card-company">Regal Rexnord India</p>
+              <div class="card-location-date">
+                <span class="card-location"><i class="fas fa-map-marker-alt" style="font-size: 0.9em;"></i> Hyderabad, India</span>
               </div>
-              <button class="card-popup-btn" data-modal="modal-exp-3" title="View Tasks">
-                <i class="fas fa-external-link-alt"></i>
-              </button>
-            </div>
-            <div class="card-location-date">
-              <span class="card-location"><i class="fas fa-map-marker-alt" style="font-size: 0.9em;"></i> Hyderabad, India</span>
-            </div>
-            <!-- Dual Job Timeline -->
-            <div class="dual-job-timeline">
-              <div class="dual-job-item">
-                <h4 class="dual-job-title">Design Engineer</h4>
-                <p class="dual-job-date">Oct 2020 — Aug 2022</p>
+              <!-- Dual Job Timeline -->
+              <div class="dual-job-timeline">
+                <div class="dual-job-item">
+                  <h4 class="dual-job-title">Design Engineer</h4>
+                  <p class="dual-job-date">Oct 2020 — Aug 2022</p>
+                </div>
+                <div class="dual-job-item">
+                  <h4 class="dual-job-title">Intern - Design</h4>
+                  <p class="dual-job-date">Feb 2020 — Sep 2020</p>
+                </div>
               </div>
-              <div class="dual-job-item">
-                <h4 class="dual-job-title">Intern - Design</h4>
-                <p class="dual-job-date">Feb 2020 — Sep 2020</p>
+              <div class="card-skills" style="margin-top: clamp(0.75rem, 1.5vw, 1.25rem);">
+                <div class="card-skills-title">Skills Used & Learnt</div>
+                <p class="card-skills-list">SolidWorks, GD&T, ISO/DIN, Technical Drawings, SAP, Coupling Design</p>
               </div>
-            </div>
-            <div class="card-skills" style="margin-top: clamp(0.75rem, 1.5vw, 1.25rem);">
-              <div class="card-skills-title">Skills Used & Learnt</div>
-              <p class="card-skills-list">SolidWorks, GD&T, ISO/DIN, Technical Drawings, SAP, Coupling Design</p>
             </div>
           </div>
         </div>
@@ -1199,52 +1243,68 @@
       <!-- PROJECTS SECTION -->
       <section id="projects" class="content-section">
         <h1 class="section-title">Projects</h1>
-        <div class="horizontal-timeline">
-          <!-- Project 1 -->
-          <div class="timeline-card">
-            <div class="card-header">
-              <div class="card-logo">
-                <i class="fas fa-cube"></i>
-              </div>
-              <div class="card-header-content">
-                <h3 class="card-job-title">Automated XY Pen Plotter</h3>
-                <p class="card-company">Hochschule Schmalkalden</p>
-              </div>
-              <button class="card-popup-btn" data-modal="modal-proj-1" title="View Tasks">
-                <i class="fas fa-external-link-alt"></i>
-              </button>
-            </div>
-            <div class="card-location-date">
-              <span class="card-location"><i class="fas fa-map-marker-alt" style="font-size: 0.9em;"></i> Germany</span>
-              <span class="card-date">Apr 2023 — Jul 2023</span>
-            </div>
-            <div class="card-skills">
-              <div class="card-skills-title">Skills Used</div>
-              <p class="card-skills-list">SolidWorks, Siemens NX, CAD Design, Precision Engineering, Motion Control</p>
-            </div>
+        <div class="timeline-wrapper">
+          <div class="timeline-journey-line">
+            <svg class="journey-line-svg" viewBox="0 0 1200 60" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="lineGradientProj" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" style="stop-color:#00d4ff;stop-opacity:0.8"/>
+                  <stop offset="100%" style="stop-color:#00a8c4;stop-opacity:0.8"/>
+                </linearGradient>
+              </defs>
+              <line x1="50" y1="30" x2="1150" y2="30" stroke="url(#lineGradientProj)" stroke-width="2"/>
+              <circle cx="50" cy="30" r="6" fill="#00d4ff" stroke="rgba(0,212,255,0.3)" stroke-width="2"/>
+              <circle cx="600" cy="30" r="6" fill="#00d4ff" stroke="rgba(0,212,255,0.3)" stroke-width="2"/>
+              <circle cx="1150" cy="30" r="6" fill="#00d4ff" stroke="rgba(0,212,255,0.3)" stroke-width="2"/>
+            </svg>
           </div>
+          <div class="horizontal-timeline">
+            <!-- Project 1 -->
+            <div class="timeline-card">
+              <div class="card-header">
+                <div class="card-logo">
+                  <i class="fas fa-cube"></i>
+                </div>
+                <div class="card-header-content">
+                  <h3 class="card-job-title">Automated XY Pen Plotter</h3>
+                  <p class="card-company">Hochschule Schmalkalden</p>
+                </div>
+                <button class="card-popup-btn" data-modal="modal-proj-1" title="View Tasks">
+                  <i class="fas fa-external-link-alt"></i>
+                </button>
+              </div>
+              <div class="card-location-date">
+                <span class="card-location"><i class="fas fa-map-marker-alt" style="font-size: 0.9em;"></i> Germany</span>
+                <span class="card-date">Apr 2023 — Jul 2023</span>
+              </div>
+              <div class="card-skills">
+                <div class="card-skills-title">Skills Used</div>
+                <p class="card-skills-list">SolidWorks, Siemens NX, CAD Design, Precision Engineering, Motion Control</p>
+              </div>
+            </div>
 
-          <!-- Project 2 -->
-          <div class="timeline-card">
-            <div class="card-header">
-              <div class="card-logo">
-                <i class="fas fa-flask"></i>
+            <!-- Project 2 -->
+            <div class="timeline-card">
+              <div class="card-header">
+                <div class="card-logo">
+                  <i class="fas fa-flask"></i>
+                </div>
+                <div class="card-header-content">
+                  <h3 class="card-job-title">Thermal Energy Storage System</h3>
+                  <p class="card-company">Vidya Jyothi Institute of Technology</p>
+                </div>
+                <button class="card-popup-btn" data-modal="modal-proj-2" title="View Tasks">
+                  <i class="fas fa-external-link-alt"></i>
+                </button>
               </div>
-              <div class="card-header-content">
-                <h3 class="card-job-title">Thermal Energy Storage System</h3>
-                <p class="card-company">Vidya Jyothi Institute of Technology</p>
+              <div class="card-location-date">
+                <span class="card-location"><i class="fas fa-map-marker-alt" style="font-size: 0.9em;"></i> Hyderabad, India</span>
+                <span class="card-date">Nov 2019 — Aug 2020</span>
               </div>
-              <button class="card-popup-btn" data-modal="modal-proj-2" title="View Tasks">
-                <i class="fas fa-external-link-alt"></i>
-              </button>
-            </div>
-            <div class="card-location-date">
-              <span class="card-location"><i class="fas fa-map-marker-alt" style="font-size: 0.9em;"></i> Hyderabad, India</span>
-              <span class="card-date">Nov 2019 — Aug 2020</span>
-            </div>
-            <div class="card-skills">
-              <div class="card-skills-title">Skills Used</div>
-              <p class="card-skills-list">SolidWorks, Thermal Analysis, System Design, Manufacturing, Optimization</p>
+              <div class="card-skills">
+                <div class="card-skills-title">Skills Used</div>
+                <p class="card-skills-list">SolidWorks, Thermal Analysis, System Design, Manufacturing, Optimization</p>
+              </div>
             </div>
           </div>
         </div>
@@ -1298,7 +1358,7 @@
               </div>
               <div class="form-row">
                 <label for="reply_to">Your Email</label>
-                <input type="email" id="reply_to" name="reply_to" placeholder="name@company.com" required>
+                <input type="email" id="reply_to" name="reply_to" placeholder="name@domain.com" required>
               </div>
             </div>
             <div class="form-row">
@@ -1476,6 +1536,12 @@
       }
 
       window.addEventListener('wheel', (e) => {
+        // Check if any modal is open
+        const openModal = document.querySelector('.modal.active');
+        if (openModal) {
+          return;
+        }
+
         const activeSection = document.querySelector('.content-section.active');
         if (!activeSection) return;
 
@@ -1522,6 +1588,7 @@
           const modal = document.getElementById(modalId);
           if (modal) {
             modal.classList.add('active');
+            document.body.classList.add('modal-open');
           }
         });
       });
@@ -1533,6 +1600,7 @@
           const modal = document.getElementById(modalId);
           if (modal) {
             modal.classList.remove('active');
+            document.body.classList.remove('modal-open');
           }
         });
       });
@@ -1541,6 +1609,7 @@
         modal.addEventListener('click', (e) => {
           if (e.target === modal) {
             modal.classList.remove('active');
+            document.body.classList.remove('modal-open');
           }
         });
       });

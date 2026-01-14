@@ -154,3 +154,1995 @@
       overflow: hidden;
       background: #0a0e27;
       position: relative;
+      min-width: 0;
+      min-height: 0;
+    }
+
+    .content-section {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateX(40px);
+      transition: opacity 0.6s ease, visibility 0.6s ease, transform 0.6s ease;
+      display: flex;
+      flex-direction: column;
+      pointer-events: none;
+      overflow: hidden;
+      padding: clamp(1.5rem, 4vw, 3.5rem);
+      padding-top: clamp(1.5rem, 3vw, 2.5rem);
+    }
+
+    .content-section.active {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(0);
+      pointer-events: auto;
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
+
+    .content-section::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .content-section::-webkit-scrollbar-track {
+      background: rgba(0, 212, 255, 0.05);
+    }
+
+    .content-section::-webkit-scrollbar-thumb {
+      background: rgba(0, 212, 255, 0.3);
+      border-radius: 3px;
+    }
+
+    .content-section::-webkit-scrollbar-thumb:hover {
+      background: rgba(0, 212, 255, 0.5);
+    }
+
+    .section-title {
+      font-size: clamp(32px, 8vw, 56px);
+      font-weight: 800;
+      color: #00d4ff;
+      margin-bottom: clamp(1.5rem, 4vw, 3rem);
+      letter-spacing: 0.3px;
+      text-shadow: 0 0 15px rgba(0, 212, 255, 0.15);
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
+
+    /* ============ ABOUT SECTION ============ */
+    .about-content {
+      display: flex;
+      flex-direction: column;
+      gap: clamp(1.5rem, 3vw, 2rem);
+      min-height: 0;
+      flex-shrink: 0;
+    }
+
+    .about-text {
+      font-size: clamp(13px, 1.8vw, 16px);
+      line-height: 1.9;
+      color: #d0d0d0;
+      text-align: left;
+      letter-spacing: 0.3px;
+      margin: 0;
+      flex-shrink: 0;
+    }
+
+    .about-meta {
+      margin-top: 0;
+      font-size: clamp(11px, 1.4vw, 14px);
+      color: #00d4ff;
+      flex-shrink: 0;
+      order: 3;
+    }
+
+    .meta-location {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .portfolio-subheading {
+      font-size: clamp(16px, 2.2vw, 20px);
+      font-weight: 700;
+      color: #00d4ff;
+      margin-top: clamp(1.5rem, 3vw, 2rem);
+      margin-bottom: clamp(0.75rem, 1.5vw, 1rem);
+      letter-spacing: 0.3px;
+    }
+
+    .portfolio-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: clamp(0.75rem, 1.5vw, 1.25rem);
+      margin-bottom: clamp(0.5rem, 1vw, 1rem);
+    }
+
+    .portfolio-btn {
+      padding: clamp(0.6rem, 1.2vw, 0.85rem) clamp(1.2rem, 2.5vw, 1.8rem);
+      border-radius: 999px;
+      border: 1px solid rgba(0, 212, 255, 0.6);
+      background: rgba(0, 212, 255, 0.08);
+      color: #00d4ff;
+      font-size: clamp(11px, 1.5vw, 13px);
+      font-weight: 600;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .portfolio-btn:hover {
+      background: #00d4ff;
+      color: #0a0e27;
+      box-shadow: 0 0 18px rgba(0, 212, 255, 0.7);
+      transform: translateY(-1px);
+    }
+
+    .portfolio-btn i {
+      font-size: 0.9em;
+    }
+
+    .social-links {
+      display: flex;
+      gap: clamp(1rem, 2.5vw, 2rem);
+      margin-top: clamp(0.75rem, 1.5vw, 1.5rem);
+      flex-wrap: wrap;
+      flex-shrink: 0;
+    }
+
+    .social-links a {
+      width: clamp(40px, 8vw, 56px);
+      height: clamp(40px, 8vw, 56px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid #00d4ff;
+      border-radius: 50%;
+      color: #00d4ff;
+      text-decoration: none;
+      font-size: clamp(16px, 3vw, 24px);
+      transition: all 0.3s ease;
+      flex-shrink: 0;
+    }
+
+    .social-links a:hover {
+      background: #00d4ff;
+      color: #0a0e27;
+      transform: scale(1.15);
+      box-shadow: 0 0 20px rgba(0, 212, 255, 0.7);
+    }
+
+    /* ============ HORIZONTAL TIMELINE (without journey line) ============ */
+    .timeline-wrapper {
+      width: 100%;
+      margin-bottom: clamp(1rem, 2vw, 1.5rem);
+      flex-shrink: 0;
+    }
+
+    .horizontal-timeline {
+      display: flex;
+      gap: clamp(1.25rem, 2.5vw, 2rem);
+      overflow-x: auto;
+      overflow-y: hidden;
+      padding: clamp(1.5rem, 2.5vw, 2rem) 0 1rem 0;
+      scroll-behavior: smooth;
+      flex-shrink: 0;
+    }
+
+    .horizontal-timeline::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    .horizontal-timeline::-webkit-scrollbar-track {
+      background: rgba(0, 212, 255, 0.05);
+      border-radius: 4px;
+      margin: 0 10px;
+    }
+
+    .horizontal-timeline::-webkit-scrollbar-thumb {
+      background: rgba(0, 212, 255, 0.4);
+      border-radius: 4px;
+      border: 2px solid rgba(0, 212, 255, 0.1);
+    }
+
+    .horizontal-timeline::-webkit-scrollbar-thumb:hover {
+      background: rgba(0, 212, 255, 0.6);
+    }
+
+    .timeline-card {
+      flex: 0 0 clamp(300px, 40vw, 420px);
+      padding: clamp(1.25rem, 2.5vw, 1.75rem);
+      background: rgba(0, 212, 255, 0.04);
+      border: 1px solid rgba(0, 212, 255, 0.15);
+      border-radius: 10px;
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      gap: clamp(0.75rem, 1.5vw, 1.25rem);
+      position: relative;
+      padding-bottom: clamp(85px, 18vw, 120px);
+    }
+
+    .timeline-card:hover {
+      background: rgba(0, 212, 255, 0.08);
+      border-color: rgba(0, 212, 255, 0.3);
+      box-shadow: 0 10px 30px rgba(0, 212, 255, 0.15);
+      transform: translateY(-5px);
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: clamp(0.75rem, 1.5vw, 1.25rem);
+      flex-wrap: wrap;
+    }
+
+    .card-logo {
+      width: clamp(35px, 5vw, 50px);
+      height: clamp(35px, 5vw, 50px);
+      border-radius: 8px;
+      background: rgba(0, 212, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      border: 1px solid rgba(0, 212, 255, 0.2);
+      font-size: clamp(14px, 2.5vw, 20px);
+      color: #00d4ff;
+    }
+
+    .card-header-content {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .card-job-title {
+      font-size: clamp(13px, 2vw, 17px);
+      font-weight: 700;
+      color: #00d4ff;
+      margin: 0 0 0.25rem 0;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      line-height: 1.3;
+    }
+
+    .card-company {
+      font-size: clamp(11px, 1.6vw, 14px);
+      color: #d0d0d0;
+      margin: 0;
+    }
+
+    .card-popup-btn {
+      width: clamp(32px, 4vw, 42px);
+      height: clamp(32px, 4vw, 42px);
+      border: 2px solid rgba(0, 212, 255, 0.5);
+      background: rgba(0, 212, 255, 0.05);
+      color: #00d4ff;
+      border-radius: 6px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: clamp(14px, 2vw, 18px);
+      transition: all 0.3s ease;
+      flex-shrink: 0;
+      padding: 0;
+    }
+
+    .card-popup-btn:hover {
+      background: rgba(0, 212, 255, 0.15);
+      border-color: #00d4ff;
+      box-shadow: 0 0 15px rgba(0, 212, 255, 0.4);
+      transform: scale(1.1);
+    }
+
+    .card-location-date {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      font-size: clamp(10px, 1.4vw, 12px);
+      color: #999;
+    }
+
+    .card-location {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .card-date {
+      font-weight: 500;
+      color: #00d4ff;
+    }
+
+    .card-skills {
+      padding: clamp(0.75rem, 1.5vw, 1.25rem);
+      background: rgba(0, 50, 68, 0.3);
+      border-radius: 6px;
+      border-left: 3px solid #00d4ff;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      min-height: 0;
+    }
+
+    .card-skills-title {
+      font-size: clamp(10px, 1.3vw, 12px);
+      color: #00d4ff;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin: 0;
+    }
+
+    .card-skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 0;
+    }
+
+    .skill-tag {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: clamp(0.35rem, 0.7vw, 0.5rem) clamp(0.5rem, 1vw, 0.75rem);
+      background: rgba(0, 212, 255, 0.12);
+      border: 1px solid rgba(0, 212, 255, 0.25);
+      border-radius: 4px;
+      font-size: clamp(9px, 1.2vw, 11px);
+      color: #00d4ff;
+      font-weight: 500;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+    }
+
+    .skill-tag:hover {
+      background: rgba(0, 212, 255, 0.2);
+      border-color: rgba(0, 212, 255, 0.4);
+      box-shadow: 0 2px 8px rgba(0, 212, 255, 0.15);
+    }
+
+    .card-footer-logo {
+      position: absolute;
+      bottom: clamp(0.5rem, 1vw, 0.75rem);
+      right: clamp(0.5rem, 1vw, 0.75rem);
+      width: clamp(70px, 15vw, 110px);
+      height: clamp(70px, 15vw, 110px);
+      border-radius: 8px;
+      background: rgba(0, 212, 255, 0.1);
+      border: 1.5px solid rgba(0, 212, 255, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      padding: clamp(0.5rem, 1vw, 0.75rem);
+      box-shadow: 0 4px 12px rgba(0, 212, 255, 0.1);
+    }
+
+    .card-footer-logo img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+
+    /* ============ DUAL JOB TIMELINE ============ */
+    .dual-job-timeline {
+      display: flex;
+      flex-direction: column;
+      gap: clamp(0.75rem, 1.5vw, 1.25rem);
+      position: relative;
+      padding-left: clamp(1.5rem, 2.5vw, 2rem);
+    }
+
+    .dual-job-timeline::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(180deg, #00a8c4, #00d4ff);
+      border-radius: 1px;
+    }
+
+    .dual-job-item {
+      position: relative;
+      padding: clamp(0.75rem, 1.5vw, 1rem);
+      background: rgba(0, 212, 255, 0.03);
+      border-left: 3px solid #00d4ff;
+      border-radius: 6px;
+    }
+
+    .dual-job-item::before {
+      content: '';
+      position: absolute;
+      left: clamp(-0.9rem, -1.8vw, -1.1rem);
+      top: clamp(0.5rem, 1vw, 0.75rem);
+      width: clamp(8px, 1.5vw, 10px);
+      height: clamp(8px, 1.5vw, 10px);
+      background: #00d4ff;
+      border: 2px solid #0a0e27;
+      border-radius: 50%;
+    }
+
+    .dual-job-title {
+      font-size: clamp(12px, 1.8vw, 15px);
+      font-weight: 600;
+      color: #00d4ff;
+      margin: 0 0 0.25rem 0;
+    }
+
+    .dual-job-date {
+      font-size: clamp(10px, 1.3vw, 11px);
+      color: #999;
+      margin: 0;
+    }
+
+    /* ============ MODAL POPUP ============ */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.8);
+      animation: fadeIn 0.3s ease;
+    }
+
+    .modal.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .modal-content {
+      background: linear-gradient(135deg, rgba(10, 14, 39, 0.98), rgba(26, 31, 58, 0.98));
+      margin: auto;
+      padding: clamp(1.5rem, 3vw, 2.5rem);
+      border: 1px solid rgba(0, 212, 255, 0.3);
+      border-radius: 12px;
+      width: 90%;
+      max-width: 600px;
+      max-height: 80vh;
+      overflow-y: auto;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      animation: slideIn 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    @keyframes slideIn {
+      from {
+        transform: translate(-50%, -60%);
+        opacity: 0;
+      }
+      to {
+        transform: translate(-50%, -50%);
+        opacity: 1;
+      }
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: clamp(1.25rem, 2.5vw, 2rem);
+      border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+      padding-bottom: clamp(0.75rem, 1.5vw, 1.25rem);
+      flex-shrink: 0;
+    }
+
+    .modal-title {
+      font-size: clamp(18px, 3vw, 24px);
+      color: #00d4ff;
+      font-weight: 700;
+      margin: 0;
+    }
+
+    .modal-close {
+      background: none;
+      border: 2px solid rgba(0, 212, 255, 0.5);
+      color: #00d4ff;
+      font-size: clamp(18px, 3vw, 24px);
+      cursor: pointer;
+      width: clamp(32px, 5vw, 40px);
+      height: clamp(32px, 5vw, 40px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+      flex-shrink: 0;
+    }
+
+    .modal-close:hover {
+      background: rgba(0, 212, 255, 0.15);
+      border-color: #00d4ff;
+      box-shadow: 0 0 15px rgba(0, 212, 255, 0.4);
+    }
+
+    .modal-body {
+      color: #d0d0d0;
+      flex: 1;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .modal-body h3 {
+      font-size: clamp(14px, 2vw, 16px);
+      color: #00d4ff;
+      margin: clamp(1rem, 2vw, 1.5rem) 0 clamp(0.5rem, 1vw, 0.75rem) 0;
+      font-weight: 700;
+    }
+
+    .modal-body ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 clamp(1rem, 2vw, 1.5rem) 0;
+    }
+
+    .modal-body li {
+      font-size: clamp(12px, 1.6vw, 14px);
+      color: #d0d0d0;
+      margin: 0 0 clamp(0.5rem, 1vw, 0.75rem) 0;
+      padding-left: 1.5rem;
+      position: relative;
+      line-height: 1.6;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
+
+    .modal-body li:before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: #00d4ff;
+      font-weight: bold;
+    }
+
+    .modal-footer-logo {
+      margin-top: clamp(1.5rem, 3vw, 2.5rem);
+      padding-top: clamp(1rem, 2vw, 1.5rem);
+      border-top: 1px solid rgba(0, 212, 255, 0.2);
+      display: flex;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .modal-footer-logo img {
+      width: clamp(120px, 25vw, 200px);
+      height: clamp(120px, 25vw, 200px);
+      object-fit: contain;
+      border-radius: 8px;
+      background: rgba(0, 212, 255, 0.1);
+      border: 2px solid rgba(0, 212, 255, 0.3);
+      padding: clamp(0.75rem, 1.5vw, 1.25rem);
+      box-shadow: 0 4px 15px rgba(0, 212, 255, 0.15);
+    }
+
+    /* ============ SOFT ROBOT EXPERIENCE ENHANCEMENTS ============ */
+    .experience-card-header {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(1.25rem, 2vw, 1.75rem);
+      border-radius: 10px 10px 0 0;
+      margin: -clamp(1.25rem, 2.5vw, 1.75rem) -clamp(1.25rem, 2.5vw, 1.75rem) clamp(1rem, 2vw, 1.5rem) -clamp(1.25rem, 2.5vw, 1.75rem);
+    }
+
+    .experience-card-header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .experience-card-header > * {
+      position: relative;
+      z-index: 2;
+    }
+
+    .experience-card-header.soft-robot-header {
+      background-image: url('files/soft-robot/Soft_Robot_Banner.jpg');
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-color: #020617;
+    }
+
+    .experience-body {
+      position: relative;
+      padding: clamp(1rem, 2vw, 1.5rem);
+      border-radius: 0 0 10px 10px;
+    }
+
+    .experience-body::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.55);
+      pointer-events: none;
+      border-radius: 0 0 10px 10px;
+    }
+
+    .experience-body > * {
+      position: relative;
+      z-index: 2;
+    }
+
+    .experience-body.soft-robot-tasks {
+      background-image: url('files/soft-robot/Full_Assembly.png');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+
+    .soft-robot-actions {
+      display: flex;
+      gap: clamp(0.75rem, 1.5vw, 1.25rem);
+      flex-wrap: wrap;
+      margin-top: clamp(1rem, 2vw, 1.5rem);
+    }
+
+    .soft-robot-actions .action-btn {
+      padding: clamp(0.6rem, 1.2vw, 0.85rem) clamp(1rem, 2vw, 1.5rem);
+      border-radius: 6px;
+      font-size: clamp(11px, 1.5vw, 13px);
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      transition: all 0.3s ease;
+      position: relative;
+      z-index: 3;
+    }
+
+    .soft-robot-actions .action-btn.project-images {
+      background: linear-gradient(135deg, #00d4ff, #00ffa3);
+      color: #081028;
+      box-shadow: 0 8px 24px rgba(0, 212, 255, 0.45);
+    }
+
+    .soft-robot-actions .action-btn.project-images:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(0, 212, 255, 0.6);
+    }
+
+    .soft-robot-actions .action-btn.project-files {
+      background: transparent;
+      color: #00d4ff;
+      border: 1.5px solid rgba(0, 212, 255, 0.6);
+    }
+
+    .soft-robot-actions .action-btn.project-files:hover {
+      background: rgba(0, 212, 255, 0.1);
+      border-color: #00d4ff;
+      box-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+    }
+
+    /* ============ SOFT ROBOT MODAL ============ */
+    .soft-robot-modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(6px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .soft-robot-modal-backdrop.is-open {
+      display: flex;
+    }
+
+    .soft-robot-modal {
+      width: min(960px, 95vw);
+      max-height: 90vh;
+      background: #050816;
+      border-radius: 16px;
+      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.8);
+      border: 1px solid rgba(0, 212, 255, 0.25);
+      padding: clamp(1.25rem, 2vw, 1.5rem);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: clamp(0.75rem, 1.5vw, 1rem);
+      overflow-y: auto;
+      animation: slideIn 0.3s ease;
+    }
+
+    .soft-robot-modal-close {
+      position: absolute;
+      top: clamp(0.5rem, 1vw, 0.75rem);
+      right: clamp(0.75rem, 1.5vw, 1rem);
+      border: none;
+      background: transparent;
+      color: #9ca3af;
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      cursor: pointer;
+      line-height: 1;
+      transition: color 0.3s ease;
+      padding: 0;
+      width: auto;
+      height: auto;
+    }
+
+    .soft-robot-modal-close:hover {
+      color: #f9fafb;
+    }
+
+    .soft-robot-modal-content {
+      display: flex;
+      flex-direction: column;
+      gap: clamp(0.75rem, 1.5vw, 1.15rem);
+      margin-top: clamp(0.75rem, 1.5vw, 1rem);
+    }
+
+    .soft-robot-image-viewer {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle at top, #1f2937 0, #020617 50%, #000 100%);
+      border-radius: 12px;
+      padding: clamp(0.5rem, 1vw, 0.75rem);
+      min-height: 320px;
+    }
+
+    .soft-robot-image-viewer img {
+      max-width: 100%;
+      max-height: 360px;
+      border-radius: 10px;
+      object-fit: contain;
+      box-shadow: 0 14px 45px rgba(0, 212, 255, 0.45);
+    }
+
+    .soft-robot-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      border: none;
+      background: rgba(0, 0, 0, 0.5);
+      color: #e5e7eb;
+      width: clamp(36px, 8vw, 40px);
+      height: clamp(36px, 8vw, 40px);
+      border-radius: 999px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: clamp(1.25rem, 2vw, 1.5rem);
+      transition: all 0.3s ease;
+    }
+
+    .soft-robot-nav-left {
+      left: clamp(0.5rem, 1vw, 0.75rem);
+    }
+
+    .soft-robot-nav-right {
+      right: clamp(0.5rem, 1vw, 0.75rem);
+    }
+
+    .soft-robot-nav:hover {
+      background: rgba(0, 0, 0, 0.8);
+      transform: translateY(-50%) scale(1.1);
+    }
+
+    .soft-robot-video-wrapper {
+      border-radius: 12px;
+      overflow: hidden;
+      background: #020617;
+      padding: clamp(0.5rem, 1vw, 0.5rem);
+    }
+
+    .soft-robot-video-wrapper video {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      display: block;
+    }
+
+    /* ============ CONTACT FORM (2-COLUMN) ============ */
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: clamp(1rem, 2vw, 1.5rem);
+      background: rgba(0, 50, 68, 0.3);
+      padding: clamp(1.5rem, 3vw, 2.5rem);
+      border-radius: 8px;
+      border: 1px solid rgba(0, 212, 255, 0.2);
+      max-width: 100%;
+      margin-top: clamp(1rem, 2vw, 1.5rem);
+      flex-shrink: 0;
+    }
+
+    .form-row {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      flex-shrink: 0;
+    }
+
+    .form-row-inline {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      flex-shrink: 0;
+    }
+
+    .form-row-inline-vertical {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: clamp(0.75rem, 1.5vw, 1.25rem);
+      align-items: flex-end;
+      flex-shrink: 0;
+    }
+
+    .form-row label {
+      font-size: clamp(9px, 1.3vw, 11px);
+      color: #00d4ff;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .form-row input,
+    .form-row textarea {
+      padding: clamp(0.75rem, 1.5vw, 1rem);
+      background: rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(0, 212, 255, 0.2);
+      border-radius: 6px;
+      color: #e0e0e0;
+      font-family: inherit;
+      font-size: clamp(11px, 1.5vw, 13px);
+      transition: all 0.3s ease;
+      letter-spacing: 0.3px;
+      width: 100%;
+      min-width: 0;
+    }
+
+    .form-row input::placeholder,
+    .form-row textarea::placeholder {
+      color: #666;
+    }
+
+    .form-row input:focus,
+    .form-row textarea:focus {
+      outline: none;
+      border-color: #00d4ff;
+      box-shadow: 0 0 15px rgba(0, 212, 255, 0.25);
+      background: rgba(0, 30, 40, 0.4);
+    }
+
+    .btn-send {
+      padding: clamp(0.75rem, 1.5vw, 1rem) clamp(1.5rem, 3vw, 2.25rem);
+      background: linear-gradient(135deg, #00d4ff, #00a8c4);
+      border: none;
+      border-radius: 6px;
+      color: #0a0e27;
+      font-weight: 700;
+      font-size: clamp(10px, 1.4vw, 13px);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      flex-shrink: 0;
+    }
+
+    .btn-send:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(0, 212, 255, 0.4);
+    }
+
+    .form-status {
+      font-size: clamp(10px, 1.3vw, 12px);
+      margin-top: 0.75rem;
+      color: #00d4ff;
+      letter-spacing: 0.3px;
+      flex-shrink: 0;
+    }
+
+    /* ============ SKILLS & EDUCATION ============ */
+    .content-inner {
+      display: flex;
+      flex-direction: column;
+      gap: clamp(1rem, 2vw, 2rem);
+      flex-shrink: 0;
+    }
+
+    .edu-entry,
+    .skills-group {
+      margin: 0;
+      padding: clamp(1rem, 2.5vw, 1.5rem);
+      background: rgba(0, 212, 255, 0.04);
+      border-left: clamp(4px, 1vw, 6px) solid #00d4ff;
+      border-radius: 4px;
+      display: block;
+      flex-shrink: 0;
+    }
+
+    .edu-entry h3,
+    .skills-group h3 {
+      font-size: clamp(14px, 2.5vw, 17px);
+      color: #00d4ff;
+      margin: 0 0 0.5rem 0;
+      font-weight: 700;
+      letter-spacing: 0.2px;
+      line-height: 1.4;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
+
+    .meta {
+      font-size: clamp(10px, 1.3vw, 12px);
+      color: #999;
+      margin: 0.5rem 0 1rem 0;
+      font-style: italic;
+      letter-spacing: 0.3px;
+    }
+
+    .skills-group p {
+      font-size: clamp(12px, 1.6vw, 14px);
+      color: #d0d0d0;
+      line-height: 1.8;
+      margin: 0;
+      letter-spacing: 0.2px;
+      text-align: left;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
+
+    footer {
+      position: fixed;
+      bottom: 1rem;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: clamp(8px, 1.2vw, 10px);
+      color: #555;
+      z-index: 50;
+      text-align: center;
+      padding: 0 1rem;
+      max-width: 90vw;
+    }
+
+    /* ============ MOBILE & TABLET RESPONSIVE ============ */
+    @media (max-width: 1200px) {
+      .main-wrapper {
+        gap: 1rem;
+      }
+
+      .gear-section {
+        flex: 0 0 auto;
+        padding: 1rem 0.5rem;
+      }
+
+      .content-section {
+        padding: clamp(1rem, 3vw, 2rem);
+        padding-top: clamp(1rem, 2.5vw, 1.5rem);
+      }
+    }
+
+    @media (max-width: 992px) {
+      .main-wrapper {
+        flex-direction: column;
+        gap: 0;
+      }
+
+      .gear-section {
+        flex: 0 0 auto;
+        max-height: 45vh;
+        padding: 1.5rem 1rem;
+        border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+      }
+
+      .gear-container {
+        width: clamp(150px, 30vmin, 280px);
+        height: clamp(150px, 30vmin, 280px);
+      }
+
+      .content-wrapper {
+        flex: 1;
+        min-height: 0;
+      }
+
+      .content-section {
+        padding: clamp(1.25rem, 3vw, 2.25rem);
+      }
+
+      header {
+        padding: 1rem 1.5rem;
+      }
+
+      .nav-center {
+        gap: clamp(0.8rem, 2.5vw, 2rem);
+      }
+
+      .brand {
+        font-size: clamp(18px, 3.5vw, 28px);
+      }
+
+      .form-row-inline-vertical {
+        grid-template-columns: 1fr;
+        align-items: stretch;
+      }
+
+      .btn-send {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .site-header-inner {
+        gap: 1rem;
+      }
+
+      header {
+        padding: 1rem 1rem;
+      }
+
+      .brand {
+        font-size: clamp(16px, 3vw, 24px);
+      }
+
+      .nav-link {
+        font-size: clamp(11px, 1.8vw, 14px);
+      }
+
+      .nav-center {
+        gap: clamp(0.5rem, 2vw, 1.5rem);
+        max-width: 100vw;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .section-title {
+        font-size: clamp(24px, 6vw, 40px);
+        margin-bottom: clamp(1rem, 2.5vw, 2rem);
+      }
+
+      .gear-section {
+        max-height: 40vh;
+        padding: 1rem;
+      }
+
+      .gear-container {
+        width: clamp(120px, 25vmin, 200px);
+        height: clamp(120px, 25vmin, 200px);
+      }
+
+      .content-section {
+        padding: clamp(1rem, 2.5vw, 1.75rem);
+        padding-top: clamp(0.75rem, 2vw, 1.25rem);
+      }
+
+      .contact-form {
+        max-width: 100%;
+      }
+
+      footer {
+        font-size: clamp(7px, 1vw, 9px);
+      }
+    }
+
+    @media (max-width: 480px) {
+      html, body {
+        font-size: 14px;
+      }
+
+      header {
+        padding: 0.75rem 1rem;
+      }
+
+      .site-header-inner {
+        gap: 0.75rem;
+      }
+
+      .brand {
+        font-size: clamp(14px, 2.5vw, 18px);
+      }
+
+      .nav-link {
+        font-size: clamp(10px, 1.5vw, 12px);
+        padding: 0.2rem 0;
+      }
+
+      .nav-center {
+        gap: clamp(0.4rem, 1.5vw, 1rem);
+      }
+
+      .main-wrapper {
+        gap: 0;
+      }
+
+      .gear-section {
+        max-height: 35vh;
+        padding: 0.75rem;
+      }
+
+      .gear-container {
+        width: clamp(100px, 22vmin, 160px);
+        height: clamp(100px, 22vmin, 160px);
+      }
+
+      .content-section {
+        padding: clamp(0.75rem, 2vw, 1.5rem);
+        padding-top: clamp(0.5rem, 1.5vw, 1rem);
+      }
+
+      .section-title {
+        font-size: clamp(20px, 5vw, 28px);
+        margin-bottom: clamp(0.75rem, 2vw, 1.5rem);
+      }
+
+      .modal-content {
+        width: 95%;
+        max-height: 85vh;
+      }
+    }
+
+    @media (max-height: 600px) {
+      header {
+        padding: 0.5rem 1rem;
+      }
+
+      .brand {
+        font-size: clamp(14px, 2.5vw, 18px);
+      }
+
+      .nav-link {
+        font-size: clamp(10px, 1.5vw, 12px);
+      }
+
+      .gear-section {
+        max-height: 30vh;
+        padding: 0.5rem;
+      }
+
+      .gear-container {
+        width: clamp(80px, 18vmin, 150px);
+        height: clamp(80px, 18vmin, 150px);
+      }
+
+      .content-section {
+        padding: clamp(0.5rem, 1.5vw, 1rem);
+        padding-top: clamp(0.25rem, 1vw, 0.75rem);
+      }
+
+      .section-title {
+        font-size: clamp(18px, 4vw, 24px);
+        margin-bottom: clamp(0.5rem, 1.5vw, 1rem);
+      }
+
+      footer {
+        bottom: 0.5rem;
+        font-size: clamp(6px, 0.8vw, 7px);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="site-header-inner">
+      <a class="brand" href="#">Srikanth Reddy Eppa</a>
+      <nav class="nav-center">
+        <a class="nav-link active" data-section="about">About Me</a>
+        <a class="nav-link" data-section="experience">Experience</a>
+        <a class="nav-link" data-section="projects">Projects</a>
+        <a class="nav-link" data-section="skills">Skills</a>
+        <a class="nav-link" data-section="education">Education</a>
+        <a class="nav-link" data-section="contact">Get In Touch</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="main-wrapper">
+    <!-- LEFT SIDE - GEAR WITH PHOTO -->
+    <div class="gear-section">
+      <div class="gear-container">
+        <svg class="gear-wheel" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <filter id="gearShadow" x="-50%" y="-50%" width="200%" height="200%">
+              <feDropShadow dx="0" dy="8" stdDeviation="12" flood-opacity="0.95" flood-color="#00d4ff"/>
+            </filter>
+            <radialGradient id="gearGrad" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" style="stop-color:#1a5f7a;stop-opacity:1" />
+              <stop offset="100%" style="stop-color:#0d3a52;stop-opacity:1" />
+            </radialGradient>
+          </defs>
+          
+          <circle cx="250" cy="250" r="175" fill="none" stroke="#00d4ff" stroke-width="2" opacity="0.5"/>
+          
+          <g filter="url(#gearShadow)">
+            <g transform="rotate(0 250 250)">
+              <rect x="232" y="90" width="36" height="55" fill="url(#gearGrad)" stroke="#00d4ff" stroke-width="2" rx="3"/>
+            </g>
+            <g transform="rotate(30 250 250)">
+              <rect x="232" y="90" width="36" height="55" fill="url(#gearGrad)" stroke="#00d4ff" stroke-width="2" rx="3"/>
+            </g>
+            <g transform="rotate(60 250 250)">
+              <rect x="232" y="90" width="36" height="55" fill="url(#gearGrad)" stroke="#00d4ff" stroke-width="2" rx="3"/>
+            </g>
+            <g transform="rotate(90 250 250)">
+              <rect x="232" y="90" width="36" height="55" fill="url(#gearGrad)" stroke="#00d4ff" stroke-width="2" rx="3"/>
+            </g>
+            <g transform="rotate(120 250 250)">
+              <rect x="232" y="90" width="36" height="55" fill="url(#gearGrad)" stroke="#00d4ff" stroke-width="2" rx="3"/>
+            </g>
+            <g transform="rotate(150 250 250)">
+              <rect x="232" y="90" width="36" height="55" fill="url(#gearGrad)" stroke="#00d4ff" stroke-width="2" rx="3"/>
+            </g>
+            <g transform="rotate(180 250 250)">
+              <rect x="232" y="90" width="36" height="55" fill="url(#gearGrad)" stroke="#00d4ff" stroke-width="2" rx="3"/>
+            </g>
+            <g transform="rotate(210 250 250)">
+              <rect x="232" y="90" width="36" height="55" fill="url(#gearGrad)" stroke="#00d4ff" stroke-width="2" rx="3"/>
+            </g>
+            <g transform="rotate(240 250 250)">
+              <rect x="232" y="90" width="36" height="55" fill="url(#gearGrad)" stroke="#00d4ff" stroke-width="2" rx="3"/>
+            </g>
+            <g transform="rotate(270 250 250)">
+              <rect x="232" y="90" width="36" height="55" fill="url(#gearGrad)" stroke="#00d4ff" stroke-width="2" rx="3"/>
+            </g>
+            <g transform="rotate(300 250 250)">
+              <rect x="232" y="90" width="36" height="55" fill="url(#gearGrad)" stroke="#00d4ff" stroke-width="2" rx="3"/>
+            </g>
+            <g transform="rotate(330 250 250)">
+              <rect x="232" y="90" width="36" height="55" fill="url(#gearGrad)" stroke="#00d4ff" stroke-width="2" rx="3"/>
+            </g>
+          </g>
+          
+          <circle cx="250" cy="250" r="105" fill="#0a0e27" stroke="#00d4ff" stroke-width="2"/>
+          <circle cx="250" cy="250" r="105" fill="none" stroke="#00a8c4" stroke-width="2" opacity="0.6"/>
+        </svg>
+        
+        <div class="photo-wrapper">
+          <img class="profile-photo" src="https://raw.githubusercontent.com/Eppasrikanth57/srikanth-reddy-eppa/main/files/Resume_image_Professional.JPG" alt="Srikanth Reddy Eppa">
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT SIDE - CONTENT SECTIONS -->
+    <div class="content-wrapper">
+      <!-- ABOUT SECTION -->
+      <section id="about" class="content-section active">
+        <h1 class="section-title">About Me</h1>
+        <div class="content-inner">
+          <div class="about-content">
+            <p class="about-text">
+              Master's student in Mechatronics & Robotics with experience in digitalization, automation, and sustainability. Passionate about leveraging technology to solve real-world engineering challenges and drive innovation.
+            </p>
+            <p class="about-text">
+              Skilled in Digital Twin technology, Digital Product Passports, and mechatronic system design, aiming to deliver innovative solutions aligned with industry demand. My expertise spans from concept design to implementation, with strong proficiency in CAD software and embedded systems programming.
+            </p>
+            <div class="about-meta">
+              <span class="meta-location"><i class="fas fa-map-marker-alt"></i> Stuttgart Region, Germany</span>
+            </div>
+
+            <h2 class="portfolio-subheading">Portfolio</h2>
+            <div class="portfolio-buttons">
+              <button class="portfolio-btn" type="button" data-target-section="experience">
+                <span>To Experience</span>
+                <i class="fas fa-arrow-right"></i>
+              </button>
+              <button class="portfolio-btn" type="button" data-target-section="projects">
+                <span>To Projects</span>
+                <i class="fas fa-arrow-right"></i>
+              </button>
+            </div>
+
+            <div class="social-links">
+              <a href="https://github.com/Eppasrikanth57" target="_blank" rel="noopener" title="GitHub"><i class="fab fa-github"></i></a>
+              <a href="https://www.linkedin.com/in/srikanth-reddy-eppa/" target="_blank" rel="noopener" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+              <a href="mailto:eppasrikanth57@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- EXPERIENCE SECTION -->
+      <section id="experience" class="content-section">
+        <h1 class="section-title">Experience</h1>
+        <div class="timeline-wrapper">
+          <div class="horizontal-timeline" id="exp-timeline">
+            <!-- Experience 1 -->
+            <div class="timeline-card">
+              <div class="experience-card-header soft-robot-header">
+                <div class="card-header">
+                  <div class="card-logo">
+                    <i class="fas fa-graduation-cap"></i>
+                  </div>
+                  <div class="card-header-content">
+                    <h3 class="card-job-title">Design and Prototyping of Soft Robot Arm for Safe and Contact-Rich Human-Robot Collaboration</h3>
+                    <p class="card-company">Hochschule Schmalkalden</p>
+                  </div>
+                  <button class="card-popup-btn" data-modal="modal-exp-1" title="View Tasks">
+                    <i class="fas fa-external-link-alt"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="experience-body soft-robot-tasks">
+                <div class="card-location-date">
+                  <span class="card-location"><i class="fas fa-map-marker-alt" style="font-size: 0.9em;"></i> Schmalkalden, Germany</span>
+                  <span class="card-date">Feb 2025 — Now</span>
+                </div>
+                <div class="card-skills">
+                  <div class="card-skills-title">Skills Used & Learnt</div>
+                  <div class="card-skills-list">
+                    <span class="skill-tag">SolidWorks</span>
+                    <span class="skill-tag">3D Printing</span>
+                    <span class="skill-tag">Arduino Mega 2560</span>
+                    <span class="skill-tag">Sensor Integration</span>
+                    <span class="skill-tag">CAD Design</span>
+                    <span class="skill-tag">Industry 5.0</span>
+                  </div>
+                </div>
+                <div class="soft-robot-actions">
+                  <button class="action-btn project-images" id="softRobotImagesBtn">
+                    <i class="fas fa-images"></i>
+                    <span>Project Images</span>
+                  </button>
+                  <a href="https://github.com/Eppasrikanth57/Design-and-Prototyping-of-Soft-Robot-Arm-for-Safe-and-Contact-Rich-Human-Robot-Collaboration" target="_blank" rel="noopener noreferrer" class="action-btn project-files">
+                    <i class="fas fa-github"></i>
+                    <span>Project Files</span>
+                  </a>
+                </div>
+              </div>
+              <div class="card-footer-logo">
+                <img src="https://raw.githubusercontent.com/Eppasrikanth57/srikanth-reddy-eppa/main/files/HS_Schmalkalden_logo.png" alt="Hochschule Schmalkalden">
+              </div>
+            </div>
+
+            <!-- Experience 2 -->
+            <div class="timeline-card">
+              <div class="card-header">
+                <div class="card-logo">
+                  <i class="fas fa-briefcase"></i>
+                </div>
+                <div class="card-header-content">
+                  <h3 class="card-job-title">Working Student - Product Innovation</h3>
+                  <p class="card-company">Morgenwerk GmbH</p>
+                </div>
+                <button class="card-popup-btn" data-modal="modal-exp-2" title="View Tasks">
+                  <i class="fas fa-external-link-alt"></i>
+                </button>
+              </div>
+              <div class="card-location-date">
+                <span class="card-location"><i class="fas fa-map-marker-alt" style="font-size: 0.9em;"></i> Tamm, Germany</span>
+                <span class="card-date">Sep 2024 — Mar 2025</span>
+              </div>
+              <div class="card-skills">
+                <div class="card-skills-title">Skills Used & Learnt</div>
+                <div class="card-skills-list">
+                  <span class="skill-tag">SolidWorks</span>
+                  <span class="skill-tag">Technical Drawings</span>
+                  <span class="skill-tag">AGV Systems</span>
+                  <span class="skill-tag">Product Development</span>
+                  <span class="skill-tag">Prototyping</span>
+                </div>
+              </div>
+              <div class="card-footer-logo">
+                <img src="https://raw.githubusercontent.com/Eppasrikanth57/srikanth-reddy-eppa/main/files/Morgenwerk_logo.png" alt="Morgenwerk GmbH">
+              </div>
+            </div>
+
+            <!-- Experience 3 (Dual Jobs) -->
+            <div class="timeline-card">
+              <div class="card-header">
+                <div class="card-logo">
+                  <i class="fas fa-cogs"></i>
+                </div>
+                <div class="card-header-content">
+                  <h3 class="card-job-title">Engineer - Design | Intern</h3>
+                  <p class="card-company">Regal Rexnord India</p>
+                </div>
+                <button class="card-popup-btn" data-modal="modal-exp-3" title="View Tasks">
+                  <i class="fas fa-external-link-alt"></i>
+                </button>
+              </div>
+              <div class="card-location-date">
+                <span class="card-location"><i class="fas fa-map-marker-alt" style="font-size: 0.9em;"></i> Hyderabad, India</span>
+              </div>
+              <!-- Dual Job Timeline -->
+              <div class="dual-job-timeline">
+                <div class="dual-job-item">
+                  <h4 class="dual-job-title">Design Engineer</h4>
+                  <p class="dual-job-date">Oct 2020 — Aug 2022</p>
+                </div>
+                <div class="dual-job-item">
+                  <h4 class="dual-job-title">Intern - Design</h4>
+                  <p class="dual-job-date">Feb 2020 — Sep 2020</p>
+                </div>
+              </div>
+              <div class="card-skills" style="margin-top: clamp(0.75rem, 1.5vw, 1.25rem);">
+                <div class="card-skills-title">Skills Used & Learnt</div>
+                <div class="card-skills-list">
+                  <span class="skill-tag">SolidWorks</span>
+                  <span class="skill-tag">GD&T</span>
+                  <span class="skill-tag">ISO/DIN</span>
+                  <span class="skill-tag">Technical Drawings</span>
+                  <span class="skill-tag">SAP</span>
+                  <span class="skill-tag">Coupling Design</span>
+                </div>
+              </div>
+              <div class="card-footer-logo">
+                <img src="https://raw.githubusercontent.com/Eppasrikanth57/srikanth-reddy-eppa/main/files/Regal_Rexnord_logo.png" alt="Regal Rexnord India">
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROJECTS SECTION -->
+      <section id="projects" class="content-section">
+        <h1 class="section-title">Projects</h1>
+        <div class="timeline-wrapper">
+          <div class="horizontal-timeline" id="proj-timeline">
+            <!-- Project 1 -->
+            <div class="timeline-card">
+              <div class="card-header">
+                <div class="card-logo">
+                  <i class="fas fa-cube"></i>
+                </div>
+                <div class="card-header-content">
+                  <h3 class="card-job-title">Automated XY Pen Plotter</h3>
+                  <p class="card-company">Hochschule Schmalkalden</p>
+                </div>
+                <button class="card-popup-btn" data-modal="modal-proj-1" title="View Tasks">
+                  <i class="fas fa-external-link-alt"></i>
+                </button>
+              </div>
+              <div class="card-location-date">
+                <span class="card-location"><i class="fas fa-map-marker-alt" style="font-size: 0.9em;"></i> Schmalkalden, Germany</span>
+                <span class="card-date">Apr 2023 — Jul 2023</span>
+              </div>
+              <div class="card-skills">
+                <div class="card-skills-title">Skills Used</div>
+                <div class="card-skills-list">
+                  <span class="skill-tag">SolidWorks</span>
+                  <span class="skill-tag">Siemens NX</span>
+                  <span class="skill-tag">CAD Design</span>
+                  <span class="skill-tag">Precision Engineering</span>
+                  <span class="skill-tag">Motion Control</span>
+                </div>
+              </div>
+              <div class="card-footer-logo">
+                <img src="https://raw.githubusercontent.com/Eppasrikanth57/srikanth-reddy-eppa/main/files/HS_Schmalkalden_logo.png" alt="Hochschule Schmalkalden">
+              </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="timeline-card">
+              <div class="card-header">
+                <div class="card-logo">
+                  <i class="fas fa-flask"></i>
+                </div>
+                <div class="card-header-content">
+                  <h3 class="card-job-title">Thermal Energy Storage System</h3>
+                  <p class="card-company">Vidya Jyothi Institute of Technology</p>
+                </div>
+                <button class="card-popup-btn" data-modal="modal-proj-2" title="View Tasks">
+                  <i class="fas fa-external-link-alt"></i>
+                </button>
+              </div>
+              <div class="card-location-date">
+                <span class="card-location"><i class="fas fa-map-marker-alt" style="font-size: 0.9em;"></i> Hyderabad, India</span>
+                <span class="card-date">Nov 2019 — Aug 2020</span>
+              </div>
+              <div class="card-skills">
+                <div class="card-skills-title">Skills Used</div>
+                <div class="card-skills-list">
+                  <span class="skill-tag">SolidWorks</span>
+                  <span class="skill-tag">Thermal Analysis</span>
+                  <span class="skill-tag">System Design</span>
+                  <span class="skill-tag">Manufacturing</span>
+                  <span class="skill-tag">Optimization</span>
+                </div>
+              </div>
+              <div class="card-footer-logo">
+                <img src="https://raw.githubusercontent.com/Eppasrikanth57/srikanth-reddy-eppa/main/files/Vidya_Jyothi_logo.jpg" alt="Vidya Jyothi Institute of Technology">
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SKILLS SECTION -->
+      <section id="skills" class="content-section">
+        <h1 class="section-title">Skills</h1>
+        <div class="content-inner">
+          <div class="skills-group">
+            <h3>CAD & Design Tools</h3>
+            <p><strong>CAD:</strong> SolidWorks, Ansys, PTC Creo, CATIA V5, Siemens NX, AutoCAD, Fusion</p>
+          </div>
+          <div class="skills-group">
+            <h3>Technical Skills</h3>
+            <p>PLC Programming, Python, C++, GD&T, Embedded Systems, Arduino</p>
+          </div>
+          <div class="skills-group">
+            <h3>Languages</h3>
+            <p><strong>English:</strong> C1 | <strong>German:</strong> A2 | <strong>Telugu:</strong> Native</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- EDUCATION SECTION -->
+      <section id="education" class="content-section">
+        <h1 class="section-title">Education</h1>
+        <div class="content-inner">
+          <div class="edu-entry">
+            <h3>Master of Science - Mechatronics and Robotics</h3>
+            <p class="meta">Hochschule Schmalkalden | Oct 2022 – Present</p>
+            <p style="font-size: clamp(12px, 1.6vw, 14px); color: #d0d0d0; margin: 0; text-align: left;">Grade: 2.4 | Focus: Digital Twin, Industry 5.0</p>
+          </div>
+          <div class="edu-entry">
+            <h3>B.Tech - Mechanical Engineering</h3>
+            <p class="meta">Vidya Jyothi Institute | Jul 2017 – Aug 2020</p>
+            <p style="font-size: clamp(12px, 1.6vw, 14px); color: #d0d0d0; margin: 0; text-align: left;">Grade: 1.23 | Affiliated to Jawaharlal Nehru Technological University Hyderabad</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT SECTION -->
+      <section id="contact" class="content-section">
+        <h1 class="section-title">Get In Touch</h1>
+        <div class="content-inner">
+          <form id="contact-form" class="contact-form" novalidate>
+            <div class="form-row-inline">
+              <div class="form-row">
+                <label for="from_name">Your Name</label>
+                <input type="text" id="from_name" name="from_name" placeholder="Your name" required>
+              </div>
+              <div class="form-row">
+                <label for="reply_to">Your Email</label>
+                <input type="email" id="reply_to" name="reply_to" placeholder="Your Email" required>
+              </div>
+            </div>
+            <div class="form-row">
+              <label for="subject">Subject</label>
+              <input type="text" id="subject" name="subject" placeholder="Subject" required>
+            </div>
+            <div class="form-row-inline-vertical">
+              <div class="form-row">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="3" placeholder="Write your message..." required></textarea>
+              </div>
+              <button id="contact-submit" type="submit" class="btn-send">
+                <i class="fas fa-paper-plane"></i>
+                <span>Send</span>
+              </button>
+            </div>
+          </form>
+          <p id="form-status" class="form-status" aria-live="polite"></p>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- MODALS -->
+  <!-- Experience Modals -->
+  <div id="modal-exp-1" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title">Design & Prototyping of Soft Robot Arm</h2>
+        <button class="modal-close" data-modal="modal-exp-1">×</button>
+      </div>
+      <div class="modal-body">
+        <h3>Key Tasks & Responsibilities</h3>
+        <ul>
+          <li>Developed and optimized a Soft Robot for Industry 5.0 applications using <strong>SolidWorks CAD</strong></li>
+          <li>Utilized additive manufacturing (<strong>3D printing</strong>) to create and iterate on key components with precision tolerances</li>
+          <li>Engineered an <strong>Arduino Mega 2560</strong> circuit to control integrated sensors and actuator motors</li>
+          <li>Conducted system testing and validated robot arm performance against design specifications</li>
+          <li>Collaborated with faculty and team members on design iterations and optimization</li>
+        </ul>
+        <div class="modal-footer-logo">
+          <img src="https://raw.githubusercontent.com/Eppasrikanth57/srikanth-reddy-eppa/main/files/HS_Schmalkalden_logo.png" alt="Hochschule Schmalkalden">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="modal-exp-2" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title">Working Student - Product Innovation</h2>
+        <button class="modal-close" data-modal="modal-exp-2">×</button>
+      </div>
+      <div class="modal-body">
+        <h3>Key Tasks & Responsibilities</h3>
+        <ul>
+          <li>Developed and prototyped a gate system for an automated vending machine using <strong>SolidWorks</strong></li>
+          <li>Designed mechanical components meeting functional and safety requirements</li>
+          <li>Produced detailed technical drawings and manufacturing specifications</li>
+          <li>Worked on structural tube development and optimization for an <strong>Autonomous Guided Vehicle (AGV)</strong></li>
+          <li>Participated in design reviews and incorporated feedback for continuous improvement</li>
+          <li>Supported product development lifecycle from concept to prototype testing</li>
+        </ul>
+        <div class="modal-footer-logo">
+          <img src="https://raw.githubusercontent.com/Eppasrikanth57/srikanth-reddy-eppa/main/files/Morgenwerk_logo.png" alt="Morgenwerk GmbH">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="modal-exp-3" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title">Engineer - Design | Intern</h2>
+        <button class="modal-close" data-modal="modal-exp-3">×</button>
+      </div>
+      <div class="modal-body">
+        <h3>Key Tasks & Responsibilities</h3>
+        <ul>
+          <li>Enhanced design of Torsional couplings improving productivity and reducing costs using <strong>SolidWorks</strong></li>
+          <li>Created detailed technical drawings adhering to <strong>ISO/DIN/GD&T</strong> standards for manufacturing</li>
+          <li>Generated Bills of Materials (BOMs) and managed component specifications in <strong>SAP ERP</strong> system</li>
+          <li>Conducted finite element analysis (FEA) to validate coupling performance under various load conditions</li>
+          <li>Collaborated with manufacturing teams to ensure design feasibility and cost optimization</li>
+          <li>Documented design changes and maintained engineering documentation standards</li>
+        </ul>
+        <div class="modal-footer-logo">
+          <img src="https://raw.githubusercontent.com/Eppasrikanth57/srikanth-reddy-eppa/main/files/Regal_Rexnord_logo.png" alt="Regal Rexnord India">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Project Modals -->
+  <div id="modal-proj-1" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title">Automated XY Pen Plotter</h2>
+        <button class="modal-close" data-modal="modal-proj-1">×</button>
+      </div>
+      <div class="modal-body">
+        <h3>Project Overview & Tasks</h3>
+        <ul>
+          <li>Completed full V-model design cycle for precision XY plotting system using <strong>SolidWorks & Siemens NX</strong></li>
+          <li>Designed precision components achieving ±0.5mm accuracy for reliable pen positioning</li>
+          <li>Implemented motion control system for 2-axis independent movement with stepper motor integration</li>
+          <li>Conducted tolerance analysis and GD&T specifications for manufacturing</li>
+          <li>Created detailed assembly drawings and bill of materials for prototype fabrication</li>
+          <li>Performed system testing and calibration for optimal plotting accuracy</li>
+        </ul>
+        <div class="modal-footer-logo">
+          <img src="https://raw.githubusercontent.com/Eppasrikanth57/srikanth-reddy-eppa/main/files/HS_Schmalkalden_logo.png" alt="Hochschule Schmalkalden">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="modal-proj-2" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title">Thermal Energy Storage System</h2>
+        <button class="modal-close" data-modal="modal-proj-2">×</button>
+      </div>
+      <div class="modal-body">
+        <h3>Project Overview & Tasks</h3>
+        <ul>
+          <li>Designed insulated stainless-steel tank for thermal energy storage with optimized geometry</li>
+          <li>Performed thermal analysis and heat transfer simulations to minimize energy loss</li>
+          <li>Achieved 10.6 kJ energy efficiency improvement through insulation optimization</li>
+          <li>Implemented 45% system efficiency improvement through design enhancements</li>
+          <li>Conducted cost-benefit analysis and material selection for industrial applications</li>
+          <li>Prepared technical documentation and design validation reports</li>
+          <li>Collaborated with team members on manufacturing process planning</li>
+        </ul>
+        <div class="modal-footer-logo">
+          <img src="https://raw.githubusercontent.com/Eppasrikanth57/srikanth-reddy-eppa/main/files/Vidya_Jyothi_logo.jpg" alt="Vidya Jyothi Institute of Technology">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Soft Robot Image Gallery Modal -->
+  <div class="soft-robot-modal-backdrop" id="softRobotModal">
+    <div class="soft-robot-modal">
+      <button class="soft-robot-modal-close" id="softRobotModalClose" aria-label="Close project viewer">×</button>
+      <div class="soft-robot-modal-content">
+        <div class="soft-robot-image-viewer">
+          <button class="soft-robot-nav soft-robot-nav-left" id="softRobotPrev" aria-label="Previous image">&#10094;</button>
+          <img id="softRobotImage" src="files/soft-robot/Full_Assembly.png" alt="Soft robot project image">
+          <button class="soft-robot-nav soft-robot-nav-right" id="softRobotNext" aria-label="Next image">&#10095;</button>
+        </div>
+        <div class="soft-robot-video-wrapper">
+          <video id="softRobotVideo" controls preload="metadata">
+            <source src="files/soft-robot/Prototype 2 Linkedinpost.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Srikanth Reddy Eppa. Built with creativity and code.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+  <script>
+    (function() {
+      const gearWheel = document.querySelector('.gear-wheel');
+      const sections = [
+        { id: 'about', rotation: 0 },
+        { id: 'experience', rotation: 30 },
+        { id: 'projects', rotation: 60 },
+        { id: 'skills', rotation: 90 },
+        { id: 'education', rotation: 120 },
+        { id: 'contact', rotation: 150 }
+      ];
+
+      let currentSectionIndex = 0;
+      let isTransitioning = false;
+      let wheelRotation = 0;
+      let scrollAccumulator = 0;
+      const scrollThreshold = 100;
+
+      function showSection(index) {
+        if (isTransitioning || currentSectionIndex === index) return;
+        isTransitioning = true;
+
+        const activeSection = document.querySelector('.content-section.active');
+        if (activeSection) activeSection.classList.remove('active');
+        
+        currentSectionIndex = index;
+        document.getElementById(sections[index].id).classList.add('active');
+        
+        wheelRotation = sections[index].rotation;
+        gearWheel.style.transform = `rotate(${wheelRotation}deg)`;
+
+        document.querySelectorAll('.nav-link').forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('data-section') === sections[index].id) {
+            link.classList.add('active');
+          }
+        });
+
+        setTimeout(() => { 
+          isTransitioning = false;
+          scrollAccumulator = 0;
+        }, 900);
+      }
+
+      window.addEventListener('wheel', (e) => {
+        const openModal = document.querySelector('.modal.active');
+        const softRobotModalOpen = document.getElementById('softRobotModal').classList.contains('is-open');
+        if (openModal || softRobotModalOpen) {
+          return;
+        }
+
+        const activeSection = document.querySelector('.content-section.active');
+        if (!activeSection) return;
+
+        const isAtTop = activeSection.scrollTop === 0;
+        const isAtBottom = activeSection.scrollTop + activeSection.clientHeight >= activeSection.scrollHeight - 5;
+
+        if ((e.deltaY < 0 && isAtTop) || (e.deltaY > 0 && isAtBottom)) {
+          e.preventDefault();
+          
+          scrollAccumulator += e.deltaY;
+          
+          if (Math.abs(scrollAccumulator) >= scrollThreshold) {
+            if (scrollAccumulator > 0) {
+              const nextIndex = (currentSectionIndex + 1) % sections.length;
+              showSection(nextIndex);
+            } else {
+              const prevIndex = (currentSectionIndex - 1 + sections.length) % sections.length;
+              showSection(prevIndex);
+            }
+            scrollAccumulator = 0;
+          }
+        }
+      }, { passive: false });
+
+      document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const sectionId = link.getAttribute('data-section');
+          const index = sections.findIndex(s => s.id === sectionId);
+          if (index !== -1) showSection(index);
+        });
+      });
+
+      document.querySelectorAll('.portfolio-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          const targetId = btn.getAttribute('data-target-section');
+          const index = sections.findIndex(s => s.id === targetId);
+          if (index !== -1) {
+            showSection(index);
+          }
+        });
+      });
+
+      showSection(0);
+    })();
+  </script>
+
+  <script>
+    (function() {
+      document.querySelectorAll('.card-popup-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          const modalId = btn.getAttribute('data-modal');
+          const modal = document.getElementById(modalId);
+          if (modal) {
+            modal.classList.add('active');
+            document.body.classList.add('modal-open');
+          }
+        });
+      });
+
+      document.querySelectorAll('.modal-close').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          const modalId = btn.getAttribute('data-modal');
+          const modal = document.getElementById(modalId);
+          if (modal) {
+            modal.classList.remove('active');
+            document.body.classList.remove('modal-open');
+          }
+        });
+      });
+
+      document.querySelectorAll('.modal').forEach(modal => {
+        modal.addEventListener('click', (e) => {
+          if (e.target === modal) {
+            modal.classList.remove('active');
+            document.body.classList.remove('modal-open');
+          }
+        });
+      });
+    })();
+  </script>
+
+  <script>
+    (function() {
+      const modal = document.getElementById('softRobotModal');
+      const openBtn = document.getElementById('softRobotImagesBtn');
+      const closeBtn = document.getElementById('softRobotModalClose');
+      const prevBtn = document.getElementById('softRobotPrev');
+      const nextBtn = document.getElementById('softRobotNext');
+      const imgEl = document.getElementById('softRobotImage');
+
+      if (!modal || !openBtn || !closeBtn || !prevBtn || !nextBtn || !imgEl) return;
+
+      const images = [
+        'files/soft-robot/Full_Assembly.png',
+        'files/soft-robot/Arm_Design.png',
+        'files/soft-robot/Individual_Parts.png'
+      ];
+      let index = 0;
+
+      function updateImage() {
+        imgEl.src = images[index];
+        const name = images[index].split('/').pop().replace(/_/g, ' ').replace(/\.(png|jpg|jpeg)$/i, '');
+        imgEl.alt = 'Soft robot project – ' + name;
+      }
+
+      function openModal() {
+        modal.classList.add('is-open');
+        document.body.classList.add('modal-open');
+        index = 0;
+        updateImage();
+      }
+
+      function closeModal() {
+        modal.classList.remove('is-open');
+        document.body.classList.remove('modal-open');
+      }
+
+      function showNext() {
+        index = (index + 1) % images.length;
+        updateImage();
+      }
+
+      function showPrev() {
+        index = (index - 1 + images.length) % images.length;
+        updateImage();
+      }
+
+      openBtn.addEventListener('click', openModal);
+      closeBtn.addEventListener('click', closeModal);
+      nextBtn.addEventListener('click', showNext);
+      prevBtn.addEventListener('click', showPrev);
+
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+          closeModal();
+        }
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (!modal.classList.contains('is-open')) return;
+        if (e.key === 'Escape') closeModal();
+        if (e.key === 'ArrowRight') showNext();
+        if (e.key === 'ArrowLeft') showPrev();
+      });
+    })();
+  </script>
+
+  <script>
+    (function() {
+      const PUBLIC_KEY = "VJfDt6cbIDWVebWfX";
+      const SERVICE_ID = "service_gpxbcq7";
+      const OWNER_TEMPLATE_ID = "template_wfhkq5c";
+      const AUTO_REPLY_TEMPLATE_ID = "template_6he0kxw";
+
+      if (window.emailjs && typeof window.emailjs.init === 'function') {
+        window.emailjs.init(PUBLIC_KEY);
+      }
+
+      const form = document.getElementById('contact-form');
+      const statusEl = document.getElementById('form-status');
+      const submitBtn = document.getElementById('contact-submit');
+
+      if (form) {
+        form.addEventListener('submit', (e) => {
+          e.preventDefault();
+          submitBtn.disabled = true;
+          statusEl.textContent = 'Sending...';
+
+          window.emailjs.sendForm(SERVICE_ID, OWNER_TEMPLATE_ID, form)
+            .then(() => {
+              const params = {
+                from_name: form.elements['from_name'].value,
+                reply_to: form.elements['reply_to'].value,
+                subject: form.elements['subject'].value,
+                message: form.elements['message'].value
+              };
+              return window.emailjs.send(SERVICE_ID, AUTO_REPLY_TEMPLATE_ID, params);
+            })
+            .then(() => {
+              statusEl.textContent = 'Message sent — confirmation emailed!';
+              statusEl.style.color = '#00d4ff';
+              form.reset();
+            })
+            .catch(() => {
+              statusEl.textContent = 'Failed to send message. Please try again.';
+              statusEl.style.color = '#ff6b6b';
+            })
+            .finally(() => {
+              submitBtn.disabled = false;
+            });
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

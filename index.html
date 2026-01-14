@@ -358,7 +358,7 @@
     }
 
     .timeline-card {
-      flex: 0 0 clamp(250px, 35vw, 380px);
+      flex: 0 0 clamp(300px, 40vw, 420px); /* Increased base width */
       padding: clamp(1.25rem, 2.5vw, 1.75rem);
       background: rgba(0, 212, 255, 0.04);
       border: 1px solid rgba(0, 212, 255, 0.15);
@@ -766,8 +766,10 @@
 
     .experience-card-header.soft-robot-header {
       background-image: url('files/soft-robot/Soft_Robot_Banner.jpg');
-      background-size: cover;
+      background-size: contain; /* show entire image */
       background-position: center;
+      background-repeat: no-repeat;
+      background-color: #020617; /* fallback behind image */
     }
 
     .experience-body {

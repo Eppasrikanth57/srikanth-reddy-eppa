@@ -246,6 +246,50 @@
       gap: 0.5rem;
     }
 
+    .portfolio-subheading {
+      font-size: clamp(16px, 2.2vw, 20px);
+      font-weight: 700;
+      color: #00d4ff;
+      margin-top: clamp(1.5rem, 3vw, 2rem);
+      margin-bottom: clamp(0.75rem, 1.5vw, 1rem);
+      letter-spacing: 0.3px;
+    }
+
+    .portfolio-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: clamp(0.75rem, 1.5vw, 1.25rem);
+      margin-bottom: clamp(0.5rem, 1vw, 1rem);
+    }
+
+    .portfolio-btn {
+      padding: clamp(0.6rem, 1.2vw, 0.85rem) clamp(1.2rem, 2.5vw, 1.8rem);
+      border-radius: 999px;
+      border: 1px solid rgba(0, 212, 255, 0.6);
+      background: rgba(0, 212, 255, 0.08);
+      color: #00d4ff;
+      font-size: clamp(11px, 1.5vw, 13px);
+      font-weight: 600;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .portfolio-btn:hover {
+      background: #00d4ff;
+      color: #0a0e27;
+      box-shadow: 0 0 18px rgba(0, 212, 255, 0.7);
+      transform: translateY(-1px);
+    }
+
+    .portfolio-btn i {
+      font-size: 0.9em;
+    }
+
     .social-links {
       display: flex;
       gap: clamp(1rem, 2.5vw, 2rem);
@@ -719,14 +763,10 @@
     }
 
     .form-row-inline {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: clamp(0.75rem, 1.5vw, 1.25rem);
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
       flex-shrink: 0;
-    }
-
-    .form-row-inline .form-row {
-      gap: 0.5rem;
     }
 
     .form-row-inline-vertical {
@@ -922,10 +962,6 @@
 
       .brand {
         font-size: clamp(18px, 3.5vw, 28px);
-      }
-
-      .form-row-inline {
-        grid-template-columns: 1fr;
       }
 
       .form-row-inline-vertical {
@@ -1185,6 +1221,19 @@
             <div class="about-meta">
               <span class="meta-location"><i class="fas fa-map-marker-alt"></i> Stuttgart Region, Germany</span>
             </div>
+
+            <h2 class="portfolio-subheading">Portfolio</h2>
+            <div class="portfolio-buttons">
+              <button class="portfolio-btn" type="button" data-target-section="experience">
+                <span>To Experience</span>
+                <i class="fas fa-arrow-right"></i>
+              </button>
+              <button class="portfolio-btn" type="button" data-target-section="projects">
+                <span>To Projects</span>
+                <i class="fas fa-arrow-right"></i>
+              </button>
+            </div>
+
             <div class="social-links">
               <a href="https://github.com/Eppasrikanth57" target="_blank" rel="noopener" title="GitHub"><i class="fab fa-github"></i></a>
               <a href="https://www.linkedin.com/in/srikanth-reddy-eppa/" target="_blank" rel="noopener" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
@@ -1509,7 +1558,7 @@
   <div id="modal-exp-3" class="modal">
     <div class="modal-content">
       <div class="modal-header">
-        <h2 class="modal-title">Engineer - Design | Intern</h2>
+        <h2 class="modal-title">Engineer - Design | Intern</h8>
         <button class="modal-close" data-modal="modal-exp-3">×</button>
       </div>
       <div class="modal-body">
@@ -1664,6 +1713,18 @@
           const sectionId = link.getAttribute('data-section');
           const index = sections.findIndex(s => s.id === sectionId);
           if (index !== -1) showSection(index);
+        });
+      });
+
+      // Portfolio buttons in About section
+      document.querySelectorAll('.portfolio-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          const targetId = btn.getAttribute('data-target-section');
+          const index = sections.findIndex(s => s.id === targetId);
+          if (index !== -1) {
+            showSection(index);
+          }
         });
       });
 

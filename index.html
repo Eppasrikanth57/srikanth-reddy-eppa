@@ -796,7 +796,6 @@
       background-image: url('files/soft-robot/Full_Assembly.png');
       background-size: cover;
       background-position: center;
-      background-attachment: fixed;
     }
 
     .soft-robot-actions {
@@ -1512,10 +1511,10 @@
                 <div class="soft-robot-actions">
                   <button class="action-btn project-images" id="softRobotImagesBtn">
                     <i class="fas fa-images"></i>
-                    <span>Project Images</span>
+                    <span>Project Images and Videos</span>
                   </button>
                   <a href="https://github.com/Eppasrikanth57/Design-and-Prototyping-of-Soft-Robot-Arm-for-Safe-and-Contact-Rich-Human-Robot-Collaboration" target="_blank" rel="noopener noreferrer" class="action-btn project-files">
-                    <i class="fas fa-github"></i>
+                    <i class="fas fa-folder"></i>
                     <span>Project Files</span>
                   </a>
                 </div>
@@ -1768,6 +1767,16 @@
           <li>Conducted system testing and validated robot arm performance against design specifications</li>
           <li>Collaborated with faculty and team members on design iterations and optimization</li>
         </ul>
+        <div style="display: flex; gap: clamp(0.75rem, 1.5vw, 1.25rem); flex-wrap: wrap; margin-top: clamp(1rem, 2vw, 1.5rem); position: relative; z-index: 3;">
+          <button class="action-btn project-images" id="softRobotImagesBtn2" style="background: linear-gradient(135deg, #00d4ff, #00ffa3); color: #081028; box-shadow: 0 8px 24px rgba(0, 212, 255, 0.45);">
+            <i class="fas fa-images"></i>
+            <span>Project Images and Videos</span>
+          </button>
+          <a href="https://github.com/Eppasrikanth57/Design-and-Prototyping-of-Soft-Robot-Arm-for-Safe-and-Contact-Rich-Human-Robot-Collaboration" target="_blank" rel="noopener noreferrer" class="action-btn project-files" style="background: transparent; color: #00d4ff; border: 1.5px solid rgba(0, 212, 255, 0.6);">
+            <i class="fas fa-folder"></i>
+            <span>Project Files</span>
+          </a>
+        </div>
         <div class="modal-footer-logo">
           <img src="https://raw.githubusercontent.com/Eppasrikanth57/srikanth-reddy-eppa/main/files/HS_Schmalkalden_logo.png" alt="Hochschule Schmalkalden">
         </div>
@@ -2035,6 +2044,7 @@
     (function() {
       const modal = document.getElementById('softRobotModal');
       const openBtn = document.getElementById('softRobotImagesBtn');
+      const openBtn2 = document.getElementById('softRobotImagesBtn2');
       const closeBtn = document.getElementById('softRobotModalClose');
       const prevBtn = document.getElementById('softRobotPrev');
       const nextBtn = document.getElementById('softRobotNext');
@@ -2078,6 +2088,7 @@
       }
 
       openBtn.addEventListener('click', openModal);
+      if (openBtn2) openBtn2.addEventListener('click', openModal);
       closeBtn.addEventListener('click', closeModal);
       nextBtn.addEventListener('click', showNext);
       prevBtn.addEventListener('click', showPrev);

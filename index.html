@@ -741,6 +741,233 @@
       box-shadow: 0 4px 15px rgba(0, 212, 255, 0.15);
     }
 
+    /* ============ SOFT ROBOT EXPERIENCE ENHANCEMENTS ============ */
+    .experience-card-header {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(1.25rem, 2vw, 1.75rem);
+      border-radius: 10px 10px 0 0;
+      margin: -clamp(1.25rem, 2.5vw, 1.75rem) -clamp(1.25rem, 2.5vw, 1.75rem) clamp(1rem, 2vw, 1.5rem) -clamp(1.25rem, 2.5vw, 1.75rem);
+    }
+
+    .experience-card-header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .experience-card-header > * {
+      position: relative;
+      z-index: 2;
+    }
+
+    .experience-card-header.soft-robot-header {
+      background-image: url('files/soft-robot/Soft_Robot_Banner.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+
+    .experience-body {
+      position: relative;
+      padding: clamp(1rem, 2vw, 1.5rem);
+      border-radius: 0 0 10px 10px;
+    }
+
+    .experience-body::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.55);
+      pointer-events: none;
+      border-radius: 0 0 10px 10px;
+    }
+
+    .experience-body > * {
+      position: relative;
+      z-index: 2;
+    }
+
+    .experience-body.soft-robot-tasks {
+      background-image: url('files/soft-robot/Full_Assembly.png');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+
+    .soft-robot-actions {
+      display: flex;
+      gap: clamp(0.75rem, 1.5vw, 1.25rem);
+      flex-wrap: wrap;
+      margin-top: clamp(1rem, 2vw, 1.5rem);
+    }
+
+    .soft-robot-actions .action-btn {
+      padding: clamp(0.6rem, 1.2vw, 0.85rem) clamp(1rem, 2vw, 1.5rem);
+      border-radius: 6px;
+      font-size: clamp(11px, 1.5vw, 13px);
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      transition: all 0.3s ease;
+      position: relative;
+      z-index: 3;
+    }
+
+    .soft-robot-actions .action-btn.project-images {
+      background: linear-gradient(135deg, #00d4ff, #00ffa3);
+      color: #081028;
+      box-shadow: 0 8px 24px rgba(0, 212, 255, 0.45);
+    }
+
+    .soft-robot-actions .action-btn.project-images:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(0, 212, 255, 0.6);
+    }
+
+    .soft-robot-actions .action-btn.project-files {
+      background: transparent;
+      color: #00d4ff;
+      border: 1.5px solid rgba(0, 212, 255, 0.6);
+    }
+
+    .soft-robot-actions .action-btn.project-files:hover {
+      background: rgba(0, 212, 255, 0.1);
+      border-color: #00d4ff;
+      box-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+    }
+
+    /* ============ SOFT ROBOT MODAL ============ */
+    .soft-robot-modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(6px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .soft-robot-modal-backdrop.is-open {
+      display: flex;
+    }
+
+    .soft-robot-modal {
+      width: min(960px, 95vw);
+      max-height: 90vh;
+      background: #050816;
+      border-radius: 16px;
+      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.8);
+      border: 1px solid rgba(0, 212, 255, 0.25);
+      padding: clamp(1.25rem, 2vw, 1.5rem);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: clamp(0.75rem, 1.5vw, 1rem);
+      overflow-y: auto;
+      animation: slideIn 0.3s ease;
+    }
+
+    .soft-robot-modal-close {
+      position: absolute;
+      top: clamp(0.5rem, 1vw, 0.75rem);
+      right: clamp(0.75rem, 1.5vw, 1rem);
+      border: none;
+      background: transparent;
+      color: #9ca3af;
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      cursor: pointer;
+      line-height: 1;
+      transition: color 0.3s ease;
+      padding: 0;
+      width: auto;
+      height: auto;
+    }
+
+    .soft-robot-modal-close:hover {
+      color: #f9fafb;
+    }
+
+    .soft-robot-modal-content {
+      display: flex;
+      flex-direction: column;
+      gap: clamp(0.75rem, 1.5vw, 1.15rem);
+      margin-top: clamp(0.75rem, 1.5vw, 1rem);
+    }
+
+    .soft-robot-image-viewer {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle at top, #1f2937 0, #020617 50%, #000 100%);
+      border-radius: 12px;
+      padding: clamp(0.5rem, 1vw, 0.75rem);
+      min-height: 320px;
+    }
+
+    .soft-robot-image-viewer img {
+      max-width: 100%;
+      max-height: 360px;
+      border-radius: 10px;
+      object-fit: contain;
+      box-shadow: 0 14px 45px rgba(0, 212, 255, 0.45);
+    }
+
+    .soft-robot-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      border: none;
+      background: rgba(0, 0, 0, 0.5);
+      color: #e5e7eb;
+      width: clamp(36px, 8vw, 40px);
+      height: clamp(36px, 8vw, 40px);
+      border-radius: 999px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: clamp(1.25rem, 2vw, 1.5rem);
+      transition: all 0.3s ease;
+    }
+
+    .soft-robot-nav-left {
+      left: clamp(0.5rem, 1vw, 0.75rem);
+    }
+
+    .soft-robot-nav-right {
+      right: clamp(0.5rem, 1vw, 0.75rem);
+    }
+
+    .soft-robot-nav:hover {
+      background: rgba(0, 0, 0, 0.8);
+      transform: translateY(-50%) scale(1.1);
+    }
+
+    .soft-robot-video-wrapper {
+      border-radius: 12px;
+      overflow: hidden;
+      background: #020617;
+      padding: clamp(0.5rem, 1vw, 0.5rem);
+    }
+
+    .soft-robot-video-wrapper video {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      display: block;
+    }
+
     /* ============ CONTACT FORM (2-COLUMN) ============ */
     .contact-form {
       display: flex;
@@ -1250,31 +1477,45 @@
           <div class="horizontal-timeline" id="exp-timeline">
             <!-- Experience 1 -->
             <div class="timeline-card">
-              <div class="card-header">
-                <div class="card-logo">
-                  <i class="fas fa-graduation-cap"></i>
+              <div class="experience-card-header soft-robot-header">
+                <div class="card-header">
+                  <div class="card-logo">
+                    <i class="fas fa-graduation-cap"></i>
+                  </div>
+                  <div class="card-header-content">
+                    <h3 class="card-job-title">Design and Prototyping of Soft Robot Arm for Safe and Contact-Rich Human-Robot Collaboration</h3>
+                    <p class="card-company">Hochschule Schmalkalden</p>
+                  </div>
+                  <button class="card-popup-btn" data-modal="modal-exp-1" title="View Tasks">
+                    <i class="fas fa-external-link-alt"></i>
+                  </button>
                 </div>
-                <div class="card-header-content">
-                  <h3 class="card-job-title">Design and Prototyping of Soft Robot Arm for Safe and Contact-Rich Human-Robot Collaboration</h3>
-                  <p class="card-company">Hochschule Schmalkalden</p>
+              </div>
+              <div class="experience-body soft-robot-tasks">
+                <div class="card-location-date">
+                  <span class="card-location"><i class="fas fa-map-marker-alt" style="font-size: 0.9em;"></i> Schmalkalden, Germany</span>
+                  <span class="card-date">Feb 2025 — Now</span>
                 </div>
-                <button class="card-popup-btn" data-modal="modal-exp-1" title="View Tasks">
-                  <i class="fas fa-external-link-alt"></i>
-                </button>
-              </div>
-              <div class="card-location-date">
-                <span class="card-location"><i class="fas fa-map-marker-alt" style="font-size: 0.9em;"></i> Schmalkalden, Germany</span>
-                <span class="card-date">Feb 2025 — Now</span>
-              </div>
-              <div class="card-skills">
-                <div class="card-skills-title">Skills Used & Learnt</div>
-                <div class="card-skills-list">
-                  <span class="skill-tag">SolidWorks</span>
-                  <span class="skill-tag">3D Printing</span>
-                  <span class="skill-tag">Arduino Mega 2560</span>
-                  <span class="skill-tag">Sensor Integration</span>
-                  <span class="skill-tag">CAD Design</span>
-                  <span class="skill-tag">Industry 5.0</span>
+                <div class="card-skills">
+                  <div class="card-skills-title">Skills Used & Learnt</div>
+                  <div class="card-skills-list">
+                    <span class="skill-tag">SolidWorks</span>
+                    <span class="skill-tag">3D Printing</span>
+                    <span class="skill-tag">Arduino Mega 2560</span>
+                    <span class="skill-tag">Sensor Integration</span>
+                    <span class="skill-tag">CAD Design</span>
+                    <span class="skill-tag">Industry 5.0</span>
+                  </div>
+                </div>
+                <div class="soft-robot-actions">
+                  <button class="action-btn project-images" id="softRobotImagesBtn">
+                    <i class="fas fa-images"></i>
+                    <span>Project Images</span>
+                  </button>
+                  <a href="https://github.com/Eppasrikanth57/Design-and-Prototyping-of-Soft-Robot-Arm-for-Safe-and-Contact-Rich-Human-Robot-Collaboration" target="_blank" rel="noopener noreferrer" class="action-btn project-files">
+                    <i class="fas fa-github"></i>
+                    <span>Project Files</span>
+                  </a>
                 </div>
               </div>
               <div class="card-footer-logo">
@@ -1558,7 +1799,7 @@
   <div id="modal-exp-3" class="modal">
     <div class="modal-content">
       <div class="modal-header">
-        <h2 class="modal-title">Engineer - Design | Intern</h8>
+        <h2 class="modal-title">Engineer - Design | Intern</h2>
         <button class="modal-close" data-modal="modal-exp-3">×</button>
       </div>
       <div class="modal-body">
@@ -1626,6 +1867,26 @@
     </div>
   </div>
 
+  <!-- Soft Robot Image Gallery Modal -->
+  <div class="soft-robot-modal-backdrop" id="softRobotModal">
+    <div class="soft-robot-modal">
+      <button class="soft-robot-modal-close" id="softRobotModalClose" aria-label="Close project viewer">×</button>
+      <div class="soft-robot-modal-content">
+        <div class="soft-robot-image-viewer">
+          <button class="soft-robot-nav soft-robot-nav-left" id="softRobotPrev" aria-label="Previous image">&#10094;</button>
+          <img id="softRobotImage" src="files/soft-robot/Full_Assembly.png" alt="Soft robot project image">
+          <button class="soft-robot-nav soft-robot-nav-right" id="softRobotNext" aria-label="Next image">&#10095;</button>
+        </div>
+        <div class="soft-robot-video-wrapper">
+          <video id="softRobotVideo" controls preload="metadata">
+            <source src="files/soft-robot/Prototype 2 Linkedinpost.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <footer>
     <p>&copy; 2025 Srikanth Reddy Eppa. Built with creativity and code.</p>
   </footer>
@@ -1677,9 +1938,9 @@
       }
 
       window.addEventListener('wheel', (e) => {
-        // Check if any modal is open
         const openModal = document.querySelector('.modal.active');
-        if (openModal) {
+        const softRobotModalOpen = document.getElementById('softRobotModal').classList.contains('is-open');
+        if (openModal || softRobotModalOpen) {
           return;
         }
 
@@ -1716,7 +1977,6 @@
         });
       });
 
-      // Portfolio buttons in About section
       document.querySelectorAll('.portfolio-btn').forEach(btn => {
         btn.addEventListener('click', (e) => {
           e.preventDefault();
@@ -1765,6 +2025,72 @@
             document.body.classList.remove('modal-open');
           }
         });
+      });
+    })();
+  </script>
+
+  <script>
+    (function() {
+      const modal = document.getElementById('softRobotModal');
+      const openBtn = document.getElementById('softRobotImagesBtn');
+      const closeBtn = document.getElementById('softRobotModalClose');
+      const prevBtn = document.getElementById('softRobotPrev');
+      const nextBtn = document.getElementById('softRobotNext');
+      const imgEl = document.getElementById('softRobotImage');
+
+      if (!modal || !openBtn || !closeBtn || !prevBtn || !nextBtn || !imgEl) return;
+
+      const images = [
+        'files/soft-robot/Full_Assembly.png',
+        'files/soft-robot/Arm_Design.png',
+        'files/soft-robot/Individual_Parts.png'
+      ];
+      let index = 0;
+
+      function updateImage() {
+        imgEl.src = images[index];
+        const name = images[index].split('/').pop().replace(/_/g, ' ').replace(/\.(png|jpg|jpeg)$/i, '');
+        imgEl.alt = 'Soft robot project – ' + name;
+      }
+
+      function openModal() {
+        modal.classList.add('is-open');
+        document.body.classList.add('modal-open');
+        index = 0;
+        updateImage();
+      }
+
+      function closeModal() {
+        modal.classList.remove('is-open');
+        document.body.classList.remove('modal-open');
+      }
+
+      function showNext() {
+        index = (index + 1) % images.length;
+        updateImage();
+      }
+
+      function showPrev() {
+        index = (index - 1 + images.length) % images.length;
+        updateImage();
+      }
+
+      openBtn.addEventListener('click', openModal);
+      closeBtn.addEventListener('click', closeModal);
+      nextBtn.addEventListener('click', showNext);
+      prevBtn.addEventListener('click', showPrev);
+
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+          closeModal();
+        }
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (!modal.classList.contains('is-open')) return;
+        if (e.key === 'Escape') closeModal();
+        if (e.key === 'ArrowRight') showNext();
+        if (e.key === 'ArrowLeft') showPrev();
       });
     })();
   </script>

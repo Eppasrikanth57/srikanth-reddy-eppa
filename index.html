@@ -276,2279 +276,1885 @@
       align-items: center;
       gap: 0.5rem;
       cursor: pointer;
-      transition: all 0.3s ease;
+      transition: all 0.25s ease;
+    }
+
+    .portfolio-btn:hover {
+      background: #00d4ff;
+      color: #0a0e27;
+      box-shadow: 0 0 18px rgba(0, 212, 255, 0.7);
+      transform: translateY(-1px);
     }
 
     .portfolio-btn i {
       font-size: 0.9em;
     }
 
-    .portfolio-btn:hover {
-      background: rgba(0, 212, 255, 0.15);
-      transform: translateY(-1px);
-      box-shadow: 0 4px 20px rgba(0, 212, 255, 0.3);
+    .social-links {
+      display: flex;
+      gap: clamp(1rem, 2.5vw, 2rem);
+      margin-top: clamp(0.75rem, 1.5vw, 1.5rem);
+      flex-wrap: wrap;
+      flex-shrink: 0;
     }
 
-    .portfolio-btn.primary-btn {
-      background: linear-gradient(135deg, #00d4ff, #00a8ff);
+    .social-links a {
+      width: clamp(40px, 8vw, 56px);
+      height: clamp(40px, 8vw, 56px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid #00d4ff;
+      border-radius: 50%;
+      color: #00d4ff;
+      text-decoration: none;
+      font-size: clamp(16px, 3vw, 24px);
+      transition: all 0.3s ease;
+      flex-shrink: 0;
+    }
+
+    .social-links a:hover {
+      background: #00d4ff;
       color: #0a0e27;
-      border-color: transparent;
-      box-shadow: 0 4px 25px rgba(0, 212, 255, 0.4);
+      transform: scale(1.15);
+      box-shadow: 0 0 20px rgba(0, 212, 255, 0.7);
     }
 
-    .portfolio-btn.primary-btn:hover {
-      transform: translateY(-2px) scale(1.02);
-      box-shadow: 0 10px 40px rgba(0, 212, 255, 0.6);
-    }
-
-    .portfolio-btn.ghost-btn {
-      background: transparent;
-      border-style: dashed;
-      border-width: 1.5px;
-      border-color: rgba(0, 212, 255, 0.5);
-      color: #c0e7ff;
-    }
-
-    .highlight-pills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: clamp(0.4rem, 1vw, 0.8rem);
-      margin-top: clamp(1rem, 2vw, 1.5rem);
+    /* ============ HORIZONTAL TIMELINE (without journey line) ============ */
+    .timeline-wrapper {
+      width: 100%;
+      margin-bottom: clamp(1rem, 2vw, 1.5rem);
       flex-shrink: 0;
     }
 
-    .highlight-pill {
-      padding: 0.35rem 0.85rem;
-      border-radius: 999px;
-      background: rgba(0, 212, 255, 0.12);
-      border: 1px solid rgba(0, 212, 255, 0.4);
-      font-size: clamp(9px, 1.2vw, 12px);
-      font-weight: 500;
-      color: #c0e7ff;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      white-space: nowrap;
-    }
-
-    .highlight-pill i {
-      font-size: 0.8em;
-      color: #00d4ff;
-    }
-
-    .skills-section {
-      margin-top: clamp(1.25rem, 2.5vw, 1.75rem);
+    .horizontal-timeline {
+      display: flex;
+      gap: clamp(1.25rem, 2.5vw, 2rem);
+      overflow-x: auto;
+      overflow-y: hidden;
+      padding: clamp(1.5rem, 2.5vw, 2rem) 0 1rem 0;
+      scroll-behavior: smooth;
       flex-shrink: 0;
     }
 
-    .skills-title {
-      font-size: clamp(13px, 1.8vw, 15px);
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.2em;
-      color: rgba(255, 255, 255, 0.6);
-      margin-bottom: 0.85rem;
+    .horizontal-timeline::-webkit-scrollbar {
+      height: 8px;
     }
 
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-      gap: clamp(0.7rem, 1.6vw, 1.2rem);
+    .horizontal-timeline::-webkit-scrollbar-track {
+      background: rgba(0, 212, 255, 0.05);
+      border-radius: 4px;
+      margin: 0 10px;
     }
 
-    .skills-category {
-      background: linear-gradient(145deg, rgba(10, 14, 39, 0.95), rgba(26, 31, 58, 0.95));
-      border-radius: 16px;
-      padding: 0.9rem 1.1rem;
-      border: 1px solid rgba(0, 212, 255, 0.22);
-      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
-      position: relative;
-      overflow: hidden;
+    .horizontal-timeline::-webkit-scrollbar-thumb {
+      background: rgba(0, 212, 255, 0.4);
+      border-radius: 4px;
+      border: 2px solid rgba(0, 212, 255, 0.1);
     }
 
-    .skills-category::before {
-      content: '';
-      position: absolute;
-      inset: -80%;
-      background: radial-gradient(circle at top, rgba(0, 212, 255, 0.14), transparent 60%);
-      opacity: 0.7;
-      pointer-events: none;
+    .horizontal-timeline::-webkit-scrollbar-thumb:hover {
+      background: rgba(0, 212, 255, 0.6);
     }
 
-    .skills-category-title {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 0.6rem;
-      position: relative;
-      z-index: 1;
-    }
-
-    .skills-category-title span {
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: rgba(255, 255, 255, 0.7);
-      font-weight: 600;
-    }
-
-    .skills-category-title i {
-      color: #00d4ff;
-      font-size: 0.85rem;
-      opacity: 0.9;
-    }
-
-    .skills-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.45rem;
-      position: relative;
-      z-index: 1;
-    }
-
-    .skills-tag {
-      padding: 0.25rem 0.65rem;
-      border-radius: 999px;
-      font-size: 11px;
-      color: #a9d9ff;
-      background: rgba(0, 212, 255, 0.08);
-      border: 1px solid rgba(0, 212, 255, 0.35);
-      white-space: nowrap;
-    }
-
-    /* ============ EXPERIENCE SECTION ============ */
-    .experience-layout {
-      display: flex;
-      gap: clamp(1.75rem, 3vw, 2.5rem);
-      align-items: flex-start;
-      min-height: 0;
-      margin-right: 0.75rem;
-    }
-
-    .experience-left-column {
-      width: clamp(235px, 28vw, 320px);
-      flex-shrink: 0;
+    .timeline-card {
+      flex: 0 0 clamp(300px, 40vw, 420px);
+      padding: clamp(1.25rem, 2.5vw, 1.75rem);
+      background: rgba(0, 212, 255, 0.04);
+      border: 1px solid rgba(0, 212, 255, 0.15);
+      border-radius: 10px;
+      transition: all 0.3s ease;
       display: flex;
       flex-direction: column;
-      gap: 1.1rem;
+      gap: clamp(0.75rem, 1.5vw, 1.25rem);
+      position: relative;
+      padding-bottom: clamp(85px, 18vw, 120px);
     }
 
-    .experience-right-column {
+    .timeline-card:hover {
+      background: rgba(0, 212, 255, 0.08);
+      border-color: rgba(0, 212, 255, 0.3);
+      box-shadow: 0 10px 30px rgba(0, 212, 255, 0.15);
+      transform: translateY(-5px);
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: clamp(0.75rem, 1.5vw, 1.25rem);
+      flex-wrap: wrap;
+    }
+
+    .card-logo {
+      width: clamp(35px, 5vw, 50px);
+      height: clamp(35px, 5vw, 50px);
+      border-radius: 8px;
+      background: rgba(0, 212, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      border: 1px solid rgba(0, 212, 255, 0.2);
+      font-size: clamp(14px, 2.5vw, 20px);
+      color: #00d4ff;
+    }
+
+    .card-header-content {
       flex: 1;
       min-width: 0;
+    }
+
+    .card-job-title {
+      font-size: clamp(13px, 2vw, 17px);
+      font-weight: 700;
+      color: #00d4ff;
+      margin: 0 0 0.25rem 0;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      line-height: 1.3;
+    }
+
+    .card-company {
+      font-size: clamp(11px, 1.6vw, 14px);
+      color: #d0d0d0;
+      margin: 0;
+    }
+
+    .card-popup-btn {
+      width: clamp(32px, 4vw, 42px);
+      height: clamp(32px, 4vw, 42px);
+      border: 2px solid rgba(0, 212, 255, 0.5);
+      background: rgba(0, 212, 255, 0.05);
+      color: #00d4ff;
+      border-radius: 6px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: clamp(14px, 2vw, 18px);
+      transition: all 0.3s ease;
+      flex-shrink: 0;
+      padding: 0;
+    }
+
+    .card-popup-btn:hover {
+      background: rgba(0, 212, 255, 0.15);
+      border-color: #00d4ff;
+      box-shadow: 0 0 15px rgba(0, 212, 255, 0.4);
+      transform: scale(1.1);
+    }
+
+    .card-location-date {
       display: flex;
       flex-direction: column;
+      gap: 0.5rem;
+      font-size: clamp(10px, 1.4vw, 12px);
+      color: #999;
+    }
+
+    .card-location {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .card-date {
+      font-weight: 500;
+      color: #00d4ff;
+    }
+
+    .card-skills {
+      padding: clamp(0.75rem, 1.5vw, 1.25rem);
+      background: rgba(0, 50, 68, 0.3);
+      border-radius: 6px;
+      border-left: 3px solid #00d4ff;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
       min-height: 0;
     }
 
-    .experience-card {
-      background: radial-gradient(circle at top left, rgba(0, 212, 255, 0.13), rgba(10, 14, 39, 0.98));
-      border-radius: 22px;
-      padding: 1.2rem 1.1rem 1.15rem;
-      border: 1px solid rgba(0, 212, 255, 0.28);
-      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.65);
-      display: flex;
-      flex-direction: column;
-      gap: 0.55rem;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .experience-card-header {
-      display: flex;
-      flex-direction: column;
-      gap: 0.18rem;
-      position: relative;
-      z-index: 1;
-    }
-
-    .experience-card-title {
-      font-size: 15px;
-      font-weight: 700;
+    .card-skills-title {
+      font-size: clamp(10px, 1.3vw, 12px);
       color: #00d4ff;
-      letter-spacing: 0.03em;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin: 0;
     }
 
-    .experience-role {
-      font-size: 13px;
-      color: #c0e7ff;
-      opacity: 0.88;
-    }
-
-    .experience-meta {
+    .card-skills-list {
       display: flex;
       flex-wrap: wrap;
       gap: 0.5rem;
-      font-size: 11px;
-      color: #9fb5cc;
-      opacity: 0.9;
-      margin-top: 0.15rem;
+      margin: 0;
     }
 
-    .meta-divider {
-      opacity: 0.4;
-    }
-
-    .experience-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.35rem;
-      margin-top: 0.1rem;
-      position: relative;
-      z-index: 1;
-    }
-
-    .experience-tag {
-      padding: 0.22rem 0.6rem;
-      border-radius: 999px;
-      border: 1px solid rgba(0, 212, 255, 0.38);
-      background: rgba(4, 39, 70, 0.8);
-      font-size: 10px;
-      color: #9bd5ff;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      font-weight: 600;
-    }
-
-    .experience-body {
-      margin-top: 0.85rem;
-      position: relative;
-    }
-
-    .experience-description {
-      font-size: 12px;
-      color: #c4d5e6;
-      line-height: 1.8;
-      margin-bottom: 0.7rem;
-      position: relative;
-      z-index: 1;
-    }
-
-    .experience-footer {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-top: 0.5rem;
-      position: relative;
-      z-index: 1;
-      gap: 0.5rem;
-    }
-
-    .experience-footer-left {
-      display: flex;
-      gap: 0.4rem;
-      align-items: center;
-    }
-
-    .experience-id-pill {
-      padding: 0.15rem 0.5rem;
-      border-radius: 999px;
-      background: rgba(12, 74, 110, 0.7);
-      border: 1px solid rgba(0, 212, 255, 0.35);
-      font-size: 10px;
-      color: #e0f2fe;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      font-weight: 600;
-    }
-
-    .experience-btn {
-      padding: 0.6rem 0.8rem;
-      border-radius: 999px;
-      background: rgba(9, 24, 44, 0.85);
-      border: 1px solid rgba(0, 212, 255, 0.35);
-      color: #bfdbfe;
-      font-size: 11px;
+    .skill-tag {
       display: inline-flex;
       align-items: center;
-      gap: 0.4rem;
-      cursor: pointer;
-      transition: all 0.25s ease;
+      justify-content: center;
+      padding: clamp(0.35rem, 0.7vw, 0.5rem) clamp(0.5rem, 1vw, 0.75rem);
+      background: rgba(0, 212, 255, 0.12);
+      border: 1px solid rgba(0, 212, 255, 0.25);
+      border-radius: 4px;
+      font-size: clamp(9px, 1.2vw, 11px);
+      color: #00d4ff;
+      font-weight: 500;
       white-space: nowrap;
+      transition: all 0.2s ease;
     }
 
-    .experience-btn i {
-      font-size: 0.8rem;
-      color: #38bdf8;
+    .skill-tag:hover {
+      background: rgba(0, 212, 255, 0.2);
+      border-color: rgba(0, 212, 255, 0.4);
+      box-shadow: 0 2px 8px rgba(0, 212, 255, 0.15);
     }
 
-    .experience-btn:hover {
-      background: rgba(12, 74, 110, 0.9);
-      transform: translateY(-1px);
-      box-shadow: 0 8px 22px rgba(56, 189, 248, 0.45);
-    }
-
-    .experience-card .experience-btn.primary-action {
-      background: linear-gradient(135deg, #00d4ff, #38bdf8);
-      color: #0b1120;
-      border-color: transparent;
-      box-shadow: 0 10px 30px rgba(56, 189, 248, 0.7);
-    }
-
-    .experience-card .experience-btn.primary-action i {
-      color: #0b1120;
-    }
-
-    .experience-card .experience-btn.secondary-action {
-      background: rgba(15, 23, 42, 0.95);
-      border-style: dashed;
-      border-color: rgba(148, 163, 184, 0.7);
-      color: #e5e7eb;
-    }
-
-    .experience-card .experience-btn.secondary-action i {
-      color: #9ca3af;
-    }
-
-    .experience-card .experience-btn.secondary-action:hover {
-      background: rgba(30, 64, 175, 0.9);
-      border-style: solid;
-      border-color: rgba(59, 130, 246, 0.9);
-      color: #eff6ff;
-      box-shadow: 0 10px 30px rgba(37, 99, 235, 0.7);
-    }
-
-    .experience-scroll-msg {
-      margin-top: 1rem;
-      font-size: 11px;
-      color: rgba(148, 163, 184, 0.9);
+    .card-footer-logo {
+      position: absolute;
+      bottom: clamp(0.5rem, 1vw, 0.75rem);
+      right: clamp(0.5rem, 1vw, 0.75rem);
+      width: clamp(70px, 15vw, 110px);
+      height: clamp(70px, 15vw, 110px);
+      border-radius: 8px;
+      background: rgba(0, 212, 255, 0.1);
+      border: 1.5px solid rgba(0, 212, 255, 0.3);
       display: flex;
       align-items: center;
-      gap: 0.5rem;
+      justify-content: center;
+      overflow: hidden;
+      padding: clamp(0.5rem, 1vw, 0.75rem);
+      box-shadow: 0 4px 12px rgba(0, 212, 255, 0.1);
     }
 
-    .experience-scroll-msg i {
-      color: #38bdf8;
+    .card-footer-logo img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
     }
 
-    /* Special image treatments for soft robot experience */
-    .experience-card-header.soft-robot-header {
-      background-image: url('files/soft-robot/Soft_Robot_HighRes.png');
-      background-size: cover;
-      background-position: center;
-      border-radius: 18px;
-      padding: 1rem;
-      margin: -1.2rem -1.1rem 0.9rem;
-      box-shadow: inset 0 -40px 60px rgba(15, 23, 42, 0.9);
+    /* ============ DUAL JOB TIMELINE ============ */
+    .dual-job-timeline {
+      display: flex;
+      flex-direction: column;
+      gap: clamp(0.75rem, 1.5vw, 1.25rem);
+      position: relative;
+      padding-left: clamp(1.5rem, 2.5vw, 2rem);
+    }
+
+    .dual-job-timeline::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(180deg, #00a8c4, #00d4ff);
+      border-radius: 1px;
+    }
+
+    .dual-job-item {
+      position: relative;
+      padding: clamp(0.75rem, 1.5vw, 1rem);
+      background: rgba(0, 212, 255, 0.03);
+      border-left: 3px solid #00d4ff;
+      border-radius: 6px;
+    }
+
+    .dual-job-item::before {
+      content: '';
+      position: absolute;
+      left: clamp(-0.9rem, -1.8vw, -1.1rem);
+      top: clamp(0.5rem, 1vw, 0.75rem);
+      width: clamp(8px, 1.5vw, 10px);
+      height: clamp(8px, 1.5vw, 10px);
+      background: #00d4ff;
+      border: 2px solid #0a0e27;
+      border-radius: 50%;
+    }
+
+    .dual-job-title {
+      font-size: clamp(12px, 1.8vw, 15px);
+      font-weight: 600;
+      color: #00d4ff;
+      margin: 0 0 0.25rem 0;
+    }
+
+    .dual-job-date {
+      font-size: clamp(10px, 1.3vw, 11px);
+      color: #999;
+      margin: 0;
+    }
+
+    /* ============ MODAL POPUP ============ */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.8);
+      animation: fadeIn 0.3s ease;
+    }
+
+    .modal.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .modal-content {
+      background: linear-gradient(135deg, rgba(10, 14, 39, 0.98), rgba(26, 31, 58, 0.98));
+      margin: auto;
+      padding: clamp(1.5rem, 3vw, 2.5rem);
+      border: 1px solid rgba(0, 212, 255, 0.3);
+      border-radius: 12px;
+      width: 90%;
+      max-width: 600px;
+      max-height: 80vh;
+      overflow-y: auto;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      animation: slideIn 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    @keyframes slideIn {
+      from {
+        transform: translate(-50%, -60%);
+        opacity: 0;
+      }
+      to {
+        transform: translate(-50%, -50%);
+        opacity: 1;
+      }
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: clamp(1.25rem, 2.5vw, 2rem);
+      border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+      padding-bottom: clamp(0.75rem, 1.5vw, 1.25rem);
+      flex-shrink: 0;
+    }
+
+    .modal-title {
+      font-size: clamp(18px, 3vw, 24px);
+      color: #00d4ff;
+      font-weight: 700;
+      margin: 0;
+    }
+
+    .modal-close {
+      background: none;
+      border: 2px solid rgba(0, 212, 255, 0.5);
+      color: #00d4ff;
+      font-size: clamp(18px, 3vw, 24px);
+      cursor: pointer;
+      width: clamp(32px, 5vw, 40px);
+      height: clamp(32px, 5vw, 40px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+      flex-shrink: 0;
+    }
+
+    .modal-close:hover {
+      background: rgba(0, 212, 255, 0.15);
+      border-color: #00d4ff;
+      box-shadow: 0 0 15px rgba(0, 212, 255, 0.4);
+    }
+
+    .modal-body {
+      color: #d0d0d0;
+      flex: 1;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .modal-body h3 {
+      font-size: clamp(14px, 2vw, 16px);
+      color: #00d4ff;
+      margin: clamp(1rem, 2vw, 1.5rem) 0 clamp(0.5rem, 1vw, 0.75rem) 0;
+      font-weight: 700;
+    }
+
+    .modal-body ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 clamp(1rem, 2vw, 1.5rem) 0;
+    }
+
+    .modal-body li {
+      font-size: clamp(12px, 1.6vw, 14px);
+      color: #d0d0d0;
+      margin: 0 0 clamp(0.5rem, 1vw, 0.75rem) 0;
+      padding-left: 1.5rem;
+      position: relative;
+      line-height: 1.6;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
+
+    .modal-body li:before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: #00d4ff;
+      font-weight: bold;
+    }
+
+    .modal-footer-logo {
+      margin-top: clamp(1.5rem, 3vw, 2.5rem);
+      padding-top: clamp(1rem, 2vw, 1.5rem);
+      border-top: 1px solid rgba(0, 212, 255, 0.2);
+      display: flex;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .modal-footer-logo img {
+      width: clamp(120px, 25vw, 200px);
+      height: clamp(120px, 25vw, 200px);
+      object-fit: contain;
+      border-radius: 8px;
+      background: rgba(0, 212, 255, 0.1);
+      border: 2px solid rgba(0, 212, 255, 0.3);
+      padding: clamp(0.75rem, 1.5vw, 1.25rem);
+      box-shadow: 0 4px 15px rgba(0, 212, 255, 0.15);
+    }
+
+    /* ============ SOFT ROBOT EXPERIENCE ENHANCEMENTS ============ */
+    .experience-card-header {
       position: relative;
       overflow: hidden;
+      padding: clamp(1.25rem, 2vw, 1.75rem);
+      border-radius: 10px 10px 0 0;
+      margin: -clamp(1.25rem, 2.5vw, 1.75rem) -clamp(1.25rem, 2.5vw, 1.75rem) clamp(1rem, 2vw, 1.5rem) -clamp(1.25rem, 2.5vw, 1.75rem);
     }
 
-    .experience-card-header.soft-robot-header::before {
+    .experience-card-header::before {
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(to bottom, rgba(15, 23, 42, 0.05), rgba(15, 23, 42, 0.9));
-      z-index: 0;
+      background: rgba(0, 0, 0, 0.5);
+      pointer-events: none;
+      z-index: 1;
     }
 
-    .experience-card-header.soft-robot-header > * {
+    .experience-card-header > * {
       position: relative;
-      z-index: 1;
+      z-index: 2;
+    }
+
+    .experience-card-header.soft-robot-header {
+      background-image: url('files/soft-robot/Soft_Robot_Banner.jpg');
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-color: #020617;
+    }
+
+    .experience-body {
+      position: relative;
+      padding: clamp(1rem, 2vw, 1.5rem);
+      border-radius: 0 0 10px 10px;
+    }
+
+    .experience-body::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.55);
+      pointer-events: none;
+      border-radius: 0 0 10px 10px;
+    }
+
+    .experience-body > * {
+      position: relative;
+      z-index: 2;
     }
 
     .experience-body.soft-robot-tasks {
       background-image: url('files/soft-robot/Full_Assembly.png');
       background-size: cover;
       background-position: center;
-      border-radius: 18px;
-      padding: 1.05rem 1rem 0.9rem;
-      margin: 0 -0.1rem;
-      position: relative;
-      overflow: hidden;
+      background-attachment: fixed;
     }
 
-    .experience-body.soft-robot-tasks::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to bottom, rgba(15, 23, 42, 0.45), rgba(15, 23, 42, 0.96));
-      z-index: 0;
+    .soft-robot-actions {
+      display: flex;
+      gap: clamp(0.75rem, 1.5vw, 1.25rem);
+      flex-wrap: wrap;
+      margin-top: clamp(1rem, 2vw, 1.5rem);
     }
 
-    .experience-body.soft-robot-tasks > * {
-      position: relative;
-      z-index: 1;
-    }
-
-    .experience-card.soft-robot-card::before {
-      content: '';
-      position: absolute;
-      inset: -40%;
-      background: radial-gradient(circle at top, rgba(0, 212, 255, 0.3), transparent 60%);
-      opacity: 0.35;
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    .experience-card.soft-robot-card > * {
-      position: relative;
-      z-index: 1;
-    }
-
-    .experience-body .pill {
-      display: inline-flex;
-      align-items: center;
-      padding: 0.25rem 0.6rem;
-      border-radius: 999px;
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      border: 1px solid rgba(148, 163, 184, 0.7);
-      color: #e5e7eb;
-      background: rgba(15, 23, 42, 0.85);
-      gap: 0.35rem;
-      margin-bottom: 0.55rem;
-    }
-
-    .experience-body .pill i {
-      color: #38bdf8;
-      font-size: 0.75rem;
-    }
-
-    .experience-skills-heading {
-      font-size: 11px;
-      color: #e5e7eb;
+    .soft-robot-actions .action-btn {
+      padding: clamp(0.6rem, 1.2vw, 0.85rem) clamp(1rem, 2vw, 1.5rem);
+      border-radius: 6px;
+      font-size: clamp(11px, 1.5vw, 13px);
       font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      margin-bottom: 0.5rem;
-      opacity: 0.85;
-    }
-
-    .experience-skills-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.35rem;
-      margin-bottom: 0.6rem;
-    }
-
-    .experience-skills-list span {
-      font-size: 10px;
-      padding: 0.25rem 0.6rem;
-      border-radius: 999px;
-      background: rgba(15, 23, 42, 0.85);
-      border: 1px solid rgba(148, 163, 184, 0.7);
-      color: #cbd5f5;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-    }
-
-    /* ============ EXPERIENCE CAROUSEL ============ */
-    .experience-carousel {
-      flex: 1;
-      min-height: 0;
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-    }
-
-    .experience-carousel-inner {
-      position: relative;
-      flex: 1;
-      min-height: 0;
-    }
-
-    .experience-item {
-      position: absolute;
-      inset: 0;
-      opacity: 0;
-      transform: translateY(12px);
-      transition: opacity 0.4s ease, transform 0.4s ease;
-      pointer-events: none;
-      display: flex;
-      flex-direction: column;
-      gap: 0.9rem;
-    }
-
-    .experience-item.active {
-      opacity: 1;
-      transform: translateY(0);
-      pointer-events: auto;
-    }
-
-    .experience-main-card {
-      background: radial-gradient(circle at top left, rgba(0, 212, 255, 0.1), rgba(10, 14, 39, 0.98));
-      border-radius: 22px;
-      padding: 1.3rem 1.2rem 1.2rem;
-      border: 1px solid rgba(0, 212, 255, 0.25);
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
-      display: flex;
-      flex-direction: column;
-      gap: 0.95rem;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .experience-main-header {
-      display: flex;
-      justify-content: space-between;
-      gap: 0.75rem;
-      align-items: flex-start;
-    }
-
-    .experience-main-title-box {
-      display: flex;
-      flex-direction: column;
-      gap: 0.1rem;
-    }
-
-    .experience-main-title {
-      font-size: 18px;
-      font-weight: 700;
-      color: #e0f2fe;
-      letter-spacing: 0.02em;
-    }
-
-    .experience-main-subtitle {
-      font-size: 13px;
-      color: #9fb5cc;
-    }
-
-    .experience-meta-badges {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 0.35rem;
-    }
-
-    .experience-location-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      padding: 0.25rem 0.6rem;
-      border-radius: 999px;
-      background: rgba(15, 23, 42, 0.95);
-      border: 1px solid rgba(148, 163, 184, 0.7);
-      font-size: 11px;
-      color: #cbd5f5;
-    }
-
-    .experience-location-pill i {
-      font-size: 0.8rem;
-      color: #38bdf8;
-    }
-
-    .experience-employment-type {
-      font-size: 11px;
-      color: #9ca3af;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-    }
-
-    .experience-main-details {
-      display: grid;
-      grid-template-columns: minmax(0, 1.8fr) minmax(0, 1.4fr);
-      gap: 1.1rem;
-      align-items: flex-start;
-    }
-
-    .experience-description-block {
-      display: flex;
-      flex-direction: column;
-      gap: 0.65rem;
-    }
-
-    .experience-description-pill-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.35rem;
-    }
-
-    .experience-description-pill {
-      padding: 0.25rem 0.6rem;
-      border-radius: 999px;
-      border: 1px solid rgba(56, 189, 248, 0.8);
-      background: rgba(15, 23, 42, 0.92);
-      font-size: 10px;
-      color: #e0f2fe;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-    }
-
-    .experience-description-pill i {
-      font-size: 0.75rem;
-      color: #38bdf8;
-    }
-
-    .experience-description-main {
-      font-size: 13px;
-      color: #d1e1f5;
-      line-height: 1.9;
-    }
-
-    .experience-main-meta {
-      display: flex;
-      flex-direction: column;
-      gap: 0.6rem;
-      align-items: flex-end;
-    }
-
-    .experience-main-dates {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 0.2rem;
-    }
-
-    .experience-main-dates .primary-date {
-      font-size: 13px;
-      font-weight: 600;
-      color: #e0f2fe;
-    }
-
-    .experience-main-dates .secondary-date {
-      font-size: 11px;
-      color: #94a3b8;
-    }
-
-    .experience-main-tech {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-      gap: 0.35rem;
-    }
-
-    .experience-main-tech span {
-      padding: 0.25rem 0.6rem;
-      border-radius: 999px;
-      background: rgba(15, 23, 42, 0.92);
-      border: 1px solid rgba(148, 163, 184, 0.7);
-      font-size: 10px;
-      color: #cbd5f5;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-    }
-
-    .experience-main-actions {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-top: 0.35rem;
-      gap: 0.75rem;
-    }
-
-    .experience-main-actions-left {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.45rem;
-      align-items: center;
-      font-size: 11px;
-      color: #9ca3af;
-    }
-
-    .experience-main-stat-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      padding: 0.25rem 0.6rem;
-      border-radius: 999px;
-      background: rgba(15, 23, 42, 0.9);
-      border: 1px solid rgba(55, 65, 81, 0.8);
-      color: #e5e7eb;
-    }
-
-    .experience-main-stat-pill i {
-      font-size: 0.75rem;
-      color: #38bdf8;
-    }
-
-    .experience-main-actions-right {
-      display: flex;
-      gap: 0.45rem;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-    }
-
-    .experience-main-btn {
-      padding: 0.55rem 0.75rem;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.7);
-      background: rgba(15, 23, 42, 0.95);
-      color: #e5e7eb;
-      font-size: 11px;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
       cursor: pointer;
-      transition: all 0.25s ease;
-      white-space: nowrap;
-    }
-
-    .experience-main-btn i {
-      font-size: 0.8rem;
-      color: #38bdf8;
-    }
-
-    .experience-main-btn:hover {
-      background: rgba(30, 64, 175, 0.9);
-      border-color: rgba(59, 130, 246, 0.95);
-      color: #eff6ff;
-      transform: translateY(-1px);
-      box-shadow: 0 8px 22px rgba(59, 130, 246, 0.65);
-    }
-
-    .experience-main-btn.primary-btn {
-      background: linear-gradient(135deg, #00d4ff, #38bdf8);
-      border-color: transparent;
-      color: #020617;
-      box-shadow: 0 12px 30px rgba(56, 189, 248, 0.85);
-    }
-
-    .experience-main-btn.primary-btn i {
-      color: #020617;
-    }
-
-    .experience-badge-strip {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 0.35rem;
-      padding: 0.6rem 0.85rem;
-      border-radius: 999px;
-      background: radial-gradient(circle at left, rgba(0, 212, 255, 0.25), rgba(15, 23, 42, 0.98));
-      border: 1px solid rgba(0, 212, 255, 0.35);
-      font-size: 10px;
-      color: #e0f2fe;
-      margin-top: 0.25rem;
-      overflow: hidden;
-    }
-
-    .experience-badge-strip-icon {
-      padding: 0.3rem 0.55rem;
-      border-radius: 999px;
-      background: rgba(15, 23, 42, 0.95);
-      border: 1px solid rgba(56, 189, 248, 0.8);
+      border: none;
+      text-decoration: none;
       display: inline-flex;
       align-items: center;
-      gap: 0.35rem;
+      justify-content: center;
+      gap: 0.5rem;
+      transition: all 0.3s ease;
+      position: relative;
+      z-index: 3;
     }
 
-    .experience-badge-strip-icon i {
-      font-size: 0.8rem;
-      color: #38bdf8;
+    .soft-robot-actions .action-btn.project-images {
+      background: linear-gradient(135deg, #00d4ff, #00ffa3);
+      color: #081028;
+      box-shadow: 0 8px 24px rgba(0, 212, 255, 0.45);
     }
 
-    .experience-badge-strip-divider {
-      width: 1px;
-      height: 20px;
-      background: linear-gradient(to bottom, transparent, rgba(148, 163, 184, 0.9), transparent);
+    .soft-robot-actions .action-btn.project-images:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(0, 212, 255, 0.6);
     }
 
-    .experience-badge-strip-tag {
-      padding: 0.2rem 0.5rem;
-      border-radius: 999px;
-      background: rgba(15, 23, 42, 0.98);
-      border: 1px solid rgba(55, 65, 81, 0.9);
-      color: #e5e7eb;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
+    .soft-robot-actions .action-btn.project-files {
+      background: transparent;
+      color: #00d4ff;
+      border: 1.5px solid rgba(0, 212, 255, 0.6);
     }
 
-    /* Experience cards theme dots */
-    .experience-theme-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 999px;
-      background: radial-gradient(circle at center, #22d3ee, #0f172a);
-      box-shadow: 0 0 15px rgba(34, 211, 238, 0.85);
+    .soft-robot-actions .action-btn.project-files:hover {
+      background: rgba(0, 212, 255, 0.1);
+      border-color: #00d4ff;
+      box-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
     }
 
-    /* Experience timeline label */
-    .experience-timeline-label {
-      font-size: 11px;
-      color: #94a3b8;
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-      margin-bottom: 0.35rem;
-    }
-
-    .experience-timeline-label i {
-      color: #38bdf8;
-      font-size: 0.85rem;
-    }
-
-    .experience-timeline-label span:nth-child(2) {
-      font-weight: 500;
-      color: #e5e7eb;
-    }
-
-    .experience-timeline-label span:last-child {
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: #9ca3af;
-    }
-
-    .experience-navigation-hint {
-      margin-top: 0.2rem;
-      font-size: 11px;
-      color: #9ca3af;
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-    }
-
-    .experience-navigation-hint i {
-      color: #38bdf8;
-    }
-
-    /* ============ EXPERIENCE MODALS & TABS ============ */
-    .modal-backdrop {
+    /* ============ SOFT ROBOT MODAL ============ */
+    .soft-robot-modal-backdrop {
       position: fixed;
       inset: 0;
-      background: rgba(15, 23, 42, 0.85);
-      backdrop-filter: blur(12px);
-      display: flex;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(6px);
+      display: none;
+      align-items: center;
       justify-content: center;
-      align-items: center;
-      z-index: 200;
-      opacity: 0;
-      visibility: hidden;
-      transition: opacity 0.3s ease, visibility 0.3s ease;
+      z-index: 2000;
+      animation: fadeIn 0.3s ease;
     }
 
-    .modal-backdrop.active {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    .experience-modal {
-      width: min(960px, 94vw);
-      max-height: min(600px, 90vh);
-      border-radius: 20px;
-      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.45), rgba(15, 23, 42, 0.98));
-      box-shadow: 0 24px 80px rgba(15, 23, 42, 0.95);
-      border: 1px solid rgba(0, 212, 255, 0.6);
+    .soft-robot-modal-backdrop.is-open {
       display: flex;
-      flex-direction: column;
-      overflow: hidden;
-      transform: translateY(12px);
-      opacity: 0;
-      transition: opacity 0.35s ease, transform 0.35s ease;
+    }
+
+    .soft-robot-modal {
+      width: min(960px, 95vw);
+      max-height: 90vh;
+      background: #050816;
+      border-radius: 16px;
+      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.8);
+      border: 1px solid rgba(0, 212, 255, 0.25);
+      padding: clamp(1.25rem, 2vw, 1.5rem);
       position: relative;
-    }
-
-    .modal-backdrop.active .experience-modal {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .experience-modal-header {
-      padding: 1rem 1.4rem 0.9rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 0.85rem;
-      border-bottom: 1px solid rgba(148, 163, 184, 0.6);
-      background: linear-gradient(135deg, rgba(15, 23, 42, 0.97), rgba(15, 23, 42, 0.75));
-      position: relative;
-      z-index: 1;
-    }
-
-    .experience-modal-title-wrapper {
       display: flex;
       flex-direction: column;
-      gap: 0.1rem;
+      gap: clamp(0.75rem, 1.5vw, 1rem);
+      overflow-y: auto;
+      animation: slideIn 0.3s ease;
     }
 
-    .experience-modal-title {
-      font-size: 17px;
-      font-weight: 700;
-      color: #e0f2fe;
-      letter-spacing: 0.02em;
-    }
-
-    .experience-modal-subtitle {
-      font-size: 13px;
-      color: #9fb5cc;
-    }
-
-    .experience-modal-pills-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-      margin-top: 0.3rem;
-    }
-
-    .experience-modal-pill {
-      padding: 0.25rem 0.6rem;
-      border-radius: 999px;
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      border: 1px solid rgba(148, 163, 184, 0.7);
-      color: #e5e7eb;
-      background: rgba(15, 23, 42, 0.9);
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-    }
-
-    .experience-modal-pill i {
-      font-size: 0.75rem;
-      color: #38bdf8;
-    }
-
-    .experience-modal-meta {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 0.4rem;
-      font-size: 11px;
-      color: #9ca3af;
-    }
-
-    .experience-modal-meta strong {
-      color: #e5e7eb;
-    }
-
-    .experience-modal-meta-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      padding: 0.25rem 0.6rem;
-      border-radius: 999px;
-      background: rgba(15, 23, 42, 0.95);
-      border: 1px solid rgba(148, 163, 184, 0.7);
-      color: #cbd5f5;
-    }
-
-    .experience-modal-meta-pill i {
-      font-size: 0.8rem;
-      color: #38bdf8;
-    }
-
-    .experience-modal-close {
+    .soft-robot-modal-close {
       position: absolute;
-      top: 0.9rem;
-      right: 1.1rem;
-      width: 28px;
-      height: 28px;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.7);
-      background: rgba(15, 23, 42, 0.92);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #e5e7eb;
-      cursor: pointer;
-      transition: all 0.25s ease;
-      z-index: 2;
-    }
-
-    .experience-modal-close i {
-      font-size: 0.9rem;
-    }
-
-    .experience-modal-close:hover {
-      background: rgba(220, 38, 38, 0.92);
-      border-color: rgba(248, 113, 113, 0.95);
-      color: #fef2f2;
-      transform: translateY(-1px);
-      box-shadow: 0 5px 18px rgba(248, 113, 113, 0.7);
-    }
-
-    .experience-modal-body {
-      display: flex;
-      flex: 1;
-      min-height: 0;
-      overflow: hidden;
-      background: radial-gradient(circle at bottom right, rgba(56, 189, 248, 0.3), rgba(15, 23, 42, 0.98));
-    }
-
-    .experience-modal-tabs {
-      width: 220px;
-      flex-shrink: 0;
-      border-right: 1px solid rgba(148, 163, 184, 0.55);
-      background: linear-gradient(180deg, rgba(15, 23, 42, 0.98), rgba(15, 23, 42, 0.9));
-      padding: 0.9rem 0.85rem 0.9rem 1.05rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.65rem;
-    }
-
-    .experience-modal-tab-label {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: #9ca3af;
-      margin-bottom: 0.25rem;
-    }
-
-    .experience-modal-tab {
-      padding: 0.55rem 0.75rem;
-      border-radius: 12px;
-      border: 1px solid transparent;
+      top: clamp(0.5rem, 1vw, 0.75rem);
+      right: clamp(0.75rem, 1.5vw, 1rem);
+      border: none;
       background: transparent;
-      color: #e5e7eb;
-      font-size: 11px;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
+      color: #9ca3af;
+      font-size: clamp(1.5rem, 3vw, 2rem);
       cursor: pointer;
-      transition: all 0.25s ease;
-      text-align: left;
+      line-height: 1;
+      transition: color 0.3s ease;
+      padding: 0;
+      width: auto;
+      height: auto;
     }
 
-    .experience-modal-tab i {
-      font-size: 0.85rem;
-      color: #9ca3af;
-      flex-shrink: 0;
-    }
-
-    .experience-modal-tab span {
-      display: block;
-    }
-
-    .experience-modal-tab strong {
-      display: block;
-      font-size: 11px;
-      margin-bottom: 0.1rem;
-    }
-
-    .experience-modal-tab small {
-      font-size: 10px;
-      color: #9ca3af;
-    }
-
-    .experience-modal-tab:hover {
-      background: rgba(15, 23, 42, 0.95);
-      border-color: rgba(148, 163, 184, 0.7);
-      transform: translateY(-1px);
-    }
-
-    .experience-modal-tab.active {
-      background: radial-gradient(circle at left, rgba(56, 189, 248, 0.5), rgba(15, 23, 42, 0.98));
-      border-color: rgba(56, 189, 248, 0.95);
-      box-shadow: 0 10px 30px rgba(56, 189, 248, 0.85);
-    }
-
-    .experience-modal-tab.active i {
-      color: #e0f2fe;
-    }
-
-    .experience-modal-tab.active strong {
+    .soft-robot-modal-close:hover {
       color: #f9fafb;
     }
 
-    .experience-modal-tab.active small {
-      color: rgba(226, 232, 240, 0.9);
-    }
-
-    .experience-modal-content-wrapper {
-      flex: 1;
-      min-width: 0;
-      min-height: 0;
-      padding: 0.9rem 1rem 0.9rem 0.9rem;
+    .soft-robot-modal-content {
       display: flex;
       flex-direction: column;
+      gap: clamp(0.75rem, 1.5vw, 1.15rem);
+      margin-top: clamp(0.75rem, 1.5vw, 1rem);
     }
 
-    .experience-modal-content-inner {
-      flex: 1;
-      min-height: 0;
-      border-radius: 16px;
-      border: 1px solid rgba(148, 163, 184, 0.7);
-      background: radial-gradient(circle at top left, rgba(15, 23, 42, 0.98), rgba(15, 23, 42, 0.96));
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
+    .soft-robot-image-viewer {
       position: relative;
-    }
-
-    .experience-modal-content-header {
-      padding: 0.7rem 0.85rem 0.5rem;
-      border-bottom: 1px solid rgba(51, 65, 85, 0.85);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .experience-modal-content-title {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: #9ca3af;
-      display: flex;
-      align-items: center;
-      gap: 0.45rem;
-    }
-
-    .experience-modal-content-title i {
-      font-size: 0.8rem;
-      color: #38bdf8;
-    }
-
-    .experience-modal-content-meta {
-      font-size: 10px;
-      color: #9ca3af;
-    }
-
-    .experience-modal-content-body {
-      flex: 1;
-      min-height: 0;
-      overflow-y: auto;
-      padding: 0.8rem 0.9rem 0.9rem;
-      font-size: 13px;
-      color: #e5e7eb;
-    }
-
-    .experience-modal-content-body::-webkit-scrollbar {
-      width: 6px;
-    }
-
-    .experience-modal-content-body::-webkit-scrollbar-track {
-      background: rgba(15, 23, 42, 0.95);
-    }
-
-    .experience-modal-content-body::-webkit-scrollbar-thumb {
-      background: rgba(148, 163, 184, 0.7);
-      border-radius: 3px;
-    }
-
-    .experience-modal-content-body::-webkit-scrollbar-thumb:hover {
-      background: rgba(156, 163, 175, 0.9);
-    }
-
-    .experience-modal-list {
-      list-style: none;
-      padding-left: 0.1rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-      margin-bottom: 0.8rem;
-    }
-
-    .experience-modal-list li {
-      display: flex;
-      gap: 0.5rem;
-      align-items: flex-start;
-      line-height: 1.7;
-      padding: 0.35rem 0.4rem;
-      border-radius: 10px;
-      background: rgba(15, 23, 42, 0.85);
-      border: 1px solid rgba(51, 65, 85, 0.9);
-    }
-
-    .experience-modal-list-icon {
-      flex-shrink: 0;
-      width: 16px;
-      display: flex;
-      justify-content: center;
-      margin-top: 0.15rem;
-      color: #38bdf8;
-      font-size: 0.8rem;
-    }
-
-    .experience-modal-list-content strong {
-      display: block;
-      font-weight: 600;
-      margin-bottom: 0.1rem;
-      color: #e0f2fe;
-    }
-
-    .experience-modal-list-content span {
-      display: block;
-      color: #cbd5f5;
-    }
-
-    .experience-modal-tags-section {
-      margin-top: 0.5rem;
-      padding-top: 0.6rem;
-      border-top: 1px dashed rgba(51, 65, 85, 0.95);
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-    }
-
-    .experience-modal-tags-label {
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: #9ca3af;
-    }
-
-    .experience-modal-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.35rem;
-    }
-
-    .experience-modal-tag {
-      padding: 0.25rem 0.6rem;
-      border-radius: 999px;
-      font-size: 10px;
-      background: rgba(15, 23, 42, 0.92);
-      border: 1px solid rgba(148, 163, 184, 0.8);
-      color: #cbd5f5;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-    }
-
-    .experience-modal-footer {
-      padding: 0.5rem 0.75rem 0.6rem;
-      border-top: 1px solid rgba(55, 65, 81, 0.9);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: rgba(15, 23, 42, 0.97);
-    }
-
-    .experience-modal-footer-left {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.45rem;
-      font-size: 11px;
-      color: #9ca3af;
-      align-items: center;
-    }
-
-    .experience-modal-footer-right {
-      display: flex;
-      gap: 0.4rem;
-      flex-wrap: wrap;
-    }
-
-    .experience-modal-footer-btn {
-      padding: 0.5rem 0.7rem;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.7);
-      background: rgba(15, 23, 42, 0.95);
-      color: #e5e7eb;
-      font-size: 11px;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      cursor: pointer;
-      transition: all 0.25s ease;
-      white-space: nowrap;
-    }
-
-    .experience-modal-footer-btn i {
-      font-size: 0.8rem;
-      color: #38bdf8;
-    }
-
-    .experience-modal-footer-btn:hover {
-      background: rgba(30, 64, 175, 0.9);
-      border-color: rgba(59, 130, 246, 0.95);
-      color: #eff6ff;
-      transform: translateY(-1px);
-      box-shadow: 0 8px 22px rgba(59, 130, 246, 0.65);
-    }
-
-    .experience-modal-footer-btn.primary-btn {
-      background: linear-gradient(135deg, #00d4ff, #38bdf8);
-      border-color: transparent;
-      color: #020617;
-      box-shadow: 0 12px 30px rgba(56, 189, 248, 0.85);
-    }
-
-    .experience-modal-footer-btn.primary-btn i {
-      color: #020617;
-    }
-
-    /* ============ PROJECTS SECTION ============ */
-    .projects-layout {
-      display: grid;
-      grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.2fr);
-      gap: clamp(1.5rem, 3vw, 2.5rem);
-      min-height: 0;
-      align-items: flex-start;
-      margin-right: 0.75rem;
-    }
-
-    .projects-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr);
-      gap: 1rem;
-    }
-
-    .project-card {
-      background: radial-gradient(circle at top, rgba(0, 212, 255, 0.18), rgba(10, 14, 39, 0.98));
-      border-radius: 20px;
-      padding: 1rem 1rem 0.9rem;
-      border: 1px solid rgba(0, 212, 255, 0.3);
-      box-shadow: 0 18px 50px rgba(0, 0, 0, 0.7);
-      position: relative;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      gap: 0.6rem;
-    }
-
-    .project-card-header {
-      display: flex;
-      justify-content: space-between;
-      gap: 0.75rem;
-      align-items: flex-start;
-    }
-
-    .project-card-title-block {
-      display: flex;
-      flex-direction: column;
-      gap: 0.22rem;
-    }
-
-    .project-card-title {
-      font-size: 15px;
-      font-weight: 700;
-      color: #e0f2fe;
-      letter-spacing: 0.03em;
-    }
-
-    .project-card-subtitle {
-      font-size: 12px;
-      color: #9fb5cc;
-    }
-
-    .project-card-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.35rem;
-      margin-top: 0.2rem;
-    }
-
-    .project-card-tag {
-      padding: 0.22rem 0.6rem;
-      border-radius: 999px;
-      font-size: 10px;
-      background: rgba(15, 23, 42, 0.9);
-      border: 1px solid rgba(148, 163, 184, 0.8);
-      color: #e5e7eb;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-    }
-
-    .project-card-meta {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 0.4rem;
-    }
-
-    .project-card-meta-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      padding: 0.25rem 0.6rem;
-      border-radius: 999px;
-      background: rgba(15, 23, 42, 0.95);
-      border: 1px solid rgba(148, 163, 184, 0.7);
-      font-size: 11px;
-      color: #cbd5f5;
-    }
-
-    .project-card-meta-pill i {
-      font-size: 0.8rem;
-      color: #38bdf8;
-    }
-
-    .project-card-description {
-      font-size: 12px;
-      color: #cbd5f5;
-      line-height: 1.8;
-      margin-top: 0.4rem;
-    }
-
-    .project-card-footer {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-top: 0.7rem;
-      gap: 0.75rem;
-    }
-
-    .project-card-footer-left {
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-      font-size: 11px;
-      color: #9ca3af;
-      flex-wrap: wrap;
-    }
-
-    .project-card-footer-right {
-      display: flex;
-      gap: 0.4rem;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-    }
-
-    .project-card-btn {
-      padding: 0.55rem 0.8rem;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.7);
-      background: rgba(15, 23, 42, 0.95);
-      color: #e5e7eb;
-      font-size: 11px;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      cursor: pointer;
-      transition: all 0.25s ease;
-      white-space: nowrap;
-    }
-
-    .project-card-btn i {
-      font-size: 0.8rem;
-      color: #38bdf8;
-    }
-
-    .project-card-btn:hover {
-      background: rgba(30, 64, 175, 0.9);
-      border-color: rgba(59, 130, 246, 0.95);
-      color: #eff6ff;
-      transform: translateY(-1px);
-      box-shadow: 0 8px 22px rgba(59, 130, 246, 0.65);
-    }
-
-    .project-card-btn.primary-btn {
-      background: linear-gradient(135deg, #00d4ff, #38bdf8);
-      border-color: transparent;
-      color: #020617;
-      box-shadow: 0 12px 30px rgba(56, 189, 248, 0.85);
-    }
-
-    .project-card-btn.primary-btn i {
-      color: #020617;
-    }
-
-    .projects-side-panel {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      padding: 0.4rem 0.2rem 0.4rem 0;
-    }
-
-    .projects-side-card {
-      background: radial-gradient(circle at top, rgba(15, 23, 42, 0.98), rgba(15, 23, 42, 0.96));
-      border-radius: 18px;
-      padding: 0.85rem 0.9rem;
-      border: 1px solid rgba(51, 65, 85, 0.9);
-      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.75);
-      display: flex;
-      flex-direction: column;
-      gap: 0.55rem;
-    }
-
-    .projects-side-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .projects-side-title {
-      font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: #9ca3af;
-    }
-
-    .projects-side-badge {
-      padding: 0.22rem 0.6rem;
-      border-radius: 999px;
-      border: 1px solid rgba(55, 65, 81, 0.95);
-      font-size: 10px;
-      color: #e5e7eb;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-    }
-
-    .projects-side-badge i {
-      font-size: 0.8rem;
-      color: #38bdf8;
-    }
-
-    .projects-side-body {
-      font-size: 12px;
-      color: #cbd5f5;
-      line-height: 1.8;
-    }
-
-    .projects-side-list {
-      list-style: none;
-      margin-top: 0.5rem;
-      padding-left: 0.1rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.45rem;
-    }
-
-    .projects-side-list li {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.4rem;
-      font-size: 12px;
-    }
-
-    .projects-side-list i {
-      font-size: 0.75rem;
-      color: #38bdf8;
-      margin-top: 0.25rem;
-    }
-
-    .projects-side-footer {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-top: 0.55rem;
-      font-size: 11px;
-      color: #9ca3af;
-    }
-
-    /* ============ GALLERY MODAL ============ */
-    .gallery-modal-backdrop {
-      position: fixed;
-      inset: 0;
-      background: rgba(15, 23, 42, 0.95);
-      backdrop-filter: blur(14px);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 250;
-      opacity: 0;
-      visibility: hidden;
-      transition: opacity 0.3s ease, visibility 0.3s ease;
-    }
-
-    .gallery-modal-backdrop.active {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    .gallery-modal {
-      width: min(1100px, 96vw);
-      height: min(620px, 92vh);
-      border-radius: 22px;
-      background: radial-gradient(circle at top left, rgba(37, 99, 235, 0.45), rgba(15, 23, 42, 0.95));
-      box-shadow: 0 30px 100px rgba(15, 23, 42, 0.98);
-      border: 1px solid rgba(59, 130, 246, 0.7);
-      padding: 1rem 1.1rem;
-      display: flex;
-      flex-direction: column;
-      position: relative;
-      transform: translateY(12px);
-      opacity: 0;
-      transition: opacity 0.35s ease, transform 0.35s ease;
-    }
-
-    .gallery-modal-backdrop.active .gallery-modal {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .gallery-modal-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 0.75rem;
-    }
-
-    .gallery-modal-title-block {
-      display: flex;
-      flex-direction: column;
-      gap: 0.15rem;
-    }
-
-    .gallery-modal-title {
-      font-size: 16px;
-      font-weight: 700;
-      color: #e0f2fe;
-      letter-spacing: 0.02em;
-    }
-
-    .gallery-modal-subtitle {
-      font-size: 12px;
-      color: #cbd5f5;
-    }
-
-    .gallery-modal-meta {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      font-size: 11px;
-      color: #9ca3af;
-      gap: 0.25rem;
-    }
-
-    .gallery-modal-meta-main {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      padding: 0.2rem 0.6rem;
-      border-radius: 999px;
-      background: rgba(15, 23, 42, 0.95);
-      border: 1px solid rgba(148, 163, 184, 0.8);
-      color: #cbd5f5;
-    }
-
-    .gallery-modal-meta-main i {
-      font-size: 0.8rem;
-      color: #38bdf8;
-    }
-
-    .gallery-modal-close {
-      position: absolute;
-      top: 0.9rem;
-      right: 1rem;
-      width: 28px;
-      height: 28px;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.7);
-      background: rgba(15, 23, 42, 0.95);
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #e5e7eb;
-      cursor: pointer;
-      transition: all 0.25s ease;
-      z-index: 2;
-    }
-
-    .gallery-modal-close i {
-      font-size: 0.9rem;
-    }
-
-    .gallery-modal-close:hover {
-      background: rgba(220, 38, 38, 0.92);
-      border-color: rgba(248, 113, 113, 0.95);
-      color: #fef2f2;
-      transform: translateY(-1px);
-      box-shadow: 0 5px 18px rgba(248, 113, 113, 0.7);
-    }
-
-    .gallery-modal-body {
-      flex: 1;
-      display: grid;
-      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
-      gap: 0.8rem;
-      margin-top: 0.35rem;
-      min-height: 0;
-    }
-
-    .gallery-main-view {
-      border-radius: 16px;
-      border: 1px solid rgba(148, 163, 184, 0.85);
-      background: radial-gradient(circle at top left, rgba(15, 23, 42, 0.98), rgba(15, 23, 42, 0.96));
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      position: relative;
-    }
-
-    .gallery-main-image-wrapper {
-      flex: 1;
-      min-height: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: #020617;
-      position: relative;
-    }
-
-    .gallery-main-image {
-      max-width: 100%;
-      max-height: 100%;
-      object-fit: contain;
-      border: none;
-      display: block;
-    }
-
-    .gallery-main-nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0.5rem 0.75rem;
-      border-top: 1px solid rgba(51, 65, 85, 0.9);
-      background: rgba(15, 23, 42, 0.98);
-      font-size: 11px;
-      color: #9ca3af;
-    }
-
-    .gallery-main-nav-left {
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-    }
-
-    .gallery-main-nav-left i {
-      font-size: 0.85rem;
-      color: #38bdf8;
-    }
-
-    .gallery-main-nav-right {
-      display: flex;
-      gap: 0.4rem;
-    }
-
-    .gallery-main-btn {
-      width: 28px;
-      height: 28px;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.7);
-      background: rgba(15, 23, 42, 0.95);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #e5e7eb;
-      cursor: pointer;
-      transition: all 0.25s ease;
-      font-size: 0.9rem;
-    }
-
-    .gallery-main-btn:hover {
-      background: rgba(30, 64, 175, 0.9);
-      border-color: rgba(59, 130, 246, 0.95);
-      color: #eff6ff;
-      transform: translateY(-1px);
-      box-shadow: 0 8px 22px rgba(59, 130, 246, 0.65);
-    }
-
-    .gallery-thumbs-panel {
-      border-radius: 16px;
-      border: 1px solid rgba(148, 163, 184, 0.8);
-      background: radial-gradient(circle at top right, rgba(15, 23, 42, 0.98), rgba(15, 23, 42, 0.96));
-      padding: 0.6rem 0.7rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.55rem;
-      min-height: 0;
-    }
-
-    .gallery-thumbs-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 11px;
-      color: #9ca3af;
-    }
-
-    .gallery-thumbs-header strong {
-      color: #e5e7eb;
-    }
-
-    .gallery-thumbs-header i {
-      font-size: 0.8rem;
-      color: #38bdf8;
-    }
-
-    .gallery-thumbs-grid {
-      flex: 1;
-      min-height: 0;
-      overflow-y: auto;
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-      gap: 0.5rem;
-    }
-
-    .gallery-thumbs-grid::-webkit-scrollbar {
-      width: 6px;
-    }
-
-    .gallery-thumbs-grid::-webkit-scrollbar-track {
-      background: rgba(15, 23, 42, 0.95);
-    }
-
-    .gallery-thumbs-grid::-webkit-scrollbar-thumb {
-      background: rgba(148, 163, 184, 0.7);
-      border-radius: 3px;
-    }
-
-    .gallery-thumb {
+      background: radial-gradient(circle at top, #1f2937 0, #020617 50%, #000 100%);
       border-radius: 12px;
-      border: 1px solid rgba(51, 65, 85, 0.9);
-      overflow: hidden;
-      cursor: pointer;
-      position: relative;
-      aspect-ratio: 16 / 9;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #020617;
+      padding: clamp(0.5rem, 1vw, 0.75rem);
+      min-height: 320px;
     }
 
-    .gallery-thumb img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.25s ease, opacity 0.25s ease;
-      opacity: 0.9;
+    .soft-robot-image-viewer img {
+      max-width: 100%;
+      max-height: 360px;
+      border-radius: 10px;
+      object-fit: contain;
+      box-shadow: 0 14px 45px rgba(0, 212, 255, 0.45);
     }
 
-    .gallery-thumb::after {
-      content: attr(data-label);
-      position: absolute;
-      left: 0.4rem;
-      bottom: 0.35rem;
-      padding: 0.15rem 0.4rem;
-      border-radius: 999px;
-      background: rgba(15, 23, 42, 0.9);
-      border: 1px solid rgba(148, 163, 184, 0.8);
-      font-size: 10px;
-      color: #e5e7eb;
-      max-width: calc(100% - 0.8rem);
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    .gallery-thumb:hover img {
-      transform: scale(1.05);
-      opacity: 1;
-    }
-
-    .gallery-thumb.active {
-      border-color: rgba(56, 189, 248, 0.9);
-      box-shadow: 0 12px 30px rgba(56, 189, 248, 0.85);
-    }
-
-    .gallery-thumb-badge {
-      position: absolute;
-      top: 0.35rem;
-      right: 0.35rem;
-      padding: 0.15rem 0.4rem;
-      border-radius: 999px;
-      background: rgba(15, 23, 42, 0.9);
-      border: 1px solid rgba(59, 130, 246, 0.9);
-      font-size: 9px;
-      color: #dbeafe;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.25rem;
-    }
-
-    .gallery-thumb-badge i {
-      font-size: 0.7rem;
-      color: #38bdf8;
-    }
-
-    .gallery-video-badge {
+    .soft-robot-nav {
       position: absolute;
       top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 38px;
-      height: 38px;
+      transform: translateY(-50%);
+      border: none;
+      background: rgba(0, 0, 0, 0.5);
+      color: #e5e7eb;
+      width: clamp(36px, 8vw, 40px);
+      height: clamp(36px, 8vw, 40px);
       border-radius: 999px;
-      background: rgba(15, 23, 42, 0.85);
-      border: 1px solid rgba(251, 191, 36, 0.95);
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #fbbf24;
-      box-shadow: 0 10px 25px rgba(251, 191, 36, 0.75);
+      cursor: pointer;
+      font-size: clamp(1.25rem, 2vw, 1.5rem);
+      transition: all 0.3s ease;
     }
 
-    .gallery-video-badge i {
-      font-size: 1rem;
+    .soft-robot-nav-left {
+      left: clamp(0.5rem, 1vw, 0.75rem);
     }
 
-    .gallery-caption-bar {
-      margin-top: 0.55rem;
-      padding: 0.45rem 0.6rem;
-      border-radius: 999px;
-      background: rgba(15, 23, 42, 0.95);
-      border: 1px solid rgba(148, 163, 184, 0.8);
-      font-size: 11px;
-      color: #cbd5f5;
+    .soft-robot-nav-right {
+      right: clamp(0.5rem, 1vw, 0.75rem);
+    }
+
+    .soft-robot-nav:hover {
+      background: rgba(0, 0, 0, 0.8);
+      transform: translateY(-50%) scale(1.1);
+    }
+
+    .soft-robot-video-wrapper {
+      border-radius: 12px;
+      overflow: hidden;
+      background: #020617;
+      padding: clamp(0.5rem, 1vw, 0.5rem);
+    }
+
+    .soft-robot-video-wrapper video {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      display: block;
+    }
+
+    /* ============ CONTACT FORM (2-COLUMN) ============ */
+    .contact-form {
       display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .gallery-caption-bar i {
-      font-size: 0.85rem;
-      color: #38bdf8;
-    }
-
-    .gallery-caption-highlight {
-      font-weight: 600;
-      color: #e0f2fe;
-    }
-
-    /* ============ SOCIAL & FOOTER ============ */
-    .footer {
-      background: radial-gradient(circle at top, rgba(0, 212, 255, 0.12), rgba(4, 7, 24, 0.98));
-      padding: 0.55rem 2rem 0.7rem;
-      border-top: 1px solid rgba(0, 212, 255, 0.2);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 11px;
-      color: #94a3b8;
+      flex-direction: column;
+      gap: clamp(1rem, 2vw, 1.5rem);
+      background: rgba(0, 50, 68, 0.3);
+      padding: clamp(1.5rem, 3vw, 2.5rem);
+      border-radius: 8px;
+      border: 1px solid rgba(0, 212, 255, 0.2);
+      max-width: 100%;
+      margin-top: clamp(1rem, 2vw, 1.5rem);
       flex-shrink: 0;
     }
 
-    .footer-left {
+    .form-row {
       display: flex;
-      align-items: center;
-      gap: 0.4rem;
+      flex-direction: column;
+      gap: 0.75rem;
+      flex-shrink: 0;
     }
 
-    .footer-left i {
-      color: #38bdf8;
+    .form-row-inline {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      flex-shrink: 0;
     }
 
-    .footer-right {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
+    .form-row-inline-vertical {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: clamp(0.75rem, 1.5vw, 1.25rem);
+      align-items: flex-end;
+      flex-shrink: 0;
     }
 
-    .social-links {
-      display: flex;
-      gap: 0.4rem;
+    .form-row label {
+      font-size: clamp(9px, 1.3vw, 11px);
+      color: #00d4ff;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
 
-    .social-link {
-      width: 26px;
-      height: 26px;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.7);
-      display: flex;
+    .form-row input,
+    .form-row textarea {
+      padding: clamp(0.75rem, 1.5vw, 1rem);
+      background: rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(0, 212, 255, 0.2);
+      border-radius: 6px;
+      color: #e0e0e0;
+      font-family: inherit;
+      font-size: clamp(11px, 1.5vw, 13px);
+      transition: all 0.3s ease;
+      letter-spacing: 0.3px;
+      width: 100%;
+      min-width: 0;
+    }
+
+    .form-row input::placeholder,
+    .form-row textarea::placeholder {
+      color: #666;
+    }
+
+    .form-row input:focus,
+    .form-row textarea:focus {
+      outline: none;
+      border-color: #00d4ff;
+      box-shadow: 0 0 15px rgba(0, 212, 255, 0.25);
+      background: rgba(0, 30, 40, 0.4);
+    }
+
+    .btn-send {
+      padding: clamp(0.75rem, 1.5vw, 1rem) clamp(1.5rem, 3vw, 2.25rem);
+      background: linear-gradient(135deg, #00d4ff, #00a8c4);
+      border: none;
+      border-radius: 6px;
+      color: #0a0e27;
+      font-weight: 700;
+      font-size: clamp(10px, 1.4vw, 13px);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: inline-flex;
       align-items: center;
       justify-content: center;
-      color: #e5e7eb;
-      text-decoration: none;
-      font-size: 0.8rem;
-      transition: all 0.25s ease;
-      background: rgba(15, 23, 42, 0.95);
+      gap: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      flex-shrink: 0;
     }
 
-    .social-link:hover {
-      background: rgba(59, 130, 246, 0.95);
-      border-color: rgba(129, 140, 248, 0.9);
-      box-shadow: 0 8px 22px rgba(59, 130, 246, 0.7);
-      transform: translateY(-1px);
+    .btn-send:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(0, 212, 255, 0.4);
     }
 
-    .footer-tagline {
-      font-size: 10px;
-      color: #9ca3af;
-      margin-left: 0.35rem;
+    .form-status {
+      font-size: clamp(10px, 1.3vw, 12px);
+      margin-top: 0.75rem;
+      color: #00d4ff;
+      letter-spacing: 0.3px;
+      flex-shrink: 0;
     }
 
-    /* ============ RESPONSIVE DESIGN ============ */
-    @media (max-width: 1024px) {
+    /* ============ SKILLS & EDUCATION ============ */
+    .content-inner {
+      display: flex;
+      flex-direction: column;
+      gap: clamp(1rem, 2vw, 2rem);
+      flex-shrink: 0;
+    }
+
+    .edu-entry,
+    .skills-group {
+      margin: 0;
+      padding: clamp(1rem, 2.5vw, 1.5rem);
+      background: rgba(0, 212, 255, 0.04);
+      border-left: clamp(4px, 1vw, 6px) solid #00d4ff;
+      border-radius: 4px;
+      display: block;
+      flex-shrink: 0;
+    }
+
+    .edu-entry h3,
+    .skills-group h3 {
+      font-size: clamp(14px, 2.5vw, 17px);
+      color: #00d4ff;
+      margin: 0 0 0.5rem 0;
+      font-weight: 700;
+      letter-spacing: 0.2px;
+      line-height: 1.4;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
+
+    .meta {
+      font-size: clamp(10px, 1.3vw, 12px);
+      color: #999;
+      margin: 0.5rem 0 1rem 0;
+      font-style: italic;
+      letter-spacing: 0.3px;
+    }
+
+    .skills-group p {
+      font-size: clamp(12px, 1.6vw, 14px);
+      color: #d0d0d0;
+      line-height: 1.8;
+      margin: 0;
+      letter-spacing: 0.2px;
+      text-align: left;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
+
+    footer {
+      position: fixed;
+      bottom: 1rem;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: clamp(8px, 1.2vw, 10px);
+      color: #555;
+      z-index: 50;
+      text-align: center;
+      padding: 0 1rem;
+      max-width: 90vw;
+    }
+
+    /* ============ MOBILE & TABLET RESPONSIVE ============ */
+    @media (max-width: 1200px) {
       .main-wrapper {
-        flex-direction: column;
         gap: 1rem;
       }
 
       .gear-section {
-        order: 1;
-        padding-bottom: 0.5rem;
-      }
-
-      .content-wrapper {
-        order: 2;
-        height: calc(100vh - 360px);
-      }
-
-      .experience-layout,
-      .projects-layout {
-        flex-direction: column;
-      }
-
-      .experience-left-column,
-      .experience-right-column,
-      .projects-layout {
-        width: 100%;
-      }
-
-      .projects-layout {
-        grid-template-columns: minmax(0, 1fr);
-      }
-
-      .experience-modal-body {
-        flex-direction: column;
-      }
-
-      .experience-modal-tabs {
-        width: 100%;
-        border-right: none;
-        border-bottom: 1px solid rgba(148, 163, 184, 0.55);
-        flex-direction: row;
-        flex-wrap: wrap;
-        gap: 0.4rem;
-      }
-
-      .experience-modal-tab {
-        flex: 1;
-      }
-
-      .experience-modal-content-wrapper {
-        padding: 0.5rem 0.7rem 0.7rem;
-      }
-
-      .gallery-modal-body {
-        grid-template-columns: minmax(0, 1fr);
-      }
-
-      .gallery-main-view {
-        min-height: 260px;
+        flex: 0 0 auto;
+        padding: 1rem 0.5rem;
       }
 
       .content-section {
-        padding: 1.6rem 1.4rem 1.8rem;
+        padding: clamp(1rem, 3vw, 2rem);
+        padding-top: clamp(1rem, 2.5vw, 1.5rem);
+      }
+    }
+
+    @media (max-width: 992px) {
+      .main-wrapper {
+        flex-direction: column;
+        gap: 0;
       }
 
-      .section-title {
-        margin-bottom: 1.4rem;
+      .gear-section {
+        flex: 0 0 auto;
+        max-height: 45vh;
+        padding: 1.5rem 1rem;
+        border-bottom: 1px solid rgba(0, 212, 255, 0.2);
       }
 
-      .footer {
-        padding: 0.5rem 1.2rem;
-        font-size: 10px;
+      .gear-container {
+        width: clamp(150px, 30vmin, 280px);
+        height: clamp(150px, 30vmin, 280px);
       }
 
-      .footer-right {
-        gap: 0.4rem;
+      .content-wrapper {
+        flex: 1;
+        min-height: 0;
+      }
+
+      .content-section {
+        padding: clamp(1.25rem, 3vw, 2.25rem);
+      }
+
+      header {
+        padding: 1rem 1.5rem;
+      }
+
+      .nav-center {
+        gap: clamp(0.8rem, 2.5vw, 2rem);
+      }
+
+      .brand {
+        font-size: clamp(18px, 3.5vw, 28px);
+      }
+
+      .form-row-inline-vertical {
+        grid-template-columns: 1fr;
+        align-items: stretch;
+      }
+
+      .btn-send {
+        width: 100%;
       }
     }
 
     @media (max-width: 768px) {
-      header {
-        padding: 1.2rem 1.25rem 1.1rem;
-      }
-
       .site-header-inner {
         gap: 1rem;
       }
 
-      .main-wrapper {
-        gap: 0.85rem;
+      header {
+        padding: 1rem 1rem;
       }
 
-      .gear-section {
-        padding-top: 0.75rem;
-        padding-bottom: 0.25rem;
+      .brand {
+        font-size: clamp(16px, 3vw, 24px);
       }
 
-      .gear-container {
-        width: clamp(180px, 42vw, 260px);
-        height: clamp(180px, 42vw, 260px);
+      .nav-link {
+        font-size: clamp(11px, 1.8vw, 14px);
       }
 
-      .content-wrapper {
-        height: auto;
-      }
-
-      .content-section {
-        position: relative;
-        transform: none;
-        opacity: 1;
-        visibility: visible;
-        pointer-events: auto;
-        height: auto;
-        max-height: unset;
-      }
-
-      .content-section:not(.active) {
-        display: none;
+      .nav-center {
+        gap: clamp(0.5rem, 2vw, 1.5rem);
+        max-width: 100vw;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
       }
 
       .section-title {
-        font-size: clamp(26px, 7.5vw, 34px);
-        margin-bottom: 1.2rem;
+        font-size: clamp(24px, 6vw, 40px);
+        margin-bottom: clamp(1rem, 2.5vw, 2rem);
       }
 
-      .experience-layout {
-        margin-right: 0;
+      .gear-section {
+        max-height: 40vh;
+        padding: 1rem;
       }
 
-      .experience-main-details {
-        grid-template-columns: minmax(0, 1fr);
+      .gear-container {
+        width: clamp(120px, 25vmin, 200px);
+        height: clamp(120px, 25vmin, 200px);
       }
 
-      .experience-main-meta {
-        align-items: flex-start;
+      .content-section {
+        padding: clamp(1rem, 2.5vw, 1.75rem);
+        padding-top: clamp(0.75rem, 2vw, 1.25rem);
       }
 
-      .experience-main-tech {
-        justify-content: flex-start;
+      .contact-form {
+        max-width: 100%;
       }
 
-      .experience-main-actions {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .experience-main-actions-right {
-        justify-content: flex-start;
-      }
-
-      .footer {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.3rem;
+      footer {
+        font-size: clamp(7px, 1vw, 9px);
       }
     }
 
     @media (max-width: 480px) {
+      html, body {
+        font-size: 14px;
+      }
+
       header {
-        padding: 1rem 1rem 0.9rem;
+        padding: 0.75rem 1rem;
+      }
+
+      .site-header-inner {
+        gap: 0.75rem;
+      }
+
+      .brand {
+        font-size: clamp(14px, 2.5vw, 18px);
+      }
+
+      .nav-link {
+        font-size: clamp(10px, 1.5vw, 12px);
+        padding: 0.2rem 0;
       }
 
       .nav-center {
-        gap: 0.8rem;
+        gap: clamp(0.4rem, 1.5vw, 1rem);
+      }
+
+      .main-wrapper {
+        gap: 0;
+      }
+
+      .gear-section {
+        max-height: 35vh;
+        padding: 0.75rem;
+      }
+
+      .gear-container {
+        width: clamp(100px, 22vmin, 160px);
+        height: clamp(100px, 22vmin, 160px);
       }
 
       .content-section {
-        padding: 1.3rem 1rem 1.5rem;
+        padding: clamp(0.75rem, 2vw, 1.5rem);
+        padding-top: clamp(0.5rem, 1.5vw, 1rem);
       }
 
-      .portfolio-buttons {
-        flex-direction: column;
+      .section-title {
+        font-size: clamp(20px, 5vw, 28px);
+        margin-bottom: clamp(0.75rem, 2vw, 1.5rem);
       }
 
-      .experience-main-card {
-        padding: 1.1rem 1rem 1rem;
+      .modal-content {
+        width: 95%;
+        max-height: 85vh;
+      }
+    }
+
+    @media (max-height: 600px) {
+      header {
+        padding: 0.5rem 1rem;
       }
 
-      .experience-main-header {
-        flex-direction: column;
+      .brand {
+        font-size: clamp(14px, 2.5vw, 18px);
       }
 
-      .experience-main-meta {
-        align-items: flex-start;
+      .nav-link {
+        font-size: clamp(10px, 1.5vw, 12px);
       }
 
-      .experience-modal {
-        width: 96vw;
-        border-radius: 18px;
+      .gear-section {
+        max-height: 30vh;
+        padding: 0.5rem;
       }
 
-      .experience-modal-header {
-        padding-right: 2.4rem;
+      .gear-container {
+        width: clamp(80px, 18vmin, 150px);
+        height: clamp(80px, 18vmin, 150px);
       }
 
-      .experience-modal-body {
-        flex-direction: column;
+      .content-section {
+        padding: clamp(0.5rem, 1.5vw, 1rem);
+        padding-top: clamp(0.25rem, 1vw, 0.75rem);
       }
 
-      .experience-modal-tabs {
-        flex-direction: row;
-        flex-wrap: wrap;
-        padding: 0.75rem 0.7rem 0.6rem;
+      .section-title {
+        font-size: clamp(18px, 4vw, 24px);
+        margin-bottom: clamp(0.5rem, 1.5vw, 1rem);
       }
 
-      .experience-modal-tab strong {
-        font-size: 10px;
-      }
-
-      .experience-modal-content-wrapper {
-        padding: 0.5rem 0.6rem 0.6rem;
-      }
-
-      .gallery-modal {
-        width: 96vw;
-        padding: 0.85rem 0.85rem;
-      }
-
-      .gallery-modal-body {
-        gap: 0.65rem;
-        grid-template-columns: minmax(0, 1fr);
-      }
-
-      .gallery-main-view {
-        min-height: 220px;
-      }
-
-      .gallery-thumbs-grid {
-        grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
-      }
-
-      .footer {
-        padding: 0.45rem 0.9rem 0.7rem;
+      footer {
+        bottom: 0.5rem;
+        font-size: clamp(6px, 0.8vw, 7px);
       }
     }
   </style>
 </head>
+
 <body>
   <header>
     <div class="site-header-inner">
-      <a href="#" class="brand">Srikanth Reddy Eppa</a>
+      <a class="brand" href="#">Srikanth Reddy Eppa</a>
       <nav class="nav-center">
-        <span class="nav-link active" data-target="about">About</span>
-        <span class="nav-link" data-target="experience">Experience</span>
-        <span class="nav-link" data-target="projects">Projects</span>
+        <a class="nav-link active" data-section="about">About Me</a>
+        <a class="nav-link" data-section="experience">Experience</a>
+        <a class="nav-link" data-section="projects">Projects</a>
+        <a class="nav-link" data-section="skills">Skills</a>
+        <a class="nav-link" data-section="education">Education</a>
+        <a class="nav-link" data-section="contact">Get In Touch</a>
       </nav>
     </div>
   </header>
 
-  <main class="main-wrapper">
-    <!-- LEFT: Gear + Photo -->
-    <section class="gear-section">
+  <div class="main-wrapper">
+    <!-- LEFT SIDE - GEAR WITH PHOTO -->
+    <div class="gear-section">
       <div class="gear-container">
-        <svg class="gear-wheel" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <svg class="gear-wheel" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
           <defs>
-            <linearGradient id="gearGradient" x1="0" x2="1" y1="0" y2="1">
-              <stop offset="0%" stop-color="#00d4ff" />
-              <stop offset="50%" stop-color="#00a8ff" />
-              <stop offset="100%" stop-color="#00f5d4" />
-            </linearGradient>
-            <filter id="glow">
-              <feGaussianBlur stdDeviation="4" result="coloredBlur" />
-              <feMerge>
-                <feMergeNode in="coloredBlur" />
-                <feMergeNode in="SourceGraphic" />
-              </feMerge>
+            <filter id="gearShadow" x="-50%" y="-50%" width="200%" height="200%">
+              <feDropShadow dx="0" dy="8" stdDeviation="12" flood-opacity="0.95" flood-color="#00d4ff"/>
             </filter>
+            <radialGradient id="gearGrad" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" style="stop-color:#1a5f7a;stop-opacity:1" />
+              <stop offset="100%" style="stop-color:#0d3a52;stop-opacity:1" />
+            </radialGradient>
           </defs>
-
-          <circle cx="250" cy="250" r="180" fill="none" stroke="url(#gearGradient)" stroke-width="6" filter="url(#glow)" />
-
-          <g>
-            <path d="M 250 40 L 270 85 L 230 85 Z" fill="#00d4ff" opacity="0.9" />
-            <path d="M 250 460 L 270 415 L 230 415 Z" fill="#00d4ff" opacity="0.9" />
-            <path d="M 60 250 L 105 270 L 105 230 Z" fill="#00d4ff" opacity="0.9" />
-            <path d="M 440 250 L 395 270 L 395 230 Z" fill="#00d4ff" opacity="0.9" />
-
-            <path d="M 125 95 L 155 140 L 110 155 Z" fill="#00f0ff" opacity="0.9" />
-            <path d="M 375 405 L 345 360 L 390 345 Z" fill="#00f0ff" opacity="0.9" />
-
-            <path d="M 95 375 L 140 345 L 155 390 Z" fill="#00f0ff" opacity="0.9" />
-            <path d="M 405 125 L 360 155 L 345 110 Z" fill="#00f0ff" opacity="0.9" />
+          
+          <circle cx="250" cy="250" r="175" fill="none" stroke="#00d4ff" stroke-width="2" opacity="0.5"/>
+          
+          <g filter="url(#gearShadow)">
+            <g transform="rotate(0 250 250)">
+              <rect x="232" y="90" width="36" height="55" fill="url(#gearGrad)" stroke="#00d4ff" stroke-width="2" rx="3"/>
+            </g>
+            <g transform="rotate(30 250 250)">
+              <rect x="232" y="90" width="36" height="55" fill="url(#gearGrad)" stroke="#00d4ff" stroke-width="2" rx="3"/>
+            </g>
+            <g transform="rotate(60 250 250)">
+              <rect x="232" y="90" width="36" height="55" fill="url(#gearGrad)" stroke="#00d4ff" stroke-width="2" rx="3"/>
+            </g>
+            <g transform="rotate(90 250 250)">
+              <rect x="232" y="90" width="36" height="55" fill="url(#gearGrad)" stroke="#00d4ff" stroke-width="2" rx="3"/>
+            </g>
+            <g transform="rotate(120 250 250)">
+              <rect x="232" y="90" width="36" height="55" fill="url(#gearGrad)" stroke="#00d4ff" stroke-width="2" rx="3"/>
+            </g>
+            <g transform="rotate(150 250 250)">
+              <rect x="232" y="90" width="36" height="55" fill="url(#gearGrad)" stroke="#00d4ff" stroke-width="2" rx="3"/>
+            </g>
+            <g transform="rotate(180 250 250)">
+              <rect x="232" y="90" width="36" height="55" fill="url(#gearGrad)" stroke="#00d4ff" stroke-width="2" rx="3"/>
+            </g>
+            <g transform="rotate(210 250 250)">
+              <rect x="232" y="90" width="36" height="55" fill="url(#gearGrad)" stroke="#00d4ff" stroke-width="2" rx="3"/>
+            </g>
+            <g transform="rotate(240 250 250)">
+              <rect x="232" y="90" width="36" height="55" fill="url(#gearGrad)" stroke="#00d4ff" stroke-width="2" rx="3"/>
+            </g>
+            <g transform="rotate(270 250 250)">
+              <rect x="232" y="90" width="36" height="55" fill="url(#gearGrad)" stroke="#00d4ff" stroke-width="2" rx="3"/>
+            </g>
+            <g transform="rotate(300 250 250)">
+              <rect x="232" y="90" width="36" height="55" fill="url(#gearGrad)" stroke="#00d4ff" stroke-width="2" rx="3"/>
+            </g>
+            <g transform="rotate(330 250 250)">
+              <rect x="232" y="90" width="36" height="55" fill="url(#gearGrad)" stroke="#00d4ff" stroke-width="2" rx="3"/>
+            </g>
           </g>
-
-          <circle cx="250" cy="250" r="140" fill="none" stroke="rgba(0, 212, 255, 0.25)" stroke-width="2" stroke-dasharray="6 6" />
-
-          <g>
-            <circle cx="250" cy="250" r="6" fill="#00f5d4" />
-            <circle cx="250" cy="160" r="5" fill="#00f5d4" />
-            <circle cx="250" cy="340" r="5" fill="#00f5d4" />
-            <circle cx="160" cy="250" r="5" fill="#00f5d4" />
-            <circle cx="340" cy="250" r="5" fill="#00f5d4" />
-
-            <circle cx="195" cy="195" r="4" fill="#00e0ff" />
-            <circle cx="305" cy="305" r="4" fill="#00e0ff" />
-            <circle cx="195" cy="305" r="4" fill="#00e0ff" />
-            <circle cx="305" cy="195" r="4" fill="#00e0ff" />
-          </g>
+          
+          <circle cx="250" cy="250" r="105" fill="#0a0e27" stroke="#00d4ff" stroke-width="2"/>
+          <circle cx="250" cy="250" r="105" fill="none" stroke="#00a8c4" stroke-width="2" opacity="0.6"/>
         </svg>
-
+        
         <div class="photo-wrapper">
-          <img src="profile-photo.png" alt="Portrait of Srikanth Reddy Eppa" class="profile-photo" />
+          <img class="profile-photo" src="https://raw.githubusercontent.com/Eppasrikanth57/srikanth-reddy-eppa/main/files/Resume_image_Professional.JPG" alt="Srikanth Reddy Eppa">
         </div>
       </div>
-    </section>
+    </div>
 
-    <!-- RIGHT: Content Panels -->
-    <section class="content-wrapper">
+    <!-- RIGHT SIDE - CONTENT SECTIONS -->
+    <div class="content-wrapper">
       <!-- ABOUT SECTION -->
-      <section class="content-section active" id="about">
-        <h1 class="section-title">Mechatronics Engineer</h1>
+      <section id="about" class="content-section active">
+        <h1 class="section-title">About Me</h1>
+        <div class="content-inner">
+          <div class="about-content">
+            <p class="about-text">
+              Master's student in Mechatronics & Robotics with experience in digitalization, automation, and sustainability. Passionate about leveraging technology to solve real-world engineering challenges and drive innovation.
+            </p>
+            <p class="about-text">
+              Skilled in Digital Twin technology, Digital Product Passports, and mechatronic system design, aiming to deliver innovative solutions aligned with industry demand. My expertise spans from concept design to implementation, with strong proficiency in CAD software and embedded systems programming.
+            </p>
+            <div class="about-meta">
+              <span class="meta-location"><i class="fas fa-map-marker-alt"></i> Stuttgart Region, Germany</span>
+            </div>
 
-        <div class="about-content">
-          <p class="about-text">
-            I am a Mechatronics Engineer with a strong foundation in robotics, mechanical design, control systems, and…
+            <h2 class="portfolio-subheading">Portfolio</h2>
+            <div class="portfolio-buttons">
+              <button class="portfolio-btn" type="button" data-target-section="experience">
+                <span>To Experience</span>
+                <i class="fas fa-arrow-right"></i>
+              </button>
+              <button class="portfolio-btn" type="button" data-target-section="projects">
+                <span>To Projects</span>
+                <i class="fas fa-arrow-right"></i>
+              </button>
+            </div>
+
+            <div class="social-links">
+              <a href="https://github.com/Eppasrikanth57" target="_blank" rel="noopener" title="GitHub"><i class="fab fa-github"></i></a>
+              <a href="https://www.linkedin.com/in/srikanth-reddy-eppa/" target="_blank" rel="noopener" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+              <a href="mailto:eppasrikanth57@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- EXPERIENCE SECTION -->
+      <section id="experience" class="content-section">
+        <h1 class="section-title">Experience</h1>
+        <div class="timeline-wrapper">
+          <div class="horizontal-timeline" id="exp-timeline">
+            <!-- Experience 1 -->
+            <div class="timeline-card">
+              <div class="experience-card-header soft-robot-header">
+                <div class="card-header">
+                  <div class="card-logo">
+                    <i class="fas fa-graduation-cap"></i>
+                  </div>
+                  <div class="card-header-content">
+                    <h3 class="card-job-title">Design and Prototyping of Soft Robot Arm for Safe and Contact-Rich Human-Robot Collaboration</h3>
+                    <p class="card-company">Hochschule Schmalkalden</p>
+                  </div>
+                  <button class="card-popup-btn" data-modal="modal-exp-1" title="View Tasks">
+                    <i class="fas fa-external-link-alt"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="experience-body soft-robot-tasks">
+                <div class="card-location-date">
+                  <span class="card-location"><i class="fas fa-map-marker-alt" style="font-size: 0.9em;"></i> Schmalkalden, Germany</span>
+                  <span class="card-date">Feb 2025 — Now</span>
+                </div>
+                <div class="card-skills">
+                  <div class="card-skills-title">Skills Used & Learnt</div>
+                  <div class="card-skills-list">
+                    <span class="skill-tag">SolidWorks</span>
+                    <span class="skill-tag">3D Printing</span>
+                    <span class="skill-tag">Arduino Mega 2560</span>
+                    <span class="skill-tag">Sensor Integration</span>
+                    <span class="skill-tag">CAD Design</span>
+                    <span class="skill-tag">Industry 5.0</span>
+                  </div>
+                </div>
+                <div class="soft-robot-actions">
+                  <button class="action-btn project-images" id="softRobotImagesBtn">
+                    <i class="fas fa-images"></i>
+                    <span>Project Images and Videos</span>
+                  </button>
+                  <a href="https://github.com/Eppasrikanth57/Design-and-Prototyping-of-Soft-Robot-Arm-for-Safe-and-Contact-Rich-Human-Robot-Collaboration" target="_blank" rel="noopener noreferrer" class="action-btn project-files">
+                    <i class="fas fa-file"></i>
+                    <span>Project Files</span>
+                  </a>
+                </div>
+              </div>
+              <div class="card-footer-logo">
+                <img src="https://raw.githubusercontent.com/Eppasrikanth57/srikanth-reddy-eppa/main/files/HS_Schmalkalden_logo.png" alt="Hochschule Schmalkalden">
+              </div>
+            </div>
+
+            <!-- Experience 2 -->
+            <div class="timeline-card">
+              <div class="card-header">
+                <div class="card-logo">
+                  <i class="fas fa-briefcase"></i>
+                </div>
+                <div class="card-header-content">
+                  <h3 class="card-job-title">Working Student - Product Innovation</h3>
+                  <p class="card-company">Morgenwerk GmbH</p>
+                </div>
+                <button class="card-popup-btn" data-modal="modal-exp-2" title="View Tasks">
+                  <i class="fas fa-external-link-alt"></i>
+                </button>
+              </div>
+              <div class="card-location-date">
+                <span class="card-location"><i class="fas fa-map-marker-alt" style="font-size: 0.9em;"></i> Tamm, Germany</span>
+                <span class="card-date">Sep 2024 — Mar 2025</span>
+              </div>
+              <div class="card-skills">
+                <div class="card-skills-title">Skills Used & Learnt</div>
+                <div class="card-skills-list">
+                  <span class="skill-tag">SolidWorks</span>
+                  <span class="skill-tag">Technical Drawings</span>
+                  <span class="skill-tag">AGV Systems</span>
+                  <span class="skill-tag">Product Development</span>
+                  <span class="skill-tag">Prototyping</span>
+                </div>
+              </div>
+              <div class="card-footer-logo">
+                <img src="https://raw.githubusercontent.com/Eppasrikanth57/srikanth-reddy-eppa/main/files/Morgenwerk_logo.png" alt="Morgenwerk GmbH">
+              </div>
+            </div>
+
+            <!-- Experience 3 (Dual Jobs) -->
+            <div class="timeline-card">
+              <div class="card-header">
+                <div class="card-logo">
+                  <i class="fas fa-cogs"></i>
+                </div>
+                <div class="card-header-content">
+                  <h3 class="card-job-title">Engineer - Design | Intern</h3>
+                  <p class="card-company">Regal Rexnord India</p>
+                </div>
+                <button class="card-popup-btn" data-modal="modal-exp-3" title="View Tasks">
+                  <i class="fas fa-external-link-alt"></i>
+                </button>
+              </div>
+              <div class="card-location-date">
+                <span class="card-location"><i class="fas fa-map-marker-alt" style="font-size: 0.9em;"></i> Hyderabad, India</span>
+              </div>
+              <!-- Dual Job Timeline -->
+              <div class="dual-job-timeline">
+                <div class="dual-job-item">
+                  <h4 class="dual-job-title">Design Engineer</h4>
+                  <p class="dual-job-date">Oct 2020 — Aug 2022</p>
+                </div>
+                <div class="dual-job-item">
+                  <h4 class="dual-job-title">Intern - Design</h4>
+                  <p class="dual-job-date">Feb 2020 — Sep 2020</p>
+                </div>
+              </div>
+              <div class="card-skills" style="margin-top: clamp(0.75rem, 1.5vw, 1.25rem);">
+                <div class="card-skills-title">Skills Used & Learnt</div>
+                <div class="card-skills-list">
+                  <span class="skill-tag">SolidWorks</span>
+                  <span class="skill-tag">GD&T</span>
+                  <span class="skill-tag">ISO/DIN</span>
+                  <span class="skill-tag">Technical Drawings</span>
+                  <span class="skill-tag">SAP</span>
+                  <span class="skill-tag">Coupling Design</span>
+                </div>
+              </div>
+              <div class="card-footer-logo">
+                <img src="https://raw.githubusercontent.com/Eppasrikanth57/srikanth-reddy-eppa/main/files/Regal_Rexnord_logo.png" alt="Regal Rexnord India">
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROJECTS SECTION -->
+      <section id="projects" class="content-section">
+        <h1 class="section-title">Projects</h1>
+        <div class="timeline-wrapper">
+          <div class="horizontal-timeline" id="proj-timeline">
+            <!-- Project 1 -->
+            <div class="timeline-card">
+              <div class="card-header">
+                <div class="card-logo">
+                  <i class="fas fa-cube"></i>
+                </div>
+                <div class="card-header-content">
+                  <h3 class="card-job-title">Automated XY Pen Plotter</h3>
+                  <p class="card-company">Hochschule Schmalkalden</p>
+                </div>
+                <button class="card-popup-btn" data-modal="modal-proj-1" title="View Tasks">
+                  <i class="fas fa-external-link-alt"></i>
+                </button>
+              </div>
+              <div class="card-location-date">
+                <span class="card-location"><i class="fas fa-map-marker-alt" style="font-size: 0.9em;"></i> Schmalkalden, Germany</span>
+                <span class="card-date">Apr 2023 — Jul 2023</span>
+              </div>
+              <div class="card-skills">
+                <div class="card-skills-title">Skills Used</div>
+                <div class="card-skills-list">
+                  <span class="skill-tag">SolidWorks</span>
+                  <span class="skill-tag">Siemens NX</span>
+                  <span class="skill-tag">CAD Design</span>
+                  <span class="skill-tag">Precision Engineering</span>
+                  <span class="skill-tag">Motion Control</span>
+                </div>
+              </div>
+              <div class="card-footer-logo">
+                <img src="https://raw.githubusercontent.com/Eppasrikanth57/srikanth-reddy-eppa/main/files/HS_Schmalkalden_logo.png" alt="Hochschule Schmalkalden">
+              </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="timeline-card">
+              <div class="card-header">
+                <div class="card-logo">
+                  <i class="fas fa-flask"></i>
+                </div>
+                <div class="card-header-content">
+                  <h3 class="card-job-title">Thermal Energy Storage System</h3>
+                  <p class="card-company">Vidya Jyothi Institute of Technology</p>
+                </div>
+                <button class="card-popup-btn" data-modal="modal-proj-2" title="View Tasks">
+                  <i class="fas fa-external-link-alt"></i>
+                </button>
+              </div>
+              <div class="card-location-date">
+                <span class="card-location"><i class="fas fa-map-marker-alt" style="font-size: 0.9em;"></i> Hyderabad, India</span>
+                <span class="card-date">Nov 2019 — Aug 2020</span>
+              </div>
+              <div class="card-skills">
+                <div class="card-skills-title">Skills Used</div>
+                <div class="card-skills-list">
+                  <span class="skill-tag">SolidWorks</span>
+                  <span class="skill-tag">Thermal Analysis</span>
+                  <span class="skill-tag">System Design</span>
+                  <span class="skill-tag">Manufacturing</span>
+                  <span class="skill-tag">Optimization</span>
+                </div>
+              </div>
+              <div class="card-footer-logo">
+                <img src="https://raw.githubusercontent.com/Eppasrikanth57/srikanth-reddy-eppa/main/files/Vidya_Jyothi_logo.jpg" alt="Vidya Jyothi Institute of Technology">
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SKILLS SECTION -->
+      <section id="skills" class="content-section">
+        <h1 class="section-title">Skills</h1>
+        <div class="content-inner">
+          <div class="skills-group">
+            <h3>CAD & Design Tools</h3>
+            <p><strong>CAD:</strong> SolidWorks, Ansys, PTC Creo, CATIA V5, Siemens NX, AutoCAD, Fusion</p>
+          </div>
+          <div class="skills-group">
+            <h3>Technical Skills</h3>
+            <p>PLC Programming, Python, C++, GD&T, Embedded Systems, Arduino</p>
+          </div>
+          <div class="skills-group">
+            <h3>Languages</h3>
+            <p><strong>English:</strong> C1 | <strong>German:</strong> A2 | <strong>Telugu:</strong> Native</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- EDUCATION SECTION -->
+      <section id="education" class="content-section">
+        <h1 class="section-title">Education</h1>
+        <div class="content-inner">
+          <div class="edu-entry">
+            <h3>Master of Science - Mechatronics and Robotics</h3>
+            <p class="meta">Hochschule Schmalkalden | Oct 2022 – Present</p>
+            <p style="font-size: clamp(12px, 1.6vw, 14px); color: #d0d0d0; margin: 0; text-align: left;">Grade: 2.4 | Focus: Digital Twin, Industry 5.0</p>
+          </div>
+          <div class="edu-entry">
+            <h3>B.Tech - Mechanical Engineering</h3>
+            <p class="meta">Vidya Jyothi Institute | Jul 2017 – Aug 2020</p>
+            <p style="font-size: clamp(12px, 1.6vw, 14px); color: #d0d0d0; margin: 0; text-align: left;">Grade: 1.23 | Affiliated to Jawaharlal Nehru Technological University Hyderabad</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT SECTION -->
+      <section id="contact" class="content-section">
+        <h1 class="section-title">Get In Touch</h1>
+        <div class="content-inner">
+          <form id="contact-form" class="contact-form" novalidate>
+            <div class="form-row-inline">
+              <div class="form-row">
+                <label for="from_name">Your Name</label>
+                <input type="text" id="from_name" name="from_name" placeholder="Your name" required>
+              </div>
+              <div class="form-row">
+                <label for="reply_to">Your Email</label>
+                <input type="email" id="reply_to" name="reply_to" placeholder="Your Email" required>
+              </div>
+            </div>
+            <div class="form-row">
+              <label for="subject">Subject</label>
+              <input type="text" id="subject" name="subject" placeholder="Subject" required>
+            </div>
+            <div class="form-row-inline-vertical">
+              <div class="form-row">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="3" placeholder="Write your message..." required></textarea>
+              </div>
+              <button id="contact-submit" type="submit" class="btn-send">
+                <i class="fas fa-paper-plane"></i>
+                <span>Send</span>
+              </button>
+            </div>
+          </form>
+          <p id="form-status" class="form-status" aria-live="polite"></p>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- MODALS -->
+  <!-- Experience Modals -->
+  <div id="modal-exp-1" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title">Design & Prototyping of Soft Robot Arm</h2>
+        <button class="modal-close" data-modal="modal-exp-1">×</button>
+      </div>
+      <div class="modal-body">
+        <h3>Key Tasks & Responsibilities</h3>
+        <ul>
+          <li>Developed and optimized a Soft Robot for Industry 5.0 applications using <strong>SolidWorks CAD</strong></li>
+          <li>Utilized additive manufacturing (<strong>3D printing</strong>) to create and iterate on key components with precision tolerances</li>
+          <li>Engineered an <strong>Arduino Mega 2560</strong> circuit to control integrated sensors and actuator motors</li>
+          <li>Conducted system testing and validated robot arm performance against design specifications</li>
+          <li>Collaborated with faculty and team members on design iterations and optimization</li>
+        </ul>
+        <div style="display: flex; gap: clamp(0.75rem, 1.5vw, 1.25rem); flex-wrap: wrap; margin-top: clamp(1rem, 2vw, 1.5rem); position: relative; z-index: 3;">
+          <button class="action-btn project-images" id="softRobotImagesBtn2" style="background: linear-gradient(135deg, #00d4ff, #00ffa3); color: #081028; box-shadow: 0 8px 24px rgba(0, 212, 255, 0.45);">
+            <i class="fas fa-images"></i>
+            <span>Project Images and Videos</span>
+          </button>
+          <a href="https://github.com/Eppasrikanth57/Design-and-Prototyping-of-Soft-Robot-Arm-for-Safe-and-Contact-Rich-Human-Robot-Collaboration" target="_blank" rel="noopener noreferrer" class="action-btn project-files" style="background: transparent; color: #00d4ff; border: 1.5px solid rgba(0, 212, 255, 0.6);">
+            <i class="fas fa-file"></i>
+            <span>Project Files</span>
+          </a>
+        </div>
+        <div class="modal-footer-logo">
+          <img src="https://raw.githubusercontent.com/Eppasrikanth57/srikanth-reddy-eppa/main/files/HS_Schmalkalden_logo.png" alt="Hochschule Schmalkalden">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="modal-exp-2" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title">Working Student - Product Innovation</h2>
+        <button class="modal-close" data-modal="modal-exp-2">×</button>
+      </div>
+      <div class="modal-body">
+        <h3>Key Tasks & Responsibilities</h3>
+        <ul>
+          <li>Developed and prototyped a gate system for an automated vending machine using <strong>SolidWorks</strong></li>
+          <li>Designed mechanical components meeting functional and safety requirements</li>
+          <li>Produced detailed technical drawings and manufacturing specifications</li>
+          <li>Worked on structural tube development and optimization for an <strong>Autonomous Guided Vehicle (AGV)</strong></li>
+          <li>Participated in design reviews and incorporated feedback for continuous improvement</li>
+          <li>Supported product development lifecycle from concept to prototype testing</li>
+        </ul>
+        <div class="modal-footer-logo">
+          <img src="https://raw.githubusercontent.com/Eppasrikanth57/srikanth-reddy-eppa/main/files/Morgenwerk_logo.png" alt="Morgenwerk GmbH">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="modal-exp-3" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title">Engineer - Design | Intern</h2>
+        <button class="modal-close" data-modal="modal-exp-3">×</button>
+      </div>
+      <div class="modal-body">
+        <h3>Key Tasks & Responsibilities</h3>
+        <ul>
+          <li>Enhanced design of Torsional couplings improving productivity and reducing costs using <strong>SolidWorks</strong></li>
+          <li>Created detailed technical drawings adhering to <strong>ISO/DIN/GD&T</strong> standards for manufacturing</li>
+          <li>Generated Bills of Materials (BOMs) and managed component specifications in <strong>SAP ERP</strong> system</li>
+          <li>Conducted finite element analysis (FEA) to validate coupling performance under various load conditions</li>
+          <li>Collaborated with manufacturing teams to ensure design feasibility and cost optimization</li>
+          <li>Documented design changes and maintained engineering documentation standards</li>
+        </ul>
+        <div class="modal-footer-logo">
+          <img src="https://raw.githubusercontent.com/Eppasrikanth57/srikanth-reddy-eppa/main/files/Regal_Rexnord_logo.png" alt="Regal Rexnord India">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Project Modals -->
+  <div id="modal-proj-1" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title">Automated XY Pen Plotter</h2>
+        <button class="modal-close" data-modal="modal-proj-1">×</button>
+      </div>
+      <div class="modal-body">
+        <h3>Project Overview & Tasks</h3>
+        <ul>
+          <li>Completed full V-model design cycle for precision XY plotting system using <strong>SolidWorks & Siemens NX</strong></li>
+          <li>Designed precision components achieving ±0.5mm accuracy for reliable pen positioning</li>
+          <li>Implemented motion control system for 2-axis independent movement with stepper motor integration</li>
+          <li>Conducted tolerance analysis and GD&T specifications for manufacturing</li>
+          <li>Created detailed assembly drawings and bill of materials for prototype fabrication</li>
+          <li>Performed system testing and calibration for optimal plotting accuracy</li>
+        </ul>
+        <div class="modal-footer-logo">
+          <img src="https://raw.githubusercontent.com/Eppasrikanth57/srikanth-reddy-eppa/main/files/HS_Schmalkalden_logo.png" alt="Hochschule Schmalkalden">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="modal-proj-2" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title">Thermal Energy Storage System</h2>
+        <button class="modal-close" data-modal="modal-proj-2">×</button>
+      </div>
+      <div class="modal-body">
+        <h3>Project Overview & Tasks</h3>
+        <ul>
+          <li>Designed insulated stainless-steel tank for thermal energy storage with optimized geometry</li>
+          <li>Performed thermal analysis and heat transfer simulations to minimize energy loss</li>
+          <li>Achieved 10.6 kJ energy efficiency improvement through insulation optimization</li>
+          <li>Implemented 45% system efficiency improvement through design enhancements</li>
+          <li>Conducted cost-benefit analysis and material selection for industrial applications</li>
+          <li>Prepared technical documentation and design validation reports</li>
+          <li>Collaborated with team members on manufacturing process planning</li>
+        </ul>
+        <div class="modal-footer-logo">
+          <img src="https://raw.githubusercontent.com/Eppasrikanth57/srikanth-reddy-eppa/main/files/Vidya_Jyothi_logo.jpg" alt="Vidya Jyothi Institute of Technology">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Soft Robot Image Gallery Modal -->
+  <div class="soft-robot-modal-backdrop" id="softRobotModal">
+    <div class="soft-robot-modal">
+      <button class="soft-robot-modal-close" id="softRobotModalClose" aria-label="Close project viewer">×</button>
+      <div class="soft-robot-modal-content">
+        <div class="soft-robot-image-viewer">
+          <button class="soft-robot-nav soft-robot-nav-left" id="softRobotPrev" aria-label="Previous image">&#10094;</button>
+          <img id="softRobotImage" src="files/soft-robot/Full_Assembly.png" alt="Soft robot project image">
+          <button class="soft-robot-nav soft-robot-nav-right" id="softRobotNext" aria-label="Next image">&#10095;</button>
+        </div>
+        <div class="soft-robot-video-wrapper">
+          <video id="softRobotVideo" controls preload="metadata">
+            <source src="files/soft-robot/Prototype 2 Linkedinpost.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Srikanth Reddy Eppa. Built with creativity and code.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+  <script>
+    (function() {
+      const gearWheel = document.querySelector('.gear-wheel');
+      const sections = [
+        { id: 'about', rotation: 0 },
+        { id: 'experience', rotation: 30 },
+        { id: 'projects', rotation: 60 },
+        { id: 'skills', rotation: 90 },
+        { id: 'education', rotation: 120 },
+        { id: 'contact', rotation: 150 }
+      ];
+
+      let currentSectionIndex = 0;
+      let isTransitioning = false;
+      let wheelRotation = 0;
+      let scrollAccumulator = 0;
+      const scrollThreshold = 100;
+
+      function showSection(index) {
+        if (isTransitioning || currentSectionIndex === index) return;
+        isTransitioning = true;
+
+        const activeSection = document.querySelector('.content-section.active');
+        if (activeSection) activeSection.classList.remove('active');
+        
+        currentSectionIndex = index;
+        document.getElementById(sections[index].id).classList.add('active');
+        
+        wheelRotation = sections[index].rotation;
+        gearWheel.style.transform = `rotate(${wheelRotation}deg)`;
+
+        document.querySelectorAll('.nav-link').forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('data-section') === sections[index].id) {
+            link.classList.add('active');
+          }
+        });
+
+        setTimeout(() => { 
+          isTransitioning = false;
+          scrollAccumulator = 0;
+        }, 900);
+      }
+
+      window.addEventListener('wheel', (e) => {
+        const openModal = document.querySelector('.modal.active');
+        const softRobotModalOpen = document.getElementById('softRobotModal').classList.contains('is-open');
+        if (openModal || softRobotModalOpen) {
+          return;
+        }
+
+        const activeSection = document.querySelector('.content-section.active');
+        if (!activeSection) return;
+
+        const isAtTop = activeSection.scrollTop === 0;
+        const isAtBottom = activeSection.scrollTop + activeSection.clientHeight >= activeSection.scrollHeight - 5;
+
+        if ((e.deltaY < 0 && isAtTop) || (e.deltaY > 0 && isAtBottom)) {
+          e.preventDefault();
+          
+          scrollAccumulator += e.deltaY;
+          
+          if (Math.abs(scrollAccumulator) >= scrollThreshold) {
+            if (scrollAccumulator > 0) {
+              const nextIndex = (currentSectionIndex + 1) % sections.length;
+              showSection(nextIndex);
+            } else {
+              const prevIndex = (currentSectionIndex - 1 + sections.length) % sections.length;
+              showSection(prevIndex);
+            }
+            scrollAccumulator = 0;
+          }
+        }
+      }, { passive: false });
+
+      document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const sectionId = link.getAttribute('data-section');
+          const index = sections.findIndex(s => s.id === sectionId);
+          if (index !== -1) showSection(index);
+        });
+      });
+
+      document.querySelectorAll('.portfolio-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          const targetId = btn.getAttribute('data-target-section');
+          const index = sections.findIndex(s => s.id === targetId);
+          if (index !== -1) {
+            showSection(index);
+          }
+        });
+      });
+
+      showSection(0);
+    })();
+  </script>
+
+  <script>
+    (function() {
+      document.querySelectorAll('.card-popup-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          const modalId = btn.getAttribute('data-modal');
+          const modal = document.getElementById(modalId);
+          if (modal) {
+            modal.classList.add('active');
+            document.body.classList.add('modal-open');
+          }
+        });
+      });
+
+      document.querySelectorAll('.modal-close').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          const modalId = btn.getAttribute('data-modal');
+          const modal = document.getElementById(modalId);
+          if (modal) {
+            modal.classList.remove('active');
+            document.body.classList.remove('modal-open');
+          }
+        });
+      });
+
+      document.querySelectorAll('.modal').forEach(modal => {
+        modal.addEventListener('click', (e) => {
+          if (e.target === modal) {
+            modal.classList.remove('active');
+            document.body.classList.remove('modal-open');
+          }
+        });
+      });
+    })();
+  </script>
+
+  <script>
+    (function() {
+      const modal = document.getElementById('softRobotModal');
+      const openBtn = document.getElementById('softRobotImagesBtn');
+      const openBtn2 = document.getElementById('softRobotImagesBtn2');
+      const closeBtn = document.getElementById('softRobotModalClose');
+      const prevBtn = document.getElementById('softRobotPrev');
+      const nextBtn = document.getElementById('softRobotNext');
+      const imgEl = document.getElementById('softRobotImage');
+
+      if (!modal || !openBtn || !closeBtn || !prevBtn || !nextBtn || !imgEl) return;
+
+      const images = [
+        'files/soft-robot/Full_Assembly.png',
+        'files/soft-robot/Arm_Design.png',
+        'files/soft-robot/Individual_Parts.png'
+      ];
+      let index = 0;
+
+      function updateImage() {
+        imgEl.src = images[index];
+        const name = images[index].split('/').pop().replace(/_/g, ' ').replace(/\.(png|jpg|jpeg)$/i, '');
+        imgEl.alt = 'Soft robot project – ' + name;
+      }
+
+      function openModal() {
+        modal.classList.add('is-open');
+        document.body.classList.add('modal-open');
+        index = 0;
+        updateImage();
+      }
+
+      function closeModal() {
+        modal.classList.remove('is-open');
+        document.body.classList.remove('modal-open');
+      }
+
+      function showNext() {
+        index = (index + 1) % images.length;
+        updateImage();
+      }
+
+      function showPrev() {
+        index = (index - 1 + images.length) % images.length;
+        updateImage();
+      }
+
+      openBtn.addEventListener('click', openModal);
+      if (openBtn2) openBtn2.addEventListener('click', openModal);
+      closeBtn.addEventListener('click', closeModal);
+      nextBtn.addEventListener('click', showNext);
+      prevBtn.addEventListener('click', showPrev);
+
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+          closeModal();
+        }
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (!modal.classList.contains('is-open')) return;
+        if (e.key === 'Escape') closeModal();
+        if (e.key === 'ArrowRight') showNext();
+        if (e.key === 'ArrowLeft') showPrev();
+      });
+    })();
+  </script>
+
+  <script>
+    (function() {
+      const PUBLIC_KEY = "VJfDt6cbIDWVebWfX";
+      const SERVICE_ID = "service_gpxbcq7";
+      const OWNER_TEMPLATE_ID = "template_wfhkq5c";
+      const AUTO_REPLY_TEMPLATE_ID = "template_6he0kxw";
+
+      if (window.emailjs && typeof window.emailjs.init === 'function') {
+        window.emailjs.init(PUBLIC_KEY);
+      }
+
+      const form = document.getElementById('contact-form');
+      const statusEl = document.getElementById('form-status');
+      const submitBtn = document.getElementById('contact-submit');
+
+      if (form) {
+        form.addEventListener('submit', (e) => {
+          e.preventDefault();
+          submitBtn.disabled = true;
+          statusEl.textContent = 'Sending...';
+
+          window.emailjs.sendForm(SERVICE_ID, OWNER_TEMPLATE_ID, form)
+            .then(() => {
+              const params = {
+                from_name: form.elements['from_name'].value,
+                reply_to: form.elements['reply_to'].value,
+                subject: form.elements['subject'].value,
+                message: form.elements['message'].value
+              };
+              return window.emailjs.send(SERVICE_ID, AUTO_REPLY_TEMPLATE_ID, params);
+            })
+            .then(() => {
+              statusEl.textContent = 'Message sent — confirmation emailed!';
+              statusEl.style.color = '#00d4ff';
+              form.reset();
+            })
+            .catch(() => {
+              statusEl.textContent = 'Failed to send message. Please try again.';
+              statusEl.style.color = '#ff6b6b';
+            })
+            .finally(() => {
+              submitBtn.disabled = false;
+            });
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
